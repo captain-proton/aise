@@ -10,17 +10,22 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Main {
 
+    /** Random generator to use for generating timeouts of automata. */
     private static final SecureRandom WAIT_TIMER = new SecureRandom();
 
     public static void main(String[] args) {
+
+        // shared resources between the automata
         AtomicBoolean req1 = new AtomicBoolean(false);
         AtomicBoolean req2 = new AtomicBoolean(false);
-        AtomicInteger id = new AtomicInteger(1);
+        AtomicInteger id = new AtomicInteger(1); // used as turn
 
+        // create automata
         Automaton a1 = new Automaton(id, req1, req2);
         id.set(2);
         Automaton a2 = new Automaton(id, req2, req1);
 
+        // run them
         a1.start();
         a2.start();
     }
@@ -68,10 +73,10 @@ public class Main {
             long timeout = WAIT_TIMER.nextInt(MAX_TIMEOUT);
             System.out.println("id:" + id
                     + " turn: " + turn
-                    + " req_self: " + req_self.hashCode()
-                    + " req_other: " + req_other.hashCode()
+                    + " req_self: " + req_self
+                    + " req_other: " + req_other
                     + " critical stuff count: " + criticalStuffCount
-                    + " waiting for " + timeout);
+                    + " waiting for " + timeout + "ms");
             long startWaitTime = System.currentTimeMillis();
             long endWaitTime = startWaitTime + timeout;
             while (System.currentTimeMillis() < endWaitTime);
