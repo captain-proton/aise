@@ -10,6 +10,7 @@
     </parent>
     <artifactId>concurrency</artifactId>
     <name>concurrency</name>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- dependency versions -->
@@ -17,6 +18,20 @@
         <log4j-version>1.2.16</log4j-version>
         <testng-version>6.8.7</testng-version>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
