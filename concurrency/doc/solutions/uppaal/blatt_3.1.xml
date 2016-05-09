@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+int turn = 0;</declaration>
+	<template>
+		<name x="5" y="5">Mutex</name>
+		<parameter>int[1,2] id</parameter>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="76" y="136">
+			<name x="66" y="102">crit</name>
+		</location>
+		<location id="id1" x="153" y="0">
+			<name x="143" y="-34">want</name>
+		</location>
+		<location id="id2" x="0" y="0">
+			<name x="-10" y="-34">idle</name>
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="assignment" x="18" y="68">turn:=0</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="assignment" x="94" y="68">turn:=id</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="guard" x="42" y="-17">turn==0</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+worker_1 = Mutex(1);
+worker_2 = Mutex(2);
+// List one or more processes to be composed into a system.
+system worker_1, worker_2;
+    </system>
+	<queries>
+	</queries>
+</nta>

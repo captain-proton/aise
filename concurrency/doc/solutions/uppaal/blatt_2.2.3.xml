@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan cola, fanta, sprite;
+chan small, medium, large;
+chan pay, output, take, abort;
+int[0,3] choice;
+int[0,3] size;</declaration>
+	<template>
+		<name x="5" y="5">Automaton</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="476" y="25">
+		</location>
+		<location id="id1" x="391" y="25">
+		</location>
+		<location id="id2" x="289" y="25">
+		</location>
+		<location id="id3" x="170" y="127">
+		</location>
+		<location id="id4" x="170" y="25">
+		</location>
+		<location id="id5" x="170" y="-76">
+		</location>
+		<location id="id6" x="59" y="17">
+		</location>
+		<location id="id7" x="-34" y="110">
+		</location>
+		<location id="id8" x="-34" y="-85">
+		</location>
+		<location id="id9" x="-34" y="14">
+		</location>
+		<location id="id10" x="-204" y="17">
+			<name x="-214" y="-17">s0</name>
+		</location>
+		<init ref="id10"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="-186" y="170">take?</label>
+			<label kind="assignment" x="-186" y="187">choice:=0,
+size:=0</label>
+			<nail x="476" y="187"/>
+			<nail x="-204" y="187"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="-186" y="-144">abort?</label>
+			<label kind="assignment" x="-186" y="-127">choice:=0,
+size:=0</label>
+			<nail x="289" y="-127"/>
+			<nail x="-204" y="-127"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="409" y="8">output!</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="314" y="8">pay?</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id2"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id2"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="77" y="93">large?</label>
+			<label kind="assignment" x="77" y="110">size:=3</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="77" y="4">medium?</label>
+			<label kind="assignment" x="77" y="21">size:=2</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="77" y="-80">small?</label>
+			<label kind="assignment" x="77" y="-63">size:=1</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id6"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id6"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id6"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-144" y="68">sprite?</label>
+			<label kind="assignment" x="-144" y="85">choice:=3</label>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id9"/>
+			<label kind="synchronisation" x="-119" y="0">fanta?</label>
+			<label kind="assignment" x="-119" y="17">choice:=2</label>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="-127" y="-93">cola?</label>
+			<label kind="assignment" x="-127" y="-76">choice:=1</label>
+		</transition>
+	</template>
+	<template>
+		<name>Customer</name>
+		<location id="id11" x="518" y="0">
+		</location>
+		<location id="id12" x="416" y="0">
+		</location>
+		<location id="id13" x="314" y="0">
+		</location>
+		<location id="id14" x="221" y="93">
+		</location>
+		<location id="id15" x="221" y="0">
+		</location>
+		<location id="id16" x="212" y="-85">
+		</location>
+		<location id="id17" x="127" y="8">
+		</location>
+		<location id="id18" x="51" y="85">
+		</location>
+		<location id="id19" x="51" y="8">
+		</location>
+		<location id="id20" x="51" y="-85">
+		</location>
+		<location id="id21" x="-76" y="0">
+		</location>
+		<init ref="id21"/>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id21"/>
+			<label kind="synchronisation" x="-58" y="119">take!</label>
+			<nail x="518" y="136"/>
+			<nail x="-76" y="136"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id11"/>
+			<label kind="synchronisation" x="434" y="-17">output?</label>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id12"/>
+			<label kind="synchronisation" x="340" y="-17">pay!</label>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id21"/>
+			<label kind="synchronisation" x="-58" y="-153">abort!</label>
+			<nail x="314" y="-136"/>
+			<nail x="-76" y="-136"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id13"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id13"/>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id13"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id14"/>
+			<label kind="synchronisation" x="145" y="33">large!</label>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id15"/>
+			<label kind="synchronisation" x="145" y="-13">medium!</label>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id16"/>
+			<label kind="synchronisation" x="145" y="-55">small!</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id17"/>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id17"/>
+		</transition>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id17"/>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id18"/>
+			<label kind="synchronisation" x="-42" y="42">sprite!</label>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id19"/>
+			<label kind="synchronisation" x="-25" y="-17">fanta!</label>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id20"/>
+			<label kind="synchronisation" x="-34" y="-76">cola!</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+automaton = Automaton();
+customer = Customer();
+// List one or more processes to be composed into a system.
+system automaton,customer;
+    </system>
+	<queries>
+	</queries>
+</nta>

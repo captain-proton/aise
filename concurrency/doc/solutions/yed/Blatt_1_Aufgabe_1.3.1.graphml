@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yEd 3.15.0.2-->
+  <key attr.name="Beschreibung" attr.type="string" for="graph" id="d0"/>
+  <key for="port" id="d1" yfiles.type="portgraphics"/>
+  <key for="port" id="d2" yfiles.type="portgeometry"/>
+  <key for="port" id="d3" yfiles.type="portuserdata"/>
+  <key attr.name="url" attr.type="string" for="node" id="d4"/>
+  <key attr.name="description" attr.type="string" for="node" id="d5"/>
+  <key for="node" id="d6" yfiles.type="nodegraphics"/>
+  <key for="graphml" id="d7" yfiles.type="resources"/>
+  <key attr.name="url" attr.type="string" for="edge" id="d8"/>
+  <key attr.name="description" attr.type="string" for="edge" id="d9"/>
+  <key for="edge" id="d10" yfiles.type="edgegraphics"/>
+  <graph edgedefault="directed" id="G">
+    <data key="d0"/>
+    <node id="n0">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="40.0" x="114.48015873015873" y="0.0"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="25.588134765625" x="7.2059326171875" y="2.924285888671875">0 e
+e 0</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n1">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="40.0" x="213.96031746031747" y="148.2842712474619"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="25.588134765625" x="7.2059326171875" y="2.924285888671875">1 a
+e 0</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n2">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="48.960000000000036" x="75.00015873015872" y="296.56854249492386"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="39.980224609375" x="4.489887695312518" y="2.924285888671875">2 a,c
+e 0</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n3">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="48.960000000000036" x="343.9604761904762" y="296.56854249492386"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="39.980224609375" x="4.489887695312518" y="2.924285888671875">0 a,b
+e 0</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n4">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="40.0" x="213.96031746031747" y="296.56854249492386"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="25.588134765625" x="7.2059326171875" y="2.924285888671875">1 e
+e 1</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n5">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="40.0" x="233.96031746031747" y="470.7106781186548"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="25.588134765625" x="7.2059326171875" y="2.924285888671875">0 b
+e 1</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n6">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="62.39999999999998" x="363.96031746031747" y="470.7106781186548"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="54.372314453125" x="4.013842773437489" y="2.924285888671875">1 a,b,a
+e 0</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n7">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="40.0" x="89.48015873015873" y="470.7106781186548"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="25.588134765625" x="7.2059326171875" y="2.924285888671875">2 c
+e 1</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n8">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="40.0" x="89.48015873015873" y="618.9949493661168"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="25.588134765625" x="7.2059326171875" y="2.924285888671875">2 e
+e 2</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n9">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="101.39999999999998" x="380.68055555555554" y="618.9949493661168"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="83.156494140625" x="9.121752929687489" y="2.924285888671875">1 a,b,a b/c
+e 0</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n10">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="48.960000000000036" x="241.7203968253968" y="618.9949493661168"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="39.980224609375" x="4.489887695312518" y="2.924285888671875">1 b,a
+e 1</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n11">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="62.39999999999998" x="185.9702380952381" y="775.7851080962755"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="54.372314453125" x="4.013842773437489" y="2.924285888671875">0 b,a,b
+e 1</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n12">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="62.39999999999998" x="369.21031746031747" y="775.7851080962755"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="54.372314453125" x="4.013842773437489" y="2.924285888671875">2 b,a,c
+e 1</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n13">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="40.0" x="25.0" y="775.7851080962755"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="25.588134765625" x="7.2059326171875" y="2.924285888671875">2 e
+a 0</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n14">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="85.0801587301587" x="174.63015873015874" y="861.472701826953"/>
+          <y:Fill color="#B3E5FC" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Source Code Pro" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="34.15142822265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="68.764404296875" x="8.15787721664185" y="2.924285888671875">0 b,a,b,a
+e 1</y:NodeLabel>
+          <y:Shape type="roundrectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n15">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="45.68759373067735" width="85.0801587301587" x="461.61031746031745" y="772.9413112309369"/>
+          <y:Fill color="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="38.921875" modelName="custom" textColor="#000000" visible="true" width="77.9794921875" x="3.5503332713293503" y="3.382859365338618">Deadlock
+keine Eingabe 
+mehr möglich<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:Shape type="rectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <edge id="e0" source="n1" target="n2">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="-13.333333333333329" sy="20.0" tx="0.0" ty="-20.0">
+            <y:Point x="220.62698412698415" y="228.2842712474619"/>
+            <y:Point x="206.4848485032532" y="242.42640687119285"/>
+            <y:Point x="113.62229435388969" y="242.42640687119285"/>
+            <y:Point x="99.48015873015873" y="256.5685424949238"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.49999999999999983" textColor="#000000" visible="true" width="39.109375" x="-80.12809971400668" y="34.17338563095848">A1: c!<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e1" source="n1" target="n3">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="13.333333333333332" sy="20.0" tx="0.0" ty="-20.0">
+            <y:Point x="247.2936507936508" y="228.28427124746187"/>
+            <y:Point x="261.4357864173818" y="242.42640687119285"/>
+            <y:Point x="354.29834056674525" y="242.42640687119285"/>
+            <y:Point x="368.4404761904762" y="256.5685424949238"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.4999999999999999" textColor="#000000" visible="true" width="40.12890625" x="40.50895497155568" y="56.14213563095848">A1: b!<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e2" source="n1" target="n4">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="20.0" tx="0.0" ty="-20.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="1.0" textColor="#000000" visible="true" width="41.423828125" x="-43.42382255433097" y="80.19052125468949">A2: a?<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e3" source="n0" target="n1">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="10.0" sy="20.0" tx="0.0" ty="-20.0">
+            <y:Point x="144.48015873015873" y="80.0"/>
+            <y:Point x="158.62229435388969" y="94.14213562373095"/>
+            <y:Point x="219.81818183658652" y="94.14213562373095"/>
+            <y:Point x="233.96031746031747" y="108.2842712474619"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.5" textColor="#000000" visible="true" width="39.865234375" x="24.807457333519352" y="56.14213562373095">A1: a!<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e4" source="n2" target="n7">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="20.0" tx="-10.0" ty="-20.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.5" textColor="#000000" visible="true" width="41.423828125" x="-43.423825339665484" y="58.086692826320586">A2: a?<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e5" source="n3" target="n5">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="-12.240000000000009" sy="20.0" tx="10.0" ty="-20.0">
+            <y:Point x="356.2004761904762" y="376.56854249492386"/>
+            <y:Point x="342.05834056674524" y="390.7106781186548"/>
+            <y:Point x="303.96031746031747" y="390.7106781186548"/>
+            <y:Point x="263.96031746031747" y="430.7106781186548"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.28837994791805555" textColor="#000000" visible="true" width="41.423828125" x="-53.9030550196718" y="56.14213563818606">A2: a?<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e6" source="n3" target="n6">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="12.240000000000009" sy="20.0" tx="0.0" ty="-20.0">
+            <y:Point x="380.6804761904762" y="376.56854249492386"/>
+            <y:Point x="395.16031746031746" y="391.0483837647651"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.4213031217457762" textColor="#000000" visible="true" width="39.865234375" x="16.479836503286208" y="55.479841284296356">A1: a!<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e7" source="n4" target="n5">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="10.0" sy="20.0" tx="-10.0" ty="-20.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.6666666666666666" textColor="#000000" visible="true" width="40.12890625" x="-42.12890067933097" y="74.07392376360906">A1: b!<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e8" source="n4" target="n7">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="-10.0" sy="20.0" tx="10.0" ty="-20.0">
+            <y:Point x="223.96031746031747" y="376.56854249492386"/>
+            <y:Point x="209.81818183658652" y="390.7106781186548"/>
+            <y:Point x="133.62229435388969" y="390.7106781186548"/>
+            <y:Point x="119.48015873015873" y="404.85281374238576"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.436561853890298" textColor="#000000" visible="true" width="35.294921875" x="-69.88753473191034" y="34.17338563818606">A1:c!<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e9" source="n7" target="n8">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="20.0" tx="0.0" ty="-20.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.5" textColor="#000000" visible="true" width="40.66796875" x="-42.667965964665484" y="45.15774538301082">A2: c?<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e10" source="n6" target="n9">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="15.599999999999994" sy="20.0" tx="0.0" ty="-20.0">
+            <y:Point x="410.7603174603174" y="550.7106781186549"/>
+            <y:Point x="431.38055555555553" y="571.330916213893"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="side_slider" preferredPlacement="right" ratio="0.6090402653627266" textColor="#000000" visible="true" width="55.234375" x="-36.61413438585072" y="61.62022285451803">A1: b/c!
+Überlauf<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e11" source="n6" target="n10">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="-15.599999999999994" sy="20.0" tx="12.240000000000009" ty="-20.0">
+            <y:Point x="379.5603174603175" y="550.7106781186549"/>
+            <y:Point x="365.41818183658654" y="564.8528137423858"/>
+            <y:Point x="292.58253244912777" y="564.8528137423858"/>
+            <y:Point x="278.4403968253968" y="578.9949493661168"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.5" textColor="#000000" visible="true" width="41.423828125" x="-71.27185965401782" y="34.17337038301082">A2: a?<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e12" source="n5" target="n10">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="20.0" tx="-12.240000000000009" ty="-20.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.5" textColor="#000000" visible="true" width="39.865234375" x="-41.8651957067332" y="45.15774538301082">A1: a!<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e13" source="n10" target="n11">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="-12.240000000000009" sy="20.0" tx="0.0" ty="-20.0">
+            <y:Point x="253.9603968253968" y="698.9949493661168"/>
+            <y:Point x="217.1702380952381" y="735.7851080962755"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.5" textColor="#000000" visible="true" width="40.12890625" x="-69.50836723206535" y="49.41071964916489">A1: b!<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e14" source="n10" target="n12">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="12.240000000000009" sy="20.0" tx="0.0" ty="-20.0">
+            <y:Point x="278.4403968253968" y="698.9949493661168"/>
+            <y:Point x="292.58253244912777" y="713.1370849898477"/>
+            <y:Point x="386.2681818365865" y="713.1370849898477"/>
+            <y:Point x="400.41031746031746" y="727.2792206135787"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.47914626021448414" textColor="#000000" visible="true" width="39.109375" x="41.43027047293526" y="56.14215090781647">A1: c!<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e15" source="n8" target="n13">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="20.0" tx="10.0" ty="-20.0">
+            <y:Point x="109.48015873015873" y="698.9949493661168"/>
+            <y:Point x="95.33802310642778" y="713.1370849898477"/>
+            <y:Point x="69.14213562373095" y="713.1370849898477"/>
+            <y:Point x="55.0" y="727.2792206135787"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.3728423467771138" textColor="#000000" visible="true" width="39.865234375" x="-47.17269376724485" y="56.14215090781647">A2: a!<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e16" source="n13" target="n0">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="-10.0" sy="-20.0" tx="-10.0" ty="20.0">
+            <y:Point x="35.0" y="108.2842712474619"/>
+            <y:Point x="49.14213562373095" y="94.14213562373095"/>
+            <y:Point x="110.33802310642778" y="94.14213562373095"/>
+            <y:Point x="124.48015873015873" y="80.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="side_slider" preferredPlacement="right" ratio="0.4997496857784636" textColor="#000000" visible="true" width="41.423828125" x="-43.423828125" y="-411.0972787786377">A1: a?<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e17" source="n11" target="n14">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="20.0" tx="0.0" ty="-20.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="side_slider" preferredPlacement="right" ratio="0.0" textColor="#000000" visible="true" width="267.853515625" x="-269.8535198393322" y="6.875059746770489">A1: a!
+Überlauf, unspezifizierter Code -&gt; Deadlock<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="right" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e18" source="n12" target="n15">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="none"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+  </graph>
+  <data key="d7">
+    <y:Resources/>
+  </data>
+</graphml>

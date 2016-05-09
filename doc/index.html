@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title></title><style type="text/css">body{
+ font-family: helvetica;
+ color: #222;
+}
+
+li>p{
+ margin-bottom: 0;
+}
+
+.line{
+ margin-bottom: 0.3em;
+ display: table;
+}
+
+.admonition-title {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+aside{
+ float: right;
+ width: 20%;
+ display: table;
+ padding: 1em;
+ margin: 1em;
+ margin-right: 0;
+}
+
+.footnote, .cite{
+ width: 98%;
+ display: table;
+ border: 1px solid #ddd;
+ padding: 0.5%;
+ margin: 0.5%;
+}
+
+.footnote .du-label, .cite .du-label{
+ float: left;
+ height: 100%;
+ width: 5%;
+ margin-right: 1em;
+ padding: 0.5%;
+ text-align: center;
+ display: table;
+}
+
+th, th p{
+ font-weight: bold;
+}
+
+.field-label{
+ font-weight: bold;
+}
+
+ol.arabic{
+ list-style-type: decimal;
+}
+
+ol.loweralpha{
+ list-style-type: lower-alpha;
+}
+
+ol.upperalpha{
+ list-style-type: upper-alpha;
+}
+
+ol.lowerroman{
+ list-style-type: lower-roman;
+}
+
+ol.upperroman{
+ list-style-type: upper-roman;
+}
+
+img.align-left{
+ float: left;
+}
+
+img.align-right{
+ float: right;
+}
+</style></head><body><h1>Concurrency</h1><section id="vorlesung"><header><h2>Vorlesung</h2></header><section id="automatenkopplung"><header><h3>Automatenkopplung</h3></header><ul><li><p>UPPAAL unterstützt keine asynchrone Kommunikation</p></li></ul><section id="folie-48"><header><h4>Folie 48</h4></header><ul><li><p>bei synchronen Automaten kommen häufiger Deadlocks vor als bei asynchronen</p></li><li><p>race conditions sind anfälliger für asynchrone Automaten</p></li></ul></section><section id="folie-77"><header><h4>Folie 77</h4></header><ul><li><dl><dt>Deadlock</dt><dd><ul><li><p>kein Folgezustand kann aus einem Zustand erreicht werden</p></li><li><p>lokaler Deadlock: bestimmte Automaten sind noch in der Lage zu kommunizieren</p></li><li><p>globaler Deadlock: nix geht mehr!</p></li></ul></dd></dl></li></ul></section><section id="folie-106"><header><h4>Folie 106</h4></header><ul><li><p>Unterscheidung zwischen syntaktischen und semantischen Fehlern</p></li></ul></section><section id="folie-109-110"><header><h4>Folie 109/110</h4></header><ul><li><p>In der Vorlesung wurde eine Zustandsraumexploration durchgeführt</p></li></ul></section><section id="folie-113"><header><h4>Folie 113</h4></header><ul><li><p>unerwarteter Empfang = Nachricht kann im aktuellen Zustand nicht verarbeitet werden</p></li></ul></section><section id="folie-118"><header><h4>Folie 118</h4></header><ul><li><p>beide Darstellungsformen der Automaten sind korrekt</p><blockquote><ul><li><p>bei der in grau dargestellten Art muss hinzu notiert werden, dass eine asynchrone Kommunikation besteht</p></li></ul></blockquote></li></ul></section><section id="folie-121"><header><h4>Folie 121</h4></header><ul><li><p>Zustand 3 kann nie erreicht werden</p></li></ul></section><section id="folie-122"><header><h4>Folie 122</h4></header><ul><li><p>Notation erfolgt auf Basis der Definition eines synchronen Automaten</p></li></ul></section><section id="folie-128"><header><h4>Folie 128</h4></header><ul><li><p>wichtiger Begriff: Prädikat!</p></li></ul></section></section><section id="zeitbehaftete-synchrone-automaten"><header><h3>Zeitbehaftete synchrone Automaten</h3></header><section id="folie-10"><header><h4>Folie 10</h4></header><ul><li><p>bei urgend können noch andere Zustände erreicht werden, aber es vergeht keine Zeit</p></li><li><p>bei committed muss der Zustand sofort verlassen werden</p></li></ul></section><section id="folie-11"><header><h4>Folie 11</h4></header><ul><li><p>zur Veranschaulichung in UPPAAL modellieren!</p></li></ul></section></section></section><section id="ubung"><header><h2>Übung</h2></header><p>Die hier gelisteten Lösungen wurden mit Hilfe unterschiedlicher Werkzeuge realisiert.</p><table><thead><tr><th><p>Ordner</p></th><th><p>Erweiterung</p></th><th><p>Tool</p></th></tr></thead><tbody><tr><td><p>umlet</p></td><td><p>uxf</p></td><td><p>Umlet</p></td></tr><tr><td><p>yed</p></td><td><p>graphml</p></td><td><p>yEd</p></td></tr><tr><td><p>uppaal</p></td><td><p>xml</p></td><td><p>UPPAAL</p></td></tr></tbody></table></section><section id="uppaal-tutorial"><header><h2>UPPAAL Tutorial</h2></header><ul><li><p>Zeiteinheiten in UPPAAL werden in Clocks gemessen</p></li></ul><section id="notizen"><header><h3>Notizen</h3></header><ul><li><p>Assignment = Update</p></li><li><p>sync = gleichzeitiges ausführen</p></li><li><p>guard = bedingung</p></li><li><p>urgend = zustand muss dringend verlassen werden</p></li><li><p>committed = zustand muss sofort verlassen werden</p></li></ul></section></section><section id="ubungsblatt-1"><header><h2>Übungsblatt 1</h2></header><section id="problem-1-1-mealey-automaten"><header><h3>Problem 1.1 Mealey-Automaten</h3></header><section id="id1"><header><h4>1.1.1</h4></header><p>Antwort: 2012</p></section><section id="id2"><header><h4>1.1.2</h4></header><ol class="loweralpha"><li><p>Ja: JAAA</p></li><li><p>Nein: Die Eingabe zwei aufeinander folgender Einsen ist nicht möglich</p></li></ol></section><section id="id3"><header><h4>1.1.3</h4></header><img alt="../concurrency/doc/solutions/Blatt1_Aufgabe_1.1.3.png" src="../concurrency/doc/solutions/Blatt1_Aufgabe_1.1.3.png"></section></section><section id="problem-1-2-gekoppelte-systeme"><header><h3>Problem 1.2 Gekoppelte Systeme</h3></header><section id="id4"><header><h4>1.2.1</h4></header><p>Wenn der Eingabepuffer des Systems größer eins ist kann eine Eingabe von zwei
+mal a erfolgen. Alternativ kann eine Synchronisation nach der ersten Eingabe
+erfolgen wodurch unterschiedliche Zustandsfolgen erreicht werden.</p></section><section id="id5"><header><h4>1.2.2</h4></header><p>Nach Eingabe der Zeichenfolge a,b,a,b befindet sich Automat A2 im Zustand 2 und kann nur noch durch die Eingabe von b wieder in den Zustand 0 überführt werden.
+Hier wird ein Deadlock erreicht, da von A2 zunächst die Verarbeitung von b? erwartet wird.</p></section><section id="id6"><header><h4>1.3.1</h4></header><img alt="../concurrency/doc/solutions/yed/Blatt_1_Aufgabe_1.3.1.png" src="../concurrency/doc/solutions/yed/Blatt_1_Aufgabe_1.3.1.png"></section><section id="id7"><header><h4>1.3.2</h4></header><img alt="../concurrency/doc/solutions/yed/Blatt_1_Aufgabe_1.3.2.png" src="../concurrency/doc/solutions/yed/Blatt_1_Aufgabe_1.3.2.png"></section></section></section><section id="ubungsblatt-2"><header><h2>Übungsblatt 2</h2></header><section id="problem-2-1-fehlerklassen"><header><h3>Problem 2.1 Fehlerklassen</h3></header><section id="deadlock"><header><h4>2.1.1 Deadlock</h4></header><img alt="../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.1.png" src="../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.1.png"></section><section id="nicht-spezifizierter-empfang"><header><h4>2.1.2 Nicht spezifizierter Empfang</h4></header><img alt="../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.2.png" src="../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.2.png"></section><section id="pufferuberlauf"><header><h4>2.1.3 Pufferüberlauf</h4></header><img alt="../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.3.png" src="../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.3.png"></section><section id="toter-code"><header><h4>2.1.4 Toter Code</h4></header><img alt="../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.4.png" src="../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.4.png"></section></section><section id="problem-2-2-automatenentwurf"><header><h3>Problem 2.2 Automatenentwurf</h3></header><img alt="../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.2.png" src="../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.2.png"></section></section><section id="ubungsblatt-2-zusatz"><header><h2>Übungsblatt 2 Zusatz</h2></header><p>Erstellen Sie ein synchron gekoppeltes System aus zwei Automaten. Der erste ist der Getränkeautomat, der zweite der Kunde.</p><p>Der Kunde hat folgende Wahlmöglichkeiten:</p><p>Cola, Fanta, Sprite, diese 3 Sorten jeweils in groß, mittel und klein.</p><p>Getränkeauswahl, bezahlen sowie Getränk entnehmen sollen durch Nachrichten dargestellt werden.</p><p>Während das Getränk im Automaten zubereitet wird soll gespeichert werden (z.B. über boolean- oder int-Variablen) welches Getränk zubereitet wird. Dieser Wert soll erst beim Entnehmen wieder auf 0 gesetzt werden.</p></section><section id="zusatzubung-1"><header><h2>Zusatzübung 1</h2></header><section id="folieninformationen"><header><h3>Folieninformationen</h3></header><section id="folie-7"><header><h4>Folie 7</h4></header><p>Bei asychroner Kommunikation ist die Linie von System 1 nach 2 und umgekehrt immer durchgezogen.</p></section><section id="folie-9"><header><h4>Folie 9</h4></header><ul><li><p>Grundsätzlich ist die Reihenfolge egal, es muss lediglich die Nachricht m4 vor m5 versendet werden</p></li><li><p>m3 darf nicht ohne m4 gesendet werden</p></li></ul></section><section id="folie-19"><header><h4>Folie 19</h4></header><ul><li><p>bei Google nicht nach Bit-State suchen sondern nach Supertrace-Algorithmus</p></li></ul></section></section><section id="problem-1-1-bit-state-algorithmus"><header><h3>Problem 1.1 Bit-State-Algorithmus</h3></header><img alt="../concurrency/doc/solutions/yed/Zusatzblatt_1_Aufgabe_1.1.png" src="../concurrency/doc/solutions/yed/Zusatzblatt_1_Aufgabe_1.1.png"><table><thead><tr><th><p>h(z)</p></th><th><p>0/1</p></th><th><p>Kommentar</p></th></tr></thead><tbody><tr><td><p>0</p></td><td><p>1</p></td><td><p>(0, 0, e, e)</p></td></tr><tr><td><p>1</p></td><td><p>0</p></td><td>.</td></tr><tr><td><p>2</p></td><td><p>1</p></td><td><p>(1, 0, a, e)</p></td></tr><tr><td><p>3</p></td><td><p>1</p></td><td><p>(2, 0, b, e)</p></td></tr><tr><td><p>4</p></td><td><p>0</p></td><td>.</td></tr><tr><td><p>5</p></td><td><p>0</p></td><td>.</td></tr><tr><td><p>6</p></td><td><p>1</p></td><td><p>(2, 2, e, e)</p></td></tr><tr><td><p>7</p></td><td><p>0</p></td><td>.</td></tr><tr><td><p>8</p></td><td><p>0</p></td><td>.</td></tr><tr><td><p>9</p></td><td><p>0</p></td><td>.</td></tr></tbody></table></section><section id="problem-1-2"><header><h3>Problem 1.2</h3></header><section id="sequenzdiagramm"><header><h4>Sequenzdiagramm</h4></header><img alt="../concurrency/doc/solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.sequenz.png" src="../concurrency/doc/solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.sequenz.png"></section><section id="aktivitatsdiagramm"><header><h4>Aktivitätsdiagramm</h4></header><img alt="../concurrency/doc/solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.interaktivitaet.png" src="../concurrency/doc/solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.interaktivitaet.png"></section><section id="zustandsdiagramm"><header><h4>Zustandsdiagramm</h4></header><img alt="../concurrency/doc/solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.zustand.png" src="../concurrency/doc/solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.zustand.png"></section></section><section id="problem-1-3"><header><h3>Problem 1.3</h3></header><section id="vorteil-und-nachteile"><header><h4>1.3.1 Vorteil- und Nachteile</h4></header><p>Vorteile:</p><ul><li><p>The goal of the bitstate hashing technique is to minimize the loss and maximize the coverage, for as large a range of relative values for M and N as possible.</p></li></ul><p>Nachteile:</p><ul><li><p>Es ist möglich, dass bestimmte Globalzustände nicht erreicht und Fehler nicht gefunden werden</p></li></ul></section><section id="hashing-vs-baumorientiert"><header><h4>1.3.2 Hashing vs. Baumorientiert</h4></header><p>Bei Hashingverfahren ist der Aufwand um Fehlerfälle zu finden um ein vielfaches niedriger als die Untersuchung eines kompletten Baums.</p></section><section id="fair-progress"><header><h4>1.3.3 <em>fair progress</em></h4></header><p>Bei asynchroner Kommunikation ist es möglich, dass bestimmte Teile des Ablaufs häufiger durchlaufen werden als andere. Es kann dazu kommen, dass ein Prozess andere Prozesse blockt. Durch fair progress soll vermieden werden, dass diese Prozesse nicht übergangen werden.</p></section></section></section><section id="ubungsblatt-3"><header><h2>Übungsblatt 3</h2></header><section id="id8"><header><h3>Notizen</h3></header><p>Die Anzahl der möglichen Globalzustände beträgt:</p><p>Anzahl Zustände der Automaten * Anzahl der möglichen Variablenbelegungen</p><p>Bsp:</p></section><section id="problem-3-1-uppaal-wechselseitiger-ausschluss"><header><h3>Problem 3.1 UPPAAL: wechselseitiger Ausschluss</h3></header><section id="uppaal-konstruktion"><header><h4>3.1.1 UPPAAL Konstruktion</h4></header><p>Declarations:</p><blockquote><pre class="code lang-c">int turn = 0;</pre></blockquote><p>Template:</p><img alt="../concurrency/doc/solutions/uppaal/blatt_3.1.1.png" src="../concurrency/doc/solutions/uppaal/blatt_3.1.1.png"><p>System declarations:</p><pre class="code lang-c">// Place template instantiations here.
+worker_1 = Mutex(1);
+worker_2 = Mutex(2);
+// List one or more processes to be composed into a system.
+system worker_1, worker_2;</pre></section><section id="message-sequence-chart"><header><h4>3.1.2 Message Sequence Chart</h4></header><p>Message Sequence Chart:</p><img alt="../concurrency/doc/solutions/uppaal/blatt_3.1.2_msc.png" src="../concurrency/doc/solutions/uppaal/blatt_3.1.2_msc.png"><p>Als UML Sequenzdiagramm:</p><img alt="../concurrency/doc/solutions/umlet/Blatt_3_Aufgabe_3.1.2.png" src="../concurrency/doc/solutions/umlet/Blatt_3_Aufgabe_3.1.2.png"></section><section id="anzahl-moglicher-globalzustande"><header><h4>3.1.3 Anzahl möglicher Globalzustände</h4></header><p>Die Zustände der Automaten bilden sich aus:</p><ul><li><p>Z1 = {idle, want, crit}</p></li><li><p>Z2 = {idle, want, crit}</p></li></ul><p>Die Anzahl der Übergänge beträgt drei, da <code>turn</code> drei unterschiedliche Werte erhalten kann.</p><p>Somit bildet sich der Globalzustand aus:</p><p>G Teilmenge aus Z1 x Z2 x A1 x A2. Die Anzahl der möglichen Globalzustände ist somit 27.</p></section></section><section id="problem-3-2-automatenentwurf"><header><h3>Problem 3.2 Automatenentwurf</h3></header><section id="id9"><header><h4>3.2.1 - 3.2.3 UPPAAL Konstruktion</h4></header><p>Declarations:</p><pre class="code lang-c">chan coffee,tea,cola,fanta;
+chan abort;
+int output;</pre><p>Template <em>Customer</em>:</p><img alt="../concurrency/doc/solutions/uppaal/blatt_3.2.1.customer.png" src="../concurrency/doc/solutions/uppaal/blatt_3.2.1.customer.png"><p>Template <em>Automaton</em>:</p><img alt="../concurrency/doc/solutions/uppaal/blatt_3.2.1.automaton.png" src="../concurrency/doc/solutions/uppaal/blatt_3.2.1.automaton.png"><p>System declarations:</p><pre class="code lang-c">customer_1 = Customer();
+customer_2 = Customer();
+automaton = Automaton();
+// List one or more processes to be composed into a system.
+system customer_1,customer_2,automaton;</pre></section><section id="anzahl-der-zustande"><header><h4>3.2.4 Anzahl der Zustände</h4></header><ul><li><p>Anzahl Zustände Kunde: 5</p></li><li><p>Anzahl Zustände Automat: 8</p></li><li><p>Anzahl Übergänge Kunde: 10</p></li><li><p>Anzahl Übergänge Automat: 13</p></li></ul><p>Anzahl der Gesamtzustände: 5 * 8 * 10 * 13 = 5200
+Alternative ohne Epsilon: 5 * 8 * 10 * 9 = 3600</p></section></section></section></body></html>

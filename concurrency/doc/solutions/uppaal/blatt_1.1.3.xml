@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan j,a,h,r;
+chan o0,o1,o2,o3;</declaration>
+	<template>
+		<name>Input</name>
+		<location id="id0" x="187" y="0">
+		</location>
+		<location id="id1" x="110" y="0">
+		</location>
+		<location id="id2" x="25" y="0">
+		</location>
+		<location id="id3" x="-77" y="0">
+		</location>
+		<location id="id4" x="-170" y="0">
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="128" y="-17">r!</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="43" y="-17">h!</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-59" y="-17">a!</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-153" y="-17">j!</label>
+		</transition>
+	</template>
+	<template>
+		<name x="5" y="5">Automaton</name>
+		<declaration>// Place local declarations here.
+</declaration>
+		<location id="id5" x="136" y="289">
+			<name x="126" y="255">s_2</name>
+		</location>
+		<location id="id6" x="136" y="221">
+			<name x="126" y="187">s2</name>
+		</location>
+		<location id="id7" x="204" y="119">
+			<name x="194" y="85">s12</name>
+		</location>
+		<location id="id8" x="263" y="-8">
+			<name x="253" y="-42">s1</name>
+		</location>
+		<location id="id9" x="68" y="119">
+			<name x="58" y="85">s02</name>
+		</location>
+		<location id="id10" x="136" y="-8">
+			<name x="126" y="-42">s01</name>
+		</location>
+		<location id="id11" x="0" y="0">
+			<name x="-10" y="-34">s0</name>
+		</location>
+		<init ref="id11"/>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="182" y="123">o2!</label>
+			<nail x="161" y="161"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="242" y="0">r?</label>
+			<nail x="221" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="229" y="72">o1!</label>
+			<nail x="255" y="59"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="161" y="182">h?</label>
+			<nail x="187" y="178"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="173" y="250">o0!</label>
+			<nail x="161" y="272"/>
+			<nail x="161" y="238"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="122" y="250">a?</label>
+			<nail x="110" y="238"/>
+			<nail x="110" y="272"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="86" y="153">o2!</label>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="154" y="-25">o2!</label>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id9"/>
+			<label kind="synchronisation" x="18" y="42">j?</label>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="18" y="-21">a?</label>
+		</transition>
+	</template>
+	<template>
+		<name>Output</name>
+		<location id="id12" x="204" y="0">
+		</location>
+		<location id="id13" x="136" y="0">
+		</location>
+		<location id="id14" x="68" y="0">
+		</location>
+		<location id="id15" x="-8" y="0">
+		</location>
+		<location id="id16" x="-93" y="0">
+		</location>
+		<init ref="id16"/>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id12"/>
+			<label kind="synchronisation" x="154" y="-17">o2?</label>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id13"/>
+			<label kind="synchronisation" x="86" y="-17">o1?</label>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id14"/>
+			<label kind="synchronisation" x="10" y="-17">o0?</label>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id15"/>
+			<label kind="synchronisation" x="-75" y="-17">o2?</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+input = Input();
+output = Output();
+automaton = Automaton();
+// List one or more processes to be composed into a system.
+system input,output,automaton;
+    </system>
+	<queries>
+	</queries>
+</nta>

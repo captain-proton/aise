@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan coffee,tea,cola,fanta;
+chan abort;
+int output;</declaration>
+	<template>
+		<name x="5" y="5">Customer</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="8" y="170">
+			<name x="-2" y="136">c4</name>
+		</location>
+		<location id="id1" x="8" y="93">
+			<name x="-2" y="59">c3</name>
+		</location>
+		<location id="id2" x="8" y="-76">
+			<name x="-2" y="-110">c2</name>
+		</location>
+		<location id="id3" x="8" y="-143">
+			<name x="-2" y="-177">c1</name>
+		</location>
+		<location id="id4" x="-102" y="-76">
+			<name x="-112" y="-110">c0</name>
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id4"/>
+			<label kind="guard" x="25" y="153">output&gt;0</label>
+			<label kind="assignment" x="26" y="170">output:=output-1</label>
+			<nail x="187" y="170"/>
+			<nail x="187" y="-289"/>
+			<nail x="-102" y="-289"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id4"/>
+			<label kind="guard" x="25" y="76">output&gt;0</label>
+			<label kind="assignment" x="26" y="93">output:=output-1</label>
+			<nail x="144" y="93"/>
+			<nail x="144" y="-255"/>
+			<nail x="-102" y="-255"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id4"/>
+			<label kind="guard" x="25" y="-93">output&gt;0</label>
+			<label kind="assignment" x="26" y="-76">output:=output-1</label>
+			<nail x="110" y="-76"/>
+			<nail x="110" y="-221"/>
+			<nail x="-102" y="-221"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="guard" x="25" y="-161">output&gt;0</label>
+			<label kind="assignment" x="26" y="-143">output:=output-1</label>
+			<nail x="93" y="-144"/>
+			<nail x="93" y="-195"/>
+			<nail x="-102" y="-195"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-118" y="186">abort?</label>
+			<nail x="8" y="203"/>
+			<nail x="-136" y="203"/>
+			<nail x="-136" y="-76"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-42" y="8">abort?</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-84" y="152">cola!</label>
+			<nail x="-102" y="169"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-59" y="93">fanta!</label>
+			<nail x="-59" y="93"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-59" y="-68">coffee!</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-84" y="-126">tea!</label>
+		</transition>
+	</template>
+	<template>
+		<name>Automaton</name>
+		<declaration>int cola_inventory = 2;
+int fanta_inventory = 2;</declaration>
+		<location id="id5" x="119" y="127">
+			<name x="109" y="93">a6</name>
+		</location>
+		<location id="id6" x="-102" y="127">
+			<name x="-112" y="93">a5</name>
+		</location>
+		<location id="id7" x="119" y="42">
+			<name x="109" y="8">a4</name>
+		</location>
+		<location id="id8" x="-102" y="42">
+			<name x="-112" y="8">a3</name>
+		</location>
+		<location id="id9" x="178" y="-51">
+			<name x="168" y="-85">a7</name>
+		</location>
+		<location id="id10" x="-221" y="-51">
+			<name x="-231" y="-85">a0</name>
+		</location>
+		<location id="id11" x="8" y="-136">
+			<name x="-2" y="-170">a1</name>
+		</location>
+		<location id="id12" x="8" y="-51">
+			<name x="-2" y="-85">a2</name>
+		</location>
+		<init ref="id10"/>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id9"/>
+			<nail x="178" y="127"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id9"/>
+			<nail x="178" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id10"/>
+			<label kind="guard" x="-255" y="76">cola_inventory&lt;=0</label>
+			<label kind="synchronisation" x="-255" y="93">abort!</label>
+			<nail x="-222" y="127"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id10"/>
+			<label kind="guard" x="-144" y="-25">fanta_inventory&lt;=0</label>
+			<label kind="synchronisation" x="-144" y="-42">abort!</label>
+			<nail x="-102" y="-17"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-195" y="42">cola?</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<label kind="guard" x="-85" y="110">cola_inventory&gt;0</label>
+			<label kind="assignment" x="-84" y="127">cola_inventory:=cola_inventory-1</label>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id7"/>
+			<label kind="guard" x="-85" y="25">fanta_inventory&gt;0</label>
+			<label kind="assignment" x="-84" y="46">fanta_inventory:=fanta_inventory-1</label>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="-178" y="-8">fanta?</label>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id10"/>
+			<label kind="assignment" x="196" y="-51">output:=output+1</label>
+			<nail x="263" y="-51"/>
+			<nail x="263" y="170"/>
+			<nail x="-272" y="170"/>
+			<nail x="-272" y="-51"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id9"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id9"/>
+			<nail x="178" y="-136"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id12"/>
+			<label kind="synchronisation" x="-127" y="-68">coffee?</label>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id11"/>
+			<label kind="synchronisation" x="-119" y="-153">tea?</label>
+			<nail x="-221" y="-136"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+customer_1 = Customer();
+customer_2 = Customer();
+automaton = Automaton();
+// List one or more processes to be composed into a system.
+system customer_1,customer_2,automaton;
+    </system>
+	<queries>
+	</queries>
+</nta>
