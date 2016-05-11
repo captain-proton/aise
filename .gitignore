@@ -95,3 +95,6 @@ buildNumber.properties
 
 # sftp configuration file
 sftp-config.json
+
+## BUILDS
+build/

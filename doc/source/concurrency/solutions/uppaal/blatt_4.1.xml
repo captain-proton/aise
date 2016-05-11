@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan click, single_click, double_click;</declaration>
+	<template>
+		<name x="5" y="5">User</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-272" y="-51">
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-254" y="-144">click!</label>
+			<nail x="-272" y="-127"/>
+			<nail x="-195" y="-127"/>
+			<nail x="-195" y="-51"/>
+		</transition>
+	</template>
+	<template>
+		<name>MouseGuards</name>
+		<declaration>clock click_timer;</declaration>
+		<location id="id1" x="51" y="-42">
+		</location>
+		<location id="id2" x="-119" y="-136">
+		</location>
+		<location id="id3" x="-263" y="-136">
+		</location>
+		<init ref="id3"/>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-246" y="-238">click_timer&gt;=1</label>
+			<label kind="synchronisation" x="-246" y="-221">single_click!</label>
+			<label kind="assignment" x="-246" y="-204">click_timer:=0</label>
+			<nail x="-120" y="-187"/>
+			<nail x="-264" y="-187"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-245" y="-9">click_timer&gt;=1</label>
+			<label kind="synchronisation" x="-245" y="8">double_click!</label>
+			<label kind="assignment" x="-245" y="25">click_timer:=0</label>
+			<nail x="51" y="25"/>
+			<nail x="-263" y="25"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id1"/>
+			<label kind="guard" x="119" y="-110">click_timer&lt;1</label>
+			<label kind="synchronisation" x="119" y="-93">click?</label>
+			<label kind="assignment" x="119" y="-76">click_timer:=0</label>
+			<nail x="51" y="-101"/>
+			<nail x="110" y="-101"/>
+			<nail x="110" y="-42"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-102" y="-76">click_timer&lt;1</label>
+			<label kind="synchronisation" x="-102" y="-59">click?</label>
+			<label kind="assignment" x="-101" y="-42">click_timer:=0</label>
+			<nail x="-119" y="-42"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-237" y="-153">click?</label>
+		</transition>
+	</template>
+	<template>
+		<name>MouseInvariant</name>
+		<declaration>clock click_timer;</declaration>
+		<location id="id4" x="-68" y="-42">
+			<label kind="invariant" x="-51" y="-34">click_timer&lt;1</label>
+		</location>
+		<location id="id5" x="-221" y="-42">
+		</location>
+		<location id="id6" x="-391" y="-42">
+		</location>
+		<init ref="id6"/>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-373" y="25">double_click!</label>
+			<nail x="-68" y="42"/>
+			<nail x="-391" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-59" y="-144">click?</label>
+			<label kind="assignment" x="-59" y="-127">click_timer:=0</label>
+			<nail x="25" y="-42"/>
+			<nail x="25" y="-102"/>
+			<nail x="-68" y="-102"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-203" y="-59">click?</label>
+			<label kind="assignment" x="-203" y="-42">click_timer:=0</label>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id6"/>
+			<label kind="guard" x="-373" y="-144">click_timer&gt;=1</label>
+			<label kind="synchronisation" x="-373" y="-127">single_click!</label>
+			<nail x="-221" y="-110"/>
+			<nail x="-391" y="-110"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-373" y="-59">click?</label>
+			<label kind="assignment" x="-373" y="-42">click_timer:=0</label>
+		</transition>
+	</template>
+	<template>
+		<name>ClickObserver</name>
+		<declaration>int scc = 0;
+int dcc = 0;</declaration>
+		<location id="id7" x="-255" y="110">
+			<name x="-265" y="76">sc</name>
+		</location>
+		<location id="id8" x="27" y="119">
+			<name x="17" y="85">dc</name>
+		</location>
+		<location id="id9" x="-119" y="-42">
+		</location>
+		<init ref="id9"/>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-153" y="51">single_click?</label>
+			<label kind="assignment" x="-153" y="68">scc:=scc+1</label>
+			<nail x="-118" y="85"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="-161" y="170">double_click?</label>
+			<label kind="assignment" x="-161" y="187">dcc:=dcc+1</label>
+			<nail x="-110" y="161"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-365" y="161">single_click?</label>
+			<label kind="assignment" x="-365" y="178">scc:=scc+1</label>
+			<nail x="-323" y="110"/>
+			<nail x="-323" y="161"/>
+			<nail x="-255" y="161"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-255" y="8">single_click?</label>
+			<label kind="assignment" x="-255" y="25">scc:=scc+1</label>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="111" y="127">double_click?</label>
+			<label kind="assignment" x="111" y="144">dcc:=dcc+1</label>
+			<nail x="26" y="170"/>
+			<nail x="103" y="170"/>
+			<nail x="104" y="119"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="-85" y="-25">double_click?</label>
+			<label kind="assignment" x="-85" y="-8">dcc:=dcc+1</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+user = User();
+mouseGuards = MouseGuards();
+mouseInvariant = MouseInvariant();
+obs = ClickObserver();
+// List one or more processes to be composed into a system.
+system user,mouseInvariant,obs;
+    </system>
+	<queries>
+	</queries>
+</nta>

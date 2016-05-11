@@ -1,3 +1,7 @@
+*****
+Übung
+*****
+
 Die hier gelisteten Lösungen wurden mit Hilfe unterschiedlicher Werkzeuge realisiert.
 
 +--------+-------------+--------+
@@ -48,7 +52,7 @@ b) Nein: Die Eingabe zwei aufeinander folgender Einsen ist nicht möglich
 1.1.3
 ^^^^^
 
-.. image:: ../concurrency/doc/solutions/Blatt1_Aufgabe_1.1.3.png
+.. image:: solutions/Blatt1_Aufgabe_1.1.3.png
 
 
 Problem 1.2 Gekoppelte Systeme
@@ -70,12 +74,12 @@ Hier wird ein Deadlock erreicht, da von A2 zunächst die Verarbeitung von b? erw
 1.3.1
 ^^^^^
 
-.. image:: ../concurrency/doc/solutions/yed/Blatt_1_Aufgabe_1.3.1.png
+.. image:: solutions/yed/Blatt_1_Aufgabe_1.3.1.png
 
 1.3.2
 ^^^^^
 
-.. image:: ../concurrency/doc/solutions/yed/Blatt_1_Aufgabe_1.3.2.png
+.. image:: solutions/yed/Blatt_1_Aufgabe_1.3.2.png
 
 
 Übungsblatt 2
@@ -87,27 +91,27 @@ Problem 2.1 Fehlerklassen
 2.1.1 Deadlock
 ^^^^^^^^^^^^^^
 
-.. image:: ../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.1.png
+.. image:: solutions/yed/Blatt_2_Aufgabe_2.1.1.png
 
 2.1.2 Nicht spezifizierter Empfang
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.2.png
+.. image:: solutions/yed/Blatt_2_Aufgabe_2.1.2.png
 
 2.1.3 Pufferüberlauf
 ^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.3.png
+.. image:: solutions/yed/Blatt_2_Aufgabe_2.1.3.png
 
 2.1.4 Toter Code
 ^^^^^^^^^^^^^^^^
 
-.. image:: ../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.1.4.png
+.. image:: solutions/yed/Blatt_2_Aufgabe_2.1.4.png
 
 Problem 2.2 Automatenentwurf
 ----------------------------
 
-.. image:: ../concurrency/doc/solutions/yed/Blatt_2_Aufgabe_2.2.png
+.. image:: solutions/yed/Blatt_2_Aufgabe_2.2.png
 
 
 
@@ -150,7 +154,7 @@ Folie 19
 Problem 1.1 Bit-State-Algorithmus
 ---------------------------------
 
-.. image:: ../concurrency/doc/solutions/yed/Zusatzblatt_1_Aufgabe_1.1.png
+.. image:: solutions/yed/Zusatzblatt_1_Aufgabe_1.1.png
 
 
 +------+-----+--------------+
@@ -177,33 +181,36 @@ Problem 1.1 Bit-State-Algorithmus
 | 9    | 0   |              |
 +------+-----+--------------+
 
-Problem 1.2
------------
+
+
+Problem 1.2 UML-Diagramme
+-------------------------
 
 Sequenzdiagramm
 ^^^^^^^^^^^^^^^
 
-.. image:: ../concurrency/doc/solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.sequenz.png
+.. image:: solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.sequenz.png
 
 Aktivitätsdiagramm
 ^^^^^^^^^^^^^^^^^^
 
-.. image:: ../concurrency/doc/solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.interaktivitaet.png
+.. image:: solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.interaktivitaet.png
 
 Zustandsdiagramm
 ^^^^^^^^^^^^^^^^
 
-.. image:: ../concurrency/doc/solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.zustand.png
+.. image:: solutions/umlet/Zusatzblatt_1_Aufgabe_1.2.zustand.png
 
-Problem 1.3
------------
+Problem 1.3 Bit-State Details
+-----------------------------
 
 1.3.1 Vorteil- und Nachteile
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Vorteile:
 
-- The goal of the bitstate hashing technique is to minimize the loss and maximize the coverage, for as large a range of relative values for M and N as possible.
+- Speicherbedarfeinsparung
+- Rechenzeiteinsparung
 
 Nachteile:
 
@@ -212,12 +219,14 @@ Nachteile:
 1.3.2 Hashing vs. Baumorientiert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Bei Hashingverfahren ist der Aufwand um Fehlerfälle zu finden um ein vielfaches niedriger als die Untersuchung eines kompletten Baums.
+Bei Hashingverfahren ist der Aufwand um Fehlerfälle zu finden um ein vielfaches niedriger als die Untersuchung eines kompletten Baums. Zudem ist es meist deutlich schneller als baumorientierte Verfahren.
 
 1.3.3 *fair progress*
 ^^^^^^^^^^^^^^^^^^^^^
 
 Bei asynchroner Kommunikation ist es möglich, dass bestimmte Teile des Ablaufs häufiger durchlaufen werden als andere. Es kann dazu kommen, dass ein Prozess andere Prozesse blockt. Durch fair progress soll vermieden werden, dass diese Prozesse nicht übergangen werden.
+
+Priorisierung. hernutersetzen der Priorität von bereits genutzten Transitionen.
 
 
 Übungsblatt 3
@@ -246,7 +255,7 @@ Declarations:
 
 Template:
 
-.. image:: ../concurrency/doc/solutions/uppaal/blatt_3.1.1.png
+.. image:: solutions/uppaal/blatt_3.1.1.png
 
 System declarations:
 
@@ -263,12 +272,12 @@ System declarations:
 
 Message Sequence Chart:
 
-.. image:: ../concurrency/doc/solutions/uppaal/blatt_3.1.2_msc.png
+.. image:: solutions/uppaal/blatt_3.1.2_msc.png
 
 
 Als UML Sequenzdiagramm:
 
-.. image:: ../concurrency/doc/solutions/umlet/Blatt_3_Aufgabe_3.1.2.png
+.. image:: solutions/umlet/Blatt_3_Aufgabe_3.1.2.png
 
 3.1.3 Anzahl möglicher Globalzustände
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -301,11 +310,11 @@ Declarations:
 
 Template *Customer*:
 
-.. image:: ../concurrency/doc/solutions/uppaal/blatt_3.2.1.customer.png
+.. image:: solutions/uppaal/blatt_3.2.1.customer.png
 
 Template *Automaton*:
 
-.. image:: ../concurrency/doc/solutions/uppaal/blatt_3.2.1.automaton.png
+.. image:: solutions/uppaal/blatt_3.2.1.automaton.png
 
 System declarations:
 
@@ -327,3 +336,23 @@ System declarations:
 
 Anzahl der Gesamtzustände: 5 \* 8 \* 10 \* 13 = 5200
 Alternative ohne Epsilon: 5 \* 8 \* 10 \* 9 = 3600
+
+
+
+Übungsblatt 4
+=============
+
+Problem 4.1 UPPAAL: Mausklickerkennung
+--------------------------------------
+
+Maus
+^^^^
+
+.. image:: solutions/uppaal/blatt_4.1.mouse_guards.png
+
+.. image:: solutions/uppaal/blatt_4.1.mouse_invariant.png
+
+Observer
+^^^^^^^^
+
+.. image:: solutions/uppaal/blatt_4.1.click_observer.png
