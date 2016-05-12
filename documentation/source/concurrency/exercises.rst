@@ -52,7 +52,7 @@ b) Nein: Die Eingabe zwei aufeinander folgender Einsen ist nicht möglich
 1.1.3
 ^^^^^
 
-.. image:: solutions/Blatt1_Aufgabe_1.1.3.png
+.. image:: solutions/yed/Blatt1_Aufgabe_1.1.3.png
 
 
 Problem 1.2 Gekoppelte Systeme
