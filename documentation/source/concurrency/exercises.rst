@@ -4,15 +4,16 @@
 
 Die hier gelisteten Lösungen wurden mit Hilfe unterschiedlicher Werkzeuge realisiert.
 
-+--------+-------------+--------+
-| Ordner | Erweiterung | Tool   |
-+========+=============+========+
-| umlet  | uxf         | Umlet  |
-+--------+-------------+--------+
-| yed    | graphml     | yEd    |
-+--------+-------------+--------+
-| uppaal | xml         | UPPAAL |
-+--------+-------------+--------+
++--------+-------------+---------------------------------------------+
+| Ordner | Erweiterung | Tool                                        |
++========+=============+=============================================+
+| umlet  | uxf         | `Umlet <http://umlet.com/>`_                |
++--------+-------------+---------------------------------------------+
+| yed    | graphml     | `yEd <http://www.yworks.com/products/yed>`_ |
++--------+-------------+---------------------------------------------+
+| uppaal | xml         | `UPPAAL <http://www.uppaal.org/>`_          |
++--------+-------------+---------------------------------------------+
+
 
 
 UPPAAL Tutorial
@@ -52,7 +53,7 @@ b) Nein: Die Eingabe zwei aufeinander folgender Einsen ist nicht möglich
 1.1.3
 ^^^^^
 
-.. image:: solutions/yed/Blatt1_Aufgabe_1.1.3.png
+.. image:: solutions/yed/Blatt_1_Aufgabe_1.1.3.png
 
 
 Problem 1.2 Gekoppelte Systeme
