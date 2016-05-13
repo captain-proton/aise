@@ -368,3 +368,25 @@ Observer
 Eine Verwendung von drei Zuständen ist nur dann notwendig, wenn ein Zustand einen Klick repräsentiert. Ansonsten kann der Zähler auch ausschließlich über zwei Zustände erfolgen.
 
 .. image:: solutions/uppaal/blatt_4.1.click_observer.png
+
+Zusatzübung 2
+=============
+
+Problem 2.1 UPPAAL - asychrone Automatensysteme
+-----------------------------------------------
+
+Da UPPAAL nicht in der Lage ist asychrone Kommunikation über Kanäle abzubilden, beläuft sich die Idee der Lösung auf den Einsatz eines Mediums. Zusätzlich wird wird das Senden und Empfangen einer Nachricht in zwei separate Kanäle aufgeteilt - aus ``a(!|?)`` wird ``send_a(!|?)`` und ``receive_a(!|?)``.
+
+Automat
+^^^^^^^
+
+.. image:: solutions/uppaal/zusatzblatt_2_2.1.a1.png
+
+.. image:: solutions/uppaal/zusatzblatt_2_2.1.a2.png
+
+.. image:: solutions/uppaal/zusatzblatt_2_2.1.medium.png
+
+Message Sequence Chart
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: solutions/uppaal/zusatzblatt_2_2.1.msc.png

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan send_a, send_b;
+chan receive_a, receive_b;</declaration>
+	<template>
+		<name x="5" y="5">Template0</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="0" y="102">
+			<name x="-10" y="68">s1</name>
+		</location>
+		<location id="id1" x="0" y="-25">
+			<name x="-10" y="-59">s0</name>
+		</location>
+		<init ref="id1"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-127" y="34">receive_b?</label>
+			<nail x="-51" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="51" y="34">send_a!</label>
+			<nail x="51" y="42"/>
+		</transition>
+	</template>
+	<template>
+		<name>Template1</name>
+		<location id="id2" x="0" y="127">
+			<name x="-10" y="93">s1</name>
+		</location>
+		<location id="id3" x="0" y="0">
+			<name x="-10" y="-34">s0</name>
+		</location>
+		<init ref="id3"/>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-127" y="59">receive_a?</label>
+			<nail x="-51" y="68"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="51" y="59">send_b!</label>
+			<nail x="51" y="68"/>
+		</transition>
+	</template>
+	<template>
+		<name>Medium</name>
+		<declaration>int a, b;</declaration>
+		<location id="id4" x="-187" y="-51">
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="guard" x="-229" y="42">b&gt;0</label>
+			<label kind="synchronisation" x="-229" y="59">receive_b!</label>
+			<label kind="assignment" x="-229" y="76">b--</label>
+			<nail x="-127" y="-34"/>
+			<nail x="-127" y="42"/>
+			<nail x="-246" y="42"/>
+			<nail x="-246" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="guard" x="-229" y="-195">a&gt;0</label>
+			<label kind="synchronisation" x="-229" y="-178">receive_a!</label>
+			<label kind="assignment" x="-229" y="-161">a--</label>
+			<nail x="-246" y="-51"/>
+			<nail x="-246" y="-144"/>
+			<nail x="-127" y="-144"/>
+			<nail x="-127" y="-51"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-212" y="0">send_b?</label>
+			<label kind="assignment" x="-212" y="17">b++</label>
+			<nail x="-144" y="-34"/>
+			<nail x="-144" y="-9"/>
+			<nail x="-229" y="-9"/>
+			<nail x="-229" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-221" y="-127">send_a?</label>
+			<label kind="assignment" x="-221" y="-111">a++</label>
+			<nail x="-229" y="-51"/>
+			<nail x="-229" y="-93"/>
+			<nail x="-144" y="-93"/>
+			<nail x="-144" y="-51"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+a0 = Template0();
+a1 = Template1();
+medium = Medium();
+// List one or more processes to be composed into a system.
+system a0, a1, medium;
+    </system>
+	<queries>
+	</queries>
+</nta>
