@@ -34,6 +34,7 @@ Notizen
 Übungsblatt 1
 =============
 
+`Aufgabenblatt <../_static/exercise/b1.pdf>`_
 
 Problem 1.1 Mealey-Automaten
 ----------------------------
@@ -86,6 +87,8 @@ Hier wird ein Deadlock erreicht, da von A2 zunächst die Verarbeitung von b? erw
 Übungsblatt 2
 =============
 
+`Aufgabenblatt <../_static/exercise/b2.pdf>`_
+
 Problem 2.1 Fehlerklassen
 -------------------------
 
@@ -132,6 +135,8 @@ Während das Getränk im Automaten zubereitet wird soll gespeichert werden (z.B.
 
 Zusatzübung 1
 =============
+
+`Aufgabenblatt <../_static/exercise/z1.pdf>`_
 
 Folieninformationen
 -------------------
@@ -232,6 +237,8 @@ Priorisierung. hernutersetzen der Priorität von bereits genutzten Transitionen.
 
 Übungsblatt 3
 =============
+
+`Aufgabenblatt <../_static/exercise/b3.pdf>`_
 
 Notizen
 -------
@@ -343,6 +350,8 @@ Alternative ohne Epsilon: 5 \* 8 \* 10 \* 9 = 3600
 Übungsblatt 4
 =============
 
+`Aufgabenblatt <../_static/exercise/b4.pdf>`_
+
 Problem 4.1 UPPAAL: Mausklickerkennung
 --------------------------------------
 
@@ -373,7 +382,7 @@ Eine Verwendung von drei Zuständen ist nur dann notwendig, wenn ein Zustand ein
 Übungsblatt 5
 =============
 
-`Aufgabenblatt <../_static/exercise/b1.pdf>`_
+`Aufgabenblatt <../_static/exercise/b5.pdf>`_
 
 Problem 5.1 Bäume mit CTL unterscheiden
 ---------------------------------------
@@ -480,6 +489,8 @@ Die Formel sagt aus, dass in allen Pfaden Philosoph 1 oder 3 isst. Die Aussage w
 
 Zusatzübung 2
 =============
+
+`Aufgabenblatt <../_static/exercise/z2.pdf>`_
 
 Problem 2.1 UPPAAL - asychrone Automatensysteme
 -----------------------------------------------
