@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan get_1,get_2,get_3;
+chan put_1,put_2,put_3;</declaration>
+	<template>
+		<name x="5" y="5">Philo_1</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="0" y="170">
+			<name x="17" y="161">Eating</name>
+		</location>
+		<location id="id1" x="0" y="85">
+			<name x="25" y="76">HasOne</name>
+		</location>
+		<location id="id2" x="0" y="0">
+			<name x="-10" y="-34">Thinking</name>
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-93" y="34">put_1!</label>
+			<nail x="-51" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-93" y="119">put_3!</label>
+			<nail x="-51" y="127"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="51" y="119">get_3!</label>
+			<nail x="51" y="127"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="59" y="34">get_1!</label>
+			<nail x="59" y="42"/>
+		</transition>
+	</template>
+	<template>
+		<name>Philo_2</name>
+		<location id="id3" x="105" y="107">
+			<name x="130" y="98">HasOne</name>
+		</location>
+		<location id="id4" x="105" y="22">
+			<name x="95" y="-12">Thinking</name>
+		</location>
+		<location id="id5" x="105" y="192">
+			<name x="122" y="183">Eating</name>
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="12" y="56">put_2!</label>
+			<nail x="54" y="64"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="12" y="141">put_1!</label>
+			<nail x="54" y="149"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="156" y="141">get_1!</label>
+			<nail x="156" y="149"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="164" y="56">get_2!</label>
+			<nail x="164" y="64"/>
+		</transition>
+	</template>
+	<template>
+		<name>Philo_3</name>
+		<location id="id6" x="-8" y="17">
+			<name x="17" y="8">HasOne</name>
+		</location>
+		<location id="id7" x="-8" y="-68">
+			<name x="-18" y="-102">Thinking</name>
+		</location>
+		<location id="id8" x="-8" y="102">
+			<name x="9" y="93">Eating</name>
+		</location>
+		<init ref="id7"/>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-101" y="-34">put_3!</label>
+			<nail x="-59" y="-26"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-101" y="51">put_2!</label>
+			<nail x="-59" y="59"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="43" y="51">get_2!</label>
+			<nail x="43" y="59"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="51" y="-34">get_3!</label>
+			<nail x="51" y="-26"/>
+		</transition>
+	</template>
+	<template>
+		<name>Fork_1</name>
+		<location id="id9" x="0" y="59">
+			<name x="-17" y="76">Occupied</name>
+		</location>
+		<location id="id10" x="0" y="0">
+			<name x="-10" y="-34">Free</name>
+		</location>
+		<init ref="id10"/>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="-93" y="25">put_1?</label>
+			<nail x="-42" y="34"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id9"/>
+			<label kind="synchronisation" x="42" y="17">get_1?</label>
+			<nail x="42" y="25"/>
+		</transition>
+	</template>
+	<template>
+		<name>Fork_2</name>
+		<location id="id11" x="0" y="59">
+			<name x="-17" y="76">Occupied</name>
+		</location>
+		<location id="id12" x="0" y="0">
+			<name x="-10" y="-34">Free</name>
+		</location>
+		<init ref="id12"/>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id12"/>
+			<label kind="synchronisation" x="-93" y="25">put_2?</label>
+			<nail x="-42" y="34"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id11"/>
+			<label kind="synchronisation" x="42" y="17">get_2?</label>
+			<nail x="42" y="25"/>
+		</transition>
+	</template>
+	<template>
+		<name>Fork_3</name>
+		<location id="id13" x="0" y="59">
+			<name x="-17" y="76">Occupied</name>
+		</location>
+		<location id="id14" x="0" y="0">
+			<name x="-10" y="-34">Free</name>
+		</location>
+		<init ref="id14"/>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id14"/>
+			<label kind="synchronisation" x="-93" y="25">put_3?</label>
+			<nail x="-42" y="34"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id13"/>
+			<label kind="synchronisation" x="42" y="17">get_3?</label>
+			<nail x="42" y="25"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+philo_1 = Philo_1();
+philo_2 = Philo_2();
+philo_3 = Philo_3();
+fork_1 = Fork_1();
+fork_2 = Fork_2();
+fork_3 = Fork_3();
+// List one or more processes to be composed into a system.
+system philo_1,philo_2,philo_3,fork_1,fork_2,fork_3;
+    </system>
+	<queries>
+		<query>
+			<formula>A[] fork_1.Occupied imply philo_1.Eating
+			</formula>
+			<comment>Gabel 1 wird in jedem Fall belegt worauf Philosoph 1 irgendwann essen wird
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; fork_1.Occupied imply philo_1.Eating
+			</formula>
+			<comment>Wenn Gabel 1 belegt ist, wird Philosoph 1 auf jeden Fall irgendwann essen.
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; fork_2.Occupied and not philo_2.Thinking
+			</formula>
+			<comment>Es existiert ein Pfad in dem Gabel 2 belegt ist und Philosoph 2 nicht nachdenkt
+			</comment>
+		</query>
+		<query>
+			<formula>A[] fork_2.Occupied and not philo_2.Thinking
+			</formula>
+			<comment>Wenn Gabel 2 belegt ist, denkt Philosoph 2 nicht nach.
+			</comment>
+		</query>
+		<query>
+			<formula>A&lt;&gt; philo_1.Eating or philo_3.Eating
+			</formula>
+			<comment>In jedem Pfad wird Philosoph 1 oder 3 essen.
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; philo_1.Eating and philo_3.Eating
+			</formula>
+			<comment>Es ist möglich, dass die Philosophen 1 und 3 gleichzeitig essen.
+			</comment>
+		</query>
+	</queries>
+</nta>
