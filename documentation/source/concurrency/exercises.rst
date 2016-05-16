@@ -472,6 +472,8 @@ Folgende Lösungen sind über den UPPAAL Verifier realisiert worden. Die Details
 
 .. image:: solutions/uppaal/blatt_5.2.2.verifier.png
 
+Download: `UPPAAL Modell <../_static/uppaal_models/philosophers.xml>`_
+
 5.2.2.1
 """""""
 
