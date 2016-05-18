@@ -212,7 +212,7 @@ system philo_1,philo_2,philo_3,fork_1,fork_2,fork_3;
 			</comment>
 		</query>
 		<query>
-			<formula>A[] fork_2.Occupied and not philo_2.Thinking
+			<formula>A[] not(fork_2.Occupied and not philo_2.Thinking)
 			</formula>
 			<comment>Wenn Gabel 2 belegt ist, denkt Philosoph 2 nicht nach.
 			</comment>

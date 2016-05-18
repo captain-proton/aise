@@ -450,14 +450,14 @@ Ein Equivalent der Umgangssprache ist: :math:`\exists \lozenge k`
 5.2.1.2
 ^^^^^^^
 
-Die umgangssprachliche Form entspricht der Formel.
+*Möglicherweise* ist eine Tautologie und kann in UPPAAL nicht sinnvoll dargestellt werden. Demnach ist die Aussage immer wahr. Ein dazugehöriger Baum kann beliebiger Form sein. Die Formel entspricht der Aussage "*Es existiert ein Pfad in dem immer k oder m gilt*".
 
 .. image:: solutions/yed/Blatt_5_Aufgabe_5.2.1.2.png
 
 5.2.1.3
 ^^^^^^^
 
-Die umgangssprachliche Form entspricht nicht der Formel. Die Formel :math:`k \rightarrow m` entspricht der Aussage "*Wenn k aufgetreten ist tritt darauf irgendwann m auf*".
+Die umgangssprachliche Form entspricht nicht der Formel. Die Formel :math:`k \rightarrow m` entspricht der Aussage "*Für alle Pfade tritt k auf irgendwann gefolgt von einem m*".
 
 .. image:: solutions/yed/Blatt_5_Aufgabe_5.2.1.3.Formel.png
 
@@ -482,7 +482,7 @@ Die Formel impliziert, dass Philosoph 1 auf jeden Fall irgendwann essen wird, en
 5.2.2.2
 """""""
 
-Die Formel sagt aus, dass ein Pfad existiert in dem Gabel 2 belegt ist und Philosoph 2 nicht denkt. Die Aussage bezieht sich nicht auf einen bestimmten Pfad, sondern ist eine generelle Aussage. Die Formel dazu ist :math:`A \square fork_2.Occupied \wedge \neg philo_2.Thinking` (``A [] fork_2.Occupied and not philo_2.Thinking``)
+Die Formel sagt aus, dass ein Pfad existiert in dem Gabel 2 belegt ist und Philosoph 2 nicht denkt. Die Aussage bezieht sich nicht auf einen bestimmten Pfad, sondern ist eine generelle Aussage. Die Formel dazu ist :math:`A \square \neg (fork_2.Occupied \wedge \neg philo_2.Thinking)` (``A [] not (fork_2.Occupied and not philo_2.Thinking)``)
 
 5.2.2.3
 """""""
