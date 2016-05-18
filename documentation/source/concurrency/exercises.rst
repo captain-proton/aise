@@ -472,7 +472,7 @@ Folgende Lösungen sind über den UPPAAL Verifier realisiert worden. Die Details
 
 .. image:: solutions/uppaal/blatt_5.2.2.verifier.png
 
-Download: `UPPAAL Modell <../_static/uppaal_models/philosophers.xml>`_
+Download: `UPPAAL Modell Philosophen <../_static/uppaal_models/philosophers.xml>`_
 
 5.2.2.1
 """""""
@@ -512,3 +512,38 @@ Message Sequence Chart
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: solutions/uppaal/zusatzblatt_2_2.1.msc.png
+
+Problem 2.2 CTL
+---------------
+
+2.2.1.Z
+^^^^^^^
+
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+| Aussage                                                | Umgangssprache                                            | trifft zu? |
++========================================================+===========================================================+============+
+| ``E[] not k`` ( :math:`\exists \square \neg k` )       | Es existiert ein Pfad in dem ``k`` nicht gilt             | X          |
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+| ``A<> k`` ( :math:`\forall \lozenge k` )               | In allen Pfaden tritt irgendwann ``k`` zu                 |            |
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+| ``E<> k and m`` ( :math:`\exists \lozenge k \wedge m`) | Es existiert ein Pfad in dem irgendwann k und m zutreffen | X          |
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+| ``k -> k`` ( :math:`k \rightarrow k` )                 | Auf k folgt irgendwann k                                  |            |
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+| ``m -> not k`` ( :math:`m \rightarrow \neg k` )        | Auf m folgt nicht k                                       |            |
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+
+2.2.2.Z
+^^^^^^^
+
+Template
+""""""""
+
+.. image:: solutions/uppaal/zusatzblatt_2_2.2.2.template.png
+
+Verifier
+""""""""
+
+.. image:: solutions/uppaal/zusatzblatt_2_2.2.2.verifier.png
+
+Download: `UPPAAL Modell Zusatzaufgabe 2.2.2 <../_static/uppaal_models/zusatzblatt_2_2.2.2.xml>`_
