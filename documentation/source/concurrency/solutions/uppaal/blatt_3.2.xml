@@ -3,202 +3,319 @@
 <nta>
 	<declaration>// Place global declarations here.
 chan coffee,tea,cola,fanta;
-chan abort;
-int output;</declaration>
+chan small,medium,large;
+chan pay,take_drink,not_available;</declaration>
 	<template>
 		<name x="5" y="5">Customer</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id0" x="8" y="170">
-			<name x="-2" y="136">c4</name>
+		<location id="id0" x="289" y="-76">
 		</location>
-		<location id="id1" x="8" y="93">
-			<name x="-2" y="59">c3</name>
+		<location id="id1" x="178" y="-76">
+			<name x="168" y="-110">size_chosen</name>
 		</location>
-		<location id="id2" x="8" y="-76">
-			<name x="-2" y="-110">c2</name>
+		<location id="id2" x="25" y="-76">
+			<name x="15" y="-110">drink_chosen</name>
 		</location>
-		<location id="id3" x="8" y="-143">
-			<name x="-2" y="-177">c1</name>
+		<location id="id3" x="-102" y="-76">
+			<name x="-161" y="-102">choose</name>
 		</location>
-		<location id="id4" x="-102" y="-76">
-			<name x="-112" y="-110">c0</name>
-		</location>
-		<init ref="id4"/>
+		<init ref="id3"/>
 		<transition>
 			<source ref="id0"/>
-			<target ref="id4"/>
-			<label kind="guard" x="25" y="153">output&gt;0</label>
-			<label kind="assignment" x="26" y="170">output:=output-1</label>
-			<nail x="187" y="170"/>
-			<nail x="187" y="-289"/>
-			<nail x="-102" y="-289"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-84" y="-195">take_drink!</label>
+			<nail x="289" y="-178"/>
+			<nail x="-102" y="-178"/>
 		</transition>
 		<transition>
 			<source ref="id1"/>
-			<target ref="id4"/>
-			<label kind="guard" x="25" y="76">output&gt;0</label>
-			<label kind="assignment" x="26" y="93">output:=output-1</label>
-			<nail x="144" y="93"/>
-			<nail x="144" y="-255"/>
-			<nail x="-102" y="-255"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="196" y="-93">pay!</label>
 		</transition>
 		<transition>
 			<source ref="id2"/>
-			<target ref="id4"/>
-			<label kind="guard" x="25" y="-93">output&gt;0</label>
-			<label kind="assignment" x="26" y="-76">output:=output-1</label>
-			<nail x="110" y="-76"/>
-			<nail x="110" y="-221"/>
-			<nail x="-102" y="-221"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-84" y="8">not_available?</label>
+			<nail x="25" y="25"/>
+			<nail x="-102" y="25"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="77" y="-42">large!</label>
+			<nail x="59" y="-25"/>
+			<nail x="153" y="-25"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="59" y="-93">medium!</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="77" y="-144">small!</label>
+			<nail x="59" y="-127"/>
+			<nail x="144" y="-127"/>
 		</transition>
 		<transition>
 			<source ref="id3"/>
-			<target ref="id4"/>
-			<label kind="guard" x="25" y="-161">output&gt;0</label>
-			<label kind="assignment" x="26" y="-143">output:=output-1</label>
-			<nail x="93" y="-144"/>
-			<nail x="93" y="-195"/>
-			<nail x="-102" y="-195"/>
-		</transition>
-		<transition>
-			<source ref="id0"/>
-			<target ref="id4"/>
-			<label kind="synchronisation" x="-118" y="186">abort?</label>
-			<nail x="8" y="203"/>
-			<nail x="-136" y="203"/>
-			<nail x="-136" y="-76"/>
-		</transition>
-		<transition>
-			<source ref="id1"/>
-			<target ref="id4"/>
-			<label kind="synchronisation" x="-42" y="8">abort?</label>
-		</transition>
-		<transition>
-			<source ref="id4"/>
-			<target ref="id0"/>
-			<label kind="synchronisation" x="-84" y="152">cola!</label>
-			<nail x="-102" y="169"/>
-		</transition>
-		<transition>
-			<source ref="id4"/>
-			<target ref="id1"/>
-			<label kind="synchronisation" x="-59" y="93">fanta!</label>
-			<nail x="-59" y="93"/>
-		</transition>
-		<transition>
-			<source ref="id4"/>
 			<target ref="id2"/>
-			<label kind="synchronisation" x="-59" y="-68">coffee!</label>
+			<label kind="synchronisation" x="-59" y="-25">cola!</label>
+			<nail x="-68" y="-8"/>
+			<nail x="-8" y="-8"/>
 		</transition>
 		<transition>
-			<source ref="id4"/>
-			<target ref="id3"/>
-			<label kind="synchronisation" x="-84" y="-126">tea!</label>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-50" y="-59">fanta!</label>
+			<nail x="-68" y="-42"/>
+			<nail x="0" y="-42"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-51" y="-127">tea!</label>
+			<nail x="-68" y="-110"/>
+			<nail x="-8" y="-110"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-50" y="-161">coffee!</label>
+			<nail x="-68" y="-144"/>
+			<nail x="-8" y="-144"/>
 		</transition>
 	</template>
 	<template>
 		<name>Automaton</name>
 		<declaration>int cola_inventory = 2;
-int fanta_inventory = 2;</declaration>
-		<location id="id5" x="119" y="127">
-			<name x="109" y="93">a6</name>
+int fanta_inventory = 2;
+int small_tea,medium_tea,large_tea;
+int small_coffee,medium_coffee,large_coffee;
+int small_fanta,medium_fanta,large_fanta;
+int small_cola,medium_cola,large_cola;</declaration>
+		<location id="id4" x="246" y="-153">
 		</location>
-		<location id="id6" x="-102" y="127">
-			<name x="-112" y="93">a5</name>
+		<location id="id5" x="144" y="-153">
 		</location>
-		<location id="id7" x="119" y="42">
-			<name x="109" y="8">a4</name>
+		<location id="id6" x="-77" y="-204">
 		</location>
-		<location id="id8" x="-102" y="42">
-			<name x="-112" y="8">a3</name>
+		<location id="id7" x="-77" y="-238">
 		</location>
-		<location id="id9" x="178" y="-51">
-			<name x="168" y="-85">a7</name>
+		<location id="id8" x="-77" y="-272">
 		</location>
-		<location id="id10" x="-221" y="-51">
-			<name x="-231" y="-85">a0</name>
+		<location id="id9" x="-77" y="119">
 		</location>
-		<location id="id11" x="8" y="-136">
-			<name x="-2" y="-170">a1</name>
+		<location id="id10" x="-77" y="69">
 		</location>
-		<location id="id12" x="8" y="-51">
-			<name x="-2" y="-85">a2</name>
+		<location id="id11" x="-77" y="26">
 		</location>
-		<init ref="id10"/>
+		<location id="id12" x="-77" y="-42">
+		</location>
+		<location id="id13" x="-76" y="-102">
+		</location>
+		<location id="id14" x="-76" y="-153">
+		</location>
+		<location id="id15" x="-77" y="-314">
+		</location>
+		<location id="id16" x="-77" y="-356">
+		</location>
+		<location id="id17" x="-77" y="-399">
+		</location>
+		<location id="id18" x="-221" y="-280">
+		</location>
+		<location id="id19" x="-221" y="-204">
+		</location>
+		<location id="id20" x="-221" y="-25">
+		</location>
+		<location id="id21" x="-221" y="-127">
+		</location>
+		<location id="id22" x="-425" y="-127">
+			<name x="-467" y="-161">idle</name>
+		</location>
+		<init ref="id22"/>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id22"/>
+			<label kind="synchronisation" x="-466" y="-459">take_drink?</label>
+			<nail x="246" y="-442"/>
+			<nail x="-484" y="-442"/>
+			<nail x="-484" y="-127"/>
+		</transition>
 		<transition>
 			<source ref="id5"/>
-			<target ref="id9"/>
-			<nail x="178" y="127"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="162" y="-170">pay?</label>
 		</transition>
 		<transition>
-			<source ref="id7"/>
-			<target ref="id9"/>
-			<nail x="178" y="42"/>
-		</transition>
-		<transition>
-			<source ref="id6"/>
-			<target ref="id10"/>
-			<label kind="guard" x="-255" y="76">cola_inventory&lt;=0</label>
-			<label kind="synchronisation" x="-255" y="93">abort!</label>
-			<nail x="-222" y="127"/>
-		</transition>
-		<transition>
-			<source ref="id8"/>
-			<target ref="id10"/>
-			<label kind="guard" x="-144" y="-25">fanta_inventory&lt;=0</label>
-			<label kind="synchronisation" x="-144" y="-42">abort!</label>
-			<nail x="-102" y="-17"/>
+			<source ref="id9"/>
+			<target ref="id5"/>
+			<label kind="assignment" x="-51" y="102">large_cola++,
+cola_inventory--</label>
 		</transition>
 		<transition>
 			<source ref="id10"/>
-			<target ref="id6"/>
-			<label kind="synchronisation" x="-195" y="42">cola?</label>
+			<target ref="id5"/>
+			<label kind="assignment" x="-51" y="51">medium_cola++,
+cola_inventory--</label>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id5"/>
+			<label kind="assignment" x="-51" y="0">small_cola++,
+cola_inventory--</label>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id5"/>
+			<label kind="assignment" x="-43" y="-59">large_fanta++,
+fanta_inventory--</label>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id5"/>
+			<label kind="assignment" x="-43" y="-101">medium_fanta++,
+fanta_inventory--</label>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id5"/>
+			<label kind="assignment" x="-43" y="-144">small_fanta++,
+fanta_inventory--</label>
 		</transition>
 		<transition>
 			<source ref="id6"/>
 			<target ref="id5"/>
-			<label kind="guard" x="-85" y="110">cola_inventory&gt;0</label>
-			<label kind="assignment" x="-84" y="127">cola_inventory:=cola_inventory-1</label>
+			<label kind="assignment" x="-17" y="-204">large_tea++</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id5"/>
+			<label kind="assignment" x="-17" y="-238">medium_tea++</label>
 		</transition>
 		<transition>
 			<source ref="id8"/>
-			<target ref="id7"/>
-			<label kind="guard" x="-85" y="25">fanta_inventory&gt;0</label>
-			<label kind="assignment" x="-84" y="46">fanta_inventory:=fanta_inventory-1</label>
+			<target ref="id5"/>
+			<label kind="assignment" x="-17" y="-272">small_tea++</label>
 		</transition>
 		<transition>
-			<source ref="id10"/>
-			<target ref="id8"/>
-			<label kind="synchronisation" x="-178" y="-8">fanta?</label>
+			<source ref="id15"/>
+			<target ref="id5"/>
+			<label kind="assignment" x="-26" y="-348">large_coffee++</label>
 		</transition>
 		<transition>
-			<source ref="id9"/>
+			<source ref="id16"/>
+			<target ref="id5"/>
+			<label kind="assignment" x="-26" y="-369">medium_coffee++</label>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id5"/>
+			<label kind="assignment" x="-26" y="-391">small_coffee++</label>
+		</transition>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id22"/>
+			<label kind="synchronisation" x="-407" y="17">not_available!</label>
+			<nail x="-221" y="34"/>
+			<nail x="-425" y="34"/>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id22"/>
+			<label kind="synchronisation" x="-408" y="-85">not_available!</label>
+			<nail x="-221" y="-68"/>
+			<nail x="-425" y="-68"/>
+		</transition>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id9"/>
+			<label kind="guard" x="-238" y="68">cola_inventory&gt;0</label>
+			<label kind="synchronisation" x="-162" y="85">large?</label>
+		</transition>
+		<transition>
+			<source ref="id20"/>
 			<target ref="id10"/>
-			<label kind="assignment" x="196" y="-51">output:=output+1</label>
-			<nail x="263" y="-51"/>
-			<nail x="263" y="170"/>
-			<nail x="-272" y="170"/>
-			<nail x="-272" y="-51"/>
+			<label kind="guard" x="-170" y="17">cola_inventory&gt;0</label>
+			<label kind="synchronisation" x="-170" y="34">medium?</label>
 		</transition>
 		<transition>
-			<source ref="id12"/>
-			<target ref="id9"/>
-		</transition>
-		<transition>
-			<source ref="id11"/>
-			<target ref="id9"/>
-			<nail x="178" y="-136"/>
-		</transition>
-		<transition>
-			<source ref="id10"/>
-			<target ref="id12"/>
-			<label kind="synchronisation" x="-127" y="-68">coffee?</label>
-		</transition>
-		<transition>
-			<source ref="id10"/>
+			<source ref="id20"/>
 			<target ref="id11"/>
-			<label kind="synchronisation" x="-119" y="-153">tea?</label>
-			<nail x="-221" y="-136"/>
+			<label kind="guard" x="-170" y="-42">cola_inventory&gt;0</label>
+			<label kind="synchronisation" x="-170" y="-25">small?</label>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id12"/>
+			<label kind="guard" x="-162" y="-102">fanta_inventory&gt;0</label>
+			<label kind="synchronisation" x="-162" y="-85">large?</label>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id13"/>
+			<label kind="guard" x="-162" y="-144">fanta_inventory&gt;0</label>
+			<label kind="synchronisation" x="-162" y="-127">medium?</label>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id14"/>
+			<label kind="guard" x="-162" y="-178">fanta_inventory&gt;0</label>
+			<label kind="synchronisation" x="-162" y="-161">small?</label>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-161" y="-221">large?</label>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-161" y="-238">medium?</label>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="-161" y="-255">small?</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id15"/>
+			<label kind="synchronisation" x="-161" y="-314">large?</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id16"/>
+			<label kind="synchronisation" x="-161" y="-335">medium?</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id17"/>
+			<label kind="synchronisation" x="-161" y="-356">small?</label>
+		</transition>
+		<transition>
+			<source ref="id22"/>
+			<target ref="id18"/>
+			<label kind="synchronisation" x="-407" y="-297">coffee?</label>
+			<nail x="-425" y="-280"/>
+		</transition>
+		<transition>
+			<source ref="id22"/>
+			<target ref="id19"/>
+			<label kind="synchronisation" x="-382" y="-221">tea?</label>
+			<nail x="-425" y="-204"/>
+		</transition>
+		<transition>
+			<source ref="id22"/>
+			<target ref="id20"/>
+			<label kind="synchronisation" x="-407" y="-42">cola?</label>
+			<nail x="-425" y="-25"/>
+		</transition>
+		<transition>
+			<source ref="id22"/>
+			<target ref="id21"/>
+			<label kind="synchronisation" x="-382" y="-144">fanta?</label>
 		</transition>
 	</template>
 	<system>// Place template instantiations here.
@@ -209,5 +326,38 @@ automaton = Automaton();
 system customer_1,customer_2,automaton;
     </system>
 	<queries>
+		<query>
+			<formula>A[] not ((customer_1.c1 or customer_1.c2 or customer_1.c3 or customer_1.c4) and (customer_2.c1 or customer_2.c2 or customer_2.c3 or customer_2.c4))
+			</formula>
+			<comment>Es warten niemals beide Kunden zugleich auf ein Getränk
+			</comment>
+		</query>
+		<query>
+			<formula>A[] (automaton.cola_inventory == 0 imply not(customer_1.c4 or customer_2.c4)) or (automaton.fanta_inventory == 0 imply not(customer_1.c3 or customer_2.c3))
+			</formula>
+			<comment>Wenn der Vorrat eines Getränks leer ist, kann das Getränk auch nicht mehr bestellt werden
+			</comment>
+		</query>
+		<query>
+			<formula>A[] (customer_1.c0 imply customer_1.c0)  and (customer_2.c0 imply customer_2.c0) and (automaton.a0 imply automaton.a0)
+			</formula>
+			<comment>Das System ist deadlockfrei:
+Für alle Pfade und alle Zustände gibt es immer einen Nachfolgezustand
+
+Die aktuelle Lösung enthält eine Endlosschleife
+			</comment>
+		</query>
+		<query>
+			<formula>A[] ((customer_1.c1 or customer_1.c2 or customer_1.c3 or customer_1.c4) imply (customer_1.c0 and customer_1.received &gt; 0)) and ((customer_2.c1 or customer_2.c2 or customer_2.c3 or customer_2.c4) imply (customer_2.c0 and customer_2.received &gt; 0))
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>A[] not deadlock
+			</formula>
+			<comment>
+			</comment>
+		</query>
 	</queries>
 </nta>

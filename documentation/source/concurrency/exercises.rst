@@ -308,21 +308,24 @@ Problem 3.2 Automatenentwurf
 3.2.1 - 3.2.3 UPPAAL Konstruktion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Declarations:
+Global Declarations:
 
 .. code-block:: c
 
     chan coffee,tea,cola,fanta;
-    chan abort;
-    int output;
+    chan small,medium,large;
+    chan pay,take_drink,not_available;
 
-Template *Customer*:
+Automaton Declarations:
 
-.. image:: solutions/uppaal/blatt_3.2.1.customer.png
+.. code-block:: c
 
-Template *Automaton*:
-
-.. image:: solutions/uppaal/blatt_3.2.1.automaton.png
+    int cola_inventory = 2;
+    int fanta_inventory = 2;
+    int small_tea,medium_tea,large_tea;
+    int small_coffee,medium_coffee,large_coffee;
+    int small_fanta,medium_fanta,large_fanta;
+    int small_cola,medium_cola,large_cola;
 
 System declarations:
 
@@ -333,6 +336,16 @@ System declarations:
     automaton = Automaton();
     // List one or more processes to be composed into a system.
     system customer_1,customer_2,automaton;
+
+Template *Customer*:
+
+.. image:: solutions/uppaal/blatt_3.2.1.customer.png
+
+Template *Automaton*:
+
+.. image:: solutions/uppaal/blatt_3.2.1.automaton.png
+
+Download: `Getränkeautomat 3.2 <../_static/uppaal_models/blatt_3.2.xml>`_
 
 3.2.4 Anzahl der Zustände
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -547,3 +560,26 @@ Verifier
 .. image:: solutions/uppaal/zusatzblatt_2_2.2.2.verifier.png
 
 Download: `UPPAAL Modell Zusatzaufgabe 2.2.2 <../_static/uppaal_models/zusatzblatt_2_2.2.2.xml>`_
+
+Problem 2.3 CTL in UPPAAL
+-------------------------
+
+**Es warten niemals beide Kunden zugleich auf ein Getränk**:
+``A[] not ((customer_1.c1 or customer_1.c2 or customer_1.c3 or customer_1.c4) and (customer_2.c1 or customer_2.c2 or customer_2.c3 or customer_2.c4))``
+
+**Wenn der Vorrat eines Getränks leer ist, kann das Getränk auch nicht mehr bestellt werden**:
+``A[] (automaton.cola_inventory == 0 imply not(customer_1.c4 or customer_2.c4) or automaton.fanta_inventory == 0 imply not(customer_1.c3 or customer_2.c3))``
+
+**Das System ist deadlockfrei**:
+Hier liegt ein rekursives Problem vor. Die Grundidee ist, dass auf jeden Zustand ein Folgezustand folgen muss. Eine Instanz muss also von einem Startzustand immer wieder in Ihrem Startzustand landen. Dieser Vorgang darf nicht unterbrochen werden. Das stellt grundsätzlich ein Problem dar, sobald irgendwann Bedingungen nicht mehr zutreffen, die vielleicht in drei Durchläufen noch zutrafen. Sobald eine Abfrage dieser Art in UPPAAL ausgeführt wird ist das System in einer Endlosrekursion gefangen.
+
+In CTL gibt es eine generelle Abfrage, die nichts desto trotz Deadlockfreiheit garantiert:
+:math:`\forall \square \exists X true` (``A[] E<> true`` <=> ``AG EX true``)
+
+**UPPAAL**: ``A[] not deadlock``
+
+*Für jeden Status der erreicht werden kann, gibt es einen Folgezustand der erreicht werden kann.*
+
+`Deadlock-freeness (Systems and Software Verification - B.Berard) <http://link.springer.com/chapter/10.1007/978-3-662-04558-9_9#page-1>`_
+
+**Wenn ein Kunde eine Bestellung aufgegeben hat erhält er auch ein Getränk**:
