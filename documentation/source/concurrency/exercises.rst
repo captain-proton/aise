@@ -526,28 +526,35 @@ Message Sequence Chart
 
 .. image:: solutions/uppaal/zusatzblatt_2_2.1.msc.png
 
+Alternative
+^^^^^^^^^^^
+
+Für jeden Automaten kann ein einzelnes Medium modeliert werden, dass die Nachricht(en) an den anderen Automaten als Buffer darstellt. Für den genannten Fall wäre dass ein Automat A1->A2 und ein Automat A2->A1. Optional kann in einem Zähler die Anzahl der Zeichen im Buffer speichern, um z.B. einen Überlauf erkennen zu können.
+
 Problem 2.2 CTL
 ---------------
 
 2.2.1.Z
 ^^^^^^^
 
-+--------------------------------------------------------+-----------------------------------------------------------+------------+
-| Aussage                                                | Umgangssprache                                            | trifft zu? |
-+========================================================+===========================================================+============+
-| ``E[] not k`` ( :math:`\exists \square \neg k` )       | Es existiert ein Pfad in dem ``k`` nicht gilt             | X          |
-+--------------------------------------------------------+-----------------------------------------------------------+------------+
-| ``A<> k`` ( :math:`\forall \lozenge k` )               | In allen Pfaden tritt irgendwann ``k`` zu                 |            |
-+--------------------------------------------------------+-----------------------------------------------------------+------------+
-| ``E<> k and m`` ( :math:`\exists \lozenge k \wedge m`) | Es existiert ein Pfad in dem irgendwann k und m zutreffen | X          |
-+--------------------------------------------------------+-----------------------------------------------------------+------------+
-| ``k -> k`` ( :math:`k \rightarrow k` )                 | Auf k folgt irgendwann k                                  |            |
-+--------------------------------------------------------+-----------------------------------------------------------+------------+
-| ``m -> not k`` ( :math:`m \rightarrow \neg k` )        | Auf m folgt nicht k                                       |            |
-+--------------------------------------------------------+-----------------------------------------------------------+------------+
++--------------------------------------------------------+-----------------------------------------------------------+----------------+
+| Aussage                                                | Umgangssprache                                            | trifft zu?     |
++========================================================+===========================================================+================+
+| ``E[] not k`` ( :math:`\exists \square \neg k` )       | Es existiert ein Pfad in dem ``k`` nicht gilt             | X              |
++--------------------------------------------------------+-----------------------------------------------------------+----------------+
+| ``A<> k`` ( :math:`\forall \lozenge k` )               | In allen Pfaden tritt irgendwann ``k`` zu                 |                |
++--------------------------------------------------------+-----------------------------------------------------------+----------------+
+| ``E<> k and m`` ( :math:`\exists \lozenge k \wedge m`) | Es existiert ein Pfad in dem irgendwann k und m zutreffen | X              |
++--------------------------------------------------------+-----------------------------------------------------------+----------------+
+| ``k -> k`` ( :math:`k \rightarrow k` )                 | Auf k folgt irgendwann k                                  | X (Tautologie) |
++--------------------------------------------------------+-----------------------------------------------------------+----------------+
+| ``m -> not k`` ( :math:`m \rightarrow \neg k` )        | Auf m folgt nicht k                                       |                |
++--------------------------------------------------------+-----------------------------------------------------------+----------------+
 
 2.2.2.Z
 ^^^^^^^
+
+Anmerkung: Das hier dargestellte Template liefert nicht die Ergebnisse, die sich nach händischer Überprüfung ergeben. Die Musterlösung ist als korrekt anzusehen.
 
 Template
 """"""""
@@ -561,14 +568,34 @@ Verifier
 
 Download: `UPPAAL Modell Zusatzaufgabe 2.2.2 <../_static/uppaal_models/zusatzblatt_2_2.2.2.xml>`_
 
+Musterlösung
+""""""""""""
+
+Der Baum ist unendlich tief zu betrachten. Daher ergeben sich folgende Schlüsse:
+
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+| Aussage                                                | Umgangssprache                                            | trifft zu? |
++========================================================+===========================================================+============+
+| ``E[] not k`` ( :math:`\exists \square \neg k` )       | Es existiert ein Pfad in dem ``k`` nicht gilt             |            |
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+| ``A<> k`` ( :math:`\forall \lozenge k` )               | In allen Pfaden tritt irgendwann ``k`` zu                 | X          |
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+| ``E<> k and m`` ( :math:`\exists \lozenge k \wedge m`) | Es existiert ein Pfad in dem irgendwann k und m zutreffen | X          |
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+| ``k -> k`` ( :math:`k \rightarrow k` )                 | Auf k folgt irgendwann k                                  | X          |
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+| ``m -> not k`` ( :math:`m \rightarrow \neg k` )        | Auf m folgt nicht k                                       |            |
++--------------------------------------------------------+-----------------------------------------------------------+------------+
+
+
 Problem 2.3 CTL in UPPAAL
 -------------------------
 
 **Es warten niemals beide Kunden zugleich auf ein Getränk**:
-``A[] not ((customer_1.c1 or customer_1.c2 or customer_1.c3 or customer_1.c4) and (customer_2.c1 or customer_2.c2 or customer_2.c3 or customer_2.c4))``
+``A[] not (customer_1.size_chosen and customer_2.size_chosen)``
 
 **Wenn der Vorrat eines Getränks leer ist, kann das Getränk auch nicht mehr bestellt werden**:
-``A[] (automaton.cola_inventory == 0 imply not(customer_1.c4 or customer_2.c4) or automaton.fanta_inventory == 0 imply not(customer_1.c3 or customer_2.c3))``
+``A<> automaton.cola_inventory == 0 imply (not automaton.s_cola and not automaton.m_cola and not automaton.l_cola)``
 
 **Das System ist deadlockfrei**:
 Hier liegt ein rekursives Problem vor. Die Grundidee ist, dass auf jeden Zustand ein Folgezustand folgen muss. Eine Instanz muss also von einem Startzustand immer wieder in Ihrem Startzustand landen. Dieser Vorgang darf nicht unterbrochen werden. Das stellt grundsätzlich ein Problem dar, sobald irgendwann Bedingungen nicht mehr zutreffen, die vielleicht in drei Durchläufen noch zutrafen. Sobald eine Abfrage dieser Art in UPPAAL ausgeführt wird ist das System in einer Endlosrekursion gefangen.
@@ -583,3 +610,44 @@ In CTL gibt es eine generelle Abfrage, die nichts desto trotz Deadlockfreiheit g
 `Deadlock-freeness (Systems and Software Verification - B.Berard) <http://link.springer.com/chapter/10.1007/978-3-662-04558-9_9#page-1>`_
 
 **Wenn ein Kunde eine Bestellung aufgegeben hat erhält er auch ein Getränk**:
+``E<> customer_1.size_chosen imply customer_1.has_drink``
+
+
+Problem 2.4 CTL - verschachtelte Ausdrücke
+------------------------------------------
+
+Die Idee zur Lösung ist die geschachtelten Ausdrücke von innen nach außen (*Bottom Up strategy*) zu untersuchen. Man nimmt den kleinsten Ausdruck und untersucht den gesamten Graph/Baum danach. Für alle Fälle die zutreffen untersucht man den nächst *höheren* Ausdruck bis zur Wurzel.
+
+2.4.1.Z
+^^^^^^^
+
++--------------------+--------------+-----------------------------------------------------------------+
+| Ausdruck           | Substitution | Umgangssprache                                                  |
++====================+==============+=================================================================+
+| ``not k or not m`` | ``p``        | Es gelten nicht k und m zusammen (``not (k and m)``)            |
++--------------------+--------------+-----------------------------------------------------------------+
+| ``E<> p``          | ``q``        | Es existiert ein Pfad in dem p gilt (also nicht k oder nicht m) |
++--------------------+--------------+-----------------------------------------------------------------+
+| ``A<> q``          |              | Für alle Pfade gilt irgendwann q                                |
++--------------------+--------------+-----------------------------------------------------------------+
+
+:math:`\forall \lozenge \exists \lozenge \neg k \vee \neg m` (``A<> E<> not k or not m``)
+
+.. image:: solutions/yed/Zusatzblatt_2_Aufgabe_2.4.1.png
+
+2.4.2.Z
+^^^^^^^
+
++--------------------+--------------+---------------------------------------------------------------------+
+| Ausdruck           | Substitution | Umgangssprache                                                      |
++====================+==============+=====================================================================+
+| ``not k or not m`` | ``p``        | Es gelten nicht k und m zusammen (``not (k and m)``)                |
++--------------------+--------------+---------------------------------------------------------------------+
+| ``A<> p``          | ``q``        | Auf allen Pfaden existiert irgendwann p (also nicht k oder nicht m) |
++--------------------+--------------+---------------------------------------------------------------------+
+| ``E[] q``          |              | Für mindestens einen Pfad gilt immer q                              |
++--------------------+--------------+---------------------------------------------------------------------+
+
+:math:`\exists \square \forall \lozenge \neg k \vee \neg m` (``E[] A<> not k or not m``)
+
+.. image:: solutions/yed/Zusatzblatt_2_Aufgabe_2.4.2.png

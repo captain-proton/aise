@@ -6,11 +6,11 @@ bool k,m;</declaration>
 	<template>
 		<name x="5" y="5">Template</name>
 		<declaration>// Place local declarations here.</declaration>
-		<location id="id0" x="76" y="-17">
+		<location id="id0" x="170" y="-17">
 		</location>
-		<location id="id1" x="76" y="68">
+		<location id="id1" x="170" y="127">
 		</location>
-		<location id="id2" x="0" y="119">
+		<location id="id2" x="0" y="204">
 		</location>
 		<location id="id3" x="0" y="-68">
 		</location>
@@ -20,41 +20,46 @@ bool k,m;</declaration>
 		<transition>
 			<source ref="id0"/>
 			<target ref="id0"/>
-			<label kind="assignment" x="68" y="-102">k=true,
+			<label kind="assignment" x="162" y="-102">k=true,
 m=true</label>
-			<nail x="42" y="-68"/>
-			<nail x="102" y="-68"/>
+			<nail x="136" y="-68"/>
+			<nail x="196" y="-68"/>
 		</transition>
 		<transition>
 			<source ref="id1"/>
 			<target ref="id0"/>
-			<label kind="assignment" x="85" y="25">k=true,
+			<label kind="assignment" x="178" y="25">k=true,
 m=true</label>
 		</transition>
 		<transition>
 			<source ref="id1"/>
 			<target ref="id4"/>
+			<label kind="assignment" x="59" y="42">m=false,
+k=false</label>
 		</transition>
 		<transition>
 			<source ref="id2"/>
 			<target ref="id1"/>
-			<label kind="assignment" x="42" y="93">k=true,
+			<label kind="assignment" x="68" y="170">k=true,
 m=true</label>
 		</transition>
 		<transition>
 			<source ref="id4"/>
 			<target ref="id2"/>
-			<label kind="assignment" x="-85" y="68">m=true</label>
+			<label kind="assignment" x="-102" y="102">m=true,
+k=false</label>
 		</transition>
 		<transition>
 			<source ref="id3"/>
 			<target ref="id2"/>
-			<label kind="assignment" x="8" y="8">m=true</label>
+			<label kind="assignment" x="8" y="-34">m=true,
+k=false</label>
 		</transition>
 		<transition>
 			<source ref="id4"/>
 			<target ref="id3"/>
-			<label kind="assignment" x="-76" y="-51">k=true</label>
+			<label kind="assignment" x="-76" y="-51">k=true,
+m=false</label>
 		</transition>
 	</template>
 	<system>// Place template instantiations here.

@@ -9,6 +9,7 @@ chan pay,take_drink,not_available;</declaration>
 		<name x="5" y="5">Customer</name>
 		<declaration>// Place local declarations here.</declaration>
 		<location id="id0" x="289" y="-76">
+			<name x="279" y="-110">has_drink</name>
 		</location>
 		<location id="id1" x="178" y="-76">
 			<name x="168" y="-110">size_chosen</name>
@@ -95,33 +96,39 @@ int small_tea,medium_tea,large_tea;
 int small_coffee,medium_coffee,large_coffee;
 int small_fanta,medium_fanta,large_fanta;
 int small_cola,medium_cola,large_cola;</declaration>
-		<location id="id4" x="246" y="-153">
+		<location id="id4" x="323" y="-144">
 		</location>
-		<location id="id5" x="144" y="-153">
+		<location id="id5" x="221" y="-144">
 		</location>
-		<location id="id6" x="-77" y="-204">
+		<location id="id6" x="0" y="-195">
 		</location>
-		<location id="id7" x="-77" y="-238">
+		<location id="id7" x="0" y="-229">
 		</location>
-		<location id="id8" x="-77" y="-272">
+		<location id="id8" x="0" y="-263">
 		</location>
-		<location id="id9" x="-77" y="119">
+		<location id="id9" x="0" y="128">
+			<name x="-34" y="93">l_cola</name>
 		</location>
-		<location id="id10" x="-77" y="69">
+		<location id="id10" x="0" y="78">
+			<name x="-51" y="42">m_cola</name>
 		</location>
-		<location id="id11" x="-77" y="26">
+		<location id="id11" x="0" y="35">
+			<name x="-42" y="0">s_cola</name>
 		</location>
-		<location id="id12" x="-77" y="-42">
+		<location id="id12" x="0" y="-33">
+			<name x="-42" y="-68">l_fanta</name>
 		</location>
-		<location id="id13" x="-76" y="-102">
+		<location id="id13" x="1" y="-93">
+			<name x="-34" y="-127">m_fanta</name>
 		</location>
-		<location id="id14" x="-76" y="-153">
+		<location id="id14" x="1" y="-144">
+			<name x="-25" y="-178">s_fanta</name>
 		</location>
-		<location id="id15" x="-77" y="-314">
+		<location id="id15" x="0" y="-305">
 		</location>
-		<location id="id16" x="-77" y="-356">
+		<location id="id16" x="0" y="-347">
 		</location>
-		<location id="id17" x="-77" y="-399">
+		<location id="id17" x="0" y="-390">
 		</location>
 		<location id="id18" x="-221" y="-280">
 		</location>
@@ -139,80 +146,80 @@ int small_cola,medium_cola,large_cola;</declaration>
 			<source ref="id4"/>
 			<target ref="id22"/>
 			<label kind="synchronisation" x="-466" y="-459">take_drink?</label>
-			<nail x="246" y="-442"/>
+			<nail x="323" y="-442"/>
 			<nail x="-484" y="-442"/>
 			<nail x="-484" y="-127"/>
 		</transition>
 		<transition>
 			<source ref="id5"/>
 			<target ref="id4"/>
-			<label kind="synchronisation" x="162" y="-170">pay?</label>
+			<label kind="synchronisation" x="239" y="-161">pay?</label>
 		</transition>
 		<transition>
 			<source ref="id9"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-51" y="102">large_cola++,
+			<label kind="assignment" x="25" y="102">large_cola++,
 cola_inventory--</label>
 		</transition>
 		<transition>
 			<source ref="id10"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-51" y="51">medium_cola++,
+			<label kind="assignment" x="25" y="51">medium_cola++,
 cola_inventory--</label>
 		</transition>
 		<transition>
 			<source ref="id11"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-51" y="0">small_cola++,
+			<label kind="assignment" x="25" y="0">small_cola++,
 cola_inventory--</label>
 		</transition>
 		<transition>
 			<source ref="id12"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-43" y="-59">large_fanta++,
+			<label kind="assignment" x="34" y="-68">large_fanta++,
 fanta_inventory--</label>
 		</transition>
 		<transition>
 			<source ref="id13"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-43" y="-101">medium_fanta++,
+			<label kind="assignment" x="34" y="-110">medium_fanta++,
 fanta_inventory--</label>
 		</transition>
 		<transition>
 			<source ref="id14"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-43" y="-144">small_fanta++,
+			<label kind="assignment" x="34" y="-153">small_fanta++,
 fanta_inventory--</label>
 		</transition>
 		<transition>
 			<source ref="id6"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-17" y="-204">large_tea++</label>
+			<label kind="assignment" x="60" y="-195">large_tea++</label>
 		</transition>
 		<transition>
 			<source ref="id7"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-17" y="-238">medium_tea++</label>
+			<label kind="assignment" x="60" y="-229">medium_tea++</label>
 		</transition>
 		<transition>
 			<source ref="id8"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-17" y="-272">small_tea++</label>
+			<label kind="assignment" x="60" y="-263">small_tea++</label>
 		</transition>
 		<transition>
 			<source ref="id15"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-26" y="-348">large_coffee++</label>
+			<label kind="assignment" x="51" y="-339">large_coffee++</label>
 		</transition>
 		<transition>
 			<source ref="id16"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-26" y="-369">medium_coffee++</label>
+			<label kind="assignment" x="51" y="-360">medium_coffee++</label>
 		</transition>
 		<transition>
 			<source ref="id17"/>
 			<target ref="id5"/>
-			<label kind="assignment" x="-26" y="-391">small_coffee++</label>
+			<label kind="assignment" x="51" y="-382">small_coffee++</label>
 		</transition>
 		<transition>
 			<source ref="id20"/>
@@ -231,8 +238,8 @@ fanta_inventory--</label>
 		<transition>
 			<source ref="id20"/>
 			<target ref="id9"/>
-			<label kind="guard" x="-238" y="68">cola_inventory&gt;0</label>
-			<label kind="synchronisation" x="-162" y="85">large?</label>
+			<label kind="guard" x="-170" y="68">cola_inventory&gt;0</label>
+			<label kind="synchronisation" x="-170" y="85">large?</label>
 		</transition>
 		<transition>
 			<source ref="id20"/>
@@ -327,28 +334,19 @@ system customer_1,customer_2,automaton;
     </system>
 	<queries>
 		<query>
-			<formula>A[] not ((customer_1.c1 or customer_1.c2 or customer_1.c3 or customer_1.c4) and (customer_2.c1 or customer_2.c2 or customer_2.c3 or customer_2.c4))
+			<formula>A[] not (customer_1.size_chosen and customer_2.size_chosen)
 			</formula>
 			<comment>Es warten niemals beide Kunden zugleich auf ein Getränk
 			</comment>
 		</query>
 		<query>
-			<formula>A[] (automaton.cola_inventory == 0 imply not(customer_1.c4 or customer_2.c4)) or (automaton.fanta_inventory == 0 imply not(customer_1.c3 or customer_2.c3))
+			<formula>A&lt;&gt; automaton.cola_inventory == 0 imply (not automaton.s_cola and not automaton.m_cola and not automaton.l_cola)
 			</formula>
 			<comment>Wenn der Vorrat eines Getränks leer ist, kann das Getränk auch nicht mehr bestellt werden
 			</comment>
 		</query>
 		<query>
-			<formula>A[] (customer_1.c0 imply customer_1.c0)  and (customer_2.c0 imply customer_2.c0) and (automaton.a0 imply automaton.a0)
-			</formula>
-			<comment>Das System ist deadlockfrei:
-Für alle Pfade und alle Zustände gibt es immer einen Nachfolgezustand
-
-Die aktuelle Lösung enthält eine Endlosschleife
-			</comment>
-		</query>
-		<query>
-			<formula>A[] ((customer_1.c1 or customer_1.c2 or customer_1.c3 or customer_1.c4) imply (customer_1.c0 and customer_1.received &gt; 0)) and ((customer_2.c1 or customer_2.c2 or customer_2.c3 or customer_2.c4) imply (customer_2.c0 and customer_2.received &gt; 0))
+			<formula>E&lt;&gt; customer_1.size_chosen imply customer_1.has_drink
 			</formula>
 			<comment>
 			</comment>
@@ -356,7 +354,7 @@ Die aktuelle Lösung enthält eine Endlosschleife
 		<query>
 			<formula>A[] not deadlock
 			</formula>
-			<comment>
+			<comment>Das System ist deadlockfrei
 			</comment>
 		</query>
 	</queries>
