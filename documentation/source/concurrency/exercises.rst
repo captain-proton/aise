@@ -70,8 +70,12 @@ erfolgen wodurch unterschiedliche Zustandsfolgen erreicht werden.
 1.2.2
 ^^^^^
 
-Nach Eingabe der Zeichenfolge a,b,a,b befindet sich Automat A2 im Zustand 2 und kann nur noch durch die Eingabe von b wieder in den Zustand 0 überführt werden.
-Hier wird ein Deadlock erreicht, da von A2 zunächst die Verarbeitung von b? erwartet wird.
+Nach Eingabe der Zeichenfolge a,b,a,b befindet sich Automat A2 im Zustand 2 und kann nur noch durch die Eingabe von b wieder in den Zustand 0 überführt werden. Hier tritt ein unerwarteter Empfang auf, da A2 im Zustand 2 ein empfangenes b nicht verarbeiten kann.
+
+1.2.3
+^^^^^
+
+Sobald A1 versucht das zweite ``b`` zu senden könnte A2 den Empfang nicht verarbeiten, es tritt also ein Deadlock auf.
 
 1.3.1
 ^^^^^
