@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan Get_1, Get_2, Get_3, Put_1, Put_2, Put_3;
+clock x;</declaration>
+	<template>
+		<name x="5" y="5">Philo_1</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="0" y="161">
+			<name x="-17" y="178">Eating</name>
+		</location>
+		<location id="id1" x="0" y="76">
+			<name x="17" y="68">HasOneFork</name>
+			<committed/>
+		</location>
+		<location id="id2" x="0" y="0">
+			<name x="-10" y="-34">Thinking</name>
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-102" y="34">Put_1!</label>
+			<nail x="-59" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-102" y="110">Put_3!</label>
+			<label kind="assignment" x="-102" y="127">x=0</label>
+			<nail x="-59" y="119"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="59" y="119">Get_3!</label>
+			<nail x="59" y="127"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="guard" x="59" y="8">x&gt;4 &amp;&amp; x&lt;5</label>
+			<label kind="synchronisation" x="59" y="34">Get_1!</label>
+			<nail x="59" y="42"/>
+		</transition>
+	</template>
+	<template>
+		<name>Philo_2</name>
+		<location id="id3" x="0" y="76">
+			<name x="17" y="68">HasOneFork</name>
+			<committed/>
+		</location>
+		<location id="id4" x="0" y="0">
+			<name x="-10" y="-34">Thinking</name>
+		</location>
+		<location id="id5" x="0" y="161">
+			<name x="-17" y="178">Eating</name>
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-102" y="34">Put_2!</label>
+			<nail x="-59" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-102" y="110">Put_1!</label>
+			<label kind="assignment" x="-102" y="127">x=0</label>
+			<nail x="-59" y="119"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="59" y="119">Get_1!</label>
+			<nail x="59" y="127"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="59" y="8">x&gt;4 &amp;&amp; x&lt;5</label>
+			<label kind="synchronisation" x="59" y="34">Get_2!</label>
+			<nail x="59" y="42"/>
+		</transition>
+	</template>
+	<template>
+		<name>Philo_3</name>
+		<location id="id6" x="0" y="76">
+			<name x="17" y="68">HasOneFork</name>
+			<committed/>
+		</location>
+		<location id="id7" x="0" y="0">
+			<name x="-10" y="-34">Thinking</name>
+		</location>
+		<location id="id8" x="0" y="161">
+			<name x="-17" y="178">Eating</name>
+		</location>
+		<init ref="id7"/>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-102" y="34">Put_3!</label>
+			<nail x="-59" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-102" y="110">Put_2!</label>
+			<label kind="assignment" x="-102" y="127">x=0</label>
+			<nail x="-59" y="119"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="59" y="119">Get_2!</label>
+			<nail x="59" y="127"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id6"/>
+			<label kind="guard" x="59" y="8">x&gt;4 &amp;&amp; x&lt;5</label>
+			<label kind="synchronisation" x="59" y="34">Get_3!</label>
+			<nail x="59" y="42"/>
+		</transition>
+	</template>
+	<template>
+		<name>Fork_1</name>
+		<location id="id9" x="0" y="85">
+			<name x="-17" y="102">InUse</name>
+		</location>
+		<location id="id10" x="0" y="0">
+			<name x="-10" y="-34">Free</name>
+		</location>
+		<init ref="id10"/>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="-102" y="34">Put_1?</label>
+			<nail x="-59" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id9"/>
+			<label kind="synchronisation" x="59" y="34">Get_1?</label>
+			<nail x="59" y="42"/>
+		</transition>
+	</template>
+	<template>
+		<name>Fork_2</name>
+		<location id="id11" x="0" y="85">
+			<name x="-17" y="102">InUse</name>
+		</location>
+		<location id="id12" x="0" y="0">
+			<name x="-10" y="-34">Free</name>
+		</location>
+		<init ref="id12"/>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id12"/>
+			<label kind="synchronisation" x="-102" y="34">Put_2?</label>
+			<nail x="-59" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id11"/>
+			<label kind="synchronisation" x="59" y="34">Get_2?</label>
+			<nail x="59" y="42"/>
+		</transition>
+	</template>
+	<template>
+		<name>Fork_3</name>
+		<location id="id13" x="0" y="85">
+			<name x="-17" y="102">InUse</name>
+		</location>
+		<location id="id14" x="0" y="0">
+			<name x="-10" y="-34">Free</name>
+		</location>
+		<init ref="id14"/>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id14"/>
+			<label kind="synchronisation" x="-102" y="34">Put_3?</label>
+			<nail x="-59" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id13"/>
+			<label kind="synchronisation" x="59" y="34">Get_3?</label>
+			<nail x="59" y="42"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+
+// List one or more processes to be composed into a system.
+system Philo_1, Philo_2, Philo_3, Fork_1, Fork_2, Fork_3;
+    </system>
+	<queries>
+		<query>
+			<formula>A[] not deadlock
+			</formula>
+			<comment>
+			</comment>
+		</query>
+	</queries>
+</nta>
