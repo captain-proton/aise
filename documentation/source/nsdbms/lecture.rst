@@ -318,3 +318,45 @@ Folie 45
 ^^^^^^^^
 
 - übersprungen
+
+Folie 56
+^^^^^^^^
+
+- ``EmployeeType`` muss nicht zwingend zusätzliche Methoden implementieren oder überschreiben, sondern wird zur Strukturierung der Tabellen erstellt
+
+    + Bei Views spielt dieser Typ allerdings eine größere Rolle
+    + Bei Sichten werden Untertabellen bei der Betrachtung mit einbezogen
+
+- Siehe auch Folie 57 hierzu
+
+Folie 59
+^^^^^^^^
+
+- Views befinden sich nicht im Sekundärspeicher, sondern nur im Hauptspeicher
+- Eine Sicht muss! einen bestimmten Typ enthalten
+- Der Grund warum ``SYSTEM GENERATED`` nicht erlaubt ist, ist genau geklärt
+- **keine Datenbank setzt den objektrelationalen Standard nach Definition um**
+
+Folie 61
+^^^^^^^^
+
+- in die Statements ist ein wenig Semantik eingefügt
+
+    + mit *Euro(10000)* wird normalerweise lediglich die Spalte angesprochen
+
+- ``ONLY`` betrachtet nur die Wurzel, alle Subtypen werden ausgelassen
+- Wenn eine Einschränkung auf die Spalten erfolgt wird ein neuer Typ erstellt, der zuvor definiert werden muss
+
+    + Die Verwendung von ``SELECT *`` ist hier stark empfohlen
+    + Es darf lediglich genau eine Tabelle adressiert werden! Verbundoperationen (Joins) sind nicht erlaubt
+
+- Eine View kann mit hoher Wahrscheinlichkeit nicht in die bestehende Typhierarchie eingepflegt werden, da eine View in den meisten Fällen nur eine bestimmte Auswahl der Attribute enthält
+
+- ``CARDINALITY`` zählt die Verweise auf die Referenzen
+- Verbundoperationen nur über Referenzen zu realisieren
+- Wenn Verbundoperationen (bei ORM) eingesetzt werden müssen sind Fehler in der Modellierung vorhanden
+
+Folie 64
+^^^^^^^^
+
+- streng genommen findet keine Mengenerweiterung statt, da ausschließlich Einschränkungen vorgenommen werden können
