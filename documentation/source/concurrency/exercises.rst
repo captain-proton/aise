@@ -314,7 +314,7 @@ Global Declarations:
 
     chan coffee,tea,cola,fanta;
     chan small,medium,large;
-    chan pay,take_drink,not_available;
+    chan pay,take_drink;
 
 Automaton Declarations:
 

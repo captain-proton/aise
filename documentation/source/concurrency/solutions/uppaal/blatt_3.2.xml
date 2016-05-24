@@ -4,7 +4,7 @@
 	<declaration>// Place global declarations here.
 chan coffee,tea,cola,fanta;
 chan small,medium,large;
-chan pay,take_drink,not_available;</declaration>
+chan pay,take_drink;</declaration>
 	<template>
 		<name x="5" y="5">Customer</name>
 		<declaration>// Place local declarations here.</declaration>
@@ -32,13 +32,6 @@ chan pay,take_drink,not_available;</declaration>
 			<source ref="id1"/>
 			<target ref="id0"/>
 			<label kind="synchronisation" x="196" y="-93">pay!</label>
-		</transition>
-		<transition>
-			<source ref="id2"/>
-			<target ref="id3"/>
-			<label kind="synchronisation" x="-84" y="8">not_available?</label>
-			<nail x="25" y="25"/>
-			<nail x="-102" y="25"/>
 		</transition>
 		<transition>
 			<source ref="id2"/>
@@ -223,20 +216,6 @@ fanta_inventory--</label>
 		</transition>
 		<transition>
 			<source ref="id20"/>
-			<target ref="id22"/>
-			<label kind="synchronisation" x="-407" y="17">not_available!</label>
-			<nail x="-221" y="34"/>
-			<nail x="-425" y="34"/>
-		</transition>
-		<transition>
-			<source ref="id21"/>
-			<target ref="id22"/>
-			<label kind="synchronisation" x="-408" y="-85">not_available!</label>
-			<nail x="-221" y="-68"/>
-			<nail x="-425" y="-68"/>
-		</transition>
-		<transition>
-			<source ref="id20"/>
 			<target ref="id9"/>
 			<label kind="guard" x="-170" y="68">cola_inventory&gt;0</label>
 			<label kind="synchronisation" x="-170" y="85">large?</label>
@@ -244,31 +223,26 @@ fanta_inventory--</label>
 		<transition>
 			<source ref="id20"/>
 			<target ref="id10"/>
-			<label kind="guard" x="-170" y="17">cola_inventory&gt;0</label>
 			<label kind="synchronisation" x="-170" y="34">medium?</label>
 		</transition>
 		<transition>
 			<source ref="id20"/>
 			<target ref="id11"/>
-			<label kind="guard" x="-170" y="-42">cola_inventory&gt;0</label>
 			<label kind="synchronisation" x="-170" y="-25">small?</label>
 		</transition>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id12"/>
-			<label kind="guard" x="-162" y="-102">fanta_inventory&gt;0</label>
 			<label kind="synchronisation" x="-162" y="-85">large?</label>
 		</transition>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id13"/>
-			<label kind="guard" x="-162" y="-144">fanta_inventory&gt;0</label>
 			<label kind="synchronisation" x="-162" y="-127">medium?</label>
 		</transition>
 		<transition>
 			<source ref="id21"/>
 			<target ref="id14"/>
-			<label kind="guard" x="-162" y="-178">fanta_inventory&gt;0</label>
 			<label kind="synchronisation" x="-162" y="-161">small?</label>
 		</transition>
 		<transition>
@@ -304,25 +278,27 @@ fanta_inventory--</label>
 		<transition>
 			<source ref="id22"/>
 			<target ref="id18"/>
-			<label kind="synchronisation" x="-407" y="-297">coffee?</label>
+			<label kind="synchronisation" x="-399" y="-297">coffee?</label>
 			<nail x="-425" y="-280"/>
 		</transition>
 		<transition>
 			<source ref="id22"/>
 			<target ref="id19"/>
-			<label kind="synchronisation" x="-382" y="-221">tea?</label>
+			<label kind="synchronisation" x="-399" y="-221">tea?</label>
 			<nail x="-425" y="-204"/>
 		</transition>
 		<transition>
 			<source ref="id22"/>
 			<target ref="id20"/>
+			<label kind="guard" x="-407" y="-59">cola_inventory &gt; 0</label>
 			<label kind="synchronisation" x="-407" y="-42">cola?</label>
 			<nail x="-425" y="-25"/>
 		</transition>
 		<transition>
 			<source ref="id22"/>
 			<target ref="id21"/>
-			<label kind="synchronisation" x="-382" y="-144">fanta?</label>
+			<label kind="guard" x="-399" y="-161">fanta_inventory &gt; 0</label>
+			<label kind="synchronisation" x="-399" y="-144">fanta?</label>
 		</transition>
 	</template>
 	<system>// Place template instantiations here.
