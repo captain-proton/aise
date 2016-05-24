@@ -354,14 +354,12 @@ Download: `Getränkeautomat 3.2 <../_static/uppaal_models/blatt_3.2.xml>`_
 3.2.4 Anzahl der Zustände
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Anzahl Zustände Kunde: 5
-- Anzahl Zustände Automat: 8
-- Anzahl Übergänge Kunde: 10
-- Anzahl Übergänge Automat: 13
+- Anzahl Zustände Kunde: 4
+- Anzahl Zustände Automat: 19
+- Anzahl Übergänge Kunde: 9
+- Anzahl Übergänge Automat: 30
 
-Anzahl der Gesamtzustände: 5 \* 8 \* 10 \* 13 = 5200
-Alternative ohne Epsilon: 5 \* 8 \* 10 \* 9 = 3600
-
+Anzahl der Gesamtzustände: 4 \* 19 \* 9 \* 30 = 20520
 
 
 Übungsblatt 4
