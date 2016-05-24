@@ -34,6 +34,7 @@ int[0,10] brightness = 0;</declaration>
 			<name x="100" y="-34">Light</name>
 		</location>
 		<location id="id4" x="-34" y="0">
+			<name x="-44" y="-34">Dark</name>
 		</location>
 		<init ref="id4"/>
 		<transition>
@@ -67,7 +68,6 @@ int[0,10] brightness = 0;</declaration>
 		<transition>
 			<source ref="id2"/>
 			<target ref="id1"/>
-			<label kind="guard" x="280" y="42">last_touch&gt;=1</label>
 			<label kind="synchronisation" x="280" y="59">touch?</label>
 			<label kind="assignment" x="280" y="76">brightness--,
 last_touch=0</label>
