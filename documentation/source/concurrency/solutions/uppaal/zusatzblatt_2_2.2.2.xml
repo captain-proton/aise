@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
 <nta>
-	<declaration>// Place global declarations here.
-bool k,m;</declaration>
+	<declaration>// Place global declarations here.</declaration>
 	<template>
 		<name x="5" y="5">Template</name>
-		<declaration>// Place local declarations here.</declaration>
+		<declaration>// Place local declarations here.
+bool k,m;</declaration>
 		<location id="id0" x="170" y="-17">
 		</location>
 		<location id="id1" x="170" y="127">
@@ -63,37 +63,37 @@ m=false</label>
 		</transition>
 	</template>
 	<system>// Place template instantiations here.
-Process = Template();
+p = Template();
 // List one or more processes to be composed into a system.
-system Process;
+system p;
     </system>
 	<queries>
 		<query>
-			<formula>E[] not k
+			<formula>E[] not p.k
 			</formula>
 			<comment>
 			</comment>
 		</query>
 		<query>
-			<formula>A&lt;&gt; k
+			<formula>A&lt;&gt; p.k
 			</formula>
 			<comment>
 			</comment>
 		</query>
 		<query>
-			<formula>E&lt;&gt; k and m
+			<formula>E&lt;&gt; p.k and p.m
 			</formula>
 			<comment>
 			</comment>
 		</query>
 		<query>
-			<formula>A[] k imply k
+			<formula>A[] p.k imply p.k
 			</formula>
 			<comment>
 			</comment>
 		</query>
 		<query>
-			<formula>A[] m imply not k
+			<formula>A[] p.m imply not p.k
 			</formula>
 			<comment>
 			</comment>

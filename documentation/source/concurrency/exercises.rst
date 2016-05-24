@@ -618,8 +618,26 @@ Problem 2.4 CTL - verschachtelte Ausdrücke
 
 Die Idee zur Lösung ist die geschachtelten Ausdrücke von innen nach außen (*Bottom Up strategy*) zu untersuchen. Man nimmt den kleinsten Ausdruck und untersucht den gesamten Graph/Baum danach. Für alle Fälle die zutreffen untersucht man den nächst *höheren* Ausdruck bis zur Wurzel.
 
+Beispiel
+^^^^^^^^
+
+Auf Seite 20 des `Online Skripts zu CTL <http://www.inf.ed.ac.uk/teaching/courses/propm/papers/CTL.pdf>`_ ist ein Graph zu finden in dem geprüft werden soll ob ein Zustand Element des Ausdrucks ``AF AG x`` bzw. ``A<> A[] x`` ist.
+
+*Umgangssprache*: Auf allen Pfaden gilt irgendwann immer x.
+
+Zur Veranschaulichung ist ausgehend vom gewählten Knoten der Baum erstellt.
+
+**Wichtig**: Hier soll nur ein Zustand im Hinblick auf den Baum betrachtet werden und nicht der komplette Baum zum Graphen! Für die Übungen ist der Normalfall die Prüfung des gesamten Baums!
+
+.. image:: solutions/yed/Beispielgraph_CTL_Verschachtelung.png
+
+Der Ausdruck ``A[] x`` ausgewertet auf den gesamten Baum würde ``false`` ergeben. Es ist allerdings wichtig diesen Ausdruck nur auf den Teil des Baums auszuwerten für den zuvor ``x`` geprüft wurde (daher auch *bottom up*).
+
+
 2.4.1.Z
 ^^^^^^^
+
+*Umgangssprache*: Für alle Pfad gilt irgendwann, dass ein Pfad existiert in dem nicht k oder nicht m gilt.
 
 +--------------------+--------------+-----------------------------------------------------------------+
 | Ausdruck           | Substitution | Umgangssprache                                                  |
@@ -633,10 +651,20 @@ Die Idee zur Lösung ist die geschachtelten Ausdrücke von innen nach außen (*B
 
 :math:`\forall \lozenge \exists \lozenge \neg k \vee \neg m` (``A<> E<> not k or not m``)
 
+Baum = **True**
+"""""""""""""""
+
 .. image:: solutions/yed/Zusatzblatt_2_Aufgabe_2.4.1.png
+
+Graph = **True**
+""""""""""""""""
+
+.. image:: solutions/yed/Zusatzblatt_2_Aufgabe_2.4.1.Graph.png
 
 2.4.2.Z
 ^^^^^^^
+
+*Umgangssprache*: Für einen Pfad gilt immer, dass in allen Pfaden nicht k oder nicht m gilt.
 
 +--------------------+--------------+---------------------------------------------------------------------+
 | Ausdruck           | Substitution | Umgangssprache                                                      |
@@ -650,4 +678,39 @@ Die Idee zur Lösung ist die geschachtelten Ausdrücke von innen nach außen (*B
 
 :math:`\exists \square \forall \lozenge \neg k \vee \neg m` (``E[] A<> not k or not m``)
 
+Baum = **True**
+"""""""""""""""
+
 .. image:: solutions/yed/Zusatzblatt_2_Aufgabe_2.4.2.png
+
+Graph = **False**
+"""""""""""""""""
+
+.. image:: solutions/yed/Zusatzblatt_2_Aufgabe_2.4.2.Graph.png
+
+2.4.3.Z
+^^^^^^^
+
+*Umgangssprache*: Für alle Pfade gilt immer, dass in einem Pfad nicht k oder nicht m gilt.
+
++--------------------+--------------+-----------------------------------------------------------------+
+| Ausdruck           | Substitution | Umgangssprache                                                  |
++====================+==============+=================================================================+
+| ``not k or not m`` | ``p``        | Es gelten nicht k und m zusammen (``not (k and m)``)            |
++--------------------+--------------+-----------------------------------------------------------------+
+| ``E<> p``          | ``q``        | Es existiert ein Pfad in dem p gilt (also nicht k oder nicht m) |
++--------------------+--------------+-----------------------------------------------------------------+
+| ``A[] q``          |              | Für alle Pfade und alle Knoten gilt immer q                     |
++--------------------+--------------+-----------------------------------------------------------------+
+
+:math:`\forall \square \exists \lozenge \neg k \vee \neg m` (``A[] E<> not k or not m``)
+
+Baum = **False**
+""""""""""""""""
+
+.. image:: solutions/yed/Zusatzblatt_2_Aufgabe_2.4.3.png
+
+Graph = **False**
+"""""""""""""""""
+
+.. image:: solutions/yed/Zusatzblatt_2_Aufgabe_2.4.3.Graph.png
