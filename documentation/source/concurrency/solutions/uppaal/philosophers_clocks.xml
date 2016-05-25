@@ -200,7 +200,31 @@ system Philo_1, Philo_2, Philo_3, Fork_1, Fork_2, Fork_3;
 		<query>
 			<formula>A[] not deadlock
 			</formula>
+			<comment>Das System ist verhungerungsfrei
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; (Philo_1.HasOneFork and Philo_2.HasOneFork and Philo_3.HasOneFork)
+			</formula>
+			<comment>Es ist möglich, dass alle Philosophen je eine Gabel besitzen
+			</comment>
+		</query>
+		<query>
+			<formula>A[] not (Philo_1.Eating and x&gt;7)
+			</formula>
 			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>A[] Philo_1.Eating imply Philo_2.Thinking
+			</formula>
+			<comment>Wenn Philosoph 1 isst, muss Philosoph 2 denken
+			</comment>
+		</query>
+		<query>
+			<formula>A[] x &lt; 5 imply not deadlock
+			</formula>
+			<comment>Clock &lt; 5 impliziert Deadlockfreiheit
 			</comment>
 		</query>
 	</queries>

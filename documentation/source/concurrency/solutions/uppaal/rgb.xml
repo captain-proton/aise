@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan r,g,b;</declaration>
+	<template>
+		<name x="5" y="5">RGB</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-102" y="102">
+			<name x="-112" y="68">green</name>
+		</location>
+		<location id="id1" x="102" y="102">
+			<name x="92" y="68">blue</name>
+		</location>
+		<location id="id2" x="0" y="0">
+			<name x="-10" y="-34">red</name>
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-84" y="34">r!</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-84" y="-17">g?</label>
+			<nail x="-102" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-84" y="114">b?</label>
+			<nail x="0" y="161"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-84" y="85">g!</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="18" y="-17">r?</label>
+			<nail x="102" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="18" y="34">b!</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+c1 = RGB();
+c2 = RGB();
+c3 = RGB();
+c4 = RGB();
+c5 = RGB();
+// List one or more processes to be composed into a system.
+system c1,c2,c3,c4,c5;
+    </system>
+	<queries>
+		<query>
+			<formula>E&lt;&gt; c1.red and c2.red
+			</formula>
+			<comment>Es ist möglich, dass c1 und c2 beide im Zustand "red" sind
+			</comment>
+		</query>
+		<query>
+			<formula>A[] not(c1.blue and c2.blue and c3.blue and c4.blue and c5.blue)
+			</formula>
+			<comment>Es ist möglich dass alle Instanzen im Zustand blau sind
+			</comment>
+		</query>
+		<query>
+			<formula>A[] c1.green imply (c2.red and c3.blue)
+			</formula>
+			<comment>Wenn c1 im Zustand green ist, dann ist c2 red und c3 blue
+			</comment>
+		</query>
+		<query>
+			<formula>A[] (c1.red and not c2.red) imply deadlock
+			</formula>
+			<comment>c1 ist red und c2 ist nicht red impliziert deadlock
+			</comment>
+		</query>
+	</queries>
+</nta>

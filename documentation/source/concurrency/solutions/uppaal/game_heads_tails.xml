@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+broadcast chan won;
+chan heads, tails, ready;
+clock t;</declaration>
+	<template>
+		<name x="5" y="5">Coin</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="204" y="0">
+			<label kind="invariant" x="204" y="17">t&lt;=1</label>
+		</location>
+		<location id="id1" x="102" y="0">
+		</location>
+		<location id="id2" x="0" y="0">
+			<urgent/>
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="255" y="-17">heads!</label>
+			<label kind="assignment" x="255" y="0">t=0</label>
+			<nail x="255" y="-25"/>
+			<nail x="255" y="25"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="187" y="-93">tails!</label>
+			<label kind="assignment" x="187" y="-76">t=0</label>
+			<nail x="178" y="-59"/>
+			<nail x="229" y="-59"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="18" y="42">won?</label>
+			<nail x="204" y="59"/>
+			<nail x="0" y="59"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="128" y="-17">ready?</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="18" y="-17">ready?</label>
+		</transition>
+	</template>
+	<template>
+		<name>Player1</name>
+		<location id="id3" x="289" y="0">
+		</location>
+		<location id="id4" x="195" y="0">
+		</location>
+		<location id="id5" x="102" y="0">
+		</location>
+		<location id="id6" x="0" y="0">
+		</location>
+		<init ref="id6"/>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="43" y="-51">won?</label>
+			<nail x="102" y="-34"/>
+			<nail x="25" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="18" y="-93">won?</label>
+			<nail x="195" y="-76"/>
+			<nail x="0" y="-76"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="18" y="34">won!</label>
+			<nail x="289" y="51"/>
+			<nail x="0" y="51"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="213" y="-17">heads?</label>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="120" y="-17">heads?</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="18" y="-17">ready!</label>
+		</transition>
+	</template>
+	<template>
+		<name>Player2</name>
+		<location id="id7" x="102" y="0">
+		</location>
+		<location id="id8" x="0" y="0">
+		</location>
+		<location id="id9" x="195" y="0">
+		</location>
+		<location id="id10" x="289" y="0">
+		</location>
+		<init ref="id8"/>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="43" y="-51">won?</label>
+			<nail x="102" y="-34"/>
+			<nail x="25" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="18" y="-93">won?</label>
+			<nail x="195" y="-76"/>
+			<nail x="0" y="-76"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="18" y="34">won!</label>
+			<nail x="289" y="51"/>
+			<nail x="0" y="51"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="213" y="-17">tails?</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id9"/>
+			<label kind="synchronisation" x="120" y="-17">tails?</label>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="18" y="-17">ready!</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+
+// List one or more processes to be composed into a system.
+system Coin, Player1, Player2;
+    </system>
+	<queries>
+	</queries>
+</nta>
