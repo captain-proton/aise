@@ -360,3 +360,114 @@ Folie 64
 ^^^^^^^^
 
 - streng genommen findet keine Mengenerweiterung statt, da ausschließlich Einschränkungen vorgenommen werden können
+
+Folie 69
+^^^^^^^^
+
+Einerseits Schema-Modelleriung andererseits Anfragen auf den Datenbestand. Grundsätzlich gesehen 2 unterschiedliche Aufgaben. Besser wäre eine einheitliche Sprache, was aber so nicht sein muss.
+
+Folie 70
+^^^^^^^^
+
+2 Features, die im Umfeld des Objektrelationalen SQL gekommen sind. Sind aber auch schon in vielen Dialekten vorhanden.
+
+1. Eigene ID generieren wollen -> Identity columns ... man kann angeben, wie man sich das grundsätzlich vorstellt. Start with, increment by ... etc.
+
+Vorteile: Man kann Kriterien angeben bzw. man kann es noch genauer definieren ... bei welchem Wert die generated Id starten soll, welche Schritte dieser gehen soll etc.
+
+2. Man kann Werte aus anderen Spalten kombinieren (wie hier addieren)
+
+Folie 72
+^^^^^^^^
+
+mit only bezieht man sich nur auf das Wurzelelement ... andere werden nicht berücksichtigt
+
+Folie 73
+^^^^^^^^
+
+Some tables. Man kann damit bestimmen, welche Typen von Personen man zurückgegeben haben will (so hab ich es verstanden)
+
+Folie 74
+^^^^^^^^
+
+übersprungen ..
+
+Folie 75
+^^^^^^^^
+
+alternative Version zu Folie 73
+
+Folie 76
+^^^^^^^^
+
+Man kann beliebige Unterteile eines Baumes auswählen. Zwei Möglichkeiten darauf zuzugreifen .. DEREF-Variante kann immer verwendet werden.
+
+Folie 77
+^^^^^^^^
+
+Tabelle ist eingebettet in ein Objekt (AdressType)
+
+Man muss unterscheiden, ob man sich auf eine Referenz bezieht oder auf eine Einbettung
+
+Folie 78
+^^^^^^^^
+
+Direct embedded ... abhängig und exklusiv
+
+als ROW-Datentyp direkt eingebunden
+
+Wir binden hier keinen abstrakten Datentyp ein sondern eine Datenstruktur. Objekt hat keine Identität.
+
+Folie 79
+^^^^^^^^
+
+Erst Typ deklarieren und in einer anderen Tabelle nutzen. Objekte mit eigener OID und den üblichen Methoden.
+
+Folie 80
+^^^^^^^^
+
+Aus Sicht der Anfrage ist es so, dass Sie gleichbehandelt werden .. wenn man darauf zugreifen will müssen wir einsteigen und einen Pfad definieren um zu so einem Objekt hinzukommen. Das machen wir mit der Punktnotation (addresses.city) ... mehrere Punkte erlaubt (z.B. addresses.city.name) beliebig viele Verschachtelung möglich.
+
+Folie 81
+^^^^^^^^
+
+Array von Referenzen ..
+
+Folie 82
+^^^^^^^^
+
+Statt dem Punkt ein Pfeil.
+
+Folie 83
+^^^^^^^^
+
+Steigen bei Empolyee ein machen aber ein DEREF auf manager. Alle Daten vom Typ manager.
+
+Folie 84
+^^^^^^^^
+
+Wann sind zwei Verweise kompatible? Sie müssen vom selben Typ sein .. nur dann!
+Wenn Sie auf Objekte vom selben Datentyp verweisen.
+
+Folie 85
+^^^^^^^^
+
+Zu viel zum mitschreiben. Er ist abgeschweift.
+
+Folie 87
+^^^^^^^^
+
+Unnest funktioniert nur auf der obersten Ebene.
+
+
+Folie 88
+^^^^^^^^
+
+Was macht das unnest?
+
+Wir klopfen nur auf der obersten Ebene flach. Sollte ein Objekt in der obersten Ebene komplex sein, bleibt es komplex.
+
+Folie 89
+^^^^^^^^
+
+Es wird nicht unterschieden, ob wir es mit der independent exclusive Variante zu tun haben oder mit der dependent exclusive.
