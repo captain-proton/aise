@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+const int N = 2;
+typedef int [0,N-1] id_k;
+
+chan cola_bitte, fanta_bitte, cola_ausgabe, fanta_ausgabe;</declaration>
+	<template>
+		<name x="5" y="5">Getraenkeautomat</name>
+		<declaration>// Place local declarations here.
+int n_cola = 2;
+int n_fanta = 2;</declaration>
+		<location id="id0" x="96" y="-328">
+			<name x="-32" y="-336">fanta_bestellung</name>
+		</location>
+		<location id="id1" x="-312" y="-328">
+			<name x="-424" y="-336">cola_bestellung</name>
+		</location>
+		<location id="id2" x="-104" y="-328">
+			<name x="-264" y="-336">warte_auf_bestellung</name>
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-56" y="-288">fanta_ausgabe!</label>
+			<label kind="assignment" x="-56" y="-272">n_fanta--</label>
+			<nail x="-8" y="-288"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-32" y="-400">n_fanta &gt; 0</label>
+			<label kind="synchronisation" x="-32" y="-384">fanta_bitte?</label>
+			<nail x="-8" y="-360"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-224" y="-288">cola_ausgabe!</label>
+			<label kind="assignment" x="-224" y="-272">n_cola--</label>
+			<nail x="-200" y="-288"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-224" y="-400">n_cola &gt; 0</label>
+			<label kind="synchronisation" x="-224" y="-384">cola_bitte?</label>
+			<nail x="-200" y="-360"/>
+		</transition>
+	</template>
+	<template>
+		<name>Kunde</name>
+		<parameter>const id_k id</parameter>
+		<location id="id3" x="-368" y="-384">
+			<name x="-424" y="-368">warte_auf_getraenk</name>
+		</location>
+		<location id="id4" x="-368" y="-568">
+			<name x="-408" y="-600">nicht_durstig</name>
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-584" y="-496">fanta_bitte!</label>
+			<nail x="-512" y="-544"/>
+			<nail x="-512" y="-424"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-488" y="-496">fanta_ausgabe?</label>
+			<nail x="-496" y="-448"/>
+			<nail x="-496" y="-512"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-344" y="-496">cola_ausgabe?</label>
+			<nail x="-240" y="-448"/>
+			<nail x="-240" y="-512"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-216" y="-496">cola_bitte!</label>
+			<nail x="-224" y="-544"/>
+			<nail x="-224" y="-416"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+
+// List one or more processes to be composed into a system.
+system Getraenkeautomat, Kunde;</system>
+	<queries>
+		<query>
+			<formula>not Kunde(1).nicht_durstig --&gt; Kunde(1).warte_auf_getraenk
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>A&lt;&gt; (Getraenkeautomat.n_cola &lt;= 0 and Getraenkeautomat.n_fanta &lt;= 0)
+			</formula>
+			<comment>
+			</comment>
+		</query>
+	</queries>
+</nta>
