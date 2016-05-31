@@ -30,7 +30,7 @@ Für jeden Automaten kann ein einzelnes Medium modeliert werden, dass die Nachri
 Problem 2.2 CTL
 ---------------
 
-2.2.1.Z
+2.2.1
 ^^^^^^^
 
 +--------------------------------------------------------+-----------------------------------------------------------+----------------+
@@ -47,7 +47,7 @@ Problem 2.2 CTL
 | ``m -> not k`` ( :math:`m \rightarrow \neg k` )        | Auf m folgt nicht k                                       |                |
 +--------------------------------------------------------+-----------------------------------------------------------+----------------+
 
-2.2.2.Z
+2.2.2
 ^^^^^^^
 
 Anmerkung: Das hier dargestellte Template liefert nicht die Ergebnisse, die sich nach händischer Überprüfung ergeben. Die Musterlösung ist als korrekt anzusehen.
@@ -130,7 +130,7 @@ Zur Veranschaulichung ist ausgehend vom gewählten Knoten der Baum erstellt.
 Der Ausdruck ``A[] x`` ausgewertet auf den gesamten Baum würde ``false`` ergeben. Es ist allerdings wichtig diesen Ausdruck nur auf den Teil des Baums auszuwerten für den zuvor ``x`` geprüft wurde (daher auch *bottom up*).
 
 
-2.4.1.Z
+2.4.1
 ^^^^^^^
 
 *Umgangssprache*: Für alle Pfad gilt irgendwann, dass ein Pfad existiert in dem nicht k oder nicht m gilt.
@@ -157,7 +157,7 @@ Graph = **True**
 
 .. image:: solutions/yed/Zusatzblatt_2_Aufgabe_2.4.1.Graph.png
 
-2.4.2.Z
+2.4.2
 ^^^^^^^
 
 *Umgangssprache*: Für einen Pfad gilt immer, dass in allen Pfaden nicht k oder nicht m gilt.
@@ -184,7 +184,7 @@ Graph = **False**
 
 .. image:: solutions/yed/Zusatzblatt_2_Aufgabe_2.4.2.Graph.png
 
-2.4.3.Z
+2.4.3
 ^^^^^^^
 
 *Umgangssprache*: Für alle Pfade gilt immer, dass in einem Pfad nicht k oder nicht m gilt.
@@ -212,11 +212,11 @@ Graph = **False**
 .. image:: solutions/yed/Zusatzblatt_2_Aufgabe_2.4.3.Graph.png
 
 Aufgabe Lampe
-=============
+-------------
 
 Zu erstellen sind eine Lampe mit variabler Lichtstärke und ein Nutzer der die Lampe per Touch bedienen kann. Die mögliche Lichtstärke der Lampe ist 0 für ausgeschaltet und 10 als Maximaleinstellung. Wenn der Nutzer schnell auf die Lampe drückt (timer < 1), soll die Lichtstärke solange erhöht werden bis die maximale Lichtstärke erreicht wurde. Sollte weiterhin schnell auf die Lampe gedrückt werden passiert nichts und die Lampe bleibt auf voller Stärke. Wenn der Nutzer einmal nicht schnell auf die Lampe gedrückt hat soll die Lichtstärke bei jeder Berührung wieder herunter geregelt werden bis die Lampe aus ist. Eine erneute Verstärkung der Intensität während der Verminderung ist nicht vorgesehen.
 
 Lösung
-------
+^^^^^^
 
 Download: `Erweiterte Lampe <../_static/uppaal_models/lamp.xml>`_
