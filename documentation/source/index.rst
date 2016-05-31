@@ -10,14 +10,14 @@ Master AI-SE Dokumentation
 Contents:
 
 .. toctree::
-   :caption: Concurrency
+    :caption: Concurrency
 
-   concurrency/lecture
-   concurrency/exercises
+    concurrency/lecture
+    concurrency/exercises
 
 
 .. toctree::
-   :caption: NSDBMS
+    :caption: NSDBMS
 
-   nsdbms/lecture
-   nsdbms/exercises
+    nsdbms/lecture
+    nsdbms/exercises
