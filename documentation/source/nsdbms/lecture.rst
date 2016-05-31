@@ -471,3 +471,106 @@ Folie 89
 ^^^^^^^^
 
 Es wird nicht unterschieden, ob wir es mit der independent exclusive Variante zu tun haben oder mit der dependent exclusive.
+
+
+Part05 XML
+----------
+
+Einführung
+^^^^^^^^^^
+
+**Semistruktutierter Inhalt**:
+
+.. code-block:: xml
+
+    <helloworld>
+    Hier ist mixed content in einer bestimmten <form>Form<form> enthalten.
+    </helloworld>
+
+**Stark strukturierter Text**:
+
+.. code-block:: xml
+
+    <helloworld>
+        <asdf>inhalt</asdf>
+        <qwer>aber immer</qwer>
+    </helloworld>
+
+**Ungültig** (nicht wohl geformt):
+
+.. code-block:: xml
+
+    <source>
+        <code>
+    </source>
+
+DTD (data type definition)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- **ALT!!**: besser ist die Verwendung von XML-Schema
+- alle gängigen Browser sind XML Prozessoren, können somit gültige XML darstellen und Fehler annotieren
+
+.. code-block:: text
+
+    <!ELEMENT source (#PCDATA)>
+
+``#PCDATA``: parsed character data
+
+- DTD legt fest was minimal vorhanden sein muss
+- selbst wenn Elemente weggelassen werden stellen Browser gültige XML-Daten dar
+
+Folie 10
+^^^^^^^^
+
+- ein oder (``|``) ist ein exklusives oder, beide Elemente dürfen nicht vorkommen
+
+Folie 13
+^^^^^^^^
+
+- ``CDATA``: character data, Erklärung folgt
+- zur Angabe von Attributwerten sind lediglich \" erlaubt
+
+    + *Gültig*: ``<el attr="value"/>``
+    + *Ungültig*: ``<el attr=`value`/>``
+
+Folie 16
+^^^^^^^^
+
+- ``#REQUIRED``: benötigt
+- ``#IMPLIED``: optional
+- ``#FIXED value``: konstanter Inhalt
+
+Folie 17
+^^^^^^^^
+
+- ``IDREF``: Referenz auf eine ``ID`` im Dokument, der Typ ist irrelevant, kann also in jedem beliebigem Tag enthalten sein
+
+Folie 20
+^^^^^^^^
+
+- Über ``ENTITY`` können Textersetzungen vorgenommen werden
+
+    + Bei ``PCDATA`` ist ein einzelnes ``&`` nicht erlaubt
+
+.. code-block:: xml
+
+    <!ENTITY writer "Jan Egil Refsnes.">
+    <!ENTITY copyright "Copyright XML101.">
+
+    <in>
+        <author>&writer; &copyright;</author>
+    </in>
+
+    <out>
+        <author>Jan Egil Refsnes. Copyright XML101.</author>
+    </out>
+
+Das P in PCDATA bedeutet, dass der Inhalt vom XML-Parser durchaus analysiert wird. Für die Praxis bedeutet dies, dass im Inhalt eines so definierten Elements die `Regeln für Zeichen und Zeichenkodierungen <https://wiki.selfhtml.org/wiki/XML/Regeln/Zeichen>`_ zu beachten sind.
+
+Siehe `Elementtypen mit Zeicheninhalt definieren <https://wiki.selfhtml.org/wiki/XML/DTD/Elemente_und_Verschachtelungsregeln>`_
+
+Folie 23
+^^^^^^^^
+
+- ``NDATA``: nicht geparste Daten, z.B. Binärdaten
+
