@@ -78,8 +78,8 @@ Folie 32
 - Zugriff auf Sekundärspeicher ist die teuerste Operation auf dem Rechner
 
 
-Vorlesung Part03 Data (Base) Modeling
--------------------------------------
+Part03 Data (Base) Modeling
+---------------------------
 
 Folie 2
 ^^^^^^^
@@ -161,8 +161,8 @@ Folie 25
     + exactLocation = dependant, exclusive
     + wird aktualisiert!
 
-Vorlesung Part04 Object relational SQL
---------------------------------------
+Part04 Object relational SQL
+----------------------------
 
 Folie 8
 ^^^^^^^
@@ -538,7 +538,7 @@ Folie 16
 
 - ``#REQUIRED``: benötigt
 - ``#IMPLIED``: optional
-- ``#FIXED value``: konstanter Inhalt
+- ``#FIXED "value"``: konstanter Inhalt, allerdings optional
 
 Folie 17
 ^^^^^^^^
@@ -574,3 +574,83 @@ Folie 23
 
 - ``NDATA``: nicht geparste Daten, z.B. Binärdaten
 
+Folie 30
+^^^^^^^^
+
+- Wohlgeformt ...:
+
+    + Ein einziges Wurzelelement
+    + Keine Verschachtelung von Tags (``<a><b></a></b>``)
+    + Bei doppelten Attributen wird mehr als eine Syntaxprüfung vorgenommen
+
+Folie 34
+^^^^^^^^
+
+- Ob eine Eigenschaft als innerer Tag oder als Attribut deklariert wird ist nicht ganz klar
+
+    + Aus Sich der Modellierung ist beides korrekt
+
+Beispiel:
+
+.. code-block:: xml
+
+    <Book ISBN="42"></Book>
+
+.. code-block:: xml
+
+    <Book>
+        <ISBN>42</ISBN>
+    </Book>
+
+Folie 35
+^^^^^^^^
+
+- Probleme bei zyklischen Verwendungen unter der Verwendung IDs
+
+    + IDs sind eindeutig im gesamten Baum
+
+Beispiel:
+
+.. code-block:: xml
+
+    <!ELEMENT publications (book)+>
+    <!ELEMENT book (references)>
+    <!ATTLIST book isbn ID #REQUIRED>
+    <!ELEMENT references (publications)>
+
+    <publications>
+        <book isbn="42">
+            <references>
+                <publications>
+                    <!-- nicht erlaubt -->
+                    <book isbn="42">
+                    </book>
+                </publications>
+            </references>
+        </book>
+    </publications>
+
+Folie 41
+^^^^^^^^
+
+- `XLink Beschreiung <https://wiki.selfhtml.org/wiki/XML/XLink>`_
+
+Folie 45
+^^^^^^^^
+
+- ``xlink:href="band3.xml#//eintrag@stichwort='Informationstheorie'"``
+
+    + ``//``: irgendein Tag
+    + ``eintrag``: mit dem name eintrag
+    + ``@stichwort``: mit dem Attribut *stichwort*
+    + ``='Informationstheorie'``: und dem Wert Informationstheorie
+
+XLink / XPointer
+^^^^^^^^^^^^^^^^
+
+XPointer oder XML Pointer Language ist eine vom World Wide Web Consortium (W3C) entwickelte Anfragesprache, um Teile eines XML-Dokumentes zu adressieren. Es handelt sich dabei um eine Erweiterung der `XPath <https://de.wikipedia.org/wiki/XPath>`_-Spezifikation, mit der sich ebenfalls Teile eines XML-Dokumentes adressieren lassen.
+
+Folie 18
+********
+
+- Bei der Verwendung von Referenzen auf andere Dokumente können Probleme z.B. bei IDs entstehen, die in beiden Dokumenten verwendet werden
