@@ -7,7 +7,7 @@ CREATE TYPE AddressType AS (
     city VARCHAR(200),
     zip INTEGER
 ) REF IS SYSTEM GENERATED;
--- may also be REF USING <Type>
+-- alt. REF USING <Type>
 
 -- hobby
 CREATE TYPE HobbyType AS (
@@ -23,7 +23,7 @@ CREATE TYPE PersonType AS (
             lastname VARCHAR(200) NOT NULL
          ),
     dateOfBirth TIMESTAMP,
-    addresses REF(AddressType) MULTISET, -- may also be ARRAY[X]
+    addresses REF(AddressType) MULTISET, -- alt. ARRAY[X]
     hobbies REF(HobbyType) MULTISET,
     sex INTEGER,
 
