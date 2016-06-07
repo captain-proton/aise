@@ -60,7 +60,7 @@ METHOD sisters() RETURNS MULTISET OF ChildType;
 
 CREATE TYPE EducationionalInstitutionType AS (
     name VARCHAR(200) NOT NULL,
-    address REF(AddressType),
+    addresses REF(AddressType) MULTISET,
     children REF(ChildType) MULTISET
 )
 REF IS SYSTEM GENERATED,
@@ -90,7 +90,7 @@ CREATE TABLE Hobby OF HobbyType (
 
 CREATE TABLE Person OF PersonType (
     addresses WITH OPTIONS SCOPE (Address),
-    hobbies WITH OPTIONS SCOPE (Nobby),
+    hobbies WITH OPTIONS SCOPE (Hobby),
 
     REF IS personOID SYSTEM GENERATED
 );
@@ -115,7 +115,7 @@ CREATE TABLE Child OF ChildType UNDER Person (
 );
 
 CREATE TABLE EducationalInstitution OF EducationionalInstitutionType (
-    address WITH OPTIONS SCOPE(Address),
+    addresses WITH OPTIONS SCOPE(Address),
     children WITH OPTIONS SCOPE(Child),
 
     REF IS educationalInstitutionOID SYSTEM GENERATED
