@@ -654,3 +654,52 @@ Folie 18
 ********
 
 - Bei der Verwendung von Referenzen auf andere Dokumente können Probleme z.B. bei IDs entstehen, die in beiden Dokumenten verwendet werden
+
+
+Part08 XML-Schema
+-----------------
+
+Folie 5
+^^^^^^^
+
+- HTML
+
+    + erdacht zur Darstellung von Inhalten am Bildschirm im Gegensatz zu XML
+
+- XML
+
+    + beschränkt sich zunächst auf die Strukturbeschreibung
+
+Folie 9
+^^^^^^^
+
+- In Datenbanken ist der Namensraum gegeben durch das Schema der DB + Name der Tabelle
+
+    + Bsp: <dbname>.<schema>.<tablename> -> UDE.Lectures.Course
+    + Eindeutigkeit garantiert
+
+
+- Widerverwendbarkeit bei XML auf hoher Ebene
+- Eindeutigkeit in XML wird durch Namensräume festgelegt
+- In der Klausur wird auf den Header in XML-Schema nicht genauer eingegangen, es müssen keine genauen Angaben zu den Namensraumspezifika erstellt werden
+
+    + ``<xsd:schema>`` genügt
+
+Folie 10
+^^^^^^^^
+
+- Elemente beschreiben eher Inhalte
+- Attribute beschreiben eher wie Inhalte dargestellt werden
+- In Datenbanken ist eine Definition eine Schemadefinition
+
+    + Bsp Gehalt: In der DB definiert durch das Schema, in der XML beschrieben durch ein Attribut (``USD`` | ``EUR``)
+
+- In XML muss durch die Programmlogik die Unterscheidung beachtet werden
+- Eine Definition des Datentyps in XML-Schema ist nicht zwingend notwendig
+
+Folie 17
+^^^^^^^^
+
+- ``xsd:sequence``: die Ordnung ist vorgegeben
+
+
