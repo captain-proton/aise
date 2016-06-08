@@ -12,8 +12,7 @@ CREATE TYPE AddressType AS (
 -- hobby
 CREATE TYPE HobbyType AS (
     name VARCHAR(100) NOT NULL,
-    description VARCHAR(400),
-    since_when DATE
+    description VARCHAR(400)
 ) REF IS SYSTEM GENERATED;
 
 -- person with name address, age, date of birth, hobbies
@@ -21,30 +20,29 @@ CREATE TYPE PersonType AS (
     name ROW(
             firstname VARCHAR(200) NOT NULL,
             lastname VARCHAR(200) NOT NULL
-         ),
+        ),
     dateOfBirth TIMESTAMP,
     addresses REF(AddressType) MULTISET, -- alt. ARRAY[X]
-    hobbies REF(HobbyType) MULTISET,
+    hobbies ROW(
+            hobby REF(HobbyType),
+            sinceWhen DATE,
+        ) MULTISET,
     sex INTEGER,
 
     -- see https://en.wikipedia.org/wiki/ISO/IEC_5218
     CONSTRAINT valid_sex CHECK (sex IN (0, 1, 2, 9))
 )
-REF IS SYSTEM GENERATED,
+-- Integer is used for better handling of data changes inside the subtypes
+REF USING INTEGER,
 INSTANTIATABLE,
 NOT FINAL,
 METHOD age() RETURNS INTEGER;
-
-CREATE METHOD age FOR PersonType RETURNS INTEGER
-    BEGIN
-        RETURN EXTRACT (YEAR FROM SYSDATE - YEAR FROM dateOfBirth)
-    END;
 
 CREATE TYPE ParentType UNDER PersonType AS (
     spouse REF(ParentType),
     children REF(ChildType) MULTISET
 )
-REF IS SYSTEM GENERATED,
+REF USING INTEGER,
 INSTANTIATABLE;
 
 CREATE TYPE ChildType UNDER PersonType AS (
@@ -53,7 +51,7 @@ CREATE TYPE ChildType UNDER PersonType AS (
     siblings REF(ChildType) MULTISET,
     educationalInstitution REF(EducationionalInstitutionType)
 )
-REF IS SYSTEM GENERATED,
+REF USING INTEGER,
 INSTANTIATABLE,
 METHOD brothers() RETURNS MULTISET OF ChildType,
 METHOD sisters() RETURNS MULTISET OF ChildType;
@@ -92,7 +90,7 @@ CREATE TABLE Person OF PersonType (
     addresses WITH OPTIONS SCOPE (Address),
     hobbies WITH OPTIONS SCOPE (Hobby),
 
-    REF IS personOID SYSTEM GENERATED
+    REF IS personOID USER GENERATED
 );
 
 CREATE TABLE Parent OF ParentType UNDER Person (
@@ -100,7 +98,7 @@ CREATE TABLE Parent OF ParentType UNDER Person (
     hobbies WITH OPTIONS SCOPE (Hobby),
     children WITH OPTIONS SCOPE (Child),
 
-    REF IS parentOID SYSTEM GENERATED
+    REF IS parentOID USER GENERATED
 );
 
 CREATE TABLE Child OF ChildType UNDER Person (
@@ -109,9 +107,14 @@ CREATE TABLE Child OF ChildType UNDER Person (
     mother WITH OPTIONS SCOPE (Parent),
     father WITH OPTIONS SCOPE (Parent),
     siblings WITH OPTIONS SCOPE (Child),
-    educationalInstitution WITH OPTIONS SCOPE (EducationalInstitution),
 
-    REF IS childrenOID SYSTEM GENERATED
+    -- due to restrictions the abstraction layer gets lost and the specific types must be used instead
+    -- educationalInstitution WITH OPTIONS SCOPE (EducationalInstitution),
+
+    kindergarten WITH OPTIONS SCOPE (Kindergarten),
+    school WITH OPTIONS SCOPE (School),
+
+    REF IS childrenOID USER GENERATED
 );
 
 CREATE TABLE EducationalInstitution OF EducationionalInstitutionType (
