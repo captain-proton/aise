@@ -20,3 +20,8 @@ Problem 2 Exklusive Ressourcen
 ------------------------------
 
 .. image:: solutions/umlet/additional_exercise_1.2.png
+
+Problem 2 Beliebige Ressourcen
+------------------------------
+
+.. image:: solutions/umlet/additional_exercise_1.3.png
