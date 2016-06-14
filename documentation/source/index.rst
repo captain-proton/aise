@@ -10,10 +10,17 @@ Master AI-SE Dokumentation
 Contents:
 
 .. toctree::
-    :caption: Concurrency
+    :caption: Concurrency Teil 1 - Automaten
 
-    concurrency/lecture
-    concurrency/exercises
+    concurrency/introduction
+    concurrency/part_1/lecture
+    concurrency/part_1/exercises
+
+.. toctree::
+    :caption: Concurrency Teil 2 - Nebenläufiges Rechnen
+
+    concurrency/part_2/lecture
+    concurrency/part_2/exercises
 
 
 .. toctree::
