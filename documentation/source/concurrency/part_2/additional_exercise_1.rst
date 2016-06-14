@@ -19,3 +19,4 @@ Bei beiden Diagrammen wurde auf die Prüfung des Wetters verzichtet, da dies nic
 Problem 2 Exklusive Ressourcen
 ------------------------------
 
+.. image:: solutions/umlet/additional_exercise_1.2.png
