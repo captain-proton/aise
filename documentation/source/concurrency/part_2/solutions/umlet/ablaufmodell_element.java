@@ -8,12 +8,12 @@
 
 int x = 0;
 int y=textHeight();
-int dividerWidth = 10;
-int dividerLeft = (width - dividerWidth) / 2;
-int dividerRight = (width + dividerWidth) / 2;
 int dockerHeight = 12;
 int dockerWidth = dockerHeight;
 int dockSpacing = 8;
+int dividerWidth = 10;
+int dividerLeft = (int) ((width - dividerWidth) * 0.4);
+int dividerRight = (int) ((width + dividerWidth) * 0.4);
 int textX = 0;
 ArrayList<String> textLeft = new ArrayList<String>();
 ArrayList<String> textRight = new ArrayList<String>();
@@ -36,15 +36,17 @@ for (String lt : textLeft) {
     y += print(lt, dockerWidth + 4, y);
 }
 
-y = textHeight();
-if (textLeft.size() > 0) {
-    textX = (width + dividerWidth) / 2 + 4 ;
-} else {
-    textX = dockerWidth + 10 + dividerWidth + 4;
+if (textLeft.size() == 0 && textRight.size() > 0) {
     dividerLeft = dockerWidth + 10;
     dividerRight = dockerWidth + 10 + dividerWidth;
-
+} else if (textLeft.size() > 0 && textRight.size() == 0) {
+    dividerLeft = width - (dockerWidth + 10 + dividerWidth);
+    dividerRight = width - (dockerWidth + 10);
 }
+
+y = textHeight();
+textX = dividerRight + 4;
+
 for (String rt : textRight) {
     y += print(rt, textX, y);
 }
