@@ -702,4 +702,37 @@ Folie 17
 
 - ``xsd:sequence``: die Ordnung ist vorgegeben
 
+Folie 32
+^^^^^^^^
+
+- Integritätsbedingungen sind in Grundlagen für die Klausur wichtig
+
+    + Bsp.: ``<xsd:attribute name="lang" type="xsd:string" use="required"/>``
+
+Folie 33
+
+- kein ``min`` bzw. ``max`` lediglich
+
+    + ``minInclusive`` und ``minExclusive``
+    + ``maxInclusive`` und ``maxExclusive``
+
+Folie 45-47
+^^^^^^^^^^^
+
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``whiteSpace`` | Definition                                                                                                                                                                                                             |
++================+========================================================================================================================================================================================================================+
+| preserve       | XML processor WILL NOT remove any white space characters                                                                                                                                                               |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| replace        | XML processor WILL REPLACE all white space characters (line feeds, tabs, spaces, and carriage returns) with spaces                                                                                                     |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| collapse       | XML processor WILL REMOVE all white space characters (line feeds, tabs, spaces, carriage returns are replaced with spaces, leading and trailing spaces are removed, and multiple spaces are reduced to a single space) |
++----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Folie 55
+^^^^^^^^
+
+- Polymorphismus spielt in XML keine Rolle, da keine Methoden deklariert werden!
+- Verweise zu anderen Typen sind überall hin möglich, d.h. ein komplexer Datentyp kann in der Hierarchie wieder auftauchen
+
 
