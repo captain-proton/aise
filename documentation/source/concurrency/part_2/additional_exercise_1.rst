@@ -21,7 +21,31 @@ Problem 2 Exklusive Ressourcen
 
 .. image:: solutions/umlet/additional_exercise_1.2.png
 
-Problem 2 Beliebige Ressourcen
+Problem 3 Beliebige Ressourcen
 ------------------------------
 
 .. image:: solutions/umlet/additional_exercise_1.3.png
+
+Problem 4 Sequentiell vs. Nebenläufig
+-------------------------------------
+
+1.4.1
+^^^^^
+
+*Sequentiell*:
+
+.. image:: solutions/umlet/additional_exercise_1.4.1.png
+
+1.4.2
+^^^^^
+
+*Nebenläufig*:
+
+.. image:: solutions/umlet/additional_exercise_1.4.2.png
+
+1.4.3
+^^^^^
+
+*Nebenläufig*:
+
+.. image:: solutions/umlet/additional_exercise_1.4.3.png
