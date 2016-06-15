@@ -1,7 +1,7 @@
 Übungsblatt 3
 =============
 
-`Aufgabenblatt 3 <../_static/exercise/b3.pdf>`_
+`Aufgabenblatt 3 <../../_static/exercise/part_1/b3.pdf>`_
 
 Notizen
 -------

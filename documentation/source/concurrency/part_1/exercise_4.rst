@@ -1,7 +1,7 @@
 Übungsblatt 4
 =============
 
-`Aufgabenblatt 4 <../_static/exercise/b4.pdf>`_
+`Aufgabenblatt 4 <../../_static/exercise/part_1/b4.pdf>`_
 
 Problem 4.1 UPPAAL: Mausklickerkennung
 --------------------------------------

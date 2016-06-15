@@ -1,7 +1,7 @@
 Zusatzübung 2
 =============
 
-`Zusatzaufgabenblatt 2 <../_static/exercise/z2.pdf>`_
+`Zusatzaufgabenblatt 2 <../../_static/exercise/part_1/z2.pdf>`_
 
 Problem 2.1 UPPAAL - asychrone Automatensysteme
 -----------------------------------------------

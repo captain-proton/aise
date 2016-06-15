@@ -1,7 +1,7 @@
 Übungsblatt 1
 =============
 
-`Aufgabenblatt 1 <../_static/exercise/b1.pdf>`_
+`Aufgabenblatt 1 <../../_static/exercise/part_1/b1.pdf>`_
 
 Problem 1.1 Mealey-Automaten
 ----------------------------

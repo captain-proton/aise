@@ -1,7 +1,7 @@
 Übungsblatt 5
 =============
 
-`Aufgabenblatt 5 <../_static/exercise/b5.pdf>`_
+`Aufgabenblatt 5 <../../_static/exercise/part_1/b5.pdf>`_
 
 Problem 5.1 Bäume mit CTL unterscheiden
 ---------------------------------------

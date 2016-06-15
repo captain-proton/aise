@@ -1,7 +1,7 @@
 Übungsblatt 2
 =============
 
-`Aufgabenblatt 2 <../_static/exercise/b2.pdf>`_
+`Aufgabenblatt 2 <../../_static/exercise/part_1/b2.pdf>`_
 
 Problem 2.1 Fehlerklassen
 -------------------------

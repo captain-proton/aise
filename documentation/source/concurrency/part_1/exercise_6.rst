@@ -1,6 +1,8 @@
 Übungsblatt 6
 =============
 
+`Aufgabenblatt 6 <../../_static/exercise/part_1/b6.pdf>`_
+
 Problem 6.1
 -----------
 
