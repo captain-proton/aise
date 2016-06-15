@@ -21,8 +21,7 @@ Aufgabe 2
 
     SELECT DISTINCT DEREF(address)
     FROM Parent AS p, UNNEST (p.addresses) AS address
-    WHERE UNNEST(p.hobbies)->description LIKE '%goal%'
-    -- WHERE DEREF(UNNEST(p.hobbies)).description LIKE '%goal%'
+    WHERE UNNEST(p.hobbies).hobby->description LIKE '%goal%'
 
 - ``addresses`` und ``hobbies`` sind jeweils referenzierte Objekte und müssen entsprechend über ``UNNEST`` und ``DEREF`` behandelt werden
 - In der ``FROM``-Klausel ist ein Cross-Join enthalten, der bei entsprechender Datenmenge sehr groß wird, ist also mit Vorsicht zu genießen
