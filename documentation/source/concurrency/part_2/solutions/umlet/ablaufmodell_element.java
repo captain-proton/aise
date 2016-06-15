@@ -1,11 +1,8 @@
-//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
+        /****CUSTOM_CODE START****/
+// This element contains text on two sides and is divided by --
+// Text before the -- is show on the left side, text after on the ride side.
+// Use 'rb=X and 'lb=Y to show a arbitrary number of docks on the left and
+// right side of the bounding box
 int x = 0;
 int y=textHeight();
 int dockerHeight = 12;
@@ -56,22 +53,30 @@ drawLine(dividerRight, height / 2, dividerLeft, height);
 
 
 for(String textline : textlines) {
+
+    int dockerCount = 0;
+    int dockHeight = 0;
+    int startDockHeight = 0;
+    if ((textline.indexOf("'lb") == 0 || textline.indexOf("'rb") == 0)
+        && textline.length() > 4) {
+
+        String countText = textline.substring(4);
+        if (countText.matches("[0-9]+")) {
+            dockerCount = Integer.valueOf(countText);
+            dockHeight =dockerCount * dockerHeight + (dockerCount - 1) * dockSpacing;
+            startDockHeight = (height - dockHeight) / 2;
+        }
+    }
+
     if (textline.indexOf("'lb") == 0) {
-        int rightDockers = Integer.valueOf(textline.substring(4));
-        int rightDockersHeight = rightDockers * dockerHeight + (rightDockers - 1) * dockSpacing;
-        int startDockHeight = (height - rightDockersHeight) / 2;
-        for (int i = 0; i < rightDockers; i++) {
+        for (int i = 0; i < dockerCount; i++) {
             int addY = i * (dockerHeight + dockSpacing);
             drawRectangle(0, startDockHeight + addY, dockerWidth, dockerHeight);
         }
     } else if (textline.indexOf("'rb") == 0) {
-        int leftDockers = Integer.valueOf(textline.substring(4));
-        int leftDockersHeight = leftDockers * dockerHeight + (leftDockers - 1) * dockSpacing;
-        int startDockHeight = (height - leftDockersHeight) / 2;
-        for (int i = 0; i < leftDockers; i++) {
+        for (int i = 0; i < dockerCount; i++) {
             int addY = i * (dockerHeight + dockSpacing);
             drawRectangle(width-dockerWidth, startDockHeight + addY, dockerWidth, dockerHeight);
         }
     }
 }
-
