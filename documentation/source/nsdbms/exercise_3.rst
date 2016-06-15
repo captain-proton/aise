@@ -19,12 +19,12 @@ Aufgabe 2
 
 .. code-block:: SQL
 
-    SELECT DISTINCT DEREF(address)
-    FROM Parent AS p, UNNEST (p.addresses) AS address
-    WHERE UNNEST(p.hobbies).hobby->description LIKE '%goal%'
+    SELECT DISTINCT a.street, a.streetNo, a.city, a.zip
+    FROM Parent AS p, UNNEST(p.addresses) AS a, UNNEST(p.hobbies)
+    WHERE hobby->description CONTAINS 'goal'
 
-- ``addresses`` und ``hobbies`` sind jeweils referenzierte Objekte und müssen entsprechend über ``UNNEST`` und ``DEREF`` behandelt werden
 - In der ``FROM``-Klausel ist ein Cross-Join enthalten, der bei entsprechender Datenmenge sehr groß wird, ist also mit Vorsicht zu genießen
+- ``UNNEST`` ist nur in der FROM-Klausel erlaubt
 
 Aufgabe 3
 ^^^^^^^^^
@@ -33,7 +33,7 @@ Aufgabe 3
 
 .. code-block:: SQL
 
-    SELECT DISTINCT c
+    SELECT DISTINCT c.*
     FROM Child c
     WHERE EXISTS (
         SELECT *
@@ -63,6 +63,7 @@ Aufgabe 4
         AND count(p.children) > 0
 
 - Hier ist die Integritätsbedingung auf den Ehepartner gewählt, um alleinstehende Elternteile auszuschließen
+- Die Integritätsbedingung auf die Anzahl der Kinder ist nicht zwingend notwendig
 
 Aufgabe 5
 ^^^^^^^^^
@@ -86,15 +87,16 @@ Aufgabe 6
 
     CREATE VIEW PeopleChristchurch OF PersonType (
         SELECT p.*
-        FROM ONLY(Person) AS p
+        FROM Person AS p
         WHERE (DEREF(p.personOID) IS OF TYPE(Parent)
             OR DEREF(p.personOID) IS OF TYPE(Child))
             AND EXISTS (
                 SELECT *
                 FROM UNNEST(p.addresses) AS address
-                WHERE address->city = 'Christchurch'
+                WHERE address.city = 'Christchurch'
     )
 
+- Wenn man nicht über die Tabelle/Typ Person abfragt, muss ein zusätzlicher Typ erstellt werden
 
 Aufgabe 7
 ^^^^^^^^^
@@ -114,8 +116,8 @@ Aufgabe 7
             FROM UNNEST(p.children) AS child
             WHERE EXISTS(
                 SELECT sibling
-                FROM UNNEST(child->siblings) as sibling
-                WHERE sibling->kindergarten->name = 'Flower-City'
+                FROM UNNEST(child->siblings) AS sibling
+                WHERE sibling->kindergarten.name = 'Flower-City'
             )
         )
 

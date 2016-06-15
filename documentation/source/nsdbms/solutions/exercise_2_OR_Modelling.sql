@@ -49,7 +49,8 @@ CREATE TYPE ChildType UNDER PersonType AS (
     father REF(ParentType),
     mother REF(ParentType),
     siblings REF(ChildType) MULTISET,
-    educationalInstitution REF(EducationionalInstitutionType)
+    kindergarten REF(KindergartenType),
+    school REF(SchoolType)
 )
 REF USING INTEGER,
 INSTANTIATABLE,
