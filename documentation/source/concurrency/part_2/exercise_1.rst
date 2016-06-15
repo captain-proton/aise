@@ -1,7 +1,7 @@
 Übungsblatt 1
 =============
 
-`Aufgabenblatt 1 <../_static/exercise/Uebungsblatt 01 SS2016.pdf>`_
+`Aufgabenblatt 1 <../_static/exercise/Uebungsblatt.01.SS2016.pdf>`_
 
 Aufgabe 1.1 Ablaufmodelle
 -------------------------
@@ -12,10 +12,10 @@ Aufgabe 1.1 Ablaufmodelle
 a) Ein Ablaufmodell dient zur graphischen Darstellung eines Programmcodes
 b) Es besteht aus den Elementen
 
-     0. Aktionen
-     1. Aktions-Anfängen
-     2. Aktions-Ende
-     3. Kanten
+     1. Aktionen
+     2. Aktions-Anfängen
+     3. Aktions-Ende
+     4. Kanten
 
 Aufgabe 1.2 Boxenstop
 ---------------------
