@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>210</x>
+      <y>150</y>
+      <w>81</w>
+      <h>41</h>
+    </coordinates>
+    <panel_attributes>// Modify the text below and
+// observe the element preview.
+
+--
+A
+
+'lb=1
+'rb=1
+
+bg=#bbdefb</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int x = 0;
+int y=textHeight();
+int dockerHeight = 12;
+int dockerWidth = dockerHeight;
+int dockSpacing = 8;
+int dividerWidth = 10;
+int dividerLeft = (int) ((width - dividerWidth) * 0.4);
+int dividerRight = (int) ((width + dividerWidth) * 0.4);
+int textX = 0;
+ArrayList&lt;String&gt; textLeft = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; textRight = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; currentTextSide = textLeft;
+
+drawRectangle(dockerWidth,0,width - 2*dockerWidth,height);
+
+
+for(String textline : textlines) {
+    if (textline.equals("--")) {
+        currentTextSide = textRight;
+    }
+    if (!textline.isEmpty()
+        &amp;&amp; !textline.equals("--")
+        &amp;&amp; textline.indexOf("'") != 0)
+        currentTextSide.add(textline);
+}
+
+for (String lt : textLeft) {
+    y += print(lt, dockerWidth + 4, y);
+}
+
+if (textLeft.size() == 0 &amp;&amp; textRight.size() &gt; 0) {
+    dividerLeft = dockerWidth + 10;
+    dividerRight = dockerWidth + 10 + dividerWidth;
+} else if (textLeft.size() &gt; 0 &amp;&amp; textRight.size() == 0) {
+    dividerLeft = width - (dockerWidth + 10 + dividerWidth);
+    dividerRight = width - (dockerWidth + 10);
+}
+
+y = textHeight();
+textX = dividerRight + 4;
+
+for (String rt : textRight) {
+    y += print(rt, textX, y);
+}
+
+drawLine(dividerLeft, 0, dividerRight, height / 2);
+drawLine(dividerRight, height / 2, dividerLeft, height);
+
+
+for(String textline : textlines) {
+    if (textline.indexOf("'lb") == 0) {
+        int rightDockers = Integer.valueOf(textline.substring(4));
+        int rightDockersHeight = rightDockers * dockerHeight + (rightDockers - 1) * dockSpacing;
+        int startDockHeight = (height - rightDockersHeight) / 2;
+        for (int i = 0; i &lt; rightDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(0, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    } else if (textline.indexOf("'rb") == 0) {
+        int leftDockers = Integer.valueOf(textline.substring(4));
+        int leftDockersHeight = leftDockers * dockerHeight + (leftDockers - 1) * dockSpacing;
+        int startDockHeight = (height - leftDockersHeight) / 2;
+        for (int i = 0; i &lt; leftDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(width-dockerWidth, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    }
+}
+
+</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>370</x>
+      <y>150</y>
+      <w>81</w>
+      <h>61</h>
+    </coordinates>
+    <panel_attributes>// Modify the text below and
+// observe the element preview.
+
+--
+B
+
+'lb=2
+'rb=2
+
+bg=#bbdefb</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int x = 0;
+int y=textHeight();
+int dockerHeight = 12;
+int dockerWidth = dockerHeight;
+int dockSpacing = 8;
+int dividerWidth = 10;
+int dividerLeft = (int) ((width - dividerWidth) * 0.4);
+int dividerRight = (int) ((width + dividerWidth) * 0.4);
+int textX = 0;
+ArrayList&lt;String&gt; textLeft = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; textRight = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; currentTextSide = textLeft;
+
+drawRectangle(dockerWidth,0,width - 2*dockerWidth,height);
+
+
+for(String textline : textlines) {
+    if (textline.equals("--")) {
+        currentTextSide = textRight;
+    }
+    if (!textline.isEmpty()
+        &amp;&amp; !textline.equals("--")
+        &amp;&amp; textline.indexOf("'") != 0)
+        currentTextSide.add(textline);
+}
+
+for (String lt : textLeft) {
+    y += print(lt, dockerWidth + 4, y);
+}
+
+if (textLeft.size() == 0 &amp;&amp; textRight.size() &gt; 0) {
+    dividerLeft = dockerWidth + 10;
+    dividerRight = dockerWidth + 10 + dividerWidth;
+} else if (textLeft.size() &gt; 0 &amp;&amp; textRight.size() == 0) {
+    dividerLeft = width - (dockerWidth + 10 + dividerWidth);
+    dividerRight = width - (dockerWidth + 10);
+}
+
+y = textHeight();
+textX = dividerRight + 4;
+
+for (String rt : textRight) {
+    y += print(rt, textX, y);
+}
+
+drawLine(dividerLeft, 0, dividerRight, height / 2);
+drawLine(dividerRight, height / 2, dividerLeft, height);
+
+
+for(String textline : textlines) {
+    if (textline.indexOf("'lb") == 0) {
+        int rightDockers = Integer.valueOf(textline.substring(4));
+        int rightDockersHeight = rightDockers * dockerHeight + (rightDockers - 1) * dockSpacing;
+        int startDockHeight = (height - rightDockersHeight) / 2;
+        for (int i = 0; i &lt; rightDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(0, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    } else if (textline.indexOf("'rb") == 0) {
+        int leftDockers = Integer.valueOf(textline.substring(4));
+        int leftDockersHeight = leftDockers * dockerHeight + (leftDockers - 1) * dockSpacing;
+        int startDockHeight = (height - leftDockersHeight) / 2;
+        for (int i = 0; i &lt; leftDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(width-dockerWidth, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    }
+}
+
+</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>160</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>520</x>
+      <y>150</y>
+      <w>81</w>
+      <h>41</h>
+    </coordinates>
+    <panel_attributes>// Modify the text below and
+// observe the element preview.
+
+--
+C
+
+'lb=1
+'rb=1
+
+bg=#bbdefb</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int x = 0;
+int y=textHeight();
+int dockerHeight = 12;
+int dockerWidth = dockerHeight;
+int dockSpacing = 8;
+int dividerWidth = 10;
+int dividerLeft = (int) ((width - dividerWidth) * 0.4);
+int dividerRight = (int) ((width + dividerWidth) * 0.4);
+int textX = 0;
+ArrayList&lt;String&gt; textLeft = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; textRight = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; currentTextSide = textLeft;
+
+drawRectangle(dockerWidth,0,width - 2*dockerWidth,height);
+
+
+for(String textline : textlines) {
+    if (textline.equals("--")) {
+        currentTextSide = textRight;
+    }
+    if (!textline.isEmpty()
+        &amp;&amp; !textline.equals("--")
+        &amp;&amp; textline.indexOf("'") != 0)
+        currentTextSide.add(textline);
+}
+
+for (String lt : textLeft) {
+    y += print(lt, dockerWidth + 4, y);
+}
+
+if (textLeft.size() == 0 &amp;&amp; textRight.size() &gt; 0) {
+    dividerLeft = dockerWidth + 10;
+    dividerRight = dockerWidth + 10 + dividerWidth;
+} else if (textLeft.size() &gt; 0 &amp;&amp; textRight.size() == 0) {
+    dividerLeft = width - (dockerWidth + 10 + dividerWidth);
+    dividerRight = width - (dockerWidth + 10);
+}
+
+y = textHeight();
+textX = dividerRight + 4;
+
+for (String rt : textRight) {
+    y += print(rt, textX, y);
+}
+
+drawLine(dividerLeft, 0, dividerRight, height / 2);
+drawLine(dividerRight, height / 2, dividerLeft, height);
+
+
+for(String textline : textlines) {
+    if (textline.indexOf("'lb") == 0) {
+        int rightDockers = Integer.valueOf(textline.substring(4));
+        int rightDockersHeight = rightDockers * dockerHeight + (rightDockers - 1) * dockSpacing;
+        int startDockHeight = (height - rightDockersHeight) / 2;
+        for (int i = 0; i &lt; rightDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(0, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    } else if (textline.indexOf("'rb") == 0) {
+        int leftDockers = Integer.valueOf(textline.substring(4));
+        int leftDockersHeight = leftDockers * dockerHeight + (leftDockers - 1) * dockSpacing;
+        int startDockHeight = (height - leftDockersHeight) / 2;
+        for (int i = 0; i &lt; leftDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(width-dockerWidth, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    }
+}
+
+</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>370</x>
+      <y>320</y>
+      <w>81</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>// Modify the text below and
+// observe the element preview.
+
+--
+D
+
+'lb=2
+'rb=3
+
+bg=#bbdefb</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int x = 0;
+int y=textHeight();
+int dockerHeight = 12;
+int dockerWidth = dockerHeight;
+int dockSpacing = 8;
+int dividerWidth = 10;
+int dividerLeft = (int) ((width - dividerWidth) * 0.4);
+int dividerRight = (int) ((width + dividerWidth) * 0.4);
+int textX = 0;
+ArrayList&lt;String&gt; textLeft = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; textRight = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; currentTextSide = textLeft;
+
+drawRectangle(dockerWidth,0,width - 2*dockerWidth,height);
+
+
+for(String textline : textlines) {
+    if (textline.equals("--")) {
+        currentTextSide = textRight;
+    }
+    if (!textline.isEmpty()
+        &amp;&amp; !textline.equals("--")
+        &amp;&amp; textline.indexOf("'") != 0)
+        currentTextSide.add(textline);
+}
+
+for (String lt : textLeft) {
+    y += print(lt, dockerWidth + 4, y);
+}
+
+if (textLeft.size() == 0 &amp;&amp; textRight.size() &gt; 0) {
+    dividerLeft = dockerWidth + 10;
+    dividerRight = dockerWidth + 10 + dividerWidth;
+} else if (textLeft.size() &gt; 0 &amp;&amp; textRight.size() == 0) {
+    dividerLeft = width - (dockerWidth + 10 + dividerWidth);
+    dividerRight = width - (dockerWidth + 10);
+}
+
+y = textHeight();
+textX = dividerRight + 4;
+
+for (String rt : textRight) {
+    y += print(rt, textX, y);
+}
+
+drawLine(dividerLeft, 0, dividerRight, height / 2);
+drawLine(dividerRight, height / 2, dividerLeft, height);
+
+
+for(String textline : textlines) {
+    if (textline.indexOf("'lb") == 0) {
+        int rightDockers = Integer.valueOf(textline.substring(4));
+        int rightDockersHeight = rightDockers * dockerHeight + (rightDockers - 1) * dockSpacing;
+        int startDockHeight = (height - rightDockersHeight) / 2;
+        for (int i = 0; i &lt; rightDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(0, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    } else if (textline.indexOf("'rb") == 0) {
+        int leftDockers = Integer.valueOf(textline.substring(4));
+        int leftDockersHeight = leftDockers * dockerHeight + (leftDockers - 1) * dockSpacing;
+        int startDockHeight = (height - leftDockersHeight) / 2;
+        for (int i = 0; i &lt; leftDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(width-dockerWidth, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    }
+}
+
+</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>520</x>
+      <y>440</y>
+      <w>81</w>
+      <h>41</h>
+    </coordinates>
+    <panel_attributes>// Modify the text below and
+// observe the element preview.
+
+--
+E
+
+'lb=1
+'rb=1
+
+bg=#bbdefb</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int x = 0;
+int y=textHeight();
+int dockerHeight = 12;
+int dockerWidth = dockerHeight;
+int dockSpacing = 8;
+int dividerWidth = 10;
+int dividerLeft = (int) ((width - dividerWidth) * 0.4);
+int dividerRight = (int) ((width + dividerWidth) * 0.4);
+int textX = 0;
+ArrayList&lt;String&gt; textLeft = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; textRight = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; currentTextSide = textLeft;
+
+drawRectangle(dockerWidth,0,width - 2*dockerWidth,height);
+
+
+for(String textline : textlines) {
+    if (textline.equals("--")) {
+        currentTextSide = textRight;
+    }
+    if (!textline.isEmpty()
+        &amp;&amp; !textline.equals("--")
+        &amp;&amp; textline.indexOf("'") != 0)
+        currentTextSide.add(textline);
+}
+
+for (String lt : textLeft) {
+    y += print(lt, dockerWidth + 4, y);
+}
+
+if (textLeft.size() == 0 &amp;&amp; textRight.size() &gt; 0) {
+    dividerLeft = dockerWidth + 10;
+    dividerRight = dockerWidth + 10 + dividerWidth;
+} else if (textLeft.size() &gt; 0 &amp;&amp; textRight.size() == 0) {
+    dividerLeft = width - (dockerWidth + 10 + dividerWidth);
+    dividerRight = width - (dockerWidth + 10);
+}
+
+y = textHeight();
+textX = dividerRight + 4;
+
+for (String rt : textRight) {
+    y += print(rt, textX, y);
+}
+
+drawLine(dividerLeft, 0, dividerRight, height / 2);
+drawLine(dividerRight, height / 2, dividerLeft, height);
+
+
+for(String textline : textlines) {
+    if (textline.indexOf("'lb") == 0) {
+        int rightDockers = Integer.valueOf(textline.substring(4));
+        int rightDockersHeight = rightDockers * dockerHeight + (rightDockers - 1) * dockSpacing;
+        int startDockHeight = (height - rightDockersHeight) / 2;
+        for (int i = 0; i &lt; rightDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(0, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    } else if (textline.indexOf("'rb") == 0) {
+        int leftDockers = Integer.valueOf(textline.substring(4));
+        int leftDockersHeight = leftDockers * dockerHeight + (leftDockers - 1) * dockSpacing;
+        int startDockHeight = (height - leftDockersHeight) / 2;
+        for (int i = 0; i &lt; leftDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(width-dockerWidth, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    }
+}
+
+</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>650</x>
+      <y>340</y>
+      <w>81</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>// Modify the text below and
+// observe the element preview.
+
+--
+G
+
+'lb=3
+'rb=1
+
+bg=#bbdefb</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int x = 0;
+int y=textHeight();
+int dockerHeight = 12;
+int dockerWidth = dockerHeight;
+int dockSpacing = 8;
+int dividerWidth = 10;
+int dividerLeft = (int) ((width - dividerWidth) * 0.4);
+int dividerRight = (int) ((width + dividerWidth) * 0.4);
+int textX = 0;
+ArrayList&lt;String&gt; textLeft = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; textRight = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; currentTextSide = textLeft;
+
+drawRectangle(dockerWidth,0,width - 2*dockerWidth,height);
+
+
+for(String textline : textlines) {
+    if (textline.equals("--")) {
+        currentTextSide = textRight;
+    }
+    if (!textline.isEmpty()
+        &amp;&amp; !textline.equals("--")
+        &amp;&amp; textline.indexOf("'") != 0)
+        currentTextSide.add(textline);
+}
+
+for (String lt : textLeft) {
+    y += print(lt, dockerWidth + 4, y);
+}
+
+if (textLeft.size() == 0 &amp;&amp; textRight.size() &gt; 0) {
+    dividerLeft = dockerWidth + 10;
+    dividerRight = dockerWidth + 10 + dividerWidth;
+} else if (textLeft.size() &gt; 0 &amp;&amp; textRight.size() == 0) {
+    dividerLeft = width - (dockerWidth + 10 + dividerWidth);
+    dividerRight = width - (dockerWidth + 10);
+}
+
+y = textHeight();
+textX = dividerRight + 4;
+
+for (String rt : textRight) {
+    y += print(rt, textX, y);
+}
+
+drawLine(dividerLeft, 0, dividerRight, height / 2);
+drawLine(dividerRight, height / 2, dividerLeft, height);
+
+
+for(String textline : textlines) {
+    if (textline.indexOf("'lb") == 0) {
+        int rightDockers = Integer.valueOf(textline.substring(4));
+        int rightDockersHeight = rightDockers * dockerHeight + (rightDockers - 1) * dockSpacing;
+        int startDockHeight = (height - rightDockersHeight) / 2;
+        for (int i = 0; i &lt; rightDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(0, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    } else if (textline.indexOf("'rb") == 0) {
+        int leftDockers = Integer.valueOf(textline.substring(4));
+        int leftDockersHeight = leftDockers * dockerHeight + (leftDockers - 1) * dockSpacing;
+        int startDockHeight = (height - leftDockersHeight) / 2;
+        for (int i = 0; i &lt; leftDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(width-dockerWidth, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    }
+}
+
+</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>520</x>
+      <y>360</y>
+      <w>81</w>
+      <h>41</h>
+    </coordinates>
+    <panel_attributes>// Modify the text below and
+// observe the element preview.
+
+--
+F
+
+'lb=1
+'rb=1
+
+bg=#bbdefb</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int x = 0;
+int y=textHeight();
+int dockerHeight = 12;
+int dockerWidth = dockerHeight;
+int dockSpacing = 8;
+int dividerWidth = 10;
+int dividerLeft = (int) ((width - dividerWidth) * 0.4);
+int dividerRight = (int) ((width + dividerWidth) * 0.4);
+int textX = 0;
+ArrayList&lt;String&gt; textLeft = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; textRight = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; currentTextSide = textLeft;
+
+drawRectangle(dockerWidth,0,width - 2*dockerWidth,height);
+
+
+for(String textline : textlines) {
+    if (textline.equals("--")) {
+        currentTextSide = textRight;
+    }
+    if (!textline.isEmpty()
+        &amp;&amp; !textline.equals("--")
+        &amp;&amp; textline.indexOf("'") != 0)
+        currentTextSide.add(textline);
+}
+
+for (String lt : textLeft) {
+    y += print(lt, dockerWidth + 4, y);
+}
+
+if (textLeft.size() == 0 &amp;&amp; textRight.size() &gt; 0) {
+    dividerLeft = dockerWidth + 10;
+    dividerRight = dockerWidth + 10 + dividerWidth;
+} else if (textLeft.size() &gt; 0 &amp;&amp; textRight.size() == 0) {
+    dividerLeft = width - (dockerWidth + 10 + dividerWidth);
+    dividerRight = width - (dockerWidth + 10);
+}
+
+y = textHeight();
+textX = dividerRight + 4;
+
+for (String rt : textRight) {
+    y += print(rt, textX, y);
+}
+
+drawLine(dividerLeft, 0, dividerRight, height / 2);
+drawLine(dividerRight, height / 2, dividerLeft, height);
+
+
+for(String textline : textlines) {
+    if (textline.indexOf("'lb") == 0) {
+        int rightDockers = Integer.valueOf(textline.substring(4));
+        int rightDockersHeight = rightDockers * dockerHeight + (rightDockers - 1) * dockSpacing;
+        int startDockHeight = (height - rightDockersHeight) / 2;
+        for (int i = 0; i &lt; rightDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(0, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    } else if (textline.indexOf("'rb") == 0) {
+        int leftDockers = Integer.valueOf(textline.substring(4));
+        int leftDockersHeight = leftDockers * dockerHeight + (leftDockers - 1) * dockSpacing;
+        int startDockHeight = (height - leftDockersHeight) / 2;
+        for (int i = 0; i &lt; leftDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(width-dockerWidth, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    }
+}
+
+</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>390</y>
+      <w>80</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;40.0;10.0;40.0;70.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>160</y>
+      <w>80</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;200.0;30.0;200.0;30.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>160</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>160</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>320</x>
+      <y>240</y>
+      <w>81</w>
+      <h>41</h>
+    </coordinates>
+    <panel_attributes>// Modify the text below and
+// observe the element preview.
+
+--
+
+
+'lb=1
+'rb=1
+
+bg=#bbdefb</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int x = 0;
+int y=textHeight();
+int dockerHeight = 12;
+int dockerWidth = dockerHeight;
+int dockSpacing = 8;
+int dividerWidth = 10;
+int dividerLeft = (int) ((width - dividerWidth) * 0.4);
+int dividerRight = (int) ((width + dividerWidth) * 0.4);
+int textX = 0;
+ArrayList&lt;String&gt; textLeft = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; textRight = new ArrayList&lt;String&gt;();
+ArrayList&lt;String&gt; currentTextSide = textLeft;
+
+drawRectangle(dockerWidth,0,width - 2*dockerWidth,height);
+
+
+for(String textline : textlines) {
+    if (textline.equals("--")) {
+        currentTextSide = textRight;
+    }
+    if (!textline.isEmpty()
+        &amp;&amp; !textline.equals("--")
+        &amp;&amp; textline.indexOf("'") != 0)
+        currentTextSide.add(textline);
+}
+
+for (String lt : textLeft) {
+    y += print(lt, dockerWidth + 4, y);
+}
+
+if (textLeft.size() == 0 &amp;&amp; textRight.size() &gt; 0) {
+    dividerLeft = dockerWidth + 10;
+    dividerRight = dockerWidth + 10 + dividerWidth;
+} else if (textLeft.size() &gt; 0 &amp;&amp; textRight.size() == 0) {
+    dividerLeft = width - (dockerWidth + 10 + dividerWidth);
+    dividerRight = width - (dockerWidth + 10);
+}
+
+y = textHeight();
+textX = dividerRight + 4;
+
+for (String rt : textRight) {
+    y += print(rt, textX, y);
+}
+
+drawLine(dividerLeft, 0, dividerRight, height / 2);
+drawLine(dividerRight, height / 2, dividerLeft, height);
+
+
+for(String textline : textlines) {
+    if (textline.indexOf("'lb") == 0) {
+        int rightDockers = Integer.valueOf(textline.substring(4));
+        int rightDockersHeight = rightDockers * dockerHeight + (rightDockers - 1) * dockSpacing;
+        int startDockHeight = (height - rightDockersHeight) / 2;
+        for (int i = 0; i &lt; rightDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(0, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    } else if (textline.indexOf("'rb") == 0) {
+        int leftDockers = Integer.valueOf(textline.substring(4));
+        int leftDockersHeight = leftDockers * dockerHeight + (leftDockers - 1) * dockSpacing;
+        int startDockHeight = (height - leftDockersHeight) / 2;
+        for (int i = 0; i &lt; leftDockers; i++) {
+            int addY = i * (dockerHeight + dockSpacing);
+            drawRectangle(width-dockerWidth, startDockHeight + addY, dockerWidth, dockerHeight);
+        }
+    }
+}
+
+</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>180</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>50.0;80.0;10.0;40.0;200.0;40.0;200.0;10.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>250</y>
+      <w>220</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;50.0;200.0;50.0;200.0;90.0;180.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>340</x>
+      <y>180</y>
+      <w>110</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>30.0;10.0;10.0;10.0;10.0;50.0;90.0;50.0;60.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>340</x>
+      <y>250</y>
+      <w>110</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>30.0;120.0;10.0;120.0;10.0;40.0;90.0;40.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>340</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>250</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>370</y>
+      <w>100</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>370</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>160</y>
+      <w>100</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;50.0;60.0;50.0;200.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>370</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>80</y>
+      <w>180</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>kritischer Abschnitt
+bg=#ff8a80</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
