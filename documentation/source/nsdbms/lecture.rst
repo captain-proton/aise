@@ -735,4 +735,15 @@ Folie 55
 - Polymorphismus spielt in XML keine Rolle, da keine Methoden deklariert werden!
 - Verweise zu anderen Typen sind überall hin möglich, d.h. ein komplexer Datentyp kann in der Hierarchie wieder auftauchen
 
+Folie 72
+^^^^^^^^
+
+- bei ``maxOccurs`` ist nicht zwingend eine Ziffer benötigt, es kann auch ``unbounded`` enthalten sein, um beliebig viele Elemente definieren zu können
+
+Folie 77
+^^^^^^^^
+
+- Gruppen (``xs:group``) können einfache Gruppierungen von Elementen festlegen
+
+    + Im Gegensatz zu komplexen Typen können diese nicht als ``type`` von anderen Elementen verwendet werden
 
