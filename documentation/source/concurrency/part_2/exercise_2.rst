@@ -49,3 +49,7 @@ Definition:
 - ZugA && G3 -> ZugB wartet
 - ZugA && G1 -> ZugB darf auf G2 und G3
     - ZugB wartet bis G1 frei bei Bedarf
+
+.. image:: solutions/umlet/exercise_2.3.png
+
+In der Lösung ist beim Ausfahren der Zugriff auf das Gleis nicht beachtet. Hier müssten dieselben Regeln zum Tragen kommen wie beim einfahren. Das System ist nicht deadlockfrei!
