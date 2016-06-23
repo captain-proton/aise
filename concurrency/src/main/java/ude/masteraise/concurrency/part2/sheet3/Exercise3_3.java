@@ -1,9 +1,14 @@
 package ude.masteraise.concurrency.part2.sheet3;
 
+import org.apache.log4j.Logger;
+import ude.masteraise.concurrency.part2.ThreadUtils;
+
 /**
  * Created by nils on 22.06.16.
  */
 public class Exercise3_3 {
+
+    private static final Logger LOG = Logger.getLogger(Exercise3_3.class);
 
     public static void main(String[] args) {
 
@@ -16,8 +21,7 @@ public class Exercise3_3 {
         try {
             thread.join();
         } catch (InterruptedException e) {
-            System.out.println(thread.getClass().getSimpleName() + " was interrupted");
-            e.printStackTrace();
+            LOG.error(thread.getClass().getSimpleName() + " was interrupted", e);
         }
     }
 
@@ -49,21 +53,7 @@ public class Exercise3_3 {
         p2.start();
     }
 
-    static class BaseThread extends Thread {
-
-        void sout(String method, String resource, int value) {
-
-            String out = String.format("id: %3d   %20s.%-10s %4s: %3d",
-                    this.getId(),
-                    this.getClass().getSimpleName(),
-                    method,
-                    resource,
-                    value);
-            System.out.println(out);
-        }
-    }
-
-    static class Process1 extends BaseThread {
+    static class Process1 extends Thread {
         int a, b, c, d, e, x;
 
         public Process1(int a, int b) {
@@ -81,26 +71,26 @@ public class Exercise3_3 {
 
         void methodA() {
             x = a + b;
-            sout("methodA", "x", x);
+            ThreadUtils.sout(this, "methodA", "x", x);
         }
 
         void methodB() {
             c = x * x;
-            sout("methodB", "c", c);
+            ThreadUtils.sout(this, "methodB", "c", c);
         }
 
         void methodC() {
             d = x + 1;
-            sout("methodC", "d", d);
+            ThreadUtils.sout(this, "methodC", "d", d);
         }
 
         void methodD() {
             e = c + d;
-            sout("methodD", "e", e);
+            ThreadUtils.sout(this, "methodD", "e", e);
         }
     }
 
-    static class Process2 extends BaseThread {
+    static class Process2 extends Thread {
         int q, r, s, x;
 
         public Process2(int s, int q) {
@@ -116,12 +106,12 @@ public class Exercise3_3 {
 
         private void methodE() {
             x = s - q;
-            sout("methodE", "x", x);
+            ThreadUtils.sout(this, "methodE", "x", x);
         }
 
         private void methodF() {
             r = 2 * x;
-            sout("methodF", "r", r);
+            ThreadUtils.sout(this, "methodF", "r", r);
         }
     }
 

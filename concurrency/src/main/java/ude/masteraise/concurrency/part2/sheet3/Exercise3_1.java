@@ -1,6 +1,8 @@
 package ude.masteraise.concurrency.part2.sheet3;
 
 import org.apache.commons.lang3.RandomUtils;
+import org.apache.log4j.Logger;
+import ude.masteraise.concurrency.part2.ThreadUtils;
 
 /**
  * Created by nils on 22.06.16.
@@ -24,11 +26,11 @@ public class Exercise3_1 {
         }
 
         private void a1() {
-            System.out.println("a1()");
+            ThreadUtils.sout(this, "a1");
         }
 
         private void a2() {
-            System.out.println("a2()");
+            ThreadUtils.sout(this, "a2");
         }
     }
 
@@ -52,19 +54,19 @@ public class Exercise3_1 {
         }
 
         private void b1() {
-            System.out.println("b1()");
+            ThreadUtils.sout(this, "b1");
         }
 
         private void b2() {
-            System.out.println("b2()");
+            ThreadUtils.sout(this, "b2");
         }
 
         private void b3() {
-            System.out.println("b3()");
+            ThreadUtils.sout(this, "b3");
         }
 
         private void b4() {
-            System.out.println("b4()");
+            ThreadUtils.sout(this, "b4");
         }
     }
 }
