@@ -1,6 +1,7 @@
 package ude.masteraise.concurrency.part2.sheet3;
 
 import org.apache.log4j.Logger;
+import ude.masteraise.concurrency.part2.BaseThread;
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
 import java.util.Arrays;
@@ -51,7 +52,7 @@ public class Exercise3_2 {
                 .forEach(Thread::start);
     }
 
-    abstract static class Worker extends Thread {
+    abstract static class Worker extends BaseThread {
         @Override
         public void run() {
             for (int i = 0; i < 10; i++) {
@@ -102,11 +103,7 @@ public class Exercise3_2 {
 
         @Override
         void finish() {
-            try {
-                sleep(SLEEP_TIME);
-            } catch (InterruptedException e) {
-                LOG.error("could not sleep for " + SLEEP_TIME + " millis", e);
-            }
+            sleepSilent(SLEEP_TIME);
         }
     }
 
@@ -115,11 +112,7 @@ public class Exercise3_2 {
 
         @Override
         void finish() {
-            try {
-                sleep(SLEEP_TIME);
-            } catch (InterruptedException e) {
-                LOG.error("could not sleep for " + SLEEP_TIME + " millis", e);
-            }
+            sleepSilent(SLEEP_TIME);
         }
     }
 

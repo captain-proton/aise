@@ -17,14 +17,6 @@ public class Exercise3_3 {
         run_part_c();
     }
 
-    static void joinSilent(Thread thread) {
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            LOG.error(thread.getClass().getSimpleName() + " was interrupted", e);
-        }
-    }
-
     private static void run_part_a() {
 
         Process1 p1 = new Process1(2, 3);
@@ -40,7 +32,7 @@ public class Exercise3_3 {
         Process2 p2 = new Process2(20, 10);
 
         p2.start();
-        joinSilent(p2);
+        ThreadUtils.joinSilent(p2);
         p1.start();
     }
 
@@ -134,8 +126,8 @@ public class Exercise3_3 {
             threadB.start();
             threadC.start();
 
-            joinSilent(threadB);
-            joinSilent(threadC);
+            ThreadUtils.joinSilent(threadB);
+            ThreadUtils.joinSilent(threadC);
 
             methodD();
         }
