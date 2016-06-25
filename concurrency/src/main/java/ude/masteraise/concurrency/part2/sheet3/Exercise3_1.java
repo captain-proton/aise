@@ -1,7 +1,6 @@
 package ude.masteraise.concurrency.part2.sheet3;
 
 import org.apache.commons.lang3.RandomUtils;
-import org.apache.log4j.Logger;
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
 /**
@@ -44,7 +43,7 @@ public class Exercise3_1 {
         }
 
         @Override
-        public synchronized void start() {
+        public void run() {
             b1();
             b2();
             if (x)
