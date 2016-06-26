@@ -43,7 +43,7 @@ public class ExtraExercise2_2 {
             while (System.nanoTime() - startTime < 2000000000L) {
 
                 long sleepTime = RandomUtils.nextLong(0, 51);
-                sleepSilent(sleepTime);
+                ThreadUtils.sleepSilent(sleepTime);
 
                 // synchronize access to the warehouse so that producer and consumer do not wait for the others
                 synchronized (warehouse) {
@@ -73,7 +73,7 @@ public class ExtraExercise2_2 {
             while (System.nanoTime() - startTime < 2000000000L) {
 
                 long sleepTime = RandomUtils.nextLong(0, 151);
-                sleepSilent(sleepTime);
+                ThreadUtils.sleepSilent(sleepTime);
 
                 // synchronize access to the warehouse so that producer and consumer do not wait for the others
                 synchronized (warehouse) {

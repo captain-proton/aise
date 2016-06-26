@@ -5,8 +5,6 @@ import ude.masteraise.concurrency.part2.BaseThread;
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
 import java.util.Arrays;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -103,7 +101,7 @@ public class Exercise3_2 {
 
         @Override
         void finish() {
-            sleepSilent(SLEEP_TIME);
+            ThreadUtils.sleepSilent(SLEEP_TIME);
         }
     }
 
@@ -112,7 +110,7 @@ public class Exercise3_2 {
 
         @Override
         void finish() {
-            sleepSilent(SLEEP_TIME);
+            ThreadUtils.sleepSilent(SLEEP_TIME);
         }
     }
 

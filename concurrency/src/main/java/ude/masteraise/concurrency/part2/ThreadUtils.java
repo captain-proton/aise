@@ -28,6 +28,14 @@ public class ThreadUtils {
         }
     }
 
+    public static void sleepSilent(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            LOG.error(Thread.currentThread().getName() + " was interrupted", e);
+        }
+    }
+
     public static void sout(Thread t, String method) {
 
         String out = String.format("%20s.%-10s",

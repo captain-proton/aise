@@ -3,7 +3,6 @@ package ude.masteraise.concurrency.part2.extrasheet2;
 import ude.masteraise.concurrency.part2.BaseThread;
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 /**
@@ -78,7 +77,7 @@ public class ExtraExercise2_3 {
         @Override
         public void run() {
             for (int i = 0; i < 2; i++) {
-                sleepSilent(100 * x);
+                ThreadUtils.sleepSilent(100 * x);
                 monitor.in(this);
 
                 try {

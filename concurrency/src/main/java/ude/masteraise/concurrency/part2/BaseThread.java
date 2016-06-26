@@ -35,13 +35,6 @@ public abstract class BaseThread extends Thread {
         super(group, target, name, stackSize);
     }
 
-    protected void sleepSilent(long millis) {
-        try {
-            sleep(millis);
-        } catch (InterruptedException e) {
-        }
-    }
-
     public void waitSilent() {
         try {
             wait();
