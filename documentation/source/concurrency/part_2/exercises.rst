@@ -10,3 +10,4 @@ Die Lösungen zu den einzelnen Übungen bestehen zu einem Teil aus Java Quellcod
     additional_exercise_1
     exercise_2
     exercise_3
+    additional_exercise_2
