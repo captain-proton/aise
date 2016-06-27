@@ -1,7 +1,6 @@
 package ude.masteraise.concurrency.part2.extrasheet2;
 
 import org.apache.commons.lang3.RandomUtils;
-import ude.masteraise.concurrency.part2.BaseThread;
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
 import java.util.List;
@@ -27,7 +26,7 @@ public class ExtraExercise2_2 {
         consumers.forEach(Thread::start);
     }
 
-    static class Producer extends BaseThread {
+    static class Producer extends Thread {
 
         private Warehouse warehouse;
 
@@ -45,20 +44,24 @@ public class ExtraExercise2_2 {
                 long sleepTime = RandomUtils.nextLong(0, 51);
                 ThreadUtils.sleepSilent(sleepTime);
 
-                // synchronize access to the warehouse so that producer and consumer do not wait for the others
+                // - 1 -
+                /*
+                after sleep, synchronize access to ware and check for present goods.
+                if warehouse is not full produce item
+                 */
                 synchronized (warehouse) {
                     // produce is ware is not full
                     if (!warehouse.isFull()) {
 
                         warehouse.produce();
-                        ThreadUtils.sout(this, "produced", "wares", warehouse.goodsCount);
+                        ThreadUtils.sout(this, "produced", "goods", warehouse.goodsCount);
                     }
                 }
             }
         }
     }
 
-    static class Consumer extends BaseThread {
+    static class Consumer extends Thread {
         private final Warehouse warehouse;
 
         public Consumer(String name, Warehouse warehouse) {
@@ -72,16 +75,21 @@ public class ExtraExercise2_2 {
 
             while (System.nanoTime() - startTime < 2000000000L) {
 
+                // sleep random time
                 long sleepTime = RandomUtils.nextLong(0, 151);
                 ThreadUtils.sleepSilent(sleepTime);
 
-                // synchronize access to the warehouse so that producer and consumer do not wait for the others
+                // - 2 -
+                /*
+                after sleep, synchronize access to ware and check for present goods.
+                if one is present remove good
+                 */
                 synchronized (warehouse) {
                     // take ware from warehouse if it is present
                     if (warehouse.hasGoods()) {
 
                         warehouse.remove();
-                        ThreadUtils.sout(this, "consumed", "wares", warehouse.goodsCount);
+                        ThreadUtils.sout(this, "consumed", "goods", warehouse.goodsCount);
                     }
                 }
             }
@@ -91,28 +99,40 @@ public class ExtraExercise2_2 {
     static class Warehouse {
 
         int goodsCount = 0;
-        int maxWaresCount;
+        int maxGoodsCount;
 
-        public Warehouse(int maxWaresCount) {
-            this.maxWaresCount = maxWaresCount;
+        public Warehouse(int maxGoodsCount) {
+            this.maxGoodsCount = maxGoodsCount;
         }
 
         void produce() {
-            // 1
+            // - 3 -
             goodsCount++;
         }
 
         void remove() {
-            // 2
+            // - 4 -
             goodsCount--;
         }
 
+        /**
+         * - 5 -
+         * Check if goods are present.
+         *
+         * @return  <code>true</code> if goods are present, <code>false</code> otherwise
+         */
         boolean hasGoods() {
             return goodsCount > 0;
         }
 
+        /**
+         * - 6 -
+         * Check if warehouse is full.
+         *
+         * @return  <code>true</code> if warehouse if full, <code>false</code> otherwise
+         */
         boolean isFull() {
-            return goodsCount >= maxWaresCount;
+            return goodsCount >= maxGoodsCount;
         }
     }
 }

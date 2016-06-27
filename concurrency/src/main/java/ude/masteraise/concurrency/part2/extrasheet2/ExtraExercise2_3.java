@@ -1,6 +1,5 @@
 package ude.masteraise.concurrency.part2.extrasheet2;
 
-import ude.masteraise.concurrency.part2.BaseThread;
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
 import java.util.stream.Stream;
@@ -37,10 +36,7 @@ public class ExtraExercise2_3 {
             ThreadUtils.sout(p, "in", "n", p.x);
             while (p.x == 2) {
                 ThreadUtils.sout(p, "in", "n", p.x, (System.nanoTime() - startTime) / 1000000);
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                }
+                ThreadUtils.waitSilent(this);
             }
         }
 
@@ -54,7 +50,7 @@ public class ExtraExercise2_3 {
         }
     }
 
-    static class Process extends BaseThread {
+    static class Process extends Thread {
         int x;
         Process other;
         ProcessSystem monitor;

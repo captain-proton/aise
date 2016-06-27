@@ -24,7 +24,6 @@ public class ThreadUtils {
         try {
             thread.join();
         } catch (InterruptedException e) {
-            LOG.error(thread.getClass().getSimpleName() + " was interrupted", e);
         }
     }
 
@@ -32,7 +31,13 @@ public class ThreadUtils {
         try {
             Thread.sleep(millis);
         } catch (InterruptedException e) {
-            LOG.error(Thread.currentThread().getName() + " was interrupted", e);
+        }
+    }
+
+    public static void waitSilent(Object o) {
+        try {
+            o.wait();
+        } catch (InterruptedException e) {
         }
     }
 

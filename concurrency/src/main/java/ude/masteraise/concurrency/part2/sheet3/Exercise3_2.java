@@ -1,7 +1,6 @@
 package ude.masteraise.concurrency.part2.sheet3;
 
 import org.apache.log4j.Logger;
-import ude.masteraise.concurrency.part2.BaseThread;
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
 import java.util.Arrays;
@@ -50,7 +49,7 @@ public class Exercise3_2 {
                 .forEach(Thread::start);
     }
 
-    abstract static class Worker extends BaseThread {
+    abstract static class Worker extends Thread {
         @Override
         public void run() {
             for (int i = 0; i < 10; i++) {
