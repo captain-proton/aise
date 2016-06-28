@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="humanity">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="families">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="family" type="familyType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="addresses" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="address" type="addressType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="hobbies" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="hobby" type="hobbyType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="kindergartens" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="kindergarten" type="kindergartenType" minOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="schools" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="school" type="schoolType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="addressType">
+        <xs:sequence>
+            <xs:element name="addressID" type="xs:ID"/>
+            <xs:element name="street" type="xs:string"/>
+            <xs:element name="streetNo" type="xs:string"/>
+            <xs:element name="city" type="xs:string" minOccurs="0"/>
+            <xs:element name="zip">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{5}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="hobbyType">
+        <xs:sequence>
+            <xs:element name="hobbyID" type="xs:ID"/>
+            <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="kindergartenType">
+        <xs:sequence>
+            <xs:element name="kindergartenID" type="xs:ID"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="addressIDREFS" type="xs:IDREFS"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="schoolType">
+        <xs:sequence>
+            <xs:element name="schoolID" type="xs:ID"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="addressIDREFS" type="xs:IDREFS"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="familyType">
+        <xs:sequence>
+            <xs:element name="father" type="personType"/>
+            <xs:element name="mother" type="personType"/>
+            <xs:element name="children" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="child" type="childType" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="personType">
+        <xs:sequence>
+            <xs:element name="firstname" type="xs:string"/>
+            <xs:element name="lastname" type="xs:string"/>
+            <xs:element name="dateOfBirth" type="xs:date"/>
+            <xs:element name="sex" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="male"/>
+                        <xs:enumeration value="female"/>
+                        <xs:enumeration value="neutral"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="hobbies" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="hobby" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="sinceWhen" type="xs:date"/>
+                                    <xs:element name="hobbyIDREF" type="xs:IDREF"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addressIDREFS" type="xs:IDREFS"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="childType">
+        <xs:complexContent>
+            <xs:extension base="personType">
+                <xs:sequence>
+                    <xs:element name="kindergartenIDREF" type="xs:IDREF" minOccurs="0"/>
+                    <xs:element name="schoolIDREF" type="xs:IDREF" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
