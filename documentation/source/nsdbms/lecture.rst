@@ -747,3 +747,21 @@ Folie 77
 
     + Im Gegensatz zu komplexen Typen können diese nicht als ``type`` von anderen Elementen verwendet werden
 
+
+Part09 XML & Datenbanken - XPath und XQuery
+-------------------------------------------
+
+Folie 4
+^^^^^^^
+
+- In der Vorlesung wird davon ausgegangen, dass jede besprochene Operation auf einem einzelnen XML-Dokument durchgeführt wird
+
+Folie 9
+^^^^^^^
+
+- In SQL keine Ordnung, bei XML schon (``preceding``...)
+
+Folie 15
+^^^^^^^^
+
+- Im Gegensatz zu SQL sind strukturbedingte Abfragen möglich
