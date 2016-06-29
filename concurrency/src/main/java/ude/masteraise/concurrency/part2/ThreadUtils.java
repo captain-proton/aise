@@ -44,7 +44,7 @@ public class ThreadUtils {
     public static void sout(Thread t, String method) {
 
         String out = String.format("%20s.%-10s",
-                t.getClass().getSimpleName(),
+                t.getName(),
                 method);
         LOG.info(out);
     }
