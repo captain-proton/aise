@@ -13,7 +13,7 @@ public class ThreadMonitor {
 
     public static void main(String[] args) {
 
-        Worker[] workers = {new Worker(1), new Worker(-1)};
+        Worker[] workers = {new Worker(2), new Worker(-2)};
 
         Arrays.stream(workers).forEach(w -> new Thread(w).start());
     }
@@ -30,9 +30,10 @@ public class ThreadMonitor {
 
         @Override
         public void run() {
-            for (int i = 0; i < 100; i++) {
+//             synchronized (Worker.class) {
+            synchronized (this) {
+                for (int i = 0; i < 10; i++) {
 
-                synchronized (this) {
                     x += delta;
                     System.out.println(name  + " " + x);
                 }
