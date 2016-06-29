@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
 import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by nils on 22.06.16.
@@ -13,10 +12,9 @@ public class Exercise3_2 {
 
     private static final Logger LOG = Logger.getLogger(Exercise3_2.class);
 
-    static AtomicInteger number;
+    static int number;
 
     public static void main(String[] unbenutzt) {
-        number = new AtomicInteger();
 
         run_part_a();
 //        run_part_b();
@@ -42,7 +40,7 @@ public class Exercise3_2 {
 
     private static void run(Class<? extends Thread>... threadClasses) {
 
-        number.set(0);
+        number = 0;
         Arrays.stream(threadClasses)
                 .map(ThreadUtils::newInstance)
                 .filter(t -> t != null)
@@ -54,7 +52,7 @@ public class Exercise3_2 {
         public void run() {
             for (int i = 0; i < 10; i++) {
                 work();
-                ThreadUtils.sout(this, "run", "number", number.get());
+                ThreadUtils.sout(this, "run", "number", number);
                 finish();
             }
         }
@@ -66,7 +64,7 @@ public class Exercise3_2 {
     public static class Plus extends Worker {
         @Override
         void work() {
-            Exercise3_2.number.incrementAndGet();
+            Exercise3_2.number++;
         }
     }
 
@@ -74,7 +72,7 @@ public class Exercise3_2 {
 
         @Override
         void work() {
-            Exercise3_2.number.decrementAndGet();
+            Exercise3_2.number--;
         }
     }
 
