@@ -5,7 +5,6 @@ import ude.masteraise.concurrency.part2.ThreadUtils;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * Created by nils on 24.06.16.
@@ -63,13 +62,18 @@ public class ExtraExercise2_1 {
     }
 
     private void run(Process... processes) {
+        // print initial shared resource value
         ThreadUtils.sout(Thread.currentThread(), "main", "        x", this.getResourceValue());
 
+        // start each thread
         Arrays.stream(processes).forEach(Thread::start);
 
+        // while any thread is alive print resource in current thread
         while (Arrays.stream(processes).anyMatch(Thread::isAlive)) {
             ThreadUtils.sout(Thread.currentThread(), "main", "current x", this.getResourceValue());
         }
+
+        // print final shared resource value
         ThreadUtils.sout(Thread.currentThread(), "main", "  final x", this.getResourceValue());
     }
 
