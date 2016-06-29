@@ -1,6 +1,5 @@
 package ude.masteraise.concurrency.part2.sheet3;
 
-import org.apache.log4j.Logger;
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
 /**
@@ -8,19 +7,20 @@ import ude.masteraise.concurrency.part2.ThreadUtils;
  */
 public class Exercise3_3 {
 
-    private static final Logger LOG = Logger.getLogger(Exercise3_3.class);
+    static int a, b, c, d, e;
+    static int q, r, s, x;
 
     public static void main(String[] args) {
 
-//        run_part_a();
+        run_part_a();
 //        run_part_b();
-        run_part_c();
+//        run_part_c();
     }
 
     private static void run_part_a() {
 
-        Process1 p1 = new Process1(2, 3);
-        Process2 p2 = new Process2(20, 10);
+        Process1 p1 = new Process1();
+        Process2 p2 = new Process2();
 
         p1.start();
         p2.start();
@@ -28,33 +28,35 @@ public class Exercise3_3 {
 
     private static void run_part_b() {
 
-        Process1 p1 = new Process1(2, 3);
-        Process2 p2 = new Process2(20, 10);
+        Process1 p1 = new Process1();
+        Process2 p2 = new Process2();
 
         p2.start();
+        ThreadUtils.sout(Thread.currentThread(), "waiting for p2");
         ThreadUtils.joinSilent(p2);
+        ThreadUtils.sout(Thread.currentThread(), "p2 finished");
         p1.start();
     }
 
     private static void run_part_c() {
 
-        Process1 p1 = new Process1Concurrent(2, 3);
-        Process2 p2 = new Process2(20, 10);
+        Process1 p1 = new Process1Concurrent();
+        Process2 p2 = new Process2();
 
         p1.start();
         p2.start();
     }
 
     static class Process1 extends Thread {
-        int a, b, c, d, e, x;
 
-        public Process1(int a, int b) {
-            this.a = a;
-            this.b = b;
+        public Process1() {
+            a = 2;
+            b = 3;
         }
 
         @Override
         public void run() {
+
             methodA();
             methodB();
             methodC();
@@ -83,11 +85,10 @@ public class Exercise3_3 {
     }
 
     static class Process2 extends Thread {
-        int q, r, s, x;
 
-        public Process2(int s, int q) {
-            this.s = s;
-            this.q = q;
+        public Process2() {
+            s = 20;
+            q = 10;
         }
 
         @Override
@@ -108,10 +109,6 @@ public class Exercise3_3 {
     }
 
     static class Process1Concurrent extends Process1 {
-
-        public Process1Concurrent(int a, int b) {
-            super(a, b);
-        }
 
         @Override
         public void run() {
