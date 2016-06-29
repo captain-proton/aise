@@ -748,8 +748,8 @@ Folie 77
     + Im Gegensatz zu komplexen Typen können diese nicht als ``type`` von anderen Elementen verwendet werden
 
 
-Part09 XML & Datenbanken - XPath und XQuery
--------------------------------------------
+Part09-01 XML & Datenbanken - XPath und XQuery
+----------------------------------------------
 
 Folie 4
 ^^^^^^^
@@ -765,3 +765,59 @@ Folie 15
 ^^^^^^^^
 
 - Im Gegensatz zu SQL sind strukturbedingte Abfragen möglich
+
+Folie 25-41
+^^^^^^^^^^^
+
+- wird weggelassen
+
+
+Part09-02 XML & Datenbanken - XPath und XQuery
+----------------------------------------------
+
+Folie 4
+^^^^^^^
+
+- ``RETURN`` liefert reinen Text ohne Verwendung von Methodenaurufen
+
+Folie 17
+^^^^^^^^
+
+- Die ``LET``-Klausel bringt Mengenorientierung in die Abfrage
+
+    + Es wird direkt eine Menge von Elementen geliefert
+
+Folie 19
+^^^^^^^^
+
+- Eine ID ist im Sinne von XML immer ein Attribut!
+- IDREF ist **nicht typisiert** im Gegensatz zu SQL
+
+    + es kann ein Verweis auf jeden beliebigen Knoten im Dokument sein
+
+Folie 21
+^^^^^^^^
+
+- Einführende ``LET``-Klausel holt nur das Dokument
+
+    + Für die Klausur kann auch direkt in der ``FOR``-Klausel das Dokument adressiert werden
+
+- ``LET`` und ``FOR`` können beliebig oft und in beliebiger Reihenfolge vorkommen
+- ``$joe`` beinhaltet die dereferenzierte ``BAR``
+- in der ``WHERE``-Klausel kann bei Zugriff auf eine Menge (``$joePrice``) auf einen bestimmten Wert verglichen werden
+- für die Klausur ist die Syntax gerade für XML nicht so wichtig wie in SQL
+
+Folie 22
+^^^^^^^^
+
+- Die zweite ``LET``-Klausel ist optional, die Abfrage könnte auch in einer Abfrage erfolgen
+
+Folie 32
+^^^^^^^^
+
+- ``UNION`` in XML ist wie in SQL ``DISTINCT``
+
+Folie 44
+^^^^^^^^
+
+- ``.FTCONTAINS "adsf"`` soll als Funktion genutzt werden in der Syntax ``contains()``
