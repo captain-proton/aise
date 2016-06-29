@@ -17,6 +17,10 @@
                             <xs:element name="address" type="addressType" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
+                    <xs:unique name="addressID">
+                        <xs:selector xpath="address"/>
+                        <xs:field xpath="addressID"/>
+                    </xs:unique>
                 </xs:element>
                 <xs:element name="hobbies" minOccurs="0">
                     <xs:complexType>
@@ -28,7 +32,7 @@
                 <xs:element name="kindergartens" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="kindergarten" type="kindergartenType" minOccurs="unbounded"/>
+                            <xs:element name="kindergarten" type="kindergartenType" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -45,7 +49,6 @@
 
     <xs:complexType name="addressType">
         <xs:sequence>
-            <xs:element name="addressID" type="xs:ID"/>
             <xs:element name="street" type="xs:string"/>
             <xs:element name="streetNo" type="xs:string"/>
             <xs:element name="city" type="xs:string" minOccurs="0"/>
@@ -57,29 +60,30 @@
                 </xs:simpleType>
             </xs:element>
         </xs:sequence>
+        <xs:attribute name="addressID" type="xs:ID"/>
     </xs:complexType>
 
     <xs:complexType name="hobbyType">
         <xs:sequence>
-            <xs:element name="hobbyID" type="xs:ID"/>
             <xs:element name="name" type="xs:string"/>
         </xs:sequence>
+        <xs:attribute name="hobbyID" type="xs:ID"/>
     </xs:complexType>
 
     <xs:complexType name="kindergartenType">
         <xs:sequence>
-            <xs:element name="kindergartenID" type="xs:ID"/>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="addressIDREFS" type="xs:IDREFS"/>
         </xs:sequence>
+        <xs:attribute name="kindergartenID" type="xs:ID"/>
     </xs:complexType>
 
     <xs:complexType name="schoolType">
         <xs:sequence>
-            <xs:element name="schoolID" type="xs:ID"/>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="addressIDREFS" type="xs:IDREFS"/>
         </xs:sequence>
+        <xs:attribute name="schoolID" type="xs:ID"/>
     </xs:complexType>
 
     <xs:complexType name="familyType">
