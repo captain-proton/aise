@@ -9,26 +9,30 @@ import java.util.stream.IntStream;
 /**
  * Created by nils on 24.06.16.
  */
-public class ExtraExercise2_1 {
+public class ExtraExercise2_1
+{
 
     private static final int DELTA_TIMES = 100000000;
 
     private int x;
     private AtomicInteger atomicX;
 
-    public ExtraExercise2_1(int x, AtomicInteger atomicX) {
+    public ExtraExercise2_1(int x, AtomicInteger atomicX)
+    {
         this.x = x;
         this.atomicX = atomicX;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         run_original_exercise();
 //        run_original_exercise_synchronized();
 //        run_exercise_on_atomic();
     }
 
-    private static void run_original_exercise() {
+    private static void run_original_exercise()
+    {
         ExtraExercise2_1 main = new ExtraExercise2_1(100, null);
 
         Process p1 = new Process(2, main, "p1");
@@ -37,13 +41,15 @@ public class ExtraExercise2_1 {
         main.run(p1, p2);
     }
 
-    private int getResourceValue() {
+    private int getResourceValue()
+    {
         return atomicX != null
                ? atomicX.intValue()
                : x;
     }
 
-    private static void run_original_exercise_synchronized() {
+    private static void run_original_exercise_synchronized()
+    {
         ExtraExercise2_1 main = new ExtraExercise2_1(100, null);
 
         Process p1 = new SynchronizedProcess(2, main, "p1");
@@ -52,7 +58,8 @@ public class ExtraExercise2_1 {
         main.run(p1, p2);
     }
 
-    private static void run_exercise_on_atomic() {
+    private static void run_exercise_on_atomic()
+    {
         ExtraExercise2_1 main = new ExtraExercise2_1(Integer.MIN_VALUE, new AtomicInteger(100));
 
         Process p1 = new ProcessOnAtomicInt(2, main, "p1");
@@ -61,7 +68,8 @@ public class ExtraExercise2_1 {
         main.run(p1, p2);
     }
 
-    private void run(Process... processes) {
+    private void run(Process... processes)
+    {
         // print initial shared resource value
         ThreadUtils.sout(Thread.currentThread(), "main", "        x", this.getResourceValue());
 
@@ -69,7 +77,8 @@ public class ExtraExercise2_1 {
         Arrays.stream(processes).forEach(Thread::start);
 
         // while any thread is alive print resource in current thread
-        while (Arrays.stream(processes).anyMatch(Thread::isAlive)) {
+        while (Arrays.stream(processes).anyMatch(Thread::isAlive))
+        {
             ThreadUtils.sout(Thread.currentThread(), "main", "current x", this.getResourceValue());
         }
 
@@ -77,47 +86,57 @@ public class ExtraExercise2_1 {
         ThreadUtils.sout(Thread.currentThread(), "main", "  final x", this.getResourceValue());
     }
 
-    static class Process extends Thread {
+    static class Process extends Thread
+    {
         int delta;
         ExtraExercise2_1 main;
         String name;
 
-        public Process(int delta, ExtraExercise2_1 main, String name) {
+        public Process(int delta, ExtraExercise2_1 main, String name)
+        {
             this.delta = delta;
             this.main = main;
             this.name = name;
         }
 
         @Override
-        public void run() {
+        public void run()
+        {
             IntStream.range(0, DELTA_TIMES).forEach(i -> main.x += delta);
         }
     }
 
-    static class SynchronizedProcess extends Process {
+    static class SynchronizedProcess extends Process
+    {
 
-        public SynchronizedProcess(int delta, ExtraExercise2_1 main, String name) {
+        public SynchronizedProcess(int delta, ExtraExercise2_1 main, String name)
+        {
             super(delta, main, name);
         }
 
         @Override
-        public void run() {
+        public void run()
+        {
             IntStream.range(0, DELTA_TIMES).forEach(i -> {
-                synchronized (main) {
+                synchronized (main)
+                {
                     main.x += delta;
                 }
             });
         }
     }
 
-    static class ProcessOnAtomicInt extends Process {
+    static class ProcessOnAtomicInt extends Process
+    {
 
-        public ProcessOnAtomicInt(int delta, ExtraExercise2_1 main, String name) {
+        public ProcessOnAtomicInt(int delta, ExtraExercise2_1 main, String name)
+        {
             super(delta, main, name);
         }
 
         @Override
-        public void run() {
+        public void run()
+        {
             IntStream.range(0, DELTA_TIMES).forEach(i -> main.atomicX.addAndGet(delta));
         }
     }

@@ -7,11 +7,13 @@ import org.apache.log4j.Logger;
  * This sample contains a implementation of the uppaal tutorial mentioned in "small_tutorial.pdf" in the section
  * 3.2 Mutual Exclusion Algorithm.
  */
-public class MutexAlgorithm {
+public class MutexAlgorithm
+{
 
     private static final Logger LOGGER = Logger.getLogger(MutexAlgorithm.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         // shared resources between the automata. these are global variables in uppaal (declarations)
         MutableBoolean req1 = new MutableBoolean();
@@ -34,7 +36,8 @@ public class MutexAlgorithm {
      * An {@code Automaton} contains the implementation of a template modeled in uppaal. Parameters defined in the
      * uppaal template are mostly used as parameters inside the constructor.
      */
-    private static class Automaton extends Thread {
+    private static class Automaton extends Thread
+    {
 
         private static final int MAX_CRITICAL_STUFF_COUNT = 50;
 
@@ -67,14 +70,16 @@ public class MutexAlgorithm {
          */
         private int criticalStuffCount;
 
-        public Automaton(MutableBoolean req_self, MutableBoolean req_other, int workingTime) {
+        public Automaton(MutableBoolean req_self, MutableBoolean req_other, int workingTime)
+        {
             this.req_self = req_self;
             this.req_other = req_other;
             this.workingTime = workingTime;
         }
 
         @Override
-        public void run() {
+        public void run()
+        {
             // validation
             if (other == null)
                 throw new IllegalStateException("other automaton must be set");
@@ -83,7 +88,8 @@ public class MutexAlgorithm {
             inside the sample the automata are able to perform critical stuff for an indefinite amount. therefore
             the critical stuff counter is used to end work and stop the program.
              */
-            while (!isCriticalStuffDone()) {
+            while (!isCriticalStuffDone())
+            {
 
                 // see page 5 figure 6 of the tutorial
 
@@ -115,11 +121,13 @@ public class MutexAlgorithm {
 
         }
 
-        private boolean isCriticalStuffDone() {
+        private boolean isCriticalStuffDone()
+        {
             return criticalStuffCount >= MAX_CRITICAL_STUFF_COUNT;
         }
 
-        private void doCriticalStuff() {
+        private void doCriticalStuff()
+        {
 
             // calculate working time
             long startWaitTime = System.currentTimeMillis();

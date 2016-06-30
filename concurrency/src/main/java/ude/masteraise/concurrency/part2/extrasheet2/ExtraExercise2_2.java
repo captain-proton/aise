@@ -10,10 +10,12 @@ import java.util.stream.IntStream;
 /**
  * Created by nils on 24.06.16.
  */
-public class ExtraExercise2_2 {
+public class ExtraExercise2_2
+{
     private static final int MAX_WARE_COUNT = 50;
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         Warehouse warehouse = new Warehouse(MAX_WARE_COUNT);
         Producer p = new Producer("P", warehouse);
@@ -26,20 +28,24 @@ public class ExtraExercise2_2 {
         consumers.forEach(Thread::start);
     }
 
-    static class Producer extends Thread {
+    static class Producer extends Thread
+    {
 
         private Warehouse warehouse;
 
-        public Producer(String name, Warehouse warehouse) {
+        public Producer(String name, Warehouse warehouse)
+        {
             super(name);
             this.warehouse = warehouse;
         }
 
         @Override
-        public void run() {
+        public void run()
+        {
             long startTime = System.nanoTime();
 
-            while (System.nanoTime() - startTime < 2000000000L) {
+            while (System.nanoTime() - startTime < 2000000000L)
+            {
 
                 long sleepTime = RandomUtils.nextLong(0, 51);
                 ThreadUtils.sleepSilent(sleepTime);
@@ -49,9 +55,11 @@ public class ExtraExercise2_2 {
                 after sleep, synchronize access to ware and check for present goods.
                 if warehouse is not full produce item
                  */
-                synchronized (warehouse) {
+                synchronized (warehouse)
+                {
                     // produce is ware is not full
-                    if (!warehouse.isFull()) {
+                    if (!warehouse.isFull())
+                    {
 
                         warehouse.produce();
                         ThreadUtils.sout(this, "produced", "goods", warehouse.goodsCount);
@@ -61,19 +69,23 @@ public class ExtraExercise2_2 {
         }
     }
 
-    static class Consumer extends Thread {
+    static class Consumer extends Thread
+    {
         private final Warehouse warehouse;
 
-        public Consumer(String name, Warehouse warehouse) {
+        public Consumer(String name, Warehouse warehouse)
+        {
             super(name);
             this.warehouse = warehouse;
         }
 
         @Override
-        public void run() {
+        public void run()
+        {
             long startTime = System.nanoTime();
 
-            while (System.nanoTime() - startTime < 2000000000L) {
+            while (System.nanoTime() - startTime < 2000000000L)
+            {
 
                 // sleep random time
                 long sleepTime = RandomUtils.nextLong(0, 151);
@@ -84,9 +96,11 @@ public class ExtraExercise2_2 {
                 after sleep, synchronize access to ware and check for present goods.
                 if one is present remove good
                  */
-                synchronized (warehouse) {
+                synchronized (warehouse)
+                {
                     // take ware from warehouse if it is present
-                    if (warehouse.hasGoods()) {
+                    if (warehouse.hasGoods())
+                    {
 
                         warehouse.remove();
                         ThreadUtils.sout(this, "consumed", "goods", warehouse.goodsCount);
@@ -96,21 +110,25 @@ public class ExtraExercise2_2 {
         }
     }
 
-    static class Warehouse {
+    static class Warehouse
+    {
 
         int goodsCount = 0;
         int maxGoodsCount;
 
-        public Warehouse(int maxGoodsCount) {
+        public Warehouse(int maxGoodsCount)
+        {
             this.maxGoodsCount = maxGoodsCount;
         }
 
-        void produce() {
+        void produce()
+        {
             // - 3 -
             goodsCount++;
         }
 
-        void remove() {
+        void remove()
+        {
             // - 4 -
             goodsCount--;
         }
@@ -119,9 +137,10 @@ public class ExtraExercise2_2 {
          * - 5 -
          * Check if goods are present.
          *
-         * @return  <code>true</code> if goods are present, <code>false</code> otherwise
+         * @return <code>true</code> if goods are present, <code>false</code> otherwise
          */
-        boolean hasGoods() {
+        boolean hasGoods()
+        {
             return goodsCount > 0;
         }
 
@@ -129,9 +148,10 @@ public class ExtraExercise2_2 {
          * - 6 -
          * Check if warehouse is full.
          *
-         * @return  <code>true</code> if warehouse if full, <code>false</code> otherwise
+         * @return <code>true</code> if warehouse if full, <code>false</code> otherwise
          */
-        boolean isFull() {
+        boolean isFull()
+        {
             return goodsCount >= maxGoodsCount;
         }
     }

@@ -5,19 +5,22 @@ import ude.masteraise.concurrency.part2.ThreadUtils;
 /**
  * Created by nils on 22.06.16.
  */
-public class Exercise3_3 {
+public class Exercise3_3
+{
 
     static int a, b, c, d, e;
     static int q, r, s, x;
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         run_part_a();
 //        run_part_b();
 //        run_part_c();
     }
 
-    private static void run_part_a() {
+    private static void run_part_a()
+    {
 
         Process1 p1 = new Process1();
         Process2 p2 = new Process2();
@@ -26,7 +29,8 @@ public class Exercise3_3 {
         p2.start();
     }
 
-    private static void run_part_b() {
+    private static void run_part_b()
+    {
 
         Process1 p1 = new Process1();
         Process2 p2 = new Process2();
@@ -38,7 +42,8 @@ public class Exercise3_3 {
         p1.start();
     }
 
-    private static void run_part_c() {
+    private static void run_part_c()
+    {
 
         Process1 p1 = new Process1Concurrent();
         Process2 p2 = new Process2();
@@ -47,15 +52,18 @@ public class Exercise3_3 {
         p2.start();
     }
 
-    static class Process1 extends Thread {
+    static class Process1 extends Thread
+    {
 
-        public Process1() {
+        public Process1()
+        {
             a = 2;
             b = 3;
         }
 
         @Override
-        public void run() {
+        public void run()
+        {
 
             methodA();
             methodB();
@@ -63,55 +71,66 @@ public class Exercise3_3 {
             methodD();
         }
 
-        void methodA() {
+        void methodA()
+        {
             x = a + b;
             ThreadUtils.sout(this, "methodA", "x", x);
         }
 
-        void methodB() {
+        void methodB()
+        {
             c = x * x;
             ThreadUtils.sout(this, "methodB", "c", c);
         }
 
-        void methodC() {
+        void methodC()
+        {
             d = x + 1;
             ThreadUtils.sout(this, "methodC", "d", d);
         }
 
-        void methodD() {
+        void methodD()
+        {
             e = c + d;
             ThreadUtils.sout(this, "methodD", "e", e);
         }
     }
 
-    static class Process2 extends Thread {
+    static class Process2 extends Thread
+    {
 
-        public Process2() {
+        public Process2()
+        {
             s = 20;
             q = 10;
         }
 
         @Override
-        public void run() {
+        public void run()
+        {
             methodE();
             methodF();
         }
 
-        private void methodE() {
+        private void methodE()
+        {
             x = s - q;
             ThreadUtils.sout(this, "methodE", "x", x);
         }
 
-        private void methodF() {
+        private void methodF()
+        {
             r = 2 * x;
             ThreadUtils.sout(this, "methodF", "r", r);
         }
     }
 
-    static class Process1Concurrent extends Process1 {
+    static class Process1Concurrent extends Process1
+    {
 
         @Override
-        public void run() {
+        public void run()
+        {
             methodA();
 
             Runnable b = () -> methodB();
