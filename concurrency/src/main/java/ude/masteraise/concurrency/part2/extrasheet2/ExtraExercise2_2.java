@@ -52,19 +52,15 @@ public class ExtraExercise2_2
 
                 // - 1 -
                 /*
-                after sleep, synchronize access to ware and check for present goods.
-                if warehouse is not full produce item
+                after sleep try to produce an item. if one was produced, print current count.
+                has to be synchronized, otherwise goods count may differ from state after remove.
                  */
                 synchronized (warehouse)
                 {
-                    // produce is ware is not full
-                    if (!warehouse.isFull())
-                    {
-
-                        warehouse.produce();
+                    if (warehouse.produce() >= 0)
                         ThreadUtils.sout(this, "produced", "goods", warehouse.goodsCount);
-                    }
                 }
+
             }
         }
     }
@@ -93,18 +89,13 @@ public class ExtraExercise2_2
 
                 // - 2 -
                 /*
-                after sleep, synchronize access to ware and check for present goods.
-                if one is present remove good
+                after sleep try to remove items of the warehouse. if one was consumed, print current count.
+                has to be synchronized, otherwise goods count may differ from state after remove.
                  */
                 synchronized (warehouse)
                 {
-                    // take ware from warehouse if it is present
-                    if (warehouse.hasGoods())
-                    {
-
-                        warehouse.remove();
+                    if (warehouse.remove() > 0)
                         ThreadUtils.sout(this, "consumed", "goods", warehouse.goodsCount);
-                    }
                 }
             }
         }
@@ -121,38 +112,26 @@ public class ExtraExercise2_2
             this.maxGoodsCount = maxGoodsCount;
         }
 
-        void produce()
+        synchronized int produce()
         {
             // - 3 -
-            goodsCount++;
+            if (goodsCount < maxGoodsCount)
+            {
+                goodsCount++;
+                return 1;
+            }
+            return 0;
         }
 
-        void remove()
+        synchronized int remove()
         {
             // - 4 -
-            goodsCount--;
-        }
-
-        /**
-         * - 5 -
-         * Check if goods are present.
-         *
-         * @return <code>true</code> if goods are present, <code>false</code> otherwise
-         */
-        boolean hasGoods()
-        {
-            return goodsCount > 0;
-        }
-
-        /**
-         * - 6 -
-         * Check if warehouse is full.
-         *
-         * @return <code>true</code> if warehouse if full, <code>false</code> otherwise
-         */
-        boolean isFull()
-        {
-            return goodsCount >= maxGoodsCount;
+            if (goodsCount > 0)
+            {
+                goodsCount--;
+                return 1;
+            }
+            return 0;
         }
     }
 }
