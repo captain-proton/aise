@@ -38,7 +38,7 @@ public class ExtraExercise2_3
 
         synchronized void in(Process p)
         {
-            ThreadUtils.sout(p, "in", "n", p.x);
+            ThreadUtils.sout(p, "in", "n", p.x, (System.nanoTime() - startTime) / 1000000);
             while (p.x == 2)
             {
                 ThreadUtils.sout(p, "waiting", "n", p.x, (System.nanoTime() - startTime) / 1000000);
@@ -48,7 +48,7 @@ public class ExtraExercise2_3
 
         synchronized void out(Process p)
         {
-            ThreadUtils.sout(p, "out", "n", p.x);
+            ThreadUtils.sout(p, "out", "n", p.x, (System.nanoTime() - startTime) / 1000000);
             notifyAll();
         }
 
