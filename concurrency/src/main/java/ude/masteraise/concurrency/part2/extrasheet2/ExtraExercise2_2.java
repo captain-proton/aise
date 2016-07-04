@@ -1,6 +1,5 @@
 package ude.masteraise.concurrency.part2.extrasheet2;
 
-import org.apache.commons.lang3.RandomUtils;
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
 import java.util.List;
@@ -47,18 +46,17 @@ public class ExtraExercise2_2
             while (System.nanoTime() - startTime < 2000000000L)
             {
 
-                long sleepTime = RandomUtils.nextLong(0, 51);
-                ThreadUtils.sleepSilent(sleepTime);
-
                 // - 1 -
-                /*
-                after sleep try to produce an item. if one was produced, print current count.
-                has to be synchronized, otherwise goods count may differ from state after remove.
-                 */
                 synchronized (warehouse)
                 {
-                    if (warehouse.produce() >= 0)
-                        ThreadUtils.sout(this, "produced", "goods", warehouse.goodsCount);
+                    // see notify documentation why this has to be implemented in a loop.
+                    while (warehouse.goodsCount >= MAX_WARE_COUNT)
+                    {
+                        ThreadUtils.waitSilent(warehouse);
+                    }
+                    warehouse.produce();
+                    ThreadUtils.sout(this, "produced", "goods", warehouse.goodsCount);
+                    warehouse.notify();
                 }
 
             }
@@ -82,20 +80,20 @@ public class ExtraExercise2_2
 
             while (System.nanoTime() - startTime < 2000000000L)
             {
-
-                // sleep random time
-                long sleepTime = RandomUtils.nextLong(0, 151);
-                ThreadUtils.sleepSilent(sleepTime);
-
                 // - 2 -
                 /*
-                after sleep try to remove items of the warehouse. if one was consumed, print current count.
                 has to be synchronized, otherwise goods count may differ from state after remove.
                  */
                 synchronized (warehouse)
                 {
-                    if (warehouse.remove() > 0)
-                        ThreadUtils.sout(this, "consumed", "goods", warehouse.goodsCount);
+                    // see notify documentation why this has to be implemented in a loop.
+                    while (warehouse.goodsCount <= 0)
+                    {
+                        ThreadUtils.waitSilent(warehouse);
+                    }
+                    warehouse.remove();
+                    ThreadUtils.sout(this, "consumed", "goods", warehouse.goodsCount);
+                    warehouse.notify();
                 }
             }
         }
