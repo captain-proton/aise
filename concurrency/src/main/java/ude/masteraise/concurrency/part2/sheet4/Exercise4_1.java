@@ -2,7 +2,7 @@ package ude.masteraise.concurrency.part2.sheet4;
 
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
 /**
  * Created by nils on 30.06.16.
@@ -15,16 +15,13 @@ public class Exercise4_1
         // shared resource between customers
         Account a = new Account(1000);
 
-        // how much each customer debit of given account
-        int[] amounts = {50, 100, 150};
-
         Customer[] customers = {
-                new Customer("Customer1", a, amounts),
-                new Customer("Customer2", a, amounts)
+                new Customer("Customer1", a),
+                new Customer("Customer2", a)
         };
 
         // start each customer
-        Arrays.stream(customers).forEach(Thread::start);
+        Stream.of(customers).forEach(Thread::start);
     }
 
     /**
@@ -34,13 +31,11 @@ public class Exercise4_1
     {
         private final Account account;
         private long startTime;
-        private int[] amounts;
 
-        public Customer(String name, Account account, int... amounts)
+        public Customer(String name, Account account)
         {
             super(name);
             this.account = account;
-            this.amounts = amounts;
         }
 
         @Override
@@ -48,24 +43,36 @@ public class Exercise4_1
         {
             startTime = System.currentTimeMillis();
 
-            // debit each amount
-            Arrays.stream(amounts).forEach(this::debit);
-
-            // print out final credit after each debit has finished on this customer
-            ThreadUtils.sout(this, "done", "credit", account.getCredit(), getRunTime());
-        }
-
-        public void debit(int amount)
-        {
-            // debit (synchronized)
-            account.debit(amount);
+            // 100  customer:  debit 50
             ThreadUtils.sleepSilent(100);
-            ThreadUtils.sout(this, "debit", "amount", amount, getRunTime());
+            account.debit(50);
+            ThreadUtils.sout(this, "debit", "account", 50, getRunTime());
 
-            // print current credit
-            int credit = account.getCredit();
+            // 200  customer:  amount 950
+            ThreadUtils.sleepSilent(100);
+            ThreadUtils.sout(this, "amount", "account", account.getCredit(), getRunTime());
+
+            // 300  customer:  debit 100
+            ThreadUtils.sleepSilent(100);
+            account.debit(100);
+            ThreadUtils.sout(this, "debit", "account", 100, getRunTime());
+
+            // 350  customer:  amount 850
             ThreadUtils.sleepSilent(50);
-            ThreadUtils.sout(this, "debit", "credit", credit, getRunTime());
+            ThreadUtils.sout(this, "amount", "account", account.getCredit(), getRunTime());
+
+            // 500  customer:  debit 150
+            ThreadUtils.sleepSilent(150);
+            account.debit(150);
+            ThreadUtils.sout(this, "debit", "account", 150, getRunTime());
+
+            // 600  customer:  amount 550
+            ThreadUtils.sleepSilent(100);
+            ThreadUtils.sout(this, "amount", "account", account.getCredit(), getRunTime());
+
+            // 650  customer‐‐‐> amount 550
+            ThreadUtils.sleepSilent(50);
+            ThreadUtils.sout(this, "final", "account", account.getCredit(), getRunTime());
         }
 
         private long getRunTime() {
