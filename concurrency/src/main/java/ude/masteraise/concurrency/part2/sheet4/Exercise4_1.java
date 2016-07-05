@@ -15,13 +15,9 @@ public class Exercise4_1
         // shared resource between customers
         Account a = new Account(1000);
 
-        Customer[] customers = {
-                new Customer("Customer1", a),
-                new Customer("Customer2", a)
-        };
-
-        // start each customer
-        Stream.of(customers).forEach(Thread::start);
+        Stream.of("1", "2")
+                .map(number -> new Customer("Customer_" + number, a))
+                .forEach(Thread::start);
     }
 
     /**
