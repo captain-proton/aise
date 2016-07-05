@@ -2,6 +2,8 @@ package ude.masteraise.concurrency.part2;
 
 import org.apache.log4j.Logger;
 
+import java.util.concurrent.Semaphore;
+
 /**
  * Created by nils on 22.06.16.
  */
@@ -67,7 +69,7 @@ public class ThreadUtils
     public static void sout(Thread t, String method, String resource, int value)
     {
 
-        String out = String.format("%20s.%-10s %10s: %3d",
+        String out = String.format("%20s.%-10s %10s: %4d",
                 t.getName(),
                 method,
                 resource,
@@ -85,5 +87,15 @@ public class ThreadUtils
                 value,
                 millis);
         LOG.info(out);
+    }
+
+    public static void acquireSilent(Semaphore semaphore, int permits)
+    {
+        try
+        {
+            semaphore.acquire(permits);
+        } catch (InterruptedException e)
+        {
+        }
     }
 }
