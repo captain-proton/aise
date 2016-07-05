@@ -28,6 +28,10 @@
                             <xs:element name="hobby" type="hobbyType" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
+                    <xs:unique name="hobbyID">
+                        <xs:selector xpath="hobby"/>
+                        <xs:field xpath="hobbyID"/>
+                    </xs:unique>
                 </xs:element>
                 <xs:element name="kindergartens" minOccurs="0">
                     <xs:complexType>
@@ -35,6 +39,10 @@
                             <xs:element name="kindergarten" type="kindergartenType" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
+                    <xs:unique name="kindergartenID">
+                        <xs:selector xpath="kindergarten"/>
+                        <xs:field xpath="kindergartenID"/>
+                    </xs:unique>
                 </xs:element>
                 <xs:element name="schools" minOccurs="0">
                     <xs:complexType>
@@ -42,6 +50,10 @@
                             <xs:element name="school" type="schoolType" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
+                    <xs:unique name="schoolID">
+                        <xs:selector xpath="school"/>
+                        <xs:field xpath="schoolID"/>
+                    </xs:unique>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
@@ -49,6 +61,7 @@
 
     <xs:complexType name="addressType">
         <xs:sequence>
+            <xs:element name="addressID" type="xs:ID"/>
             <xs:element name="street" type="xs:string"/>
             <xs:element name="streetNo" type="xs:string"/>
             <xs:element name="city" type="xs:string" minOccurs="0"/>
@@ -60,36 +73,55 @@
                 </xs:simpleType>
             </xs:element>
         </xs:sequence>
-        <xs:attribute name="addressID" type="xs:ID"/>
     </xs:complexType>
 
     <xs:complexType name="hobbyType">
         <xs:sequence>
+            <xs:element name="hobbyID" type="xs:ID"/>
             <xs:element name="name" type="xs:string"/>
         </xs:sequence>
-        <xs:attribute name="hobbyID" type="xs:ID"/>
     </xs:complexType>
 
     <xs:complexType name="kindergartenType">
         <xs:sequence>
+            <xs:element name="kindergartenID" type="xs:ID"/>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="addressIDREFS" type="xs:IDREFS"/>
         </xs:sequence>
-        <xs:attribute name="kindergartenID" type="xs:ID"/>
     </xs:complexType>
 
     <xs:complexType name="schoolType">
         <xs:sequence>
+            <xs:element name="schoolID" type="xs:ID"/>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="addressIDREFS" type="xs:IDREFS"/>
         </xs:sequence>
-        <xs:attribute name="schoolID" type="xs:ID"/>
     </xs:complexType>
 
     <xs:complexType name="familyType">
         <xs:sequence>
-            <xs:element name="father" type="personType"/>
-            <xs:element name="mother" type="personType"/>
+            <!--
+            two elements "father" and "mother" of personType may be used
+            instead of parents/parent. that leads to the problem that the sex
+            "male" may be used for the mother and "female" for the father.
+            to overcome this problem a complex type for mother and father
+            with a restriction may be used with a fixed sex. every element
+            of persontype must be redefined inside mother and father to make use
+            of them. therefore parents are used with a unique constraint on
+            sex
+            <parent><sex>male</sex>...</parent> == father
+            -->
+            <xs:element name="parents">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="parent" minOccurs="1" maxOccurs="2" type="personType"/>
+                    </xs:sequence>
+                </xs:complexType>
+                <xs:unique name="sex">
+                    <xs:selector xpath="parent"/>
+                    <xs:field xpath="sex"/>
+                </xs:unique>
+            </xs:element>
             <xs:element name="children" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
@@ -135,10 +167,10 @@
     <xs:complexType name="childType">
         <xs:complexContent>
             <xs:extension base="personType">
-                <xs:sequence>
+                <xs:choice>
                     <xs:element name="kindergartenIDREF" type="xs:IDREF" minOccurs="0"/>
                     <xs:element name="schoolIDREF" type="xs:IDREF" minOccurs="0"/>
-                </xs:sequence>
+                </xs:choice>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
