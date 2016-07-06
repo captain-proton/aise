@@ -27,6 +27,9 @@ public class ThreadUtils
         return null;
     }
 
+    /**
+     * Calls {@linkplain Thread#join()} and ignores the thrown {@linkplain InterruptedException}
+     */
     public static void joinSilent(Thread thread)
     {
         try
@@ -37,6 +40,9 @@ public class ThreadUtils
         }
     }
 
+    /**
+     * Calls {@linkplain Thread#sleep(long)} and ignores the thrown {@linkplain InterruptedException}
+     */
     public static void sleepSilent(long millis)
     {
         try
@@ -47,11 +53,27 @@ public class ThreadUtils
         }
     }
 
+    /**
+     * Calls {@linkplain Object#wait()} on given object and ignores the thrown {@linkplain InterruptedException}
+     */
     public static void waitSilent(Object o)
     {
         try
         {
             o.wait();
+        } catch (InterruptedException e)
+        {
+        }
+    }
+
+    /**
+     * Calls {@linkplain Semaphore#acquire(int)} and ignores the thrown {@linkplain InterruptedException}
+     */
+    public static void acquireSilent(Semaphore semaphore, int permits)
+    {
+        try
+        {
+            semaphore.acquire(permits);
         } catch (InterruptedException e)
         {
         }
@@ -97,15 +119,5 @@ public class ThreadUtils
                 value,
                 millis);
         LOG.info(out);
-    }
-
-    public static void acquireSilent(Semaphore semaphore, int permits)
-    {
-        try
-        {
-            semaphore.acquire(permits);
-        } catch (InterruptedException e)
-        {
-        }
     }
 }
