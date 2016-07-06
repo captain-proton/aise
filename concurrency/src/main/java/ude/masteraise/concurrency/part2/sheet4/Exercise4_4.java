@@ -16,47 +16,35 @@ import java.util.stream.Stream;
  */
 public class Exercise4_4
 {
-    /**
-     * Number of requirements that are used.
-     */
-    private static final int NUM_TRACKS = 3;
-
-    /**
-     * Maximum number of how many times one train accesses the train station.
-     */
+    /** Maximum number of how many times one train accesses the train station. */
     private static final int MAX_NUM_CONNECTIONS = 5;
 
-    /**
-     * Minimum time to stay on a track to release and enter passengers.
-     */
+    /** Minimum time to stay on a track to release and enter passengers. */
     private static final int MIN_STAY_TIME = 100;
 
-    /**
-     * Maximum time to stay on a track to release and enter passengers.
-     */
+    /** Maximum time to stay on a track to release and enter passengers. */
     private static final int MAX_STAY_TIME = 1000;
 
-    /**
-     * Minimum time to stay on a track to release and enter passengers.
-     */
+    /** Minimum time to enter or leave a track. */
     private static final int MIN_ACCESS_TIME = 40;
 
-    /**
-     * Maximum time to stay on a track to release and enter passengers.
-     */
+    /** Minimum time to enter or leave a track. */
     private static final int MAX_ACCESS_TIME = 200;
 
     public static void main(String[] args)
     {
-        /*
-        In this example a semaphore is used to synchronize the track to different requirements. It is not relevant
-        which train goes to which track! It will only block n requirements to track the track.
-         */
-        Semaphore trackSync = new Semaphore(NUM_TRACKS);
-
+        // define all used tracks inside the station
         Track trackOne = new Track(1);
         Track trackTwo = new Track(2);
         Track trackThree = new Track(3);
+
+        /*
+        In this example a semaphore is used to synchronize the track to different requirements. It is not relevant
+        which train goes to which track! It will only block n requirements to track the track. The number set to the
+        semaphore must match the number of tracks defined earlier.
+         */
+        Semaphore trackSync = new Semaphore(3);
+
 
         List<InOutRequirement> trainARequirements = Stream.of(
                 new InOutRequirement(trackOne, trackOne),
@@ -67,7 +55,7 @@ public class Exercise4_4
         List<InOutRequirement> trainBRequirements = Stream.of(
                 new InOutRequirement(trackOne, trackOne, trackTwo, trackThree),
                 new InOutRequirement(trackTwo, trackOne, trackTwo),
-                new InOutRequirement(trackThree, trackOne))
+                new InOutRequirement(trackThree, trackThree))
                 .collect(Collectors.toList());
 
         /*
@@ -110,7 +98,10 @@ public class Exercise4_4
             The track is chosen by randomAccess. It is important which track a train wants to access. If the track
             is not free the train is not able to enter and has to wait until it is free.
              */
-            InOutRequirement access = randomAccess();
+            InOutRequirement access = randomAccess(); // use getRequirement(int) to get a specific access
+//            access = getName().equals("Train A")
+//                     ? getRequirement(2)
+//                     : getRequirement(3);
             Track track = access.getTrack();
             ThreadUtils.sout(this, "wants", track.toString());
             int trackCount = access.getRequirements().size();
@@ -136,6 +127,12 @@ public class Exercise4_4
                 ThreadUtils.acquireSilent(trackSync, trackCount);
 
                 /*
+                print blocked count AFTER acquire! If it is called before the thread may wait but not has blocked
+                the needed amount of tracks.
+                 */
+                ThreadUtils.sout(this, "driveIn", "blocked", trackCount);
+
+                /*
                 Start of the critical section. The train has acquired the needed amount of permits and is able to enter
                 the train station. If for example 3 requirements are defined and the train needs all 3 to enter,
                 then no other train is able to track the station until the train releases the requirements
@@ -143,14 +140,15 @@ public class Exercise4_4
                 station to simulate the drive in process.
                  */
                 int driveInTime = RandomUtils.nextInt(MIN_ACCESS_TIME, MAX_ACCESS_TIME + 1);
-                ThreadUtils.sout(this, "driveIn", "blocked", trackCount);
                 ThreadUtils.sleepSilent(driveInTime);
 
                 /*
                 At this point the train has entered the station and other trains may drive in to tracks that are free.
+                Print released count BEFORE release! Otherwise it may lead to unexpected output, for example an acquire
+                of a number of permits that is larger than the permits defined in the semaphore.
                  */
+                ThreadUtils.sout(this, "in", "releasing", trackCount);
                 trackSync.release(trackCount);
-                ThreadUtils.sout(this, "in", "released", trackCount);
 
                 // wait for passengers to leave and enter for a randomAccess time
                 int waitTime = RandomUtils.nextInt(MIN_STAY_TIME, MAX_STAY_TIME + 1);
@@ -173,8 +171,8 @@ public class Exercise4_4
                 Finally release all requirements that were acquired. This part marks the end of the critical section.
                 Other trains may track the station if they were previously stopped.
                  */
+                ThreadUtils.sout(this, "out", "releasing", trackCount);
                 trackSync.release(trackCount);
-                ThreadUtils.sout(this, "out", track.toString());
             }
 
             /*
@@ -192,6 +190,17 @@ public class Exercise4_4
         private InOutRequirement randomAccess()
         {
             return requirements.get(RandomUtils.nextInt(0, requirements.size()));
+        }
+
+        private InOutRequirement getRequirement(int neededTracks)
+        {
+            final int n = neededTracks > requirements.size()
+                          ? requirements.size()
+                          : neededTracks;
+            return requirements.stream()
+                    .filter(r -> r.getRequirements().size() == n)
+                    .findAny()
+                    .get();
         }
     }
 
@@ -237,10 +246,14 @@ public class Exercise4_4
      */
     static class InOutRequirement
     {
-        /** Which track the a train wants to access. */
+        /**
+         * Which track the a train wants to access.
+         */
         private final Track track;
 
-        /** Tracks that must be blocked, so that the train is able to access the track. */
+        /**
+         * Tracks that must be blocked, so that the train is able to access the track.
+         */
         private final List<Track> requirements;
 
         public InOutRequirement(Track track, List<Track> requirements)
