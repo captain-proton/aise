@@ -14,6 +14,7 @@ public class Exercise4_1a
 
     public static void main(String[] args)
     {
+        ThreadUtils.sout(Thread.currentThread(), "start");
         boolean conflictOccurred = false;
 
         /*
@@ -28,14 +29,24 @@ public class Exercise4_1a
             // start customers
             Stream.of("1", "2")
                     .map(number -> new Customer("Customer " + number, a))
-                    .forEach(t -> {
-                        t.start();
-                        ThreadUtils.joinSilent(t);
-                    });
-            ThreadUtils.sout(Thread.currentThread(), "_____");
-            conflictOccurred = a.getCredit() != 0;
-
+                    .forEach(Exercise4_1a::runCustomer);
+            conflictOccurred = a.credit != 0;
         }
+    }
+
+    /**
+     * Start given customer and wait for it to finish.
+     */
+    static boolean runCustomer(Customer c)
+    {
+        c.start();
+        ThreadUtils.joinSilent(c);
+        if (c.account.credit != 0)
+        {
+            ThreadUtils.sout(c, "conflict");
+            ThreadUtils.sout(c, "final", "account", c.account.credit);
+        }
+        return c.account.credit != 0;
     }
 
     /**
@@ -63,7 +74,6 @@ public class Exercise4_1a
             IntStream.range(1, 1010).forEach(i -> account.debit(1));
 
             ThreadUtils.sleepSilent(50);
-            ThreadUtils.sout(this, "final", "account", account.getCredit(), getRunTime());
         }
 
         private long getRunTime() {
@@ -96,11 +106,6 @@ public class Exercise4_1a
         private boolean canDebit(int amount)
         {
             return credit >= amount;
-        }
-
-        public int getCredit()
-        {
-            return credit;
         }
     }
 }
