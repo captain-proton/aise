@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 /**
  * Created by nils on 30.06.16.
  */
-public class Exercise4_1
+public class Exercise4_1b
 {
 
     public static void main(String[] args)
@@ -16,7 +16,7 @@ public class Exercise4_1
         Account a = new Account(1000);
 
         Stream.of("1", "2")
-                .map(number -> new Customer("Customer_" + number, a))
+                .map(number -> new Customer("Customer " + number, a))
                 .forEach(Thread::start);
     }
 
