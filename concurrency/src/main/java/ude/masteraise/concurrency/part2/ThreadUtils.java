@@ -79,7 +79,7 @@ public class ThreadUtils
         }
     }
 
-    public static void sout(Thread t, String method)
+    public static void log(Thread t, String method)
     {
 
         String out = String.format("%20s.%-10s",
@@ -88,7 +88,7 @@ public class ThreadUtils
         LOG.info(out);
     }
 
-    public static void sout(Thread t, String method, String resource)
+    public static void log(Thread t, String method, String resource)
     {
 
         String out = String.format("%20s.%-10s %15s",
@@ -98,7 +98,7 @@ public class ThreadUtils
         LOG.info(out);
     }
 
-    public static void sout(Thread t, String method, String resource, int value)
+    public static void log(Thread t, String method, String resource, int value)
     {
 
         String out = String.format("%20s.%-10s %15s: %4d",
@@ -109,7 +109,7 @@ public class ThreadUtils
         LOG.info(out);
     }
 
-    public static void sout(Thread t, String method, String resource, int value, long millis)
+    public static void log(Thread t, String method, String resource, int value, long millis)
     {
 
         String out = String.format("%20s.%-10s %15s: %3d  %10d ms",

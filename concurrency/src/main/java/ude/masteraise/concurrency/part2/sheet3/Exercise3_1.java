@@ -30,12 +30,12 @@ public class Exercise3_1
 
         private void a1()
         {
-            ThreadUtils.sout(this, "a1");
+            ThreadUtils.log(this, "a1");
         }
 
         private void a2()
         {
-            ThreadUtils.sout(this, "a2");
+            ThreadUtils.log(this, "a2");
         }
     }
 
@@ -63,22 +63,22 @@ public class Exercise3_1
 
         private void b1()
         {
-            ThreadUtils.sout(this, "b1");
+            ThreadUtils.log(this, "b1");
         }
 
         private void b2()
         {
-            ThreadUtils.sout(this, "b2");
+            ThreadUtils.log(this, "b2");
         }
 
         private void b3()
         {
-            ThreadUtils.sout(this, "b3");
+            ThreadUtils.log(this, "b3");
         }
 
         private void b4()
         {
-            ThreadUtils.sout(this, "b4");
+            ThreadUtils.log(this, "b4");
         }
     }
 }

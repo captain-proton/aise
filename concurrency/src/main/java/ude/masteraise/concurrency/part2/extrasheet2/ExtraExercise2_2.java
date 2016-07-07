@@ -55,7 +55,7 @@ public class ExtraExercise2_2
                         ThreadUtils.waitSilent(warehouse);
                     }
                     warehouse.produce();
-                    ThreadUtils.sout(this, "produced", "goods", warehouse.goodsCount);
+                    ThreadUtils.log(this, "produced", "goods", warehouse.goodsCount);
                     warehouse.notify();
                 }
 
@@ -92,7 +92,7 @@ public class ExtraExercise2_2
                         ThreadUtils.waitSilent(warehouse);
                     }
                     warehouse.remove();
-                    ThreadUtils.sout(this, "consumed", "goods", warehouse.goodsCount);
+                    ThreadUtils.log(this, "consumed", "goods", warehouse.goodsCount);
                     warehouse.notify();
                 }
             }

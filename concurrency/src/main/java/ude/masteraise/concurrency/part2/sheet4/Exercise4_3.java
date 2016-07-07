@@ -34,14 +34,14 @@ public class Exercise4_3
         synchronized void in(char proc)
         {
             count += 1;
-            ThreadUtils.sout(Thread.currentThread(), proc + " in  " + name, "count", count);
+            ThreadUtils.log(Thread.currentThread(), proc + " in  " + name, "count", count);
             while (count < 2)
                 ThreadUtils.waitSilent(this);
 
             count = count >= 2 && count < 7
                     ? count + 7
                     : count - 9;
-            ThreadUtils.sout(Thread.currentThread(), proc + " out " + name, "count", count);
+            ThreadUtils.log(Thread.currentThread(), proc + " out " + name, "count", count);
             notifyAll();
         }
     }

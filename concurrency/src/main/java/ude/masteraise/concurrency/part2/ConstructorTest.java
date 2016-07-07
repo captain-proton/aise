@@ -15,7 +15,7 @@ public class ConstructorTest
 
     public static void main(String[] args)
     {
-        ThreadUtils.sout(Thread.currentThread(), "main()");
+        ThreadUtils.log(Thread.currentThread(), "main()");
 
         /*
         mapToObj and forEach are not called in order! Some threads start immediately after the instance was created.
@@ -30,20 +30,20 @@ public class ConstructorTest
         public SomeThread()
         {
             // this is called inside the thread where the constructor was called
-            ThreadUtils.sout(this, "init");
+            ThreadUtils.log(this, "init");
         }
 
         @Override
         public void run()
         {
             // omg work to do
-            ThreadUtils.sout(this, "running");
+            ThreadUtils.log(this, "running");
 
             // simulate long work
             ThreadUtils.sleepSilent(RandomUtils.nextInt(0, 500));
 
             // finally  ...
-            ThreadUtils.sout(this, "finished");
+            ThreadUtils.log(this, "finished");
         }
     }
 }

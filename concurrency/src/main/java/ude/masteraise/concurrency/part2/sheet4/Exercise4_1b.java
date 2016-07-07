@@ -42,33 +42,33 @@ public class Exercise4_1b
             // 100  customer:  debit 50
             ThreadUtils.sleepSilent(100);
             account.debit(50);
-            ThreadUtils.sout(this, "debit", "account", 50, getRunTime());
+            ThreadUtils.log(this, "debit", "account", 50, getRunTime());
 
             // 200  customer:  amount 950
             ThreadUtils.sleepSilent(100);
-            ThreadUtils.sout(this, "amount", "account", account.getCredit(), getRunTime());
+            ThreadUtils.log(this, "amount", "account", account.getCredit(), getRunTime());
 
             // 300  customer:  debit 100
             ThreadUtils.sleepSilent(100);
             account.debit(100);
-            ThreadUtils.sout(this, "debit", "account", 100, getRunTime());
+            ThreadUtils.log(this, "debit", "account", 100, getRunTime());
 
             // 350  customer:  amount 850
             ThreadUtils.sleepSilent(50);
-            ThreadUtils.sout(this, "amount", "account", account.getCredit(), getRunTime());
+            ThreadUtils.log(this, "amount", "account", account.getCredit(), getRunTime());
 
             // 500  customer:  debit 150
             ThreadUtils.sleepSilent(150);
             account.debit(150);
-            ThreadUtils.sout(this, "debit", "account", 150, getRunTime());
+            ThreadUtils.log(this, "debit", "account", 150, getRunTime());
 
             // 600  customer:  amount 550
             ThreadUtils.sleepSilent(100);
-            ThreadUtils.sout(this, "amount", "account", account.getCredit(), getRunTime());
+            ThreadUtils.log(this, "amount", "account", account.getCredit(), getRunTime());
 
             // 650  customer‐‐‐> amount 550
             ThreadUtils.sleepSilent(50);
-            ThreadUtils.sout(this, "final", "account", account.getCredit(), getRunTime());
+            ThreadUtils.log(this, "final", "account", account.getCredit(), getRunTime());
         }
 
         private long getRunTime() {

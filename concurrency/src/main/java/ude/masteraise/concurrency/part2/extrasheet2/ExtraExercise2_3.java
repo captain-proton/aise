@@ -38,17 +38,17 @@ public class ExtraExercise2_3
 
         synchronized void in(Process p)
         {
-            ThreadUtils.sout(p, "in", "n", p.x, (System.nanoTime() - startTime) / 1000000);
+            ThreadUtils.log(p, "in", "n", p.x, (System.nanoTime() - startTime) / 1000000);
             while (p.x == 2)
             {
-                ThreadUtils.sout(p, "waiting", "n", p.x, (System.nanoTime() - startTime) / 1000000);
+                ThreadUtils.log(p, "waiting", "n", p.x, (System.nanoTime() - startTime) / 1000000);
                 ThreadUtils.waitSilent(this);
             }
         }
 
         synchronized void out(Process p)
         {
-            ThreadUtils.sout(p, "out", "n", p.x, (System.nanoTime() - startTime) / 1000000);
+            ThreadUtils.log(p, "out", "n", p.x, (System.nanoTime() - startTime) / 1000000);
             notifyAll();
         }
 

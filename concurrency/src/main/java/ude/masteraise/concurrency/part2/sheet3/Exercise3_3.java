@@ -36,9 +36,9 @@ public class Exercise3_3
         Process2 p2 = new Process2();
 
         p2.start();
-        ThreadUtils.sout(Thread.currentThread(), "waiting for p2");
+        ThreadUtils.log(Thread.currentThread(), "waiting for p2");
         ThreadUtils.joinSilent(p2);
-        ThreadUtils.sout(Thread.currentThread(), "p2 finished");
+        ThreadUtils.log(Thread.currentThread(), "p2 finished");
         p1.start();
     }
 
@@ -74,25 +74,25 @@ public class Exercise3_3
         void methodA()
         {
             x = a + b;
-            ThreadUtils.sout(this, "methodA", "x", x);
+            ThreadUtils.log(this, "methodA", "x", x);
         }
 
         void methodB()
         {
             c = x * x;
-            ThreadUtils.sout(this, "methodB", "c", c);
+            ThreadUtils.log(this, "methodB", "c", c);
         }
 
         void methodC()
         {
             d = x + 1;
-            ThreadUtils.sout(this, "methodC", "d", d);
+            ThreadUtils.log(this, "methodC", "d", d);
         }
 
         void methodD()
         {
             e = c + d;
-            ThreadUtils.sout(this, "methodD", "e", e);
+            ThreadUtils.log(this, "methodD", "e", e);
         }
     }
 
@@ -115,13 +115,13 @@ public class Exercise3_3
         private void methodE()
         {
             x = s - q;
-            ThreadUtils.sout(this, "methodE", "x", x);
+            ThreadUtils.log(this, "methodE", "x", x);
         }
 
         private void methodF()
         {
             r = 2 * x;
-            ThreadUtils.sout(this, "methodF", "r", r);
+            ThreadUtils.log(this, "methodF", "r", r);
         }
     }
 

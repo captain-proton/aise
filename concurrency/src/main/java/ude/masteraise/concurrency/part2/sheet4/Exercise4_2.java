@@ -69,7 +69,7 @@ public class Exercise4_2
 
                 // push value and print it
                 stack.push(random);
-                ThreadUtils.sout(this, "write", "value", random);
+                ThreadUtils.log(this, "write", "value", random);
 
                 // call notify on stack so that consumers may be put out of their wait
                 stack.notify();
@@ -108,7 +108,7 @@ public class Exercise4_2
 
                 // consume and print
                 Integer value = stack.pop();
-                ThreadUtils.sout(this, "read", "value", value);
+                ThreadUtils.log(this, "read", "value", value);
 
                 // call notify on stack so that producers may be put out of their wait
                 stack.notify();

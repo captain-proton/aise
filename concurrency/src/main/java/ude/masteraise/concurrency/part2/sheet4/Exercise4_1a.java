@@ -14,7 +14,7 @@ public class Exercise4_1a
 
     public static void main(String[] args)
     {
-        ThreadUtils.sout(Thread.currentThread(), "start");
+        ThreadUtils.log(Thread.currentThread(), "start");
         boolean conflictOccurred = false;
 
         /*
@@ -43,8 +43,8 @@ public class Exercise4_1a
         ThreadUtils.joinSilent(c);
         if (c.account.credit != 0)
         {
-            ThreadUtils.sout(c, "conflict");
-            ThreadUtils.sout(c, "final", "account", c.account.credit);
+            ThreadUtils.log(c, "conflict");
+            ThreadUtils.log(c, "final", "account", c.account.credit);
         }
         return c.account.credit != 0;
     }

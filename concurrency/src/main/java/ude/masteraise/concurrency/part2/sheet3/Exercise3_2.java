@@ -62,7 +62,7 @@ public class Exercise3_2
             for (int i = 0; i < 10; i++)
             {
                 work();
-                ThreadUtils.sout(this, "run", "number", number);
+                ThreadUtils.log(this, "run", "number", number);
                 finish();
             }
         }

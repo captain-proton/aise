@@ -92,7 +92,7 @@ public class Exercise4_4
         private void occupy(int connectionNumber)
         {
             // start by printing that this train wants to access a track
-            ThreadUtils.sout(this, "start", "connection", connectionNumber);
+            ThreadUtils.log(this, "start", "connection", connectionNumber);
 
             /*
             The track is chosen by randomAccess. It is important which track a train wants to access. If the track
@@ -103,7 +103,7 @@ public class Exercise4_4
 //                     ? getRequirement(2)
 //                     : getRequirement(3);
             Track track = access.getTrack();
-            ThreadUtils.sout(this, "wants", track.toString());
+            ThreadUtils.log(this, "wants", track.toString());
             int trackCount = access.getRequirements().size();
 
             // synchronize access to the track the trains wants to access
@@ -130,7 +130,7 @@ public class Exercise4_4
                 print blocked count AFTER acquire! If it is called before the thread may wait but not has blocked
                 the needed amount of tracks.
                  */
-                ThreadUtils.sout(this, "driveIn", "blocked", trackCount);
+                ThreadUtils.log(this, "driveIn", "blocked", trackCount);
 
                 /*
                 Start of the critical section. The train has acquired the needed amount of permits and is able to enter
@@ -147,7 +147,7 @@ public class Exercise4_4
                 Print released count BEFORE release! Otherwise it may lead to unexpected output, for example an acquire
                 of a number of permits that is larger than the permits defined in the semaphore.
                  */
-                ThreadUtils.sout(this, "in", "releasing", trackCount);
+                ThreadUtils.log(this, "in", "releasing", trackCount);
                 trackSync.release(trackCount);
 
                 // wait for passengers to leave and enter for a randomAccess time
@@ -160,7 +160,7 @@ public class Exercise4_4
                 station to simulate the drive out process.
                  */
                 ThreadUtils.acquireSilent(trackSync, trackCount);
-                ThreadUtils.sout(this, "driveOut", "blocked", trackCount);
+                ThreadUtils.log(this, "driveOut", "blocked", trackCount);
 
                 int driveOutTime = RandomUtils.nextInt(MIN_ACCESS_TIME, MAX_ACCESS_TIME + 1);
                 ThreadUtils.sleepSilent(driveOutTime);
@@ -171,7 +171,7 @@ public class Exercise4_4
                 Finally release all requirements that were acquired. This part marks the end of the critical section.
                 Other trains may track the station if they were previously stopped.
                  */
-                ThreadUtils.sout(this, "out", "releasing", trackCount);
+                ThreadUtils.log(this, "out", "releasing", trackCount);
                 trackSync.release(trackCount);
             }
 
