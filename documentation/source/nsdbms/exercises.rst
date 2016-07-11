@@ -8,3 +8,4 @@
     exercise_2
     exercise_3
     exercise_4
+    exercise_5

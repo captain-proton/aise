@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<humanity xsi:schemaLocation="exercise_4_XML_Schema.xsd">
+<humanity>
   <families>
     <family>
       <parents>
         <parent>
-          <firstname>str1234</firstname>
-          <lastname>str1234</lastname>
-          <dateOfBirth>2012-12-13</dateOfBirth>
-          <sex>female</sex>
+          <personID>p1</personID>
+          <firstname>Ned</firstname>
+          <lastname>Stark</lastname>
+          <dateOfBirth>1987-12-13</dateOfBirth>
+          <sex>male</sex>
           <hobbies>
             <hobby>
               <sinceWhen>2012-12-13</sinceWhen>
@@ -17,10 +18,11 @@
           <addressIDREFS>a1</addressIDREFS>
         </parent>
         <parent>
-          <firstname>str1234</firstname>
-          <lastname>str1234</lastname>
-          <dateOfBirth>2012-12-13</dateOfBirth>
-          <sex>male</sex>
+          <personID>p2</personID>
+          <firstname>Catelyn</firstname>
+          <lastname>Stark</lastname>
+          <dateOfBirth>1990-12-13</dateOfBirth>
+          <sex>female</sex>
           <hobbies>
             <hobby>
               <sinceWhen>2012-12-13</sinceWhen>
@@ -32,23 +34,10 @@
       </parents>
       <children>
         <child>
-          <firstname>str1234</firstname>
-          <lastname>str1234</lastname>
-          <dateOfBirth>2012-12-13</dateOfBirth>
-          <sex>male</sex>
-          <hobbies>
-            <hobby>
-              <sinceWhen>2012-12-13</sinceWhen>
-              <hobbyIDREF>h1</hobbyIDREF>
-            </hobby>
-          </hobbies>
-          <addressIDREFS>a1</addressIDREFS>
-          <kindergartenIDREF>k1</kindergartenIDREF>
-        </child>
-        <child>
-          <firstname>str1234</firstname>
-          <lastname>str1234</lastname>
-          <dateOfBirth>2012-12-13</dateOfBirth>
+          <personID>p3</personID>
+          <firstname>Bran</firstname>
+          <lastname>Stark</lastname>
+          <dateOfBirth>2010-12-13</dateOfBirth>
           <sex>male</sex>
           <hobbies>
             <hobby>
@@ -59,6 +48,154 @@
           <addressIDREFS>a1</addressIDREFS>
           <schoolIDREF>s1</schoolIDREF>
         </child>
+        <child>
+          <personID>p4</personID>
+          <firstname>Rickon</firstname>
+          <lastname>Stark</lastname>
+          <dateOfBirth>2012-12-13</dateOfBirth>
+          <sex>male</sex>
+          <hobbies>
+            <hobby>
+              <sinceWhen>2012-12-13</sinceWhen>
+              <hobbyIDREF>h1</hobbyIDREF>
+            </hobby>
+          </hobbies>
+          <addressIDREFS>a1</addressIDREFS>
+          <kindergartenIDREF>k2</kindergartenIDREF>
+        </child>
+        <child>
+          <personID>p5</personID>
+          <firstname>Robb</firstname>
+          <lastname>Stark</lastname>
+          <dateOfBirth>2012-12-13</dateOfBirth>
+          <sex>male</sex>
+          <hobbies>
+            <hobby>
+              <sinceWhen>2012-12-13</sinceWhen>
+              <hobbyIDREF>h1</hobbyIDREF>
+            </hobby>
+          </hobbies>
+          <addressIDREFS>a1</addressIDREFS>
+        </child>
+        <child>
+          <personID>p6</personID>
+          <firstname>Jon</firstname>
+          <lastname>Snow</lastname>
+          <dateOfBirth>2012-12-13</dateOfBirth>
+          <sex>male</sex>
+          <hobbies>
+            <hobby>
+              <sinceWhen>2012-12-13</sinceWhen>
+              <hobbyIDREF>h1</hobbyIDREF>
+            </hobby>
+          </hobbies>
+          <addressIDREFS>a1</addressIDREFS>
+        </child>
+        <child>
+          <personID>p7</personID>
+          <firstname>Sansa</firstname>
+          <lastname>Stark</lastname>
+          <dateOfBirth>2012-12-13</dateOfBirth>
+          <sex>female</sex>
+          <hobbies>
+            <hobby>
+              <sinceWhen>2012-12-13</sinceWhen>
+              <hobbyIDREF>h1</hobbyIDREF>
+            </hobby>
+          </hobbies>
+          <addressIDREFS>a1</addressIDREFS>
+        </child>
+        <child>
+          <personID>p8</personID>
+          <firstname>Arya</firstname>
+          <lastname>Stark</lastname>
+          <dateOfBirth>2012-12-13</dateOfBirth>
+          <sex>female</sex>
+          <hobbies>
+            <hobby>
+              <sinceWhen>2012-12-13</sinceWhen>
+              <hobbyIDREF>h1</hobbyIDREF>
+            </hobby>
+          </hobbies>
+          <addressIDREFS>a1</addressIDREFS>
+          <kindergartenIDREF>k1</kindergartenIDREF>
+        </child>
+      </children>
+    </family>
+    <family>
+      <parents>
+        <parent>
+          <personID>p9</personID>
+          <firstname>Tywin</firstname>
+          <lastname>Lannister</lastname>
+          <dateOfBirth>1987-12-13</dateOfBirth>
+          <sex>male</sex>
+          <hobbies>
+            <hobby>
+              <sinceWhen>2012-12-13</sinceWhen>
+              <hobbyIDREF>h1</hobbyIDREF>
+            </hobby>
+          </hobbies>
+          <addressIDREFS>a2</addressIDREFS>
+        </parent>
+        <parent>
+          <personID>p10</personID>
+          <firstname>Joanna</firstname>
+          <lastname>Lannister</lastname>
+          <dateOfBirth>1989-12-13</dateOfBirth>
+          <sex>female</sex>
+          <hobbies>
+            <hobby>
+              <sinceWhen>2012-12-13</sinceWhen>
+              <hobbyIDREF>h1</hobbyIDREF>
+            </hobby>
+          </hobbies>
+          <addressIDREFS>a2</addressIDREFS>
+        </parent>
+      </parents>
+      <children>
+        <child>
+          <personID>p11</personID>
+          <firstname>Jaime</firstname>
+          <lastname>Lannister</lastname>
+          <dateOfBirth>2010-12-13</dateOfBirth>
+          <sex>male</sex>
+          <hobbies>
+            <hobby>
+              <sinceWhen>2012-12-13</sinceWhen>
+              <hobbyIDREF>h1</hobbyIDREF>
+            </hobby>
+          </hobbies>
+          <addressIDREFS>a2</addressIDREFS>
+        </child>
+        <child>
+          <personID>p12</personID>
+          <firstname>Tyrion</firstname>
+          <lastname>Lannister</lastname>
+          <dateOfBirth>2012-12-13</dateOfBirth>
+          <sex>male</sex>
+          <hobbies>
+            <hobby>
+              <sinceWhen>2012-12-13</sinceWhen>
+              <hobbyIDREF>h1</hobbyIDREF>
+            </hobby>
+          </hobbies>
+          <addressIDREFS>a2</addressIDREFS>
+        </child>
+        <child>
+          <personID>p13</personID>
+          <firstname>Cersei</firstname>
+          <lastname>Lannister</lastname>
+          <dateOfBirth>2012-12-13</dateOfBirth>
+          <sex>female</sex>
+          <hobbies>
+            <hobby>
+              <sinceWhen>2012-12-13</sinceWhen>
+              <hobbyIDREF>h1</hobbyIDREF>
+            </hobby>
+          </hobbies>
+          <addressIDREFS>a2</addressIDREFS>
+        </child>
       </children>
     </family>
   </families>
@@ -66,18 +203,43 @@
     <address>
       <addressID>a1</addressID>
       <street>str1234</street>
-      <streetNo>str1234</streetNo>
-      <city>str1234</city>
+      <streetNo>1</streetNo>
+      <city>Winterfell</city>
       <zip>12345</zip>
+    </address>
+    <address>
+      <addressID>a2</addressID>
+      <street>str6789</street>
+      <streetNo>1</streetNo>
+      <city>Casterly Rock</city>
+      <zip>98765</zip>
+    </address>
+    <address>
+      <addressID>a3</addressID>
+      <street>str6789</street>
+      <streetNo>1</streetNo>
+      <city>Vale of Arryn</city>
+      <zip>45123</zip>
     </address>
   </addresses>
   <hobbies>
     <hobby>
       <hobbyID>h1</hobbyID>
       <name>str1234</name>
+      <description>some goal</description>
+    </hobby>
+    <hobby>
+      <hobbyID>h2</hobbyID>
+      <name>str4567</name>
+      <description>other hobby</description>
     </hobby>
   </hobbies>
   <kindergartens>
+    <kindergarten>
+      <kindergartenID>k2</kindergartenID>
+      <name>Eyrie</name>
+      <addressIDREFS>a3</addressIDREFS>
+    </kindergarten>
     <kindergarten>
       <kindergartenID>k1</kindergartenID>
       <name>str1234</name>
