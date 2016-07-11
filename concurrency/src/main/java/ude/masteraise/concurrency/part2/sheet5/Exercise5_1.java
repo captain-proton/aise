@@ -11,7 +11,7 @@ public class Exercise5_1
 {
     public static void main(String[] args)
     {
-        int numProcs = 3;
+        int numProcs = 20;
 
         // channel contains values which processes have done a()
         Channel channel = new Channel(numProcs);
@@ -40,16 +40,13 @@ public class Exercise5_1
             a();
             channel.setFinished(id);
 
-            synchronized (channel)
+            // wait until two others have done a()
+            while (channel.othersDone(id) < 2)
             {
-                // wait until two others have done a()
-                while (channel.othersDone(id) < 2)
+                // timeout is needed cause notifications (setFinished) may have gone into the deep
+                synchronized (channel)
                 {
-                    ThreadUtils.log(this, "waiting");
-
-                    // timeout is needed cause notifications (setFinished) may have gone into the deep
                     ThreadUtils.waitSilent(channel, 10);
-                    ThreadUtils.log(this, "up");
                 }
             }
             b();
