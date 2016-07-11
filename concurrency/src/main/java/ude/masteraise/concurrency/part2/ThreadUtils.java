@@ -3,6 +3,7 @@ package ude.masteraise.concurrency.part2;
 import org.apache.log4j.Logger;
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.Condition;
 
 /**
  * Created by nils on 22.06.16.
@@ -61,6 +62,32 @@ public class ThreadUtils
         try
         {
             o.wait();
+        } catch (InterruptedException e)
+        {
+        }
+    }
+
+    /**
+     * Calls {@linkplain Object#wait(long)} on given object and ignores the thrown {@linkplain InterruptedException}
+     */
+    public static void waitSilent(Object o, long timeout)
+    {
+        try
+        {
+            o.wait(timeout);
+        } catch (InterruptedException e)
+        {
+        }
+    }
+
+    /**
+     * Calls {@linkplain Condition#await()} on given condition and ignores the thrown {@linkplain InterruptedException}
+     */
+    public static void awaitSilent(Condition condition)
+    {
+        try
+        {
+            condition.await();
         } catch (InterruptedException e)
         {
         }
