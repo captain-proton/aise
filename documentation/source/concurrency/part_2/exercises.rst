@@ -11,3 +11,5 @@ Die Lösungen zu den einzelnen Übungen bestehen zu einem Teil aus Java Quellcod
     exercise_2
     exercise_3
     additional_exercise_2
+    exercise_4
+    exercise_5
