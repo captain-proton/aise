@@ -45,11 +45,17 @@ Zusätzlicher Code im ``Consumer``
 
 .. code-block:: Java
 
-    synchronized (warehouse) {
-            if (warehouse.hasGoods()) {
-                warehouse.remove();
-                ThreadUtils.sout(this, "consumed", "goods", warehouse.goodsCount);
+    // has to be synchronized, otherwise goods count may differ from state after remove.
+    synchronized (warehouse)
+    {
+        // see notify documentation why this has to be implemented in a loop.
+        while (warehouse.goodsCount <= 0)
+        {
+            ThreadUtils.waitSilent(warehouse);
         }
+        warehouse.remove();
+        ThreadUtils.sout(this, "consumed", "goods", warehouse.goodsCount);
+        warehouse.notify();
     }
 
 Zusätzlicher Code im ``Warehouse``
