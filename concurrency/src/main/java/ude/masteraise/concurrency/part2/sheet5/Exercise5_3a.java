@@ -42,10 +42,10 @@ public class Exercise5_3a
         @Override
         public void run()
         {
-            IntStream.range(0, Integer.MAX_VALUE).forEach(this::transfer);
+            IntStream.range(0, Integer.MAX_VALUE).forEach(this::startTransfer);
         }
 
-        private void transfer(int iteration)
+        protected void startTransfer(int iteration)
         {
             Pair<Account, Account> accounts = getRandomAccounts();
             Account src = accounts.getLeft();
@@ -58,8 +58,14 @@ public class Exercise5_3a
                     String.format("%-16s", "accounts"),
                     StringUtils.join(this.accounts.stream().map(Account::toString).collect(Collectors.toList()), ", "));
             ThreadUtils.log(this,
-                    String.format("%-16s", "transfer"),
+                    String.format("%-16s", "startTransfer"),
                     String.format("src: %-5d -> dest: %-5d", src.id, dest.id));
+
+            transfer(src, dest, TRANSFER_AMOUNT);
+        }
+
+        protected void transfer(Account src, Account dest, int transferAmount)
+        {
             src.transfer(dest, TRANSFER_AMOUNT);
         }
 
