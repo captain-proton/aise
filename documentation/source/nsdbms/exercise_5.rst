@@ -7,7 +7,13 @@ Zusätzlich verwendete Tools und Anleitungen:
 - `BaseX XML Datenbank <http://basex.org/>`_
 
     + Start der Anwendung: ``java -cp BaseX85.jar org.basex.BaseXGUI``
+    + Um die verwendeten Funktionen nutzen zu können müssen diese in die Anwendung geladen werden
+
+        * *Options* -> *Packages* -> *Install from URL*
+        * http://www.xqueryfunctions.com/xq/functx-1.0-doc-2007-01.xq
 - `XQuery Funktionsbibliothek <http://www.xqueryfunctions.com/xq/>`_
+
+Als Datenquelle kann die :ref:`Beispiel-XML <exercise_4_nsdbms_sample_xml>` aus Übung 4 verwendet werden.
 
 Aufgabe 1
 ^^^^^^^^^
