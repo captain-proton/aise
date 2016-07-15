@@ -3,6 +3,8 @@ package ude.masteraise.concurrency.philosophers;
 import org.apache.commons.lang3.RandomUtils;
 import ude.masteraise.concurrency.part2.ThreadUtils;
 
+import java.util.concurrent.TimeUnit;
+
 
 /**
  * Created by nils on 15.07.16.
@@ -71,11 +73,11 @@ public class Philosopher extends Thread
 
         try
         {
-            isLeftForkLocked = leftFork.getLock().tryLock();
+            isLeftForkLocked = ThreadUtils.tryLockSilent(leftFork.getLock(), 100, TimeUnit.MILLISECONDS);
             if (isLeftForkLocked)
                 ThreadUtils.log(this, "took", "fork", leftFork.getNumber());
 
-            isRightForkLocked = rightFork.getLock().tryLock();
+            isRightForkLocked = ThreadUtils.tryLockSilent(rightFork.getLock(), 100, TimeUnit.MILLISECONDS);
             if (isRightForkLocked)
                 ThreadUtils.log(this, "took", "fork", rightFork.getNumber());
         } finally

@@ -3,7 +3,9 @@ package ude.masteraise.concurrency.part2;
 import org.apache.log4j.Logger;
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
 
 /**
  * Created by nils on 22.06.16.
@@ -146,5 +148,16 @@ public class ThreadUtils
                 value,
                 millis);
         LOG.info(out);
+    }
+
+    public static boolean tryLockSilent(Lock lock, long time, TimeUnit timeUnit)
+    {
+        try
+        {
+            return lock.tryLock(time, timeUnit);
+        } catch (InterruptedException e)
+        {
+            return false;
+        }
     }
 }
