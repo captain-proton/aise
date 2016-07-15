@@ -29,8 +29,9 @@ public class PhilosophersApp
         philos.forEach(ThreadUtils::joinSilent);
         philos.forEach(p ->
         {
-            ThreadUtils.log(p, "done", "eatings", p.getEatings());
-            ThreadUtils.log(p, "done", "waitings", p.getWaitings());
+            ThreadUtils.log(p, "done", "eat", p.getEatingCount());
+            ThreadUtils.log(p, "", "thought", p.getThinkingCount());
+            ThreadUtils.log(p, "", "wait", p.getWaitingCount());
         });
     }
 

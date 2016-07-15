@@ -12,8 +12,9 @@ public class Philosopher extends Thread
     private final int numEatings;
     private final Fork leftFork;
     private final Fork rightFork;
-    private int eatings;
-    private int waitings;
+    private int eatingCount;
+    private int thinkingCount;
+    private int waitingCount;
 
     public Philosopher(int number, Fork leftFork, Fork rightFork, int numEatings)
     {
@@ -27,11 +28,20 @@ public class Philosopher extends Thread
     public void run()
     {
         int i = 1;
-        while (eatings < numEatings)
+        while (eatingCount < numEatings)
         {
+            think(i);
             eat(i);
             i++;
         }
+    }
+
+    private void think(int iteration)
+    {
+        int time = RandomUtils.nextInt(0, 50);
+        ThreadUtils.log(this, "think", "time", time);
+        ThreadUtils.sleepSilent(time);
+        thinkingCount++;
     }
 
     private void eat(int iteration)
@@ -41,7 +51,7 @@ public class Philosopher extends Thread
             try
             {
                 ThreadUtils.log(this, "eat", "num", iteration);
-                eatings++;
+                eatingCount++;
 
             } finally
             {
@@ -51,7 +61,7 @@ public class Philosopher extends Thread
         } else
         {
             ThreadUtils.log(this, "wait");
-            waitings++;
+            waitingCount++;
         }
     }
 
@@ -88,13 +98,18 @@ public class Philosopher extends Thread
         return isLeftForkLocked && isRightForkLocked;
     }
 
-    public int getEatings()
+    public int getEatingCount()
     {
-        return eatings;
+        return eatingCount;
     }
 
-    public int getWaitings()
+    public int getWaitingCount()
     {
-        return waitings;
+        return waitingCount;
+    }
+
+    public int getThinkingCount()
+    {
+        return thinkingCount;
     }
 }
