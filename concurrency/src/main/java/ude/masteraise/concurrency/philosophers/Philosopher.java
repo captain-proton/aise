@@ -38,7 +38,7 @@ public class Philosopher extends Thread
 
     private void think(int iteration)
     {
-        int time = RandomUtils.nextInt(0, 50);
+        int time = RandomUtils.nextInt(0, 10);
         ThreadUtils.log(this, "think", "time", time);
         ThreadUtils.sleepSilent(time);
         thinkingCount++;
@@ -46,22 +46,21 @@ public class Philosopher extends Thread
 
     private void eat(int iteration)
     {
-        if (takeForks())
-        {
-            try
-            {
-                ThreadUtils.log(this, "eat", "num", iteration);
-                eatingCount++;
-
-            } finally
-            {
-                leftFork.getLock().unlock();
-                rightFork.getLock().unlock();
-            }
-        } else
+        while (!takeForks())
         {
             ThreadUtils.log(this, "wait");
             waitingCount++;
+        }
+        try
+        {
+            ThreadUtils.log(this, "eat", "num", iteration);
+            eatingCount++;
+            ThreadUtils.sleepSilent(RandomUtils.nextInt(0, 10));
+
+        } finally
+        {
+            leftFork.getLock().unlock();
+            rightFork.getLock().unlock();
         }
     }
 

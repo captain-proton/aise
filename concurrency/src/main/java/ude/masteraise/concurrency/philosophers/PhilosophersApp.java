@@ -14,7 +14,7 @@ public class PhilosophersApp
 {
     public static void main(String[] args)
     {
-        int numEatings = RandomUtils.nextInt(10, 20);
+        int numEatings = RandomUtils.nextInt(10, 21);
         List<Fork> forks = IntStream.range(0, 5)
                 .mapToObj(i -> new Fork(i + 1))
                 .collect(Collectors.toList());
@@ -24,6 +24,7 @@ public class PhilosophersApp
                 .map(leftFork -> new Philosopher(leftFork.getNumber(), leftFork, getRightFork(leftFork, forks), numEatings))
                 .collect(Collectors.toList());
 
+        long startTime = System.currentTimeMillis();
         philos.forEach(Philosopher::start);
 
         philos.forEach(ThreadUtils::joinSilent);
@@ -33,6 +34,8 @@ public class PhilosophersApp
             ThreadUtils.log(p, "", "thought", p.getThinkingCount());
             ThreadUtils.log(p, "", "wait", p.getWaitingCount());
         });
+        int runtime = new Long(System.currentTimeMillis() - startTime).intValue() / 100;
+        ThreadUtils.log(Thread.currentThread(), "done", "runtime (s)", runtime);
     }
 
     private static Fork getRightFork(Fork leftFork, List<Fork> forks)
