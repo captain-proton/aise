@@ -57,6 +57,19 @@ public class ThreadUtils
     }
 
     /**
+     * Calls {@linkplain Thread#sleep(long)} and ignores the thrown {@linkplain InterruptedException}
+     */
+    public static void sleepSilent(long amount, TimeUnit unit)
+    {
+        try
+        {
+            Thread.sleep(TimeUnit.MILLISECONDS.convert(amount, unit));
+        } catch (InterruptedException e)
+        {
+        }
+    }
+
+    /**
      * Calls {@linkplain Object#wait()} on given object and ignores the thrown {@linkplain InterruptedException}
      */
     public static void waitSilent(Object o)
