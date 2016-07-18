@@ -52,20 +52,15 @@ public class LinkedBlockingQueueSample
             while (isOpen.get())
             {
                 Integer item = random.nextInt(100);
-                System.out.println(getName() + " offering " + item);
-                boolean offered = false;
                 try
                 {
+                    System.out.println(getName() + " putBefore " + item);
                     warehouse.put(item);
-                    offered = true;
+                    System.out.println(getName() + " putAfter  " + item + " items " + warehouse.size());
                 } catch (InterruptedException e)
                 {
                     System.out.println(getName() + " interrupted");
                 }
-                String msg = offered
-                             ? getName() + " offered  " + item
-                             : getName() + " offering " + item + " failed";
-                System.out.println(msg);
             }
         }
     }
@@ -85,14 +80,11 @@ public class LinkedBlockingQueueSample
         {
             while (isOpen.get())
             {
-                System.out.println(getName() + " polling");
                 try
                 {
+                    System.out.println(getName() + " take");
                     Integer item = warehouse.take();
-                    String msg = item != null
-                                 ? getName() + " polled   " + item
-                                 : getName() + " polling  failed";
-                    System.out.println(msg);
+                    System.out.println(getName() + " took " + item + " items " + warehouse.size());
                 } catch (InterruptedException e)
                 {
                     System.out.println(getName() + " interrupted");
