@@ -173,4 +173,10 @@ public class ThreadUtils
             return false;
         }
     }
+
+    public static void startAndJoin(Thread t)
+    {
+        t.start();
+        joinSilent(t);
+    }
 }

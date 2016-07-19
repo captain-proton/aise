@@ -1,4 +1,6 @@
-package ude.masteraise.concurrency.part2;
+package ude.masteraise.concurrency.part2.test;
+
+import ude.masteraise.concurrency.part2.ThreadUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,7 +10,7 @@ import java.util.stream.IntStream;
  * @author Nils Verheyen
  * @since 19.07.16 08:24
  */
-public class TestTwoTimeDiagram
+public class TimeDiagramExercise
 {
 
     public static void main(String[] args)
