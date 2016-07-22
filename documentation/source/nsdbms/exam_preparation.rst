@@ -6,4 +6,5 @@ Klausurvorbereitung
     exam_preparation/relations
     exam_preparation/dtd_cheatsheet
     exam_preparation/xsd_cheatsheet
+    exam_preparation/xquery_cheatsheet
     exam_preparation/example_exams
