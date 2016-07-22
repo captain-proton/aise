@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>340</y>
+      <w>430</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>AbteilungTyp
+--
+nummer INT PRIMARY KEY
+name VARCHAR(200) NOT NULL
+
+chef REF(MitarbeiterType)
+vertreter REF(MitarbeiterTyp)
+chefsekretaerin REF(MitarbeiterTyp)
+sekretaerinnen REF(MitarbeiterTyp) ARRAY[5]
+mitarbeiter REF(MitarbeiterTyp) MULTISET
+
+projekte REF(ProjektType) MULTISET
+
+dienstwagen_a REF(DienstwagenTyp) NOT NULL
+dienstwagen_b REF(DienstwagenTyp) NOT NULL
+
+gebaeude REF(GebaeudeTyp) MULTISET
+--
+REF USING INTEGER
+METHOD gib_ausfuehrende_projekte RETURNS ProjektTyp
+METHOD gib_bearbeitende_projekte RETURNS ProjektTyp
+METHOD gib_interne_projekte RETURNS ProjektTyp
+METHOD gib_uebergreidende_projekte RETURNS ProjektTyp</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>320</x>
+      <y>40</y>
+      <w>300</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Die Art gibt an ob das Projekt bearbeitet 
+oder ausgeführt wird. Als int können die
+Werte beliebig erweitert werden. Hier wird
+eine Verbindungstabelle verwendet, damit 
+eine Abteilung ggfs. Projekte sowohl
+ausführen als auch bearbeiten können.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>570</y>
+      <w>290</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>MitarbeiterTyp
+--
+nummer INT PRIMARY KEY
+name VARCHAR(200) NOT NULL
+--
+REF USING INTEGER</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>390</y>
+      <w>290</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ProjektTyp
+--
+nummer INT PRIMARY KEY
+name VARCHAR(200) NOT NULL
+mitarbeiter REF(MitarbeiterTyp) MULTISET
+--
+REF USING INTEGER</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>700</y>
+      <w>240</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>GebaeudeTyp
+--
+nummer INT PRIMARY KEY
+name VARCHAR(200) NOT NULL
+--
+REF USING INTEGER</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>160</y>
+      <w>240</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ProjektAbteilungTyp
+--
+projekt REF(ProjektTyp)
+abteilung REF(AbteilungTyp)
+art INT
+--
+REF USING INTEGER</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>710</x>
+      <y>700</y>
+      <w>240</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>DienstfahrzeugTyp
+--
+nummer INT PRIMARY KEY
+name VARCHAR(200) NOT NULL
+kennzeichen VARCHAR(10)
+marke VARCHAR(100)
+--
+REF USING INTEGER</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>200</y>
+      <w>170</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>200</y>
+      <w>220</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>200.0;140.0;200.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>50</x>
+      <y>700</y>
+      <w>350</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Gebäude die verworfen werden sollen sobald diese
+durch keine Abteilung mehr  belegt sind, kann man 
+nicht modellieren. Eine Kaskade würde hier zu 
+Datenverlust führen. Dieser Fall muss durch 
+Anwendungslogik implementiert werden.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>480</y>
+      <w>50</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+</diagram>

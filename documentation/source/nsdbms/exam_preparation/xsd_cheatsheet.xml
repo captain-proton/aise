@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- element | complexType | simpleType -->
+
+    <!--
+    keep one element directly below the schema, that is used as the root
+    element to the schema. element, complexType and simpleType may be used
+    in any order.
+    -->
+    <xs:element name="root" type="ProductType">
+        <xs:annotation>
+            <xs:documentation>
+                Some large description explaining what, where and how
+                the is going forward ...
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="product" type="ProductType" minOccurs="0" maxOccurs="unbounded">
+                <!-- the name of the product must be unique -->
+                <xs:unique name="uniqueName">
+                    <!-- selector, field+ -->
+                    <xs:selector xpath="name"/>
+                    <xs:field xpath="text()"/>
+                </xs:unique>
+            </xs:element>
+        </xs:sequence>
+    </xs:element>
+
+    <!--
+    substitutionGroup to allow different name of an element. substitutions are not allowed in local elements
+    for example in complexType sequences.
+    -->
+    <xs:element name="wurzel" substitutionGroup="root"/>
+
+    <xs:complexType name="ProductType">
+        <!-- inner elements -->
+        <!-- (simpleContent | complexContent | (sequence | all | choice)? -->
+
+        <!-- attributes of the element -->
+        <!-- use = (optional | prohibited | required) default is optional -->
+        <xs:attribute name="productID" type="xs:ID" use="required"/>
+        <xs:attribute name="availableSince" type="xs:date"/>
+        <!--
+        use any attribute to allow any number of additional attributes
+        on the element
+        -->
+        <xs:anyAttribute />
+        <xs:sequence>
+
+            <!-- place all needed elements inside the sequence -->
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="price" type="PriceType"/>
+            <xs:element name="runsOut" type="xs:boolean"/>
+            <xs:element name="stock" type="xs:integer"/>
+            <xs:element name="minimumStock" type="xs:positiveInteger"/>
+            <xs:any minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BicycleProductType">
+        <!-- with complexContent a element of that type can contain other elements -->
+        <xs:complexContent>
+            <!-- extension | restriction -->
+
+            <!--
+            all elements and attributes inherited from base type
+            minOccurs and maxOccurs default value 1
+            -->
+            <xs:extension base="ProductType">
+                <xs:sequence>
+                    <!--
+                    token removes trailing and leading spaces, line feeds,
+                    carriage returns and multiple spaces/tabs.
+                    -->
+                    <xs:element name="name" type="xs:token" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="description" type="xs:string" minOccurs="0"/>
+                    <xs:element name="gears" type="xs:integer"/>
+                    <xs:element name="wheels" type="xs:positiveInteger"/>
+                    <xs:element name="pressurce" type="BarPressureType"/>
+                    <xs:group ref="essentialParts" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="LongboardType">
+        <xs:sequence>
+            <!--
+            with this inline complexType the element gets an additional
+            attribute and can only contain string as value
+            -->
+            <xs:element name="wheelBase">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="format" type="xs:string"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <!--
+            use ProductType as a reference if you do not want to use or can not
+            extension or restriction base inside complexContent.
+            -->
+            <xs:element name="product" type="ProductType" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ShopType">
+        <xs:sequence>
+            <!--
+            if the idref points to the product inside the longboard type the
+            relation is dependant/shared (does not work in orsql).
+            if the longboard is deleted the product inside the shop is still
+            present pointing to an invalid element!
+            -->
+            <xs:element name="product" maxOccurs="unbounded" type="xs:IDREF"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PriceType">
+        <!-- with simpleContent a element of that type can only contain text based content -->
+        <xs:simpleContent>
+            <xs:extension base="xs:float">
+                <xs:attribute name="currency"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <!--
+    <price currency="EUR">1.29</currency>
+    -->
+
+    <xs:complexType name="OrderElementType">
+        <xs:sequence>
+            <!--
+            IDREF to reference other element in the document. idrefs are
+            not typed! IDREFS are just whitespaced and contain multiple ids
+            -->
+            <xs:attribute name="productID" type="xs:IDREF"/>
+
+            <xs:element name="price" type="PriceType"/>
+            <xs:element name="amount" type="xs:positiveInteger"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OrderType">
+        <xs:sequence>
+            <xs:attribute name="userID" type="xs:IDREF"/>
+            <xs:element name="order" type="OrderElementType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- simple types are most common with the use of restriction bases -->
+    <xs:simpleType name="WheelSizeType">
+        <!-- restriction with enum -->
+        <xs:restriction base="xs:integer">
+            <xs:enumeration value="26"/>
+            <xs:enumeration value="28"/>
+            <xs:enumeration value="29"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="BarPressureType">
+        <!-- restriction with min/max -->
+        <xs:restriction base="xs:integer">
+            <!--
+            most common used elements:
+            minInclusive,maxInclusive
+            minExclusive,maxExclusive
+            totalDigits,fractionDigits
+            minLength,maxLength
+            whiteSpace
+            enumeration
+            pattern
+            -->
+            <xs:minInclusive value="3"/>
+            <!-- <xs:minExclusive value="3"/> -->
+            <xs:maxInclusive value="6"/>
+            <!-- <xs:maxExclusive value="6"/> -->
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ZipType">
+        <!-- restriction with pattern -->
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="FullStringType">
+        <!-- restriction with pattern -->
+        <xs:restriction base="xs:string">
+            <!--
+            use whiteSpace in restrictions to preserve, replace or collapse
+            whitespace. can only be used in simpleType or simpleContent.
+            collapse = remove all whitespace
+            replace = replace all whitespace with single space
+            -->
+            <xs:whiteSpace value="preserve"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:group name="essentialParts">
+        <xs:all>
+            <xs:element name="steeringWheel" type="xs:string"/>
+            <xs:element name="break" type="xs:string"/>
+            <xs:element name="light" type="xs:string"/>
+        </xs:all>
+    </xs:group>
+</xs:schema>

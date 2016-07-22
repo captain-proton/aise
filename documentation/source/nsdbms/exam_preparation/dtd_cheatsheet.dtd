@@ -1,0 +1,23 @@
+# element definition: <!ELEMENT {name} {subelements}>
+<!ELEMENT product (price,manufacturer,(category)*)>
+# attlist definition: <!ATTLIST {elementname} ([{attributename} {type} [#REQUIRED|#IMPLIED|#FIXED]])*>
+<!ATTLIST product id ID #REQUIRED availableSince CDATA>
+<!ATTLIST rgbhex r INTEGER #REQUIRED g INTEGER #REQUIRED b INTEGER #REQUIRED>
+
+# entities can be referenced inside PCDATA with their names: &<name>
+<!ENTITY start "01.09.2013">
+<!ENTITY title "Brains">
+
+# raw data
+<!ATTLIST somePhoto ENTITY #IMPLIED>
+<!ENTITY photo SYSTEM "image.jpg" NDATA PNG>
+# <image somePhoto="photo"/>
+
+# references
+<!ENTITY %addressdef "(city,zip,street,number)">
+<!ELEMENT address %addressdef;>
+
+# use in xml
+# browsers normally skip dtd definitions
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cheatsheet SYSTEM "dtd_cheatsheet.dtd">
