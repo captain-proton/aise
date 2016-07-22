@@ -159,7 +159,7 @@
             <xs:element name="value" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:any />
+                        <xs:any processContents="lax" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
