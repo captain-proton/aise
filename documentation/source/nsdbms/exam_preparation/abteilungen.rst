@@ -43,7 +43,6 @@ Teil b)
             SELECT *
             FROM ProjektAbteilung
             WHERE abteilung->nummer = 1234
-                AND p.nummer = abteilung->nummer
         )
 
 Teil c)
