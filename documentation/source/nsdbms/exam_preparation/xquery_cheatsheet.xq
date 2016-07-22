@@ -24,39 +24,6 @@ Axes in XPath:
 +--------------------+-----------------------------------------------------+-------------------------+
 :)
 
-(: sql like expression :)
-for $book in doc("books.xml")/bookstore/book
-where $book/price > 30
-return $book/title;
-(: result: <title>some title</title>... :)
-
-(: equivalent, more xml xpath style :)
-for $book in doc("books.xml")/bookstore/book[price > 30]
-return $book/title;
-
-(: contains function :)
-for $book in doc("books.xml")/bookstore/book
-where contains($book/title, "Spiel")
-return $book;
-
-(: define the values of that each top level node :)
-let $values := doc("tree.xml")/tree/node/value
-(: for each value inside that node :)
-for $value in $values
-(: that has a text length greater than zero :)
-where string-length($value/text()) > 0
-(: order by its id :)
-order by $value/@id
-(: and return the value :)
-return $value;
-
-(: define simple tuple in let clauses :)
-let $values := (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-for $value in $values
-where $value / 2 = 0
-(: when returning text/xml be sure to enclose values with {} :)
-return <value>{$value}</value>;
-
 (:
 Important functions:
 +--------------------------+---------------------------+-------------------------+
@@ -94,3 +61,69 @@ Important functions:
 +--------------------------+---------------------------+-------------------------+
 
 :)
+
+(: sql like expression :)
+for $book in doc("books.xml")/bookstore/book
+where $book/price > 30
+return $book/title
+(: result: <title>some title</title>... :)
+;
+
+(: equivalent, more xml xpath style :)
+for $book in doc("books.xml")/bookstore/book[price > 30]
+return $book/title
+;
+
+(: contains function :)
+for $book in doc("books.xml")/bookstore/book
+where contains($book/title, "Spiel")
+return $book
+;
+
+(: define the values of that each top level node :)
+let $values := doc("tree.xml")/tree/node/value
+(: for each value inside that node :)
+for $value in $values
+(: that has a text length greater than zero :)
+where string-length($value/text()) > 0
+(: order by its id :)
+order by $value/@id
+(: and return the value :)
+return $value
+;
+
+(: define simple tuple in let clauses :)
+let $values := (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+for $value in $values
+where $value / 2 = 0
+(: when returning text/xml be sure to enclose values with {} :)
+return <value>{$value}</value>
+;
+
+(: follow IDREF attribute/element :)
+for $book in doc("books.xml")/bookstore/book
+(: book of specific author that is only referenced :)
+where exists($book/@authorID->author[name/lastname = 'Ullenboom'])
+return $book
+;
+
+(: quantifiers some, every :)
+(:
+some  = one or more
+every = every :D
+syntax: where <some|every> $variable in <set> satifies <boolean result expression>
+:)
+for $book in doc("books.xml")/bookstore/book
+(: some elements inside the book tree satifies A and B :)
+where some $p in $book//para satisfies
+    contains($p, "sailing")
+    and contains ($p, "surfing")
+return $book/title
+;
+
+(: occurence :)
+for $book in doc("books.xml")/bookstore/book
+(: text contains "export" >= n times :)
+let $cond = $book//content[contains(text(), "export") (: occurs at least 2 times:) ]
+return $book
+;
