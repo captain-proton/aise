@@ -1,5 +1,0 @@
-Probeklausuren
-==============
-
-.. toctree::
-    abteilungen
