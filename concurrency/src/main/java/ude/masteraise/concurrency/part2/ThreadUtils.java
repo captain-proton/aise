@@ -6,6 +6,7 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
+import java.util.stream.Stream;
 
 /**
  * Created by nils on 22.06.16.
@@ -174,9 +175,9 @@ public class ThreadUtils
         }
     }
 
-    public static void startAndJoin(Thread t)
+    public static void startAndJoin(Thread...threads)
     {
-        t.start();
-        joinSilent(t);
+        Stream.of(threads).forEach(Thread::start);
+        Stream.of(threads).forEach(ThreadUtils::joinSilent);
     }
 }

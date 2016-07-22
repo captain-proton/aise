@@ -11,8 +11,8 @@ public class SleepWait
 
     public static void main(String[] args)
     {
-//        startTime = System.currentTimeMillis();
-//        runSleep();
+        startTime = System.currentTimeMillis();
+        runSleep();
         startTime = System.currentTimeMillis();
         runWait();
     }
@@ -29,7 +29,8 @@ public class SleepWait
         Process p1 = new Process(1, 100, 400, m);
         Process p2 = new Process(2, 200, 100, m);
 
-        Stream.of(p1, p2).forEach(ThreadUtils::startAndJoin);
+        ThreadUtils.startAndJoin(p1, p2);
+
         ThreadUtils.log(Thread.currentThread(), "runSleep", "finished");
     }
 
@@ -40,7 +41,7 @@ public class SleepWait
         Process p1 = new Process(1, 100, 400, m);
         Process p2 = new Process(2, 200, 100, m);
 
-        Stream.of(p1, p2).forEach(ThreadUtils::startAndJoin);
+        ThreadUtils.startAndJoin(p1, p2);
         ThreadUtils.log(Thread.currentThread(), "runWait", "finished");
     }
 
@@ -79,7 +80,7 @@ public class SleepWait
             {
                 isFirstWaiting = true;
                 ThreadUtils.log(Thread.currentThread(), "in", "wait", p.id, getRuntime());
-                ThreadUtils.waitSilent(this, p.sleepTimeOnMonitor);
+                ThreadUtils.waitSilent(this);
             }
             ThreadUtils.log(Thread.currentThread(), "in", "end", p.id, getRuntime());
             notifyAll();
