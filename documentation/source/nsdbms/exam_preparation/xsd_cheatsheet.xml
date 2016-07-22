@@ -151,6 +151,21 @@
         </xs:sequence>
     </xs:complexType>
 
+    <!-- tree definition -->
+    <xs:element name="node" type="NodeType"/>
+    <xs:complexType name="NodeType">
+        <xs:choice maxOccurs="unbounded">
+            <xs:element ref="node" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="value" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+    </xs:complexType>
+
     <!-- simple types are most common with the use of restriction bases -->
     <xs:simpleType name="WheelSizeType">
         <!-- restriction with enum -->
