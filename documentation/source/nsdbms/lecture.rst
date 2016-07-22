@@ -821,3 +821,4 @@ Folie 44
 ^^^^^^^^
 
 - ``.FTCONTAINS "adsf"`` soll als Funktion genutzt werden in der Syntax ``contains()``
+

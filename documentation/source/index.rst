@@ -28,3 +28,4 @@ Contents:
 
     nsdbms/lecture
     nsdbms/exercises
+    nsdbms/exam_preparation
