@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="auktionshaus" type="AuktionshausTyp"/>
+
+    <xs:complexType name="AuktionshausTyp">
+        <xs:sequence>
+            <xs:element name="artikel" type="ArtikelTyp" maxOccurs="unbounded"/>
+            <xs:element name="artikelpaket" type="ArtikelPaketTyp" maxOccurs="unbounded"/>
+            <xs:element name="auktion" type="AuktionTyp" maxOccurs="unbounded"/>
+            <xs:element name="bieter" type="BieterTyp" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ArtikelTyp">
+        <xs:sequence>
+            <xs:element name="bild" type="xs:base64Binary"/>
+            <xs:element name="name" type="xs:string" maxOccurs="3"/>
+            <xs:element name="price" type="PreisTyp"/>
+            <xs:choice>
+                <xs:element name="farbe" type="xs:integer"/>
+                <xs:element name="gewicht" type="xs:integer"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="artikelpaket" type="ArtikelPaketTyp"/>
+    <xs:complexType name="ArtikelPaketTyp">
+        <xs:choice maxOccurs="unbounded">
+            <xs:element name="artikel" type="ArtikelTyp" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="artikelpaket" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="AuktionTyp">
+        <xs:sequence>
+            <xs:element name="anfangszeit" type="xs:dateTime"/>
+            <xs:element name="endzeit" type="xs:dateTime"/>
+            <xs:element name="anfangspreis" type="PreisTyp"/>
+            <xs:element name="gebot" type="xs:IDREF" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GebotTyp">
+        <xs:sequence>
+            <xs:element name="bieter" type="xs:IDREF"/>
+            <xs:element name="preis" type="PreisTyp"/>
+            <xs:element name="auktion" type="xs:IDREF"/>
+            <xs:choice>
+                <xs:element name="artikel" type="xs:IDREF"/>
+                <xs:element name="artikelpaket" type="xs:IDREF"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BieterTyp">
+        <xs:sequence>
+            <xs:element name="vorname" type="xs:string"/>
+            <xs:element name="nachname" type="xs:string"/>
+            <xs:element name="bietername" type="xs:string" maxOccurs="unbounded"/>
+            <xs:element name="adresse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="Adresse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="konto">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="Konto"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PreisTyp">
+        <xs:simpleContent>
+            <xs:extension base="xs:float">
+                <xs:attribute name="waehrung" type="WaehrungTyp"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="WaehrungTyp">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Euro"/>
+            <xs:enumeration value="US Dollar"/>
+            <xs:enumeration value="Britische Pfund"/>
+            <xs:enumeration value="Kanadische Dollar"/>
+            <xs:enumeration value="Australische Dollar"/>
+            <xs:enumeration value="Neuseelaendische Dollar"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:group name="Adresse">
+        <xs:sequence>
+            <xs:element name="strasse" type="xs:string"/>
+            <xs:element name="hausnummer" type="xs:string"/>
+            <xs:element name="plz">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{5}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="stadt" type="xs:string"/>
+        </xs:sequence>
+    </xs:group>
+
+    <xs:group name="Konto">
+        <xs:sequence>
+            <xs:element name="nummer" type="xs:string"/>
+            <xs:element name="blz" type="xs:string"/>
+        </xs:sequence>
+    </xs:group>
+</xs:schema>
