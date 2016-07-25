@@ -166,7 +166,11 @@
         </xs:choice>
     </xs:complexType>
 
-    <!-- simple types are most common with the use of restriction bases -->
+    <!--
+    simple types are most common with the use of restriction bases. it is
+    not allowed to add attributes to simple types! a complex type must be
+    declared to add attributes to the element.
+    -->
     <xs:simpleType name="WheelSizeType">
         <!-- restriction with enum -->
         <xs:restriction base="xs:integer">
