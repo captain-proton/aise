@@ -36,16 +36,6 @@
     <xs:complexType name="ProductType">
         <!-- inner elements -->
         <!-- (simpleContent | complexContent | (sequence | all | choice)? -->
-
-        <!-- attributes of the element -->
-        <!-- use = (optional | prohibited | required) default is optional -->
-        <xs:attribute name="productID" type="xs:ID" use="required"/>
-        <xs:attribute name="availableSince" type="xs:date"/>
-        <!--
-        use any attribute to allow any number of additional attributes
-        on the element
-        -->
-        <xs:anyAttribute />
         <xs:sequence>
 
             <!-- place all needed elements inside the sequence -->
@@ -56,6 +46,16 @@
             <xs:element name="minimumStock" type="xs:positiveInteger"/>
             <xs:any minOccurs="0"/>
         </xs:sequence>
+
+        <!-- attributes of the element -->
+        <!-- use = (optional | prohibited | required) default is optional -->
+        <xs:attribute name="productID" type="xs:ID" use="required"/>
+        <xs:attribute name="availableSince" type="xs:date"/>
+        <!--
+        use any attribute to allow any number of additional attributes
+        on the element
+        -->
+        <xs:anyAttribute />
     </xs:complexType>
 
     <xs:complexType name="BicycleProductType">
@@ -133,22 +133,22 @@
 
     <xs:complexType name="OrderElementType">
         <xs:sequence>
-            <!--
-            IDREF to reference other element in the document. idrefs are
-            not typed! IDREFS are just whitespaced and contain multiple ids
-            -->
-            <xs:attribute name="productID" type="xs:IDREF"/>
 
             <xs:element name="price" type="PriceType"/>
             <xs:element name="amount" type="xs:positiveInteger"/>
         </xs:sequence>
+        <!--
+        IDREF to reference other element in the document. idrefs are
+        not typed! IDREFS are just whitespaced and contain multiple ids
+        -->
+        <xs:attribute name="productID" type="xs:IDREF"/>
     </xs:complexType>
 
     <xs:complexType name="OrderType">
         <xs:sequence>
-            <xs:attribute name="userID" type="xs:IDREF"/>
             <xs:element name="order" type="OrderElementType" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
+        <xs:attribute name="userID" type="xs:IDREF"/>
     </xs:complexType>
 
     <!-- tree definition -->

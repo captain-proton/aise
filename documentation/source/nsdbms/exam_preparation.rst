@@ -51,3 +51,4 @@ Probeklausuren
 
     exam_preparation/abteilungen_sose_2009/abteilungen
     exam_preparation/auktionshaus_sose_2008/auktionshaus
+    exam_preparation/kursangebot_sose_2015/kursangebot
