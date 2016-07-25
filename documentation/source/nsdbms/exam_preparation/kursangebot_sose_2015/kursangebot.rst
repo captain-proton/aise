@@ -66,7 +66,7 @@ Teil c
         FROM Teilnehmer t2
         WHERE t.teilnehmerOID != t.teilnehmerOID
         AND tnummer = ANY t2.telefonnummern
-        AND CARDINALITY(t2.kurse) > 0
+        AND CARDINALITY(t2.gibAlleKurse()) > 0
     );
 
 Aufgabe 3

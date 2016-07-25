@@ -57,11 +57,11 @@ CREATE TYPE TeilnehmerTyp AS (
         ) ARRAY[5],
     email VARCHAR(200) NULL,
     webseite VARCHAR(200) NULL,
-    kurse REF(KursTyp) MULTISET,
-    REF IS SYSTEM GENERATED,
-    METHOD gibEntspannungKurse() RETURNS EntspannungKursTyp MULTISET,
-    METHOD gibBewegungsKurse() RETURNS BewegungKursTyp MULTISET,
-    METHOD gibAusflugKurse() RETURNS AusflugKursTyp MULTISET,
+    entspannungskurse REF(EntspannungKursTyp) MULTISET,
+    bewegungskurse REF(BewegungKursTyp) MULTISET,
+    ausflugskurse REF(AusflugKursTyp) MULTISET,
+    METHOD gibAlleKurse() RETURNS KursTyp MULTISET,
+    REF IS SYSTEM GENERATED
 );
 
 CREATE TABLE Kurs OF KursTyp AS (
