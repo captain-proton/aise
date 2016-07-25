@@ -4,10 +4,10 @@
 
     <xs:complexType name="KurseTyp">
         <xs:sequence>
-            <xs:element name="entspannungsKurse" type="EntspannungKursTyp" maxOccurs="unbounded"/>
-            <xs:element name="bewegungsKurse" type="BewegungKursTyp" maxOccurs="unbounded"/>
-            <xs:element name="ausflugsKurse" type="AusflugKursTyp" maxOccurs="unbounded"/>
-            <xs:element name="sportarten" type="SportartenTyp" maxOccurs="unbounded"/>
+            <xs:element name="entspannungsKurs" type="EntspannungKursTyp" maxOccurs="unbounded"/>
+            <xs:element name="bewegungsKurs" type="BewegungKursTyp" maxOccurs="unbounded"/>
+            <xs:element name="ausflugsKurs" type="AusflugKursTyp" maxOccurs="unbounded"/>
+            <xs:element name="sportart" type="SportartenTyp" maxOccurs="unbounded"/>
             <xs:element name="teilnehmer" type="TeilnehmerTyp" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
