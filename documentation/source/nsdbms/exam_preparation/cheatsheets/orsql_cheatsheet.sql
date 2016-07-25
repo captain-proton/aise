@@ -142,8 +142,9 @@ FROM Manufacturer, UNNEST(bicycles) as bicycle
 -- UNNEST is only allowed inside the FROM clause
 -- can be used with MULTISET and ARRAY
 -- DEREF
-WHERE bicycle->name = 'Hodor'
-WHERE DEREF(bicycle).name = 'Hodor'
+WHERE bicycle.name = 'Hodor'
+WHERE bicycle.master->name = 'Bran'
+WHERE DEREF(bicycle.master).name = 'Hodor'
 
 -- can be in hierarchies to retrieve object of specific tables
 FROM Person EXCEPT CORRESPONDING TABLE Person, Manager
