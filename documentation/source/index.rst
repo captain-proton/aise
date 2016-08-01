@@ -21,6 +21,7 @@ Contents:
 
     concurrency/part_2/lecture
     concurrency/part_2/exercises
+    concurrency/exam_preparation/index
 
 
 .. toctree::
