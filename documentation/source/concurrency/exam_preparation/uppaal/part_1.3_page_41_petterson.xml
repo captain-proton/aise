@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+int turn, req1, req2;</declaration>
+	<template>
+		<name x="5" y="5">P1</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-68" y="110">
+			<name x="-78" y="76">cs</name>
+		</location>
+		<location id="id1" x="127" y="110">
+			<name x="117" y="76">wait</name>
+		</location>
+		<location id="id2" x="127" y="0">
+			<name x="117" y="-34">want</name>
+		</location>
+		<location id="id3" x="-68" y="0">
+			<name x="-78" y="-34">idle</name>
+		</location>
+		<init ref="id3"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="assignment" x="-127" y="51">req1:=0</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="guard" x="0" y="127">req2 == 0</label>
+			<nail x="34" y="127"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="guard" x="8" y="68">turn == 1</label>
+			<nail x="34" y="93"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="assignment" x="127" y="55">turn:=2</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="assignment" x="-17" y="-25">req1:=1</label>
+		</transition>
+	</template>
+	<template>
+		<name>P2</name>
+		<location id="id4" x="-76" y="51">
+			<name x="-86" y="17">cs</name>
+		</location>
+		<location id="id5" x="-76" y="-59">
+			<name x="-86" y="-93">idle</name>
+		</location>
+		<location id="id6" x="119" y="51">
+			<name x="109" y="17">wait</name>
+		</location>
+		<location id="id7" x="119" y="-59">
+			<name x="109" y="-93">want</name>
+		</location>
+		<init ref="id5"/>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="assignment" x="-135" y="-8">req2:=0</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id4"/>
+			<label kind="guard" x="-8" y="68">req1 == 0</label>
+			<nail x="26" y="68"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id4"/>
+			<label kind="guard" x="0" y="9">turn == 2</label>
+			<nail x="26" y="34"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id6"/>
+			<label kind="assignment" x="119" y="-4">turn:=1</label>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id7"/>
+			<label kind="assignment" x="-25" y="-84">req2:=1</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+p1 = P1();
+p2 = P2();
+// List one or more processes to be composed into a system.
+system p1, p2;
+    </system>
+	<queries>
+		<query>
+			<formula>A[] not(p1.cs and p2.cs)
+			</formula>
+			<comment>
+			</comment>
+		</query>
+	</queries>
+</nta>

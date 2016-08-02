@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan request, get, put, data;</declaration>
+	<template>
+		<name x="5" y="5">Client</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-153" y="17">
+		</location>
+		<location id="id1" x="-153" y="-93">
+		</location>
+		<init ref="id1"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-178" y="-29">data?</label>
+			<nail x="-204" y="-42"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-127" y="-76">request!</label>
+			<nail x="-102" y="-25"/>
+		</transition>
+	</template>
+	<template>
+		<name>Medium</name>
+		<location id="id2" x="-93" y="51">
+		</location>
+		<location id="id3" x="0" y="119">
+		</location>
+		<location id="id4" x="76" y="59">
+		</location>
+		<location id="id5" x="0" y="0">
+		</location>
+		<init ref="id5"/>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-75" y="-17">data!</label>
+			<nail x="-93" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-75" y="102">put?</label>
+			<nail x="-93" y="119"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="18" y="102">get!</label>
+			<nail x="76" y="119"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="18" y="-17">request?</label>
+			<nail x="76" y="0"/>
+		</transition>
+	</template>
+	<template>
+		<name>Server</name>
+		<location id="id6" x="0" y="102">
+		</location>
+		<location id="id7" x="0" y="0">
+		</location>
+		<init ref="id7"/>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-25" y="55">put!</label>
+			<nail x="-51" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="25" y="12">get?</label>
+			<nail x="51" y="59"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+
+// List one or more processes to be composed into a system.
+system Client, Medium, Server;
+    </system>
+	<queries>
+	</queries>
+</nta>

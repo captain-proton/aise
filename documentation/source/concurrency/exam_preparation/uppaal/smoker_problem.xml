@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+
+int paper, match, tobacco;
+broadcast chan put;</declaration>
+	<template>
+		<name>TobaccoSmoker</name>
+		<location id="id0" x="0" y="204">
+			<name x="8" y="212">smoke</name>
+		</location>
+		<location id="id1" x="0" y="110">
+		</location>
+		<location id="id2" x="0" y="0">
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<nail x="-68" y="204"/>
+			<nail x="-68" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="guard" x="8" y="25">paper &gt; 0 and
+match &gt; 0</label>
+			<label kind="synchronisation" x="-34" y="25">put?</label>
+			<label kind="assignment" x="8" y="59">paper--,
+match--</label>
+		</transition>
+	</template>
+	<template>
+		<name>MatchSmoker</name>
+		<location id="id3" x="-17" y="85">
+			<name x="-9" y="93">smoke</name>
+		</location>
+		<location id="id4" x="-17" y="-119">
+		</location>
+		<location id="id5" x="-17" y="-9">
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<nail x="-85" y="85"/>
+			<nail x="-85" y="-119"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id3"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="guard" x="-8" y="-93">paper &gt; 0 and
+tobacco &gt; 0</label>
+			<label kind="synchronisation" x="-51" y="-93">put?</label>
+			<label kind="assignment" x="-8" y="-59">paper--,
+tobacco--</label>
+		</transition>
+	</template>
+	<template>
+		<name>PaperSmoker</name>
+		<location id="id6" x="-25" y="85">
+			<name x="-17" y="93">smoke</name>
+		</location>
+		<location id="id7" x="-25" y="-119">
+		</location>
+		<location id="id8" x="-25" y="-9">
+		</location>
+		<init ref="id7"/>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id7"/>
+			<nail x="-93" y="85"/>
+			<nail x="-93" y="-119"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id6"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-17" y="-102">tobacco &gt; 0 and
+match &gt; 0</label>
+			<label kind="synchronisation" x="-59" y="-102">put?</label>
+			<label kind="assignment" x="-17" y="-59">tobacco--,
+match--</label>
+		</transition>
+	</template>
+	<template>
+		<name x="5" y="5">Trader</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id9" x="161" y="102">
+		</location>
+		<location id="id10" x="76" y="102">
+		</location>
+		<location id="id11" x="-17" y="102">
+		</location>
+		<location id="id12" x="-93" y="102">
+		</location>
+		<location id="id13" x="-187" y="102">
+		</location>
+		<location id="id14" x="-255" y="102">
+		</location>
+		<location id="id15" x="76" y="25">
+		</location>
+		<location id="id16" x="-59" y="26">
+		</location>
+		<location id="id17" x="-187" y="25">
+		</location>
+		<location id="id18" x="-59" y="-42">
+		</location>
+		<location id="id19" x="-59" y="-127">
+			<label kind="invariant" x="-42" y="-136">paper == 0 and
+match == 0 and
+tobacco == 0</label>
+		</location>
+		<init ref="id19"/>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id19"/>
+			<label kind="synchronisation" x="-153" y="161">put!</label>
+			<nail x="-93" y="153"/>
+			<nail x="-314" y="153"/>
+			<nail x="-314" y="-127"/>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id19"/>
+			<label kind="synchronisation" x="-238" y="161">put!</label>
+			<nail x="-187" y="153"/>
+			<nail x="-314" y="153"/>
+			<nail x="-314" y="-127"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id19"/>
+			<label kind="synchronisation" x="-306" y="161">put!</label>
+			<nail x="-255" y="153"/>
+			<nail x="-314" y="153"/>
+			<nail x="-314" y="-127"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id19"/>
+			<label kind="synchronisation" x="0" y="161">put!</label>
+			<nail x="-17" y="153"/>
+			<nail x="204" y="153"/>
+			<nail x="204" y="-178"/>
+			<nail x="-59" y="-178"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id19"/>
+			<label kind="synchronisation" x="93" y="161">put!</label>
+			<nail x="76" y="153"/>
+			<nail x="204" y="153"/>
+			<nail x="204" y="-178"/>
+			<nail x="-59" y="-178"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id19"/>
+			<label kind="synchronisation" x="170" y="161">put!</label>
+			<nail x="161" y="153"/>
+			<nail x="204" y="153"/>
+			<nail x="204" y="-178"/>
+			<nail x="-59" y="-178"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id9"/>
+			<label kind="assignment" x="94" y="63">paper++</label>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id10"/>
+			<label kind="assignment" x="17" y="42">match++</label>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id11"/>
+			<label kind="assignment" x="-34" y="59">tobacco++</label>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id12"/>
+			<label kind="assignment" x="-127" y="34">paper++</label>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id13"/>
+			<label kind="assignment" x="-187" y="63">tobacco++</label>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id14"/>
+			<label kind="assignment" x="-280" y="51">match++</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id15"/>
+			<label kind="assignment" x="17" y="-25">tobacco++</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id16"/>
+			<label kind="assignment" x="-59" y="-8">match++</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id17"/>
+			<label kind="assignment" x="-187" y="-25">paper++</label>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id18"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+
+// List one or more processes to be composed into a system.
+system Trader, TobaccoSmoker, MatchSmoker, PaperSmoker;
+    </system>
+	<queries>
+		<query>
+			<formula>A[] not deadlock
+			</formula>
+			<comment>
+			</comment>
+		</query>
+	</queries>
+</nta>
