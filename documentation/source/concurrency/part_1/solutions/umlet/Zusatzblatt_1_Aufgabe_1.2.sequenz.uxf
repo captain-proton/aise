@@ -51,7 +51,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>160</y>
+      <y>180</y>
       <w>230</w>
       <h>40</h>
     </coordinates>
@@ -85,7 +85,7 @@ a!</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>180</y>
+      <y>200</y>
       <w>230</w>
       <h>40</h>
     </coordinates>
@@ -97,12 +97,13 @@ a?</panel_attributes>
     <id>UMLFrame</id>
     <coordinates>
       <x>180</x>
-      <y>160</y>
+      <y>180</y>
       <w>450</w>
-      <h>200</h>
+      <h>260</h>
     </coordinates>
     <panel_attributes>alt
 --
+
 
 
 
@@ -117,7 +118,7 @@ bg=light_gray</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>290</y>
+      <y>310</y>
       <w>230</w>
       <h>40</h>
     </coordinates>
@@ -129,7 +130,7 @@ b!</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>310</y>
+      <y>330</y>
       <w>230</w>
       <h>40</h>
     </coordinates>
@@ -141,7 +142,7 @@ b?</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>220</y>
+      <y>240</y>
       <w>230</w>
       <h>40</h>
     </coordinates>
@@ -153,7 +154,7 @@ c!</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>250</y>
+      <y>260</y>
       <w>230</w>
       <h>40</h>
     </coordinates>
@@ -165,7 +166,7 @@ c?</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>370</y>
+      <y>380</y>
       <w>230</w>
       <h>40</h>
     </coordinates>
