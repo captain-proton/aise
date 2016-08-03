@@ -224,3 +224,5 @@ Zusatzaufgabe **Raucher**
 Eine Beschreibung des Problems ist auf `Wikipedia <https://de.wikipedia.org/wiki/Raucherproblem>`_ zu finden.
 
 Uppaal Lösung: `Raucherproblem <../../_static/uppaal_exam_prep/smoker_problem.xml>`_
+
+Java Lösung: `Github - Smoker <https://github.com/captain-proton/aise/tree/master/concurrency/src/main/java/ude/masteraise/concurrency/smoker>`_

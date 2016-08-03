@@ -29,7 +29,7 @@ public class Application
 
         Stream.of(trader, tobaccoSmoker, matchSmoker, paperSmoker).forEach(Thread::start);
 
-        ThreadUtils.sleepSilent(4, TimeUnit.SECONDS);
+        ThreadUtils.sleepSilent(20, TimeUnit.SECONDS);
         ThreadUtils.log(Thread.currentThread(), "stopping");
 
         trader.interrupt();
