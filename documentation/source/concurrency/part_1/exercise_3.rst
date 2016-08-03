@@ -108,7 +108,7 @@ Template *Automaton*:
 
 .. image:: solutions/uppaal/blatt_3.2.1.automaton.png
 
-Download: `Getränkeautomat 3.2 <../_static/uppaal_models/blatt_3.2.xml>`_
+Download: `Getränkeautomat 3.2 <../../_static/uppaal_models/blatt_3.2.xml>`_
 
 3.2.4 Anzahl der Zustände
 ^^^^^^^^^^^^^^^^^^^^^^^^^

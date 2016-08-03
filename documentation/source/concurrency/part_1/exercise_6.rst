@@ -23,7 +23,7 @@ Problem 6.1
 Problem 6.2
 -----------
 
-Download: `Lösung der Dozenten Aufgabe 3.2.c <../_static/uppaal_models/Getraenkeautomat_zwei_Kunden_beschraenkter_vorrat.xml>`_
+Download: `Lösung der Dozenten Aufgabe 3.2.c <../../_static/uppaal_models/Getraenkeautomat_zwei_Kunden_beschraenkter_vorrat.xml>`_
 
 +--------------------------------------------------------+------------------------------------------------------------------------+------------+
 | Aussage                                                | UPPAAL                                                                 | trifft zu? |

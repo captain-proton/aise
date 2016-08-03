@@ -62,7 +62,7 @@ Verifier
 
 .. image:: solutions/uppaal/zusatzblatt_2_2.2.2.verifier.png
 
-Download: `UPPAAL Modell Zusatzaufgabe 2.2.2 <../_static/uppaal_models/zusatzblatt_2_2.2.2.xml>`_
+Download: `UPPAAL Modell Zusatzaufgabe 2.2.2 <../../_static/uppaal_models/zusatzblatt_2_2.2.2.xml>`_
 
 Musterlösung
 """"""""""""
@@ -219,4 +219,4 @@ Zu erstellen sind eine Lampe mit variabler Lichtstärke und ein Nutzer der die L
 Lösung
 ^^^^^^
 
-Download: `Erweiterte Lampe <../_static/uppaal_models/lamp.xml>`_
+Download: `Erweiterte Lampe <../../_static/uppaal_models/lamp.xml>`_

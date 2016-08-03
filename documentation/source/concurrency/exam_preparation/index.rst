@@ -132,7 +132,7 @@ Zeitbehaftete Synchrone Automaten
 
 .. image:: uppaal/part_1.3_page_14_example_2.png
 
-Download: `Teil 1.3 Seite 14 <uppaal/part_1.3_page_14.xml>`_
+Download: `Teil 1.3 Seite 14 <../../_static/uppaal_exam_prep/part_1.3_page_14.xml>`_
 
 ----
 
@@ -144,7 +144,7 @@ Die Kommunikation geht immer zwischen Client und Server hin und her. Es gibt nur
 
 ----
 
-Download: `Client/Server-Kommunikation S.15 <uppaal/part_1.3_page_15.xml>`_
+Download: `Client/Server-Kommunikation S.15 <../../_static/uppaal_exam_prep/part_1.3_page_15.xml>`_
 
     **Petterson Mutual Exclusion (S.41)**:
 
@@ -164,6 +164,8 @@ Download: `Client/Server-Kommunikation S.15 <uppaal/part_1.3_page_15.xml>`_
 - Beim Update L0 -> L0 muss nach ``x:=0`` ein Komma gesetzt werden
 
 .. image:: uppaal/part_1.3_page_46_msc.png
+
+Download: `Teil 1.3 Seite 16 <../../_static/uppaal_exam_prep/part_1.3_page_46.xml>`_
 
 ----
 
@@ -205,11 +207,20 @@ A3 und B3 müssen nicht immer erreicht werden. Wenn B vor A schaltet besitzt n d
 
 In Uppaal macht die Verwendung des Automaten keinen Unterschied egal ob ``urgent`` verwendet wird oder nicht. Laut Defintion darf aber bei x2 (also ``urgent``) keine Zeit zwischen den Transitionen vergehen. In einer Urgent Location darf keine Zeit vergehen. Bei der Transition eines urgent channels darf keine Zeit vergehen.
 
+Download: `Teil 1.3 Seite 56 <../../_static/uppaal_exam_prep/part_1.3_page_56.xml>`_
+
 ----
 
     **Urgent Channel vs. Urgent Location (S.62)**:
 
 Wenn anstelle der urgent-Channel der Zustand ``begin`` als urgent gekennzeichnet wird, darf nach Abschluss der Arbeit (work_easy...) kein Zeitverlust beim Beginn eines neuen Jobs vergehen. Wenn lediglich die Kanäle als urgent gekennzeichnet sind, kann zwischen dem Abschluss und dem Start Zeit vergehen (je nach Invariante).
 
+Download: `Teil 1.3 Seite 61/62 <../../_static/uppaal_exam_prep/part_1.3_page_61.xml>`_
 
 
+Zusatzaufgabe **Raucher**
+=========================
+
+Eine Beschreibung des Problems ist auf `Wikipedia <https://de.wikipedia.org/wiki/Raucherproblem>`_ zu finden.
+
+Uppaal Lösung: `Raucherproblem <../../_static/uppaal_exam_prep/smoker_problem.xml>`_
