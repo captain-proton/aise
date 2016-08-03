@@ -1,4 +1,4 @@
-package ude.masteraise.concurrency.part1.exercise1;
+package ude.masteraise.concurrency.part1;
 
 import org.apache.commons.lang3.mutable.MutableBoolean;
 import org.apache.log4j.Logger;
