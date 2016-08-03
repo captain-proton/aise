@@ -97,7 +97,7 @@ Problem 2.3 CTL in UPPAAL
 Hier liegt ein rekursives Problem vor. Die Grundidee ist, dass auf jeden Zustand ein Folgezustand folgen muss. Eine Instanz muss also von einem Startzustand immer wieder in Ihrem Startzustand landen. Dieser Vorgang darf nicht unterbrochen werden. Das stellt grundsätzlich ein Problem dar, sobald irgendwann Bedingungen nicht mehr zutreffen, die vielleicht in drei Durchläufen noch zutrafen. Sobald eine Abfrage dieser Art in UPPAAL ausgeführt wird ist das System in einer Endlosrekursion gefangen.
 
 In CTL gibt es eine generelle Abfrage, die nichts desto trotz Deadlockfreiheit garantiert:
-:math:`\forall \square \exists X true` (``A[] E<> true`` <=> ``AG EX true``)
+:math:`\forall \square \exists X true` (``AG EX true``)
 
 **UPPAAL**: ``A[] not deadlock``
 
