@@ -1,6 +1,7 @@
 package ude.masteraise.concurrency.part2;
 
 import org.apache.log4j.Logger;
+import ude.masteraise.concurrency.smoker.Smoker;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -179,5 +180,11 @@ public class ThreadUtils
     {
         Stream.of(threads).forEach(Thread::start);
         Stream.of(threads).forEach(ThreadUtils::joinSilent);
+    }
+
+    public static void handleInterrupt(Thread thread)
+    {
+        thread.interrupt();
+        log(thread, "interrupted");
     }
 }
