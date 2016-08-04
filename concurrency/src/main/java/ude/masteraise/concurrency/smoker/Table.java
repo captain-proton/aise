@@ -4,34 +4,37 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by nils on 03.08.16.
+ * <p>
+ * A <code>Table</code> can be used by an {@linkplain Agent} and the three {@linkplain Smoker} instances to trade
+ * the smokingResources they need to smoke.
+ * </p>
  */
 public class Table
 {
-    private Set<Ingredient> ingredients;
+    private Set<SmokingResource> smokingResources;
 
     public Table()
     {
-        this.ingredients = new HashSet<>();
+        this.smokingResources = new HashSet<>();
     }
 
-    public boolean addIngredient(Ingredient ingredient)
+    public boolean putSmokingResource(SmokingResource smokingResource)
     {
-        return ingredients.add(ingredient);
+        return smokingResources.add(smokingResource);
     }
 
-    public boolean removeIngredient(Ingredient ingredient)
+    public boolean takeSmokingResource(SmokingResource smokingResource)
     {
-        return ingredients.remove(ingredient);
+        return smokingResources.remove(smokingResource);
     }
 
-    public Set<Ingredient> getIngredients()
+    public Set<SmokingResource> getAvailableResources()
     {
-        return ingredients;
+        return smokingResources;
     }
 
-    public boolean hasIngredients()
+    public boolean isEmpty()
     {
-        return ingredients.size() > 0;
+        return smokingResources.size() == 0;
     }
 }
