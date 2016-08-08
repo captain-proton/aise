@@ -226,3 +226,129 @@ Eine Beschreibung des Problems ist auf `Wikipedia <https://de.wikipedia.org/wiki
 Uppaal Lösung: `Raucherproblem <../../_static/uppaal_exam_prep/smoker_problem.xml>`_
 
 Java Lösung: `Github - Smoker <https://github.com/captain-proton/aise/tree/master/concurrency/src/main/java/ude/masteraise/concurrency/smoker>`_
+
+----
+
+Uppaal asynchron
+================
+
+Uppaal bietet keine direkte Möglichkeit asynchrones Verhalten darzustellen. Es gibt aber die Möglichkeit dieses Verhalten zu simulieren. Grundsätzlich muss zu diesem Verhalten jeweils ein Medium als Kanal zur Kommunikation realisiert werden. Bsp: Es sind zwei Automaten dargestellt die jeweils Nachrichten aneinander senden (A1, A2). Für jeden Kanal A1 -> A2 und A2 -> A1 muss ein Medium realisiert werden. In Zusatzübung 1 aus Teil 1 ist ein einfacher Automat dargestellt, mit dem auch asynchrones Verhalten möglich ist.
+
+.. image:: uppaal/part_1_extra_exercise_1_async.png
+
+Uppaal Lösung: `Uppaal asynchron <../../_static/uppaal_exam_prep/part_1_extra_exercise_1_async.xml>`_
+
+----
+
+Klausur 20xx
+============
+
+Teil 1 Aufgabe 1
+----------------
+
+Uppaal Lösung: `PC <../../_static/uppaal_exam_prep/exam_20xx.xml>`_
+
+.. image:: uppaal/exam_20xx.png
+
+Teil 1 Aufgabe 2
+----------------
+
+a) Der Fehler ``Kanalüberlauf`` kann in synchronen Automaten nicht auftreten.
+b) Bit-State erkennt schneller Fehler (es genügt meist einen Fehler gefunden zu haben)
+c) Wie im Bit-State werden schneller Fehler gefunden
+
+Teil 1 Aufgabe 4
+----------------
+
+1. ``A[] not(P1.CriticalSection and P2.CriticalSection)``
+2. ``E[] not(P1.CriticalSection)``
+3. ``A[] P2.CriticalSection imply turn = 2``
+4. ``A[] P1.request --> P1.CriticalSection``
+5. ``E<> req1 = 1 and req2 = 1``
+
+Teil 1 Aufgabe 5
+----------------
+
+  +------------------------+---+---+---+---+
+  |                        | 1 | 2 | 3 | 4 |
+  +========================+===+===+===+===+
+  | E<> m and not k        | v | v | x | v |
+  +------------------------+---+---+---+---+
+  | A<> not m              | v | v | v | x |
+  +------------------------+---+---+---+---+
+  | E[] k                  | x | v | x | x |
+  +------------------------+---+---+---+---+
+  | not m and not k ---> k | x | x | x | v |
+  +------------------------+---+---+---+---+
+  | A[] k or m             | x | x | x | v |
+  +------------------------+---+---+---+---+
+
+Teil 1 Aufgabe 6
+----------------
+
+.. image:: yed/exam_20xx_part_1.6.png
+
+Teil 2 Aufgabe 1
+----------------
+
+a)
+^^
+
+*Welche Aufgaben haben Prozessplaner (Scheduler) und Prozessumschalter (Dispatcher) im Mehrprozessbetrieb? Nach welchen Regeln arbeiten die beide?*:
+
+- Der Scheduler bestimmt die Reihenfolge in der bereite Prozesse den Prozessor benutzen dürfen.
+- Der Dispatcher entzieht einem Prozessor einen rechnenden Prozess und teilt einem anderen Prozess den Prozessor zu
+- Beide sollten Prozessen in einem fairen Verfahren Prozessorzeit genehmigen
+
+b)
+^^
+
+.. image:: deadlock_p2_m2.png
+
+Ein Spooler-Prozess holt die Daten in einem Monitor ab und schreibt sie später in den anderen Monitor. Es fungiert im Grunde als Vermittler zwischen beiden Prozessen.
+
+c)
+^^
+
+*Anforderungen*:
+
+1. Fairness: Jeder Prozess rechnet immer wieder
+2. Berücksichtigung der Dringlichkeit (zeitkritische Reaktion gefordert)
+3. Berücksichtigung der Wichtigkeit (Priorität)
+
+*Methoden*:
+
+1. Round-Robin (reihum,  Fairness=optimal, Dringlichkeit und Wichtigkeit nicht berücksichtigt)
+2. Prioritäten (höchste Prio rechnet, keine Fairness, Dringlichkeit und Wichtigkeit berücksichtigt)
+3. Fristen (Fairness=eingeschränkt, Wichtigkeit nicht berücksichtigt, Dringlichkeit=optimal)
+4. Spielraum (es rechnet der Prozess mit dem geringsten Spielraum, Spielraum = Deadline - Eingabezeitpunkt - Rechendauer)
+
+     a) Fairness = eingeschränkt berücksichtigt
+     b) Wichtigkeit = nicht berücksichtigt
+     c) berücksichtigt
+
+Teil 2 Aufgabe 2
+----------------
+
+.. literalinclude:: ../../_static/src/concurrency/src/main/java/ude/masteraise/concurrency/part2/exam_20xx/Exercise_2b.java
+   :language: Java
+
+Teil 2 Aufgabe 3
+----------------
+
+.. code-block:: Text
+
+    101 P1 IN M1, n = 0
+    102 P1 Wartet M1, n = 2
+    301 P3 IN M1, n = 2
+    301 P3 OUT M1, n = 6
+    301 P1 OUT M1, n = 8
+    401 P1 IN M2, n = 0
+    401 P1 Wartet M2, n = 2
+    501 P5 IN M1, n = 8
+    501 P5 OUT M1, n = 7
+    601 P3 IN M2, n = 2
+    601 P3 OUT M2, n = 6
+    601 P1 OUT M2, n = 8
+    1001 P5 IN M2, n = 8
+    1001 P5 OUT M2, n = 7

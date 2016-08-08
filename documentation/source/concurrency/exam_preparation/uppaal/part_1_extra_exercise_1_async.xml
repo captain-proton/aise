@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan a_to_a2, b_to_a2;
+chan a_to_a1, c_to_a1;
+chan a_from_a2, c_from_a2;
+chan a_from_a1, b_from_a1;</declaration>
+	<template>
+		<name x="5" y="5">A1</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="0" y="178">
+			<name x="-17" y="144">s2</name>
+		</location>
+		<location id="id1" x="0" y="85">
+			<name x="-17" y="51">s1</name>
+		</location>
+		<location id="id2" x="0" y="0">
+			<name x="-17" y="-34">s0</name>
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-136" y="68">a_from_a2?</label>
+			<nail x="-51" y="178"/>
+			<nail x="-51" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="42" y="-17">b_to_a2!</label>
+			<nail x="102" y="0"/>
+			<nail x="102" y="178"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="0" y="114">c_from_a2?</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="0" y="25">a_to_a2!</label>
+		</transition>
+	</template>
+	<template>
+		<name>A2</name>
+		<location id="id3" x="-59" y="76">
+			<name x="-76" y="42">s2</name>
+		</location>
+		<location id="id4" x="-59" y="-102">
+			<name x="-76" y="-136">s0</name>
+		</location>
+		<location id="id5" x="-59" y="-17">
+			<name x="-76" y="-51">s1</name>
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-178" y="-34">a_to_a1!</label>
+			<nail x="-110" y="76"/>
+			<nail x="-110" y="-102"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-17" y="-119">b_from_a1?</label>
+			<nail x="43" y="-102"/>
+			<nail x="43" y="76"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-59" y="12">c_to_a1!</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-59" y="-77">a_from_a1?</label>
+		</transition>
+	</template>
+	<template>
+		<name>M1</name>
+		<declaration>int a, b;</declaration>
+		<location id="id6" x="0" y="0">
+		</location>
+		<init ref="id6"/>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id6"/>
+			<label kind="guard" x="-102" y="8">b&gt;0</label>
+			<label kind="synchronisation" x="-136" y="25">b_from_a1!</label>
+			<label kind="assignment" x="-93" y="42">b--</label>
+			<nail x="-8" y="59"/>
+			<nail x="-59" y="59"/>
+			<nail x="-59" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-127" y="-68">b_to_a2?</label>
+			<label kind="assignment" x="-102" y="-51">b++</label>
+			<nail x="-59" y="-8"/>
+			<nail x="-59" y="-68"/>
+			<nail x="0" y="-68"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id6"/>
+			<label kind="guard" x="68" y="8">a&gt;0</label>
+			<label kind="synchronisation" x="68" y="25">a_from_a1!</label>
+			<label kind="assignment" x="68" y="42">a--</label>
+			<nail x="59" y="8"/>
+			<nail x="59" y="59"/>
+			<nail x="0" y="59"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="68" y="-59">a_to_a2?</label>
+			<label kind="assignment" x="68" y="-42">a++</label>
+			<nail x="8" y="-68"/>
+			<nail x="59" y="-68"/>
+			<nail x="59" y="0"/>
+		</transition>
+	</template>
+	<template>
+		<name>M2</name>
+		<declaration>int a, c;</declaration>
+		<location id="id7" x="-25" y="-25">
+		</location>
+		<init ref="id7"/>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id7"/>
+			<label kind="guard" x="-127" y="-17">c&gt;0</label>
+			<label kind="synchronisation" x="-170" y="0">c_from_a2!</label>
+			<label kind="assignment" x="-118" y="17">c--</label>
+			<nail x="-33" y="34"/>
+			<nail x="-84" y="34"/>
+			<nail x="-84" y="-25"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-152" y="-93">c_to_a1?</label>
+			<label kind="assignment" x="-127" y="-76">c++</label>
+			<nail x="-84" y="-33"/>
+			<nail x="-84" y="-93"/>
+			<nail x="-25" y="-93"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id7"/>
+			<label kind="guard" x="43" y="-17">a&gt;0</label>
+			<label kind="synchronisation" x="43" y="0">a_from_a2!</label>
+			<label kind="assignment" x="43" y="17">a--</label>
+			<nail x="34" y="-17"/>
+			<nail x="34" y="34"/>
+			<nail x="-25" y="34"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="43" y="-84">a_to_a1?</label>
+			<label kind="assignment" x="43" y="-67">a++</label>
+			<nail x="-17" y="-93"/>
+			<nail x="34" y="-93"/>
+			<nail x="34" y="-25"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+
+// List one or more processes to be composed into a system.
+system A1, A2, M1, M2;</system>
+	<queries>
+		<query>
+			<formula>A[] not deadlock
+			</formula>
+			<comment>
+			</comment>
+		</query>
+	</queries>
+</nta>

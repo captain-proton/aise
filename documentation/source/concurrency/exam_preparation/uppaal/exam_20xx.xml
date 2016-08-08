@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan ins, feh, erf, aus;
+clock std;
+int v;</declaration>
+	<template>
+		<name x="5" y="5">PC</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="0" y="93">
+			<name x="-10" y="59">Installiert</name>
+		</location>
+		<location id="id1" x="119" y="93">
+			<name x="109" y="59">Eingerichtet</name>
+		</location>
+		<location id="id2" x="119" y="0">
+			<name x="109" y="-34">Aus</name>
+		</location>
+		<location id="id3" x="0" y="0">
+			<name x="-10" y="-34">Bereit</name>
+		</location>
+		<init ref="id3"/>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="119" y="29">aus?</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="18" y="-17">aus?</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="18" y="76">erf!</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-51" y="29">feh!</label>
+			<nail x="-51" y="93"/>
+			<nail x="-51" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="0" y="29">ins?</label>
+		</transition>
+	</template>
+	<template>
+		<name>Benutzer</name>
+		<location id="id4" x="-17" y="93">
+			<name x="-27" y="59">Frust</name>
+			<urgent/>
+		</location>
+		<location id="id5" x="110" y="93">
+			<name x="100" y="59">Feierabend</name>
+		</location>
+		<location id="id6" x="110" y="-34">
+			<name x="100" y="-68">Arbeit</name>
+			<label kind="invariant" x="119" y="-25">std&lt;=3</label>
+		</location>
+		<location id="id7" x="-17" y="-34">
+			<name x="-27" y="-68">PCinstalliert</name>
+		</location>
+		<location id="id8" x="-136" y="-34">
+			<name x="-146" y="-68">PCBereit</name>
+		</location>
+		<init ref="id8"/>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="110" y="12">aus!</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="1" y="-51">erf?</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="1" y="76">aus!</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id4"/>
+			<label kind="guard" x="-17" y="-5">v&gt;=2</label>
+			<label kind="synchronisation" x="-17" y="12">feh?</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-118" y="-127">v&lt;2</label>
+			<label kind="synchronisation" x="-118" y="-110">feh?</label>
+			<label kind="assignment" x="-118" y="-93">v++</label>
+			<nail x="-17" y="-93"/>
+			<nail x="-136" y="-93"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-118" y="-51">ins!</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+
+// List one or more processes to be composed into a system.
+system PC, Benutzer;
+    </system>
+	<queries>
+	</queries>
+</nta>
