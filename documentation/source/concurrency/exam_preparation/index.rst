@@ -330,6 +330,14 @@ c)
 Teil 2 Aufgabe 2
 ----------------
 
+a)
+^^
+
+.. image:: umlet/exam_20xx_exercise_2.2.png
+
+b)
+^^
+
 .. literalinclude:: ../../_static/src/concurrency/src/main/java/ude/masteraise/concurrency/part2/exam_20xx/Exercise_2b.java
    :language: Java
 
