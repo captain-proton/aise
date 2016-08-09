@@ -246,9 +246,25 @@ Klausur 20xx
 Teil 1 Aufgabe 1
 ----------------
 
-Uppaal Lösung: `PC <../../_static/uppaal_exam_prep/exam_20xx.xml>`_
+Download: `Uppaal: Aufgabe 1.1 <../../_static/uppaal_exam_prep/exam_20xx_exercise_1.1.xml>`_
 
-.. image:: uppaal/exam_20xx.png
+*PC*:
+
+.. image:: uppaal/exam_20xx_exercise_1.1_pc.png
+
+----
+
+*Benutzer*:
+
+.. image:: uppaal/exam_20xx_exercise_1.1_user.png
+
+----
+
+*MSC*:
+
+.. image:: uppaal/exam_20xx_exercise_1.1_msc.png
+
+
 
 Teil 1 Aufgabe 2
 ----------------
