@@ -10,6 +10,16 @@ Master AI-SE Dokumentation
 Contents:
 
 .. toctree::
+    :caption: Neue Internetanwendungen
+
+    neue_internetanwendungen/lecture
+
+.. toctree::
+    :caption: Requirements Engineering 1
+
+    rem1/lecture
+
+.. toctree::
     :caption: Concurrency Teil 1 - Automaten
 
     concurrency/introduction
