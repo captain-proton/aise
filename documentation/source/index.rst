@@ -18,6 +18,7 @@ Contents:
     :caption: Requirements Engineering 1
 
     rem1/lecture
+    rem1/exercises
 
 .. toctree::
     :caption: Concurrency Teil 1 - Automaten

@@ -4,12 +4,31 @@ Vorlesung
 
 **Moodlezugangsschlüssel**: ``WiSe16REM1``
 
+L01 - Introduction and Fundamentals
+===================================
+
 Tip: In der ersten Vorlesung ist nur grob auf den genauen Inhalt der Folien/Seiten eingegangen worden. In jedem Fall ist es sinnvoll die Folien zu lesen.
 
 Seite 8
 ^^^^^^^
 
 Fragekarte zu den drei Dimensionen des Requirements Engineering erstellen. Die drei Dimensionen sollten im Detail bekannt sein.
+
+- Content
+
+    + Wie weit ist das System verstanden
+    + Ergebnis: Am Ende sollen alle Anforderungen erfasst und verstanden sein
+
+- Documentation
+
+    + Am Anfang wage gehalten, z.B. als Notizen
+    + Am Ende bis ins letzte Detail festgehalten in den erforderlichen Spezifikationen (UML etc.)
+
+
+- Agreement
+
+    + Am Anfang bestehen unterschiedliche Ansichten und Meinungen auf das System
+    + Am Ende müssen alle Beteiligten (Stakeholder) den Anforderungen zustimmen
 
 Seite 12
 ^^^^^^^^
@@ -57,3 +76,61 @@ Seite 19
 Fragekarte der Typen von Folie 2 erstellen.
 
 Unterschied Anforderung - Rahmenbedingung: Rahmenbedingung sind zunächst nicht änderbar, Anforderungen schon.
+
+Seite 22
+^^^^^^^^
+
+Ein Overlay muss seine Knoten und deren Struktur kennen.
+
+Beispiel: Der Kurs im Sitzplan repräsentiert die Buchstaben A-Z. Eine Simulation ist der Versand einer Nachricht von C bis K.
+
+Seite 23
+^^^^^^^^
+
+Ein Overlay ist eine Abstraktion der phsysischen Schicht.
+
+Seite 24
+^^^^^^^^
+
+IP Multicast hat z.B. den Nachteil, dass es kein Provider aus zu hohen Kosten nicht unterstützt.
+
+Seite 25
+^^^^^^^^
+
+Organisation des Overlays muss gewährleistet werden:
+
+- Wegfallen der Knoten
+- Hinzufügen von Knoten
+
+
+Seite 27
+^^^^^^^^
+
+- "Vergiftung" des Overlays
+- Physikalische Struktur wird nicht durch das Overlay abgedeckt
+
+    + z.B. Geschwindigkeit wird nicht berücksichtig
+
+- Energie (Mobilfunkgeräte)
+
+    + z.B. während der Kommunikation brechen Knoten weg
+
+Seite 28
+^^^^^^^^
+
+Hier ist ein Distributed Hash Overlay dargestellt.
+
+Seite 35
+^^^^^^^^
+
+Die unterschiedlichen Farben repräsentieren die öffentlichen Schlüssel der einzelnen Onionrouter.
+
+
+L02 - Introduction and Fundamentals
+===================================
+
+Seite 14
+^^^^^^^^
+
+``Essence``: Der Kern eines Systems enthält **alle** Anforderungen die ein System benötigt, um seinen Zweck erfüllen zu können.
+``Incarnation``: Die Verköperung bezeichnet alle *Dinge* (Personen, Geräte etc.) die daran teilhaben den Kern des Systems umzusetzen.
