@@ -12,7 +12,8 @@ Contents:
 .. toctree::
     :caption: Neue Internetanwendungen
 
-    neue_internetanwendungen/lecture
+    nia/lecture
+    nia/exercises
 
 .. toctree::
     :caption: Requirements Engineering 1
