@@ -62,6 +62,19 @@ def __read_host(line: str):
 
 
 def read_log():
+    """
+    Reads the ping log configured in ``conf.log`` and parses the result.
+
+    :return:  array with dicts of the form
+
+    .. code:: python
+
+        {
+            "host": "some.host",
+            "rtt": 12.4,
+            "unit": "ms"
+        }
+    """
     rtt_log = []
     with open(conf.log, mode='r') as log:
         current_host = None
