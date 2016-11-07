@@ -136,10 +136,17 @@ def create_histogram(log):
     plt.show()
 
 
+def exercise_1_1_1():
+    try:
+        rtt_log = read_log()
+    except FileNotFoundError:
+        rtt_log = run_ping()
+    create_histogram(rtt_log)
+
+
 def main():
     # rtt_log = run_ping()
-    rtt_log = read_log()
-    create_histogram(rtt_log)
+    exercise_1_1_1()
 
 
 if __name__ == '__main__':
