@@ -1,8 +1,6 @@
 Zusatzübung 1
 =============
 
-`Zusatzaufgabenblatt 1 <../../_static/exercise/part_1/z1.pdf>`_
-
 Folieninformationen
 -------------------
 

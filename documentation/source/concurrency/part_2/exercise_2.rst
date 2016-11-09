@@ -1,8 +1,6 @@
 Übungsblatt 2
 =============
 
-`Aufgabenblatt 2 <../../_static/exercise/part_2/Uebungsblatt_02_SS2016.pdf>`_
-
 Aufgabe 2.1.1
 -------------
 

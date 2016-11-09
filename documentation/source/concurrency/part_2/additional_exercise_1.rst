@@ -1,8 +1,6 @@
 Zusatzübungsblatt 1
 ===================
 
-`Zusatzaufgabenblatt 1 <../../_static/exercise/part_2/Zusatzuebung_1_SS2016.pdf>`_
-
 Problem 1 Determinismus & Indeterminismus
 -----------------------------------------
 

@@ -1,8 +1,6 @@
 Zusatzübungsblatt 2
 ===================
 
-`Zusatzaufgabenblatt 2 <../../_static/exercise/part_2/Zusatzuebung_2_SS2016.pdf>`_
-
 Problem 1
 ---------
 

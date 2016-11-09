@@ -1,8 +1,6 @@
 Übungsblatt 1
 =============
 
-`Aufgabenblatt 1 <../../_static/exercise/part_2/Uebungsblatt_01_SS2016.pdf>`_
-
 Aufgabe 1.1 Ablaufmodelle
 -------------------------
 
