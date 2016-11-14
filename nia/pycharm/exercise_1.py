@@ -91,6 +91,20 @@ def read_log():
 
 
 def run_ping():
+    """
+    Runs ping n times on all hosts configured in conf.hosts and writes done each ping log for each host.
+    The number of pings executed is defined by conf.num_pings
+
+    :return: array with dicts of the form
+
+    .. code:: python
+
+        {
+            "host": "some.host",
+            "rtt": 12.4,
+            "unit": "ms"
+        }
+    """
     rtt_log = []
     with open(conf.log, mode='w') as log:
         for host in conf.hosts:
