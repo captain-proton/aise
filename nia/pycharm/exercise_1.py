@@ -124,22 +124,52 @@ def run_ping():
     return rtt_log
 
 
-def print_min_max_mean(iterable):
-    print('{0:>12}: {1}'.format('Max', max(iterable)))
-    print('{0:>12}: {1}'.format('Min', min(iterable)))
-    print('{0:>12}: {1}'.format('Mean', numpy.round(numpy.mean(iterable), decimals=3)))
+def __print_two_tuple_list(values: list):
+    max_label_length = max([len(v[0]) for v in values])
+    tuple_format = '{0:>%d}: {1}' % max_label_length
+    for label, value in values:
+        print(tuple_format.format(label, value))
+
+
+def print_statistics(iterable):
+    max_value = max(iterable)
+    min_value = min(iterable)
+    mean_value = numpy.mean(iterable)
+
+    # all possible values are min_value <= x <= max_value with steps of one
+    values = [x for x in range(int(numpy.floor(min_value)),
+                               int(numpy.ceil(max_value)) + 1)]
+    values = iterable
+    # the chance to get one of the values is equal to all other values
+    # (1 / number of values). when values is equal to iterable the expected
+    # value is equal to the mean value!
+    expected_value = sum([x / len(values) for x in values])
+
+    # the variance (korrigierte Stichprobenvarianz)
+    variance = sum([numpy.power(x - expected_value, 2) * (1 / len(values))
+                    for x in values])
+    # variance = numpy.var(values)
+    std_deviation = numpy.sqrt(variance)
+
+    stats = [('Max', max_value), ('Min', min_value),
+             ('Mean', numpy.round(mean_value, decimals=3)),
+             # ('Exp. value', numpy.round(expected_value, decimals=3)),
+             ('Var', numpy.round(variance, decimals=3)),
+             ('Std. deviation', numpy.round(std_deviation, decimals=3))]
+
+    __print_two_tuple_list(stats)
 
 
 def create_histogram(log):
     times = [rtt['rtt'] for rtt in log]
-    print_min_max_mean(times)
+    print_statistics(times)
 
     log = sorted(log, key=lambda t: t['host'])
     for k, g in itertools.groupby(log, key=lambda t: t['host']):
         print('-'.join(['' for i in range(0, 80)]))
-        print('{0:>12}: {1}'.format('Host', k))
+        print('{0:>16}: {1}'.format('Host', k))
         print()
-        print_min_max_mean([rtt['rtt'] for rtt in g])
+        print_statistics([rtt['rtt'] for rtt in g])
 
     plt.hist(times, conf.histogram_bins, normed=1, facecolor='orange', alpha=0.75)
 
@@ -150,6 +180,10 @@ def create_histogram(log):
     plt.show()
 
 
+def create_cdf(log):
+    pass
+
+
 def exercise_1_1_1():
     try:
         rtt_log = read_log()
@@ -158,9 +192,19 @@ def exercise_1_1_1():
     create_histogram(rtt_log)
 
 
+def exercise_1_1_3():
+    try:
+        rtt_log = read_log()
+    except FileNotFoundError:
+        rtt_log = run_ping()
+    create_cdf(rtt_log)
+
+
 def main():
     # rtt_log = run_ping()
     exercise_1_1_1()
+    # plt.plot([rtt['rtt'] for rtt in read_log()])
+    # plt.show()
 
 
 if __name__ == '__main__':

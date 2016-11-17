@@ -139,3 +139,28 @@ Folie 16
 
 Probleme hier, z.B. ein schlechtes Routing. Die Datenübertragung von Tier zu Tier kostet Geld! Im Overlay könnten die Rechner unter Tier 3 verbunden sein. Im CDN könnten Caches zur Lösung führen.
 
+Folie 22
+^^^^^^^^
+
+Auf Layer 5 und 6 kann bei Bedarf verzichtet werden.
+
+Folie 25
+^^^^^^^^
+
+Data plane ist zur Weiterleitung der Pakete verantwortlich (``local forwarding table``). Hier fehlt zwischen der ``routing algorithm`` und der ``local forwarding table`` eine gestrichelte Linie zur Unterteilung den ``control plane`` (oben) und der ``data plane`` (unten).
+
+Folie 29
+^^^^^^^^
+
+Durch Application-layer routing wird die Adresse des Zielhosts geändert, da ggfs die Anwendung in der Lage ist eine bessere Route zum eigentlichen Ziel zu finden, als das Routing protocol. Es wird zwischen den (min. 3 Hosts) ein Overlay aufgebaut.
+
+Folie 32
+^^^^^^^^
+
+Problem Persistent HTTP: Block von Inhalten, da Daten sequentiell geladen werden
+
+Folie 34
+^^^^^^^^
+
+- ``UDP``: Echtzeitvideo
+- ``TCP``: Übertragung bereits gespeicherter Videos
