@@ -9,12 +9,7 @@
     :caption: Neue Internetanwendungen - Übung
 
     jupyter_nb/nia_r_tutorial
-    jupyter_nb/exercise_1
-
-1.1.3
-^^^^^
-
-Bei einer Verlustwahrscheinlichkeit von :math:`p_{ab} = 1\%` und :math:`p_{bc} = 2\%` beträgt die Gesamtverlustwahrscheinlichkeit :math:`p_{abc} = \frac{1}{100} * \frac{2}{100} = 0.0002 \equiv 0.02\%`
+    jupyter_nb/exercise_1.1
 
 
 1.1.4
