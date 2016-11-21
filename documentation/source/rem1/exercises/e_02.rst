@@ -1,0 +1,116 @@
+E-02 - Context
+==============
+
+Aufgabe 1
+^^^^^^^^^
+
+Ziel der Entwicklung ist die Umsetzung eines Webportals zur Buchung von Flügen durch Personen.
+
+Teilaufgabe 1)
+""""""""""""""
+
+``passengers``: Passagiere verwenden das Webportal zur Buchung von Flügen, sind also direkt beteiligt. Sie gehören zur Gruppe der materiellen System Context Objekte.
+
+``web administrator``: Der Webadministrator verwendet zwar nicht direkt das Webportal als Benutzer, ist aber dafür verantwortlich, dass das Portal dem Nutzer zur Verfügung steht. Es wird sich also um die Überwachung des Systems gekümmert.
+
+``flight tickets``: Flugtickets sind zunächst immaterielle System Context Objekte, da sie nur als Datenobjekt im Webportal zur Verwaltung von Flügen vorgehalten werden müssen. Sobald z.B. das Ticket ausgedruckt und dem Passagier gesendet wird ist es auch ein materielles SCO.
+
+``PayPal``: Das Websystem PayPal ist bei Bedarf vom Nutzer direkt in die Buchung von Flügen eingebunden, ist solange nur das Portal betrachtet wird ein immaterielles SCO.
+
+``hotel portal``: Da eine direkte Empfehlung des Webportals auf das Hotelportal besteht (Zeile 23-25) ist das Hotelportal ein immaterielles SCO.
+
+Teilaufgabe 2)
+""""""""""""""
+
+``Webserver``: Das Portal muss auf einem dem Nutzer zugänglichen System laufen, daher ist dieser ein materielles SCO.
+
+``Versicherungsportal``: Ist wie das Hotelportal zu behandeln, da es direkt vom Webportal empfohlen wird (immaterielles SCO).
+
+``Einreiserichtlinien``: Informationen, die dem Nutzer präsentiert werden,
+sobald dieser in bestimmte Länder reisen möchte.
+
+``Projektmanager``: Der Projektmanager legt Rahmenbedingungen zur Entwicklung des Portals fest, ist am Prozess also direkt beteiligt und damit ein materielles SCO.
+
+``Flughafenmanagement``: Durch das Flughafenmanagement werden verfügbare Flüge, Sicherheit im Flughafen, Flugunternehmen etc. verwaltet, wodurch die Auswahl buchbarer Flüge für den Anwender des Webportals erst ermöglicht ist (materielles SCO).
+
+Aufgabe 2
+^^^^^^^^^
+
++-----------------+-----------------------------------------------------+
+| IT system facet |                                                     |
++=================+=====================================================+
+| Internet        | Da ein Webportal entwickelt wird, was               |
+|                 | vermutlich dem Nutzer auch außerhalb des Flughafens |
+|                 | zur Verfügung stehen soll                           |
++-----------------+-----------------------------------------------------+
+| Webserver       | System, auf dem das Portal eingesetzt wird          |
++-----------------+-----------------------------------------------------+
+| Terminal        | Falls der Nutzer Computer innerhalb des Flughafens  |
+|                 | verwenden muss                                      |
++-----------------+-----------------------------------------------------+
+
++---------------------+-----------------------------------------+
+| Usage facet         |                                         |
++=====================+=========================================+
+| Webadministrator    | Betreuer des Systems des Portals        |
++---------------------+-----------------------------------------+
+| Flughafenmanagement | Datenlieferant für das Portal           |
+|                     | Erleichterung des Betriebs              |
++---------------------+-----------------------------------------+
+| PayPal              | Schnittstelle zur Bezahlung von Tickets |
++---------------------+-----------------------------------------+
+
++---------------+-------------------------------------------------------+
+| Subject facet |                                                       |
++===============+=======================================================+
+| Ausdrucke     | Sobald der Nutzer Flughafenpläne etc. , die durch das |
+|               | Portal geliefert wurden ausgedruckt werden.           |
++---------------+-------------------------------------------------------+
+| Passagier     | Daten werden im System gespeichert                    |
++---------------+-------------------------------------------------------+
+| Flüge         | Durch die Suche dem Anwender dargestellt              |
++---------------+-------------------------------------------------------+
+
+Aufgabe 3
+^^^^^^^^^
+
++-----+--------------------------+-------------------------+-------------+
+| No. | Requirement source       | Requirement source type | Explanation |
++=====+==========================+=========================+=============+
+| 1   | Projektmanager           | Stakeholder             |             |
++-----+--------------------------+-------------------------+-------------+
+| 2   | Passagier                | Stakeholder             |             |
++-----+--------------------------+-------------------------+-------------+
+| 3   | PayPal                   | System                  |             |
++-----+--------------------------+-------------------------+-------------+
+| 4   | Hotelportal              | System                  |             |
++-----+--------------------------+-------------------------+-------------+
+| 5   | Webadministrator         | Stakeholder             |             |
++-----+--------------------------+-------------------------+-------------+
+| 6   | Flughafensicherheit      | Stakeholder             |             |
++-----+--------------------------+-------------------------+-------------+
+| 7   | Rational Unified Process | System/Documentation    |             |
++-----+--------------------------+-------------------------+-------------+
+| 8   | Flughafenmanagement      | Stakeholder             |             |
++-----+--------------------------+-------------------------+-------------+
+| 9   | Einreiserichtlinien      | Documentation           |             |
++-----+--------------------------+-------------------------+-------------+
+| 10  | Versicherer              | Stakeholder             |             |
++-----+--------------------------+-------------------------+-------------+
+
+Aufgabe 4
+^^^^^^^^^
+
++-----+----------------------------+-------------------+-------------+
+| No. | Development Context Object | Info provider     |             |
++=====+============================+===================+=============+
+| 1   | .NET Framework             | Microsoft         | Entwickler  |
++-----+----------------------------+-------------------+-------------+
+| 2   | RUP                        | Rational Software | Entwickler  |
++-----+----------------------------+-------------------+-------------+
+| 3   | Webserver                  | Administrator     | Stakeholder |
++-----+----------------------------+-------------------+-------------+
+| 4   | Budget                     | Projektmanager    | Stakeholder |
++-----+----------------------------+-------------------+-------------+
+| 5   | Release                    | Projektmanager    | Stakeholder |
++-----+----------------------------+-------------------+-------------+
