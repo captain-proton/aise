@@ -1,6 +1,8 @@
 import itertools
 import os
+import random
 import re
+import scipy.stats as stats
 import subprocess
 import numpy
 import matplotlib.pyplot as plt
@@ -181,7 +183,23 @@ def create_histogram(log):
 
 
 def create_cdf(log):
-    pass
+    times = [rtt['rtt'] for rtt in log]
+    times = sorted(times)
+    plt.plot(times, stats.binom.cdf(times, 50, 0.2))
+    plt.show()
+
+
+def create_ecdf(log):
+
+    times = [rtt['rtt'] for rtt in log]
+    xs = sorted(times)
+    ys = numpy.arange(1, len(xs)+1)/float(len(xs))
+
+    # help(numpy.arange)
+    # print(ys)
+
+    plt.plot(xs, ys)
+    plt.show()
 
 
 def exercise_1_1_1():
@@ -192,19 +210,39 @@ def exercise_1_1_1():
     create_histogram(rtt_log)
 
 
+def exercise_1_1_2():
+
+    iterations = (100, 1000, 10000, 1000000)
+    loss_ab = 0.01
+    loss_bc = 0.02
+
+    for i in iterations:
+        # 0 <= random.random() < 1
+        # 1 for packets, which were successful send, 0 for failures
+        # filter a -> b
+        packets = [1 if random.random() >= loss_ab else 0 for x in range(0, i)]
+        # filter b -> c
+        packets = [1 if random.random() >= loss_bc and p else 0 for p in packets]
+
+        print('Loss: {:3.4f}% with {:8d} packets'.format((1 - float(sum(packets)) / i) * 100, i))
+
+    print('\nWith a calculated value of: {:3.4f}%'.format((0.01 + 0.02 * (1 - 0.01)) * 100))
+
+
 def exercise_1_1_3():
     try:
         rtt_log = read_log()
     except FileNotFoundError:
         rtt_log = run_ping()
     create_cdf(rtt_log)
+    create_ecdf(rtt_log)
 
 
 def main():
     # rtt_log = run_ping()
-    exercise_1_1_1()
-    # plt.plot([rtt['rtt'] for rtt in read_log()])
-    # plt.show()
+    # exercise_1_1_1()
+    exercise_1_1_2()
+    exercise_1_1_3()
 
 
 if __name__ == '__main__':
