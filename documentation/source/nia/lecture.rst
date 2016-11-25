@@ -164,3 +164,38 @@ Folie 34
 
 - ``UDP``: Echtzeitvideo
 - ``TCP``: Übertragung bereits gespeicherter Videos
+
+Content Distribution Networks
+=============================
+
+Folie 7
+^^^^^^^
+
+Flaschenhälse z.B. durch Positionierung und/oder Anbindung der Server.
+
+Folie 11
+^^^^^^^^
+
+Typische Geschäftsbeziehung zwischen dem CDN-Anbieter und dem Provider der Art, dass der CDN-Anbieter gerne das CDN anbietet, dafür aber auch die Daten annimmt.
+
+Folie 13
+^^^^^^^^
+
+Nicht nur ``Cache placement`` spielt eine Rolle, sondern auch ein ``Cache replacement`` spielt eine Rolle, Bsp. ``LRU (Least recently used)``
+
+Folie 22
+^^^^^^^^
+
+Autorität im Sinn von Vergabe und Verwaltung von Namen (Punkt 2).
+
+Folie 24
+^^^^^^^^
+
+DNS ist auf dem OSI 7 Schichten Modell auf Ebene 7.
+
+Folie 26
+^^^^^^^^
+
+Auf den autoritativen Servern findet man *immer* die richtigen Adressen.
+
+

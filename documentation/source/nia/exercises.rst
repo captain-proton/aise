@@ -18,18 +18,23 @@
 Frage 1
 """""""
 
+- Versendung von Sequenznummern mit den Paketen, die nach der Rücksendung verglichen werden
 
 Frage 2
 """""""
 
 - Verfügbare Bandbreite
 - Anzahl der Verbindungen zu anderen Knoten
+- Resourcenkapazität
+- Uptime des Rechners
+- mobile Knoten (Akku betrieben)
 
 Frage 3
 """""""
 
 - Regelung der Bandbreite
 - Ermittlung von neuen Supernodes
+- Paketweiterleitung *am Nutzer vorbei*
 
 Frage 4
 """""""
