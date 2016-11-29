@@ -2,12 +2,11 @@
 Übung
 *****
 
-Übung 1
-=======
-
 .. toctree::
     :caption: Neue Internetanwendungen - Übung
 
     jupyter_nb/nia_r_tutorial
     jupyter_nb/exercise_1.1
     jupyter_nb/exercise_1.2
+    jupyter_nb/exercise_2
+
