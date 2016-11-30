@@ -10,7 +10,7 @@ Die in einer Gruppenarbeit auszuführende Fallstudie enthält folgende mögliche
 - Lane keeping Assistant
 - Parking Assistant
 
-
+Für die Klausur ist bei den Rahmenbedingungen wichtig, warum diese Rahmenbedingung gilt, Bsp.: gesetzlich
 
 .. toctree::
     :caption: Requirements Engineering 1 - Übung

@@ -11,7 +11,7 @@ Teilaufgabe 1)
 
 ``passengers``: Passagiere verwenden das Webportal zur Buchung von Flügen, sind also direkt beteiligt. Sie gehören zur Gruppe der materiellen System Context Objekte.
 
-``web administrator``: Der Webadministrator verwendet zwar nicht direkt das Webportal als Benutzer, ist aber dafür verantwortlich, dass das Portal dem Nutzer zur Verfügung steht. Es wird sich also um die Überwachung des Systems gekümmert.
+``web administrator``: Der Webadministrator verwendet zwar nicht direkt das Webportal als Benutzer, ist aber dafür verantwortlich, dass das Portal dem Nutzer zur Verfügung steht. Es wird sich also um die Überwachung des Systems gekümmert (maintenance).
 
 ``flight tickets``: Flugtickets sind zunächst immaterielle System Context Objekte, da sie nur als Datenobjekt im Webportal zur Verwaltung von Flügen vorgehalten werden müssen. Sobald z.B. das Ticket ausgedruckt und dem Passagier gesendet wird ist es auch ein materielles SCO.
 
@@ -22,16 +22,16 @@ Teilaufgabe 1)
 Teilaufgabe 2)
 """"""""""""""
 
-``Webserver``: Das Portal muss auf einem dem Nutzer zugänglichen System laufen, daher ist dieser ein materielles SCO.
+``Webserver``: Das Portal muss auf einem dem Nutzer zugänglichen System laufen, daher ist dieser ein materielles SO.
 
 ``Versicherungsportal``: Ist wie das Hotelportal zu behandeln, da es direkt vom Webportal empfohlen wird (immaterielles SCO).
 
 ``Einreiserichtlinien``: Informationen, die dem Nutzer präsentiert werden,
 sobald dieser in bestimmte Länder reisen möchte.
 
-``Projektmanager``: Der Projektmanager legt Rahmenbedingungen zur Entwicklung des Portals fest, ist am Prozess also direkt beteiligt und damit ein materielles SCO.
+``Projektmanager``: Der Projektmanager legt Rahmenbedingungen zur Entwicklung des Portals fest, ist am Prozess also direkt beteiligt und damit ein materielles Grey Zone Object.
 
-``Flughafenmanagement``: Durch das Flughafenmanagement werden verfügbare Flüge, Sicherheit im Flughafen, Flugunternehmen etc. verwaltet, wodurch die Auswahl buchbarer Flüge für den Anwender des Webportals erst ermöglicht ist (materielles SCO).
+``Flughafenmanagement``: Durch das Flughafenmanagement werden verfügbare Flüge, Sicherheit im Flughafen, Flugunternehmen etc. verwaltet, wodurch die Auswahl buchbarer Flüge für den Anwender des Webportals erst ermöglicht ist (materielles SO).
 
 Aufgabe 2
 ^^^^^^^^^
@@ -48,69 +48,91 @@ Aufgabe 2
 | Terminal        | Falls der Nutzer Computer innerhalb des Flughafens  |
 |                 | verwenden muss                                      |
 +-----------------+-----------------------------------------------------+
+| PayPal          | Schnittstelle zur Bezahlung von Tickets             |
++-----------------+-----------------------------------------------------+
+| Hotelportal     | Wie PayPal                                          |
++-----------------+-----------------------------------------------------+
 
-+---------------------+-----------------------------------------+
-| Usage facet         |                                         |
-+=====================+=========================================+
-| Webadministrator    | Betreuer des Systems des Portals        |
-+---------------------+-----------------------------------------+
-| Flughafenmanagement | Datenlieferant für das Portal           |
-|                     | Erleichterung des Betriebs              |
-+---------------------+-----------------------------------------+
-| PayPal              | Schnittstelle zur Bezahlung von Tickets |
-+---------------------+-----------------------------------------+
++---------------------+----------------------------------+
+| Usage facet         |                                  |
++=====================+==================================+
+| Webadministrator    | Betreuer des Systems des Portals |
++---------------------+----------------------------------+
+| Flughafenmanagement | Datenlieferant für das Portal    |
+|                     | Erleichterung des Betriebs       |
++---------------------+----------------------------------+
+| Passagiergruppe     | Benutzt das System               |
++---------------------+----------------------------------+
 
-+---------------+-------------------------------------------------------+
-| Subject facet |                                                       |
-+===============+=======================================================+
-| Ausdrucke     | Sobald der Nutzer Flughafenpläne etc. , die durch das |
-|               | Portal geliefert wurden ausgedruckt werden.           |
-+---------------+-------------------------------------------------------+
-| Passagier     | Daten werden im System gespeichert                    |
-+---------------+-------------------------------------------------------+
-| Flüge         | Durch die Suche dem Anwender dargestellt              |
-+---------------+-------------------------------------------------------+
++---------------------+-------------------------------------------------------+
+| Subject facet       |                                                       |
++=====================+=======================================================+
+| Ausdrucke           | Sobald der Nutzer Flughafenpläne etc. , die durch das |
+|                     | Portal geliefert wurden ausgedruckt werden.           |
++---------------------+-------------------------------------------------------+
+| Passagier           | Daten werden im System gespeichert                    |
++---------------------+-------------------------------------------------------+
+| Flüge               | Durch die Suche dem Anwender dargestellt              |
++---------------------+-------------------------------------------------------+
+| Ticket              | Repräsentierung im System                             |
++---------------------+-------------------------------------------------------+
+| Kreditkarte         | Abbildung der Daten im System                         |
++---------------------+-------------------------------------------------------+
+| Einreiserichtlinien | elektronisch im System hinterlegt                     |
++---------------------+-------------------------------------------------------+
 
 Aufgabe 3
 ^^^^^^^^^
 
-+-----+--------------------------+-------------------------+-------------+
-| No. | Requirement source       | Requirement source type | Explanation |
-+=====+==========================+=========================+=============+
-| 1   | Projektmanager           | Stakeholder             |             |
-+-----+--------------------------+-------------------------+-------------+
-| 2   | Passagier                | Stakeholder             |             |
-+-----+--------------------------+-------------------------+-------------+
-| 3   | PayPal                   | System                  |             |
-+-----+--------------------------+-------------------------+-------------+
-| 4   | Hotelportal              | System                  |             |
-+-----+--------------------------+-------------------------+-------------+
-| 5   | Webadministrator         | Stakeholder             |             |
-+-----+--------------------------+-------------------------+-------------+
-| 6   | Flughafensicherheit      | Stakeholder             |             |
-+-----+--------------------------+-------------------------+-------------+
-| 7   | Rational Unified Process | System/Documentation    |             |
-+-----+--------------------------+-------------------------+-------------+
-| 8   | Flughafenmanagement      | Stakeholder             |             |
-+-----+--------------------------+-------------------------+-------------+
-| 9   | Einreiserichtlinien      | Documentation           |             |
-+-----+--------------------------+-------------------------+-------------+
-| 10  | Versicherer              | Stakeholder             |             |
-+-----+--------------------------+-------------------------+-------------+
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| No. | Context Object           | Requirement source type | Explanation                                            |
++=====+==========================+=========================+========================================================+
+| 1   | Projektmanager           | Stakeholder             |                                                        |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| 2   | Passagier                | Documentation           | Personalausweis                                        |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| 3   | PayPal                   | Documentation           | Webseite von PayPal                                    |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| 4   | Hotelportal              | Documentation           | Webseite der Portale                                   |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| 5   | Webadministrator         | Stakeholder             | Projektmanager                                         |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| 6   | Flughafensicherheit      | Stakeholder             |                                                        |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| 7   | Rational Unified Process | System/Documentation    | Sowohl Software als auch Dokumentation                 |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| 8   | Flughafenmanagement      | Documentation           | IATA...                                                |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| 9   | Einreiserichtlinien      | Documentation           |                                                        |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| 10  | Versicherer              | Stakeholder             |                                                        |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| 11  | Flugtickets              | Stakeholder/System      | Flughafen/Betreiber                                    |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
+| 12  | Kreditkarte              | Documentation           | Bank - Rahmenbedingungen der Benutzung der Kreditkarte |
++-----+--------------------------+-------------------------+--------------------------------------------------------+
 
 Aufgabe 4
 ^^^^^^^^^
 
-+-----+----------------------------+-------------------+-------------+
-| No. | Development Context Object | Info provider     |             |
-+=====+============================+===================+=============+
-| 1   | .NET Framework             | Microsoft         | Entwickler  |
-+-----+----------------------------+-------------------+-------------+
-| 2   | RUP                        | Rational Software | Entwickler  |
-+-----+----------------------------+-------------------+-------------+
-| 3   | Webserver                  | Administrator     | Stakeholder |
-+-----+----------------------------+-------------------+-------------+
-| 4   | Budget                     | Projektmanager    | Stakeholder |
-+-----+----------------------------+-------------------+-------------+
-| 5   | Release                    | Projektmanager    | Stakeholder |
-+-----+----------------------------+-------------------+-------------+
++-----+----------------------------+-------------------+-------------------------+
+| No. | Development Context Object | Info provider     | Requirement source type |
++=====+============================+===================+=========================+
+| 1   | .NET Framework             | Microsoft         | Documentation           |
++-----+----------------------------+-------------------+-------------------------+
+| 2   | RUP                        | Rational Software | Entwickler              |
++-----+----------------------------+-------------------+-------------------------+
+| 3   | Webserver                  | Administrator     | Stakeholder             |
++-----+----------------------------+-------------------+-------------------------+
+| 4   | Budget                     | Projektmanager    | Stakeholder             |
++-----+----------------------------+-------------------+-------------------------+
+| 5   | Release/Meilensteine       | Projektmanager    | Stakeholder             |
++-----+----------------------------+-------------------+-------------------------+
+| 6   | Software Engineer          | Projektmanager    | Stakeholder             |
++-----+----------------------------+-------------------+-------------------------+
+| 7   | Projektmanager             | Arbeitskollegen   | Stakeholder             |
++-----+----------------------------+-------------------+-------------------------+
+| 8   | Meilensteine/Release       | Projektplan       | Documentation           |
++-----+----------------------------+-------------------+-------------------------+
+| 9   | Budget                     | Projektplan       | Documentation           |
++-----+----------------------------+-------------------+-------------------------+

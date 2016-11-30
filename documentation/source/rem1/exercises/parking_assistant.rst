@@ -111,7 +111,7 @@ Parking Assistant - Requirements
 |        | ausgetauscht werden kann, ohne das ganze System                                |            |
 |        | austauschen zu müssen.                                                         |            |
 +--------+--------------------------------------------------------------------------------+------------+
-| 2.25   | Das Steuergerät des Systems soll nicht abhängig von                            | Quality    |
+| 2.25   | Das Steuergerät des Systems soll unabhängig von                                | Quality    |
 |        | einem bestimmten Typ Sensoren sein.                                            |            |
 +--------+--------------------------------------------------------------------------------+------------+
 | 2.26   | Die Software des Steuergerätes muss ersetzbar sein.                            | Quality    |
