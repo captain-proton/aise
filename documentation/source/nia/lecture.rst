@@ -198,4 +198,105 @@ Folie 26
 
 Auf den autoritativen Servern findet man *immer* die richtigen Adressen.
 
+Folie 40
+^^^^^^^^
 
+Gutes Beispiel für die Verwendung in der Klausur.
+
+HTTP Streaming
+==============
+
+Folie 3
+^^^^^^^
+
+RTP (Real Time Transport Protocol)
+    Das Real-Time Transport Protocol (RTP) ist ein Protokoll zur kontinuierlichen Übertragung von audiovisuellen Daten (Streams) über IP-basierte Netzwerke.
+RTCP (Real Time Control Protocol)
+    Das RealTime Control Protocol dient der Aushandlung und Einhaltung von Quality-of-Service-Parametern durch den periodischen Austausch von Steuernachrichten zwischen Sender und Empfänger.
+RTSP (Real Time Streaming Protocol)
+    Das RealTime Streaming Protocol ist ein Netzwerkprotokoll zur Steuerung der kontinuierlichen Übertragung von audiovisuellen Daten oder Software über IP-basierte Netzwerke.
+
+Internet Video Streaming
+========================
+
+Folie 10
+^^^^^^^^
+
+I-Frame enthält das komplette Bild, B- und P-Frames basieren auf den Daten.
+
+Folie 11
+^^^^^^^^
+
+RTSP/RTP arbeiten auf den Schichten 5/6 des OSI Schichten Modells
+
+Folie 12
+^^^^^^^^
+
+Jitter = Unregelmäßigkeiten beim Empfang der Pakete
+
+Folie 16
+^^^^^^^^
+
+``simple bulk transfer`` ist Geldverschwendung, da zu viele Daten geladen, aber ggfs. gar nicht angesehen werden
+
+Im ``paced transfer`` stopt ggfs. der Playback, da Daten des Videos nicht geladen wurden.
+
+Mobile Geräte haben Probleme mit dem ``paced block transfer``, da zwischen den Zuständen des Gerätes gewechselt wird ((nicht) verbunden, Off-/Online). Beim Wechsel von Offline zu Online wird die Verbindung neu aufgebaut.
+
+Bei der ``request segmentation`` können Kontrolldaten vom Client, z.B. Verbindungsgeschwindigkeit, an den Server gesendet werden. Dadurch kann z.B. die Größe geändert werden.
+
+Folie 19
+^^^^^^^^
+
+Wenn der Inhalt komplett beim Provider liegt können Caching Mechanismen eingesetzt werden.
+
+Folie 25
+^^^^^^^^
+
+Bei Spezialfällen und uninteressanten Übertragungen werden anstelle von z.B. DVB-H einfaches Unicast eingesetzt, da die Umsetzung der Protokolle zu teuer ist.
+
+Folie 35
+^^^^^^^^
+
+Inhaltsabhängigkeit. Bei QoE gehört z.B. auch Ton dazu. QoE bezieht sich immer auf eine bestimmte Anwendung.
+
+Folie 37
+^^^^^^^^
+
+Stalling bei Zeitpunkt ca. 40
+
+Folie 38
+^^^^^^^^
+
+Der untere Schwellwert kommt sehr wahrscheinlich auf Grund der unterschiedlichen Frames (I-/B-/P-) zustande.
+
+Folie 40
+^^^^^^^^
+
+Staling geschieht bei Begrenzung der Bandbreite, da es lediglich eine durchschnittliche Bitrate ist. Bei bestimmten Zeitpunkten wird aber mehr Bildinformation übertragen.
+
+Folie 44
+^^^^^^^^
+
+Verzerrung des Bildes und Vergleich miteinander. Bei einem Vergleichswert von 1 ist eine hohe Übereinstimmung gefunden (Beispiel Mean Opinion Score)
+
+Folie 45
+^^^^^^^^
+
+MOS ermittelt den Mittelwert. Probleme entstehen beim Testen der Qualität. Dazu wird das Video zunächst zum Nutzer übertragen und Fehler lokal simuliert. Bei großen Videos werden zunächst Daten vom Nutzer abgefragt, damit dieser den Test nicht abbricht.
+
+Die andere Möglichkeit der Messung ist keine vorige Übertragung, sondern das Feststellen der Probleme im Nachhinein, um ggfs. eine schlechte Bewertung interpretieren zu können.
+
+Folie 48
+^^^^^^^^
+
+Das ``Quantil`` ist ein Punkt in einer Verteilungsfunktion, z.B. wie viel Prozent der Nutzer haben einen Wert von x abgegeben (y-Achse 0-1, x-Achse z.B. MOS).
+
+Konfidenzinterval nachlesen!!
+
+Probleme entstehen, wenn man den Nutzer den Grund der Befragung nennt und im Nachhinein danach befragt. Es findet bereits dadurch eine Beeinflussung statt.
+
+Folie 50
+^^^^^^^^
+
+Zweite Formel = Ableitung der QoE Funktion
