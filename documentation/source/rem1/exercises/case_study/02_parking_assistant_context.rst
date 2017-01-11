@@ -21,6 +21,8 @@ Die Kontextobjekte sind sortiert nach ``Usage`` -> ``Subject`` -> ``IT-System``.
 
 Kommentar: Repräsentiert die Ultraschallsensoren während der Nutzung, daher Usage-Facette
 
+fällt weg
+
 2. Fahrzeug ``f``
 ^^^^^^^^^^^^^^^^^
 
@@ -53,7 +55,8 @@ Kommentar: Das Fahrzeug beeinflusst oder profitiert nicht vom Parkassistenten, f
     - Aus
 :Erläuterung: Mit der Zündung wird das System gestartet u. Fehlerdiagnosen durchgeführt
 
-Kommentar: Die Zündung liefert das Ereignis, was die Fehleranalyse im Parkassistenten startet, ggfs. eher *Subject*
+Kommentar: Die Zündung liefert das Ereignis, was die Fehleranalyse im Parkassistenten startet, ggfs. eher *IT-System*
+Begriff umformulieren (ggfs. Mikrocontroller)
 
 6. Ultraschallsensor ``f``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -65,7 +68,7 @@ Kommentar: Die Zündung liefert das Ereignis, was die Fehleranalyse im Parkassis
     - ID
 :Erläuterung: Einzelnes Objekt im System, was als Instanz angesprochen wird
 
-Kommentar: Ein Sensor innerhalb der Stoßstange
+Kommentar: Ein Sensor innerhalb der Stoßstange, fällt weg
 
 7. Fahrzeug
 ^^^^^^^^^^^
@@ -77,6 +80,7 @@ Kommentar: Ein Sensor innerhalb der Stoßstange
     - Baujahr
     - Schnittstellen (Typ, Beschreibung)
 :Erläuterung: Mögliches Objekt in dem das System installiert werden kann ``f``
+daten des fahrzeuges werden im system abgebildet
 
 8. Zentrale Steuereinheit ``f``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,11 +93,12 @@ Kommentar: Ein Sensor innerhalb der Stoßstange
 :Erläuterung: Objekt, das die Steuerung des Systems ermöglicht.
 
 Kommentar: Die zentrale Steuereinheit stellt das Kernsystem des Parkassistenten dar in dem Signale der Ultraschallsensoren verarbeitet und der Benutzer über die unterschiedlichen Signale benachrichtigt werden.
+kein teil des kontext
 
 9. Gangschaltung
 ^^^^^^^^^^^^^^^^
 
-:Facette: *Subject*
+:Facette: *IT-System*
 :Eigenschaften: - Geschwindigkeit
     - Schaltposition
     - Sicherheitsmechanismus zum Einlegen des Rückwärtsganges
@@ -103,12 +108,12 @@ Kommentar: Die zentrale Steuereinheit stellt das Kernsystem des Parkassistenten 
 10. Geschwindigkeitsmesser ``f``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:Facette: *Subject*
+:Facette: *IT-System*
 :Eigenschaften: - Geschwindigkeit
     - Frequenz in der die Messung (alle 20 ms)
 :Erläuterung: Sensor, der die Geschwindigkeit des Autos misst und vom Parkassistenten abgefragt werden kann.
 
-Kommentar: Titel ändern in Geschwindigkeitssensor
+Kommentar: Titel ändern in Geschwindigkeitssensor, fällt weg
 
 11. Fehleranalyse ``Kontext ?``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -125,7 +130,7 @@ Kommentar: Streichen, da es sich lediglich um eine logische Umsetzung innerhalb 
 12. Audioausgabe (akustische Signale)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:Facette: *Subject*
+:Facette: *IT-System*
 :Eigenschaften: - Lautstärke
     - Lautsprecherboxen
 :Erläuterung: Audiosignale der einzelnen Systeme des Fahrzeugs werden ausgegeben ``f``
@@ -149,10 +154,12 @@ Kommentar: Streichen, da es sich lediglich um eine logische Umsetzung innerhalb 
     - ID (setzt sich zusammen aus Position und Warnstufe)
 :Erläuterung: Die Kombination aus mehreren LEDs stellt den Abstand zum nächsten Hindernis dar
 
+Teil des system, fällt weg
+
 15. Multimediasystem des Fahrzeugs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:Facette: *Subject* ``f``
+:Facette: *IT-System* ``f``
 :Eigenschaften: - Typ
     - Hersteller
 :Erläuterung: "Autoradio" mit unterschiedlichen Multimediafunktionen ( Radio, Navi, CD-Player usw.)
@@ -178,6 +185,8 @@ Kommentar: *IT-System*
 :Erläuterungen: Speichert Fehlermeldungen des Parksystems.
 :Erläuterungen 2: Eine Datei die die Daten der Fehleranalyse über alle Fehler des Parkassistenten enthält.
 
+Teil des Fahrzeugs
+
 18. USB-Schnittstelle
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -192,7 +201,6 @@ Kommentar: *IT-System*
 :Facette: *IT-System*
 :Eigenschaften: - Berechnungs
     - Wiedergabe von Informationen
-:Erläuterung: Zentrale :underline:`Einheit für Berechnungen` ``?`` und Ein-, u. Ausgabe
 :Erläuterung 2: Der Bordcomputer enthält das Betriebssystem des Fahrzeugs, was z.B. Resourcenzuweisen handhabt und die Eingaben des Nutzers verarbeitet.
 
 20. Optische Signaleinstellung ``?``
@@ -231,9 +239,9 @@ Kommentar: Kann wegfallen, das es sich lediglich um Eigenschaften der zentralen 
 24. Länderverordnungen
 ^^^^^^^^^^^^^^^^^^^^^^
 
-:Facette: *Usage*
+:Facette: *Subject*
 :Eigenschaften: - Land
-:Erläuterung: Gesetzliche Regeln für den Fahrer zur Benutzung des Fahrzeugs im Straßenverkehr
+:Erläuterung: Gesetzliche Regeln für den Fahrer zur Benutzung des Fahrzeugs im Straßenverkehr, werden im System abgebildet
 
 25. zertifizierte Werkstatt
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -252,12 +260,16 @@ Kommentar: Kann wegfallen, das es sich lediglich um Eigenschaften der zentralen 
     - Hauptsitz
 :Erläuterung: Das Unternehmen, welches den Parkassistenten in seinen Fahrzeugen verbaut
 
+Eher entfernen
+
 26. Prüfende Aufsichtsbehörde
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :Facette: *Usage*
 :Eigenschaften: - Name
 :Erläuterung: Die Behörde, die den Betrieb des Parkassistenten innerhalb des Fahrzeugs erlaubt. In Deutschland z.B. der TÜV
+
+RE-Kontext
 
 Entwicklungskontextobjekte
 --------------------------
