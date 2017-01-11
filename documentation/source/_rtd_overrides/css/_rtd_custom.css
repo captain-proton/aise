@@ -24,3 +24,15 @@
     margin: 4px 0;
     border-bottom: 1px solid #e0e0e0;
 }
+
+.rst-content .section table ul {
+    margin-bottom: 0;
+}
+
+.rst-content table.docutils td {
+    vertical-align: top;
+}
+
+.underline {
+    text-decoration: underline;
+}

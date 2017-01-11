@@ -15,7 +15,8 @@ Für die Klausur ist bei den Rahmenbedingungen wichtig, warum diese Rahmenbeding
 .. toctree::
     :caption: Requirements Engineering 1 - Übung
 
-    exercises/parking_assistant
+    exercises/case_study/01_parking_assistant_requirements
+    exercises/case_study/02_parking_assistant_context
     exercises/extra_exercise_1
     exercises/extra_exercise_2
     exercises/e_01
