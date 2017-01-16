@@ -7,10 +7,8 @@ Parking Assistant - Context
 Systemkontextobjekte
 --------------------
 
-Die Kontextobjekte sind sortiert nach ``Usage`` -> ``Subject`` -> ``IT-System``.
-
-1. Frei verfügbare Werkzeuge ``?``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1. Frei verfügbare Werkzeuge
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :Facette: *Usage*
 :Eigenschaften: - Passform
@@ -24,7 +22,7 @@ Die Kontextobjekte sind sortiert nach ``Usage`` -> ``Subject`` -> ``IT-System``.
 :Erläuterung: Der oder die Fahrer/-in ist der Benutzer der innerhalb des Parkvorgangs unterstützt wird
 
 3. Zündungscontroller
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 :Facette: *IT-System*
 :Eigenschaften: - Starten
@@ -46,8 +44,8 @@ Die Kontextobjekte sind sortiert nach ``Usage`` -> ``Subject`` -> ``IT-System``.
     - Ultraschallsensoren (Abstand zum Hindernis, Frequenz, Schnittstellenbeschreibung)
 :Erläuterung: Daten des Fahrzeuges werden im System abgebildet
 
-5. Zentrale Steuereinheit 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5. Zentrale Steuereinheit
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :Facette: *Subject*
 :Eigenschaften: - Funktionen
@@ -65,9 +63,8 @@ Die Kontextobjekte sind sortiert nach ``Usage`` -> ``Subject`` -> ``IT-System``.
     - Sicherheitsmechanismus zum Einlegen des Rückwärtsganges
 :Erläuterung: Durch Bedienung der Gangschaltung wird ggfs. der Parkassistent (de-)aktiviert.
 
-
 7. Audioausgabe (akustische Signale)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :Facette: *IT-System*
 :Eigenschaften: - Lautstärke
@@ -113,7 +110,7 @@ Die Kontextobjekte sind sortiert nach ``Usage`` -> ``Subject`` -> ``IT-System``.
 :Facette: *IT-System*
 :Eigenschaften: - Berechnungs
     - Wiedergabe von Informationen
-:Erläuterung 2: Der Bordcomputer enthält das Betriebssystem des Fahrzeugs, was z.B. Resourcenzuweisen handhabt und die Eingaben des Nutzers verarbeitet.
+:Erläuterung: Der Bordcomputer enthält das Betriebssystem des Fahrzeugs, was z.B. Resourcenzuweisen handhabt und die Eingaben des Nutzers verarbeitet.
 
 13. An/Aus-Knopf
 ^^^^^^^^^^^^^^^^
@@ -145,6 +142,35 @@ Die Kontextobjekte sind sortiert nach ``Usage`` -> ``Subject`` -> ``IT-System``.
     - Name
     - Anschrift
 :Erläuterung: Durch den Produzent des Parkassistenten zur Reparatur zertifizierte Werkstatt
+
+17. Autobatterie
+^^^^^^^^^^^^^^^^
+
+:Facette: *IT-System*
+:Eigenschaften: - Kapazität
+    - max. Ausgangsleistung
+:Erläuterung: Der Parkassistent verwendet als Stromquelle die Autobatterie
+
+18. Kamera
+^^^^^^^^^^
+
+:Facette: *Subject*
+:Eigenschaften: - Auflösung
+:Erläuterung: Im System hinterlegte Kameras, die Aufnahmen hinter und vor dem Fahrzeug erstellen.
+
+19. Videoausgabe (optische Signale)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:Facette: *IT-System*
+:Eigenschaften: - Displaygröße
+:Erläuterung: Das im Fahrzeug verbaute System zur Videoausgabe, dass das Kamerabild der im Fahrzeug verbauten Kameras darstellt. Der Parkassistent fügt zum Kamerabild Abstandsinformationen hinzu.
+
+20. Parkraum
+^^^^^^^^^^^^
+
+:Facette: *Subject*
+:Eigenschaften: - Länge
+:Erläuterung: Vor einem Parkvorgang wird möglicher Raum vermessen, um zu ermitteln ob der Parkvorgang durchgeführt werden kann.
 
 
 Entwicklungskontextobjekte
@@ -180,23 +206,23 @@ Entwicklungskontextobjekte
 Requirements Engineering Kontextobjekte
 ---------------------------------------
 
-+-----+------------------------------+---------------------------------------------------------------------------------------------------------+
-| Nr. | Objekt                       | Erläuterung                                                                                             |
-+=====+==============================+=========================================================================================================+
-| 1   | Konkurrenzsystem             | Parkassistenzsysteme von BMW ConnectedDrive                                                             |
-+-----+------------------------------+---------------------------------------------------------------------------------------------------------+
-| 2   | Domain-Experten              | - 1 Automotiv-Experte                                                                                   |
-|     |                              | - 1 Anforderungs-Experte                                                                                |
-|     |                              | - 1 Sales & Marketing-Experte                                                                           |
-+-----+------------------------------+---------------------------------------------------------------------------------------------------------+
-| 3   | Marktforschung               | Usability - Aspekte bei Parkassistenten                                                                 |
-+-----+------------------------------+---------------------------------------------------------------------------------------------------------+
-| 4   | Pflichtenheft                | Das Pflichtenheft beschreibt wie der Auftragnehmer die Anforderungen des Auftraggebers zu lösen gedenkt |
-+-----+------------------------------+---------------------------------------------------------------------------------------------------------+
-| 5   | Anwenderbefragungen          | Durchführung von Interviews zur Ermittlung des Bedarfs der Nutzer                                       |
-+-----+------------------------------+---------------------------------------------------------------------------------------------------------+
-| 6   | Prüfende Aufsichtsbehörde    | Die Behörde, die den Betrieb des Parkassistenten innerhalb des Fahrzeugs erlaubt. In Deutschland z.B. der TÜV. |                                      |
-+-----+------------------------------+---------------------------------------------------------------------------------------------------------+
++-----+---------------------------+----------------------------------------------------------------------------------------------------------------+
+| Nr. | Objekt                    | Erläuterung                                                                                                    |
++=====+===========================+================================================================================================================+
+| 1   | Konkurrenzsystem          | Parkassistenzsysteme von BMW ConnectedDrive                                                                    |
++-----+---------------------------+----------------------------------------------------------------------------------------------------------------+
+| 2   | Domain-Experten           | - 1 Automotiv-Experte                                                                                          |
+|     |                           | - 1 Anforderungs-Experte                                                                                       |
+|     |                           | - 1 Sales & Marketing-Experte                                                                                  |
++-----+---------------------------+----------------------------------------------------------------------------------------------------------------+
+| 3   | Marktforschung            | Usability - Aspekte bei Parkassistenten                                                                        |
++-----+---------------------------+----------------------------------------------------------------------------------------------------------------+
+| 4   | Pflichtenheft             | Das Pflichtenheft beschreibt wie der Auftragnehmer die Anforderungen des Auftraggebers zu lösen gedenkt        |
++-----+---------------------------+----------------------------------------------------------------------------------------------------------------+
+| 5   | Anwenderbefragungen       | Durchführung von Interviews zur Ermittlung des Bedarfs der Nutzer                                              |
++-----+---------------------------+----------------------------------------------------------------------------------------------------------------+
+| 6   | Prüfende Aufsichtsbehörde | Die Behörde, die den Betrieb des Parkassistenten innerhalb des Fahrzeugs erlaubt. In Deutschland z.B. der TÜV. |
++-----+---------------------------+----------------------------------------------------------------------------------------------------------------+
 
 
 Gruppe
