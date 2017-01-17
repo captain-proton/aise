@@ -24,3 +24,5 @@ Fehlerdiagnose
 
 Data Flow Diagramme
 ^^^^^^^^^^^^^^^^^^^
+
+.. image:: milestone_3/DFD.svg
