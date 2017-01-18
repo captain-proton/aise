@@ -1,0 +1,21 @@
+E-07 - Solution Oriented Requirements
+=====================================
+
+Aufgabe 1 - Statecharts
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Teilaufgabe a
+-------------
+
+.. image:: e_07_task_1_a.svg
+
+
+Teilaufgabe b
+-------------
+
+.. image:: e_07_task_1_b.svg
+
+Aufgabe 2 - Concurrency
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: e_07_task_2.svg
