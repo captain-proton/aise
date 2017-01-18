@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>50</x>
-      <y>130</y>
-      <w>20</w>
-      <h>20</h>
+      <x>24</x>
+      <y>184</y>
+      <w>16</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>type=initial</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>120</x>
-      <y>110</y>
-      <w>170</w>
-      <h>60</h>
+      <x>80</x>
+      <y>168</y>
+      <w>136</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Ultraschallsensoren
 prüfen</panel_attributes>
@@ -27,32 +27,21 @@ prüfen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>60</x>
-      <y>130</y>
-      <w>80</w>
-      <h>30</h>
+      <x>32</x>
+      <y>184</y>
+      <w>64</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=-&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>0</x>
-      <y>40</y>
-      <w>1930</w>
-      <h>300</h>
-    </coordinates>
-    <panel_attributes>Fehlerdiagnose durchführen</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLState</id>
     <coordinates>
-      <x>410</x>
-      <y>110</y>
-      <w>170</w>
-      <h>60</h>
+      <x>312</x>
+      <y>168</y>
+      <w>136</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Schreibzugriff
 auf Log prüfen</panel_attributes>
@@ -61,10 +50,10 @@ auf Log prüfen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>120</y>
-      <w>150</w>
-      <h>50</h>
+      <x>208</x>
+      <y>176</y>
+      <w>120</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 Sensoren
@@ -74,23 +63,23 @@ funktional</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>120</y>
-      <w>130</w>
-      <h>50</h>
+      <x>440</x>
+      <y>176</y>
+      <w>112</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 Log
 schreibbar</panel_attributes>
-    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>120</x>
-      <y>230</y>
-      <w>170</w>
-      <h>60</h>
+      <x>80</x>
+      <y>264</y>
+      <w>136</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Fehler melden</panel_attributes>
     <additional_attributes/>
@@ -98,10 +87,10 @@ schreibbar</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>160</y>
-      <w>90</w>
-      <h>90</h>
+      <x>136</x>
+      <y>208</y>
+      <w>72</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 Sensoren
@@ -111,10 +100,10 @@ defekt</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>160</y>
-      <w>310</w>
-      <h>110</h>
+      <x>208</x>
+      <y>208</y>
+      <w>248</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 Log nicht
@@ -124,10 +113,10 @@ schreibbar</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>1790</x>
-      <y>110</y>
-      <w>100</w>
-      <h>60</h>
+      <x>1424</x>
+      <y>168</y>
+      <w>80</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Funktion
 melden</panel_attributes>
@@ -136,10 +125,10 @@ melden</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>1530</x>
-      <y>110</y>
-      <w>100</w>
-      <h>60</h>
+      <x>1216</x>
+      <y>168</y>
+      <w>80</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>LEDs
 prüfen</panel_attributes>
@@ -148,10 +137,10 @@ prüfen</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>680</x>
-      <y>110</y>
-      <w>140</w>
-      <h>60</h>
+      <x>536</x>
+      <y>168</y>
+      <w>112</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>IO zur
 Audioausgabe
@@ -161,10 +150,10 @@ prüfen</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>920</x>
-      <y>110</y>
-      <w>140</w>
-      <h>60</h>
+      <x>728</x>
+      <y>168</y>
+      <w>112</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Input zur
 Getriebesteuerung
@@ -174,10 +163,10 @@ prüfen</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>1230</x>
-      <y>110</y>
-      <w>140</w>
-      <h>60</h>
+      <x>976</x>
+      <y>168</y>
+      <w>112</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>IO zum
 Bordcomputer
@@ -187,10 +176,10 @@ prüfen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>810</x>
-      <y>120</y>
-      <w>130</w>
-      <h>50</h>
+      <x>640</x>
+      <y>176</y>
+      <w>104</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 AudioIO
@@ -200,10 +189,10 @@ aufrufbar</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1050</x>
-      <y>120</y>
-      <w>200</w>
-      <h>50</h>
+      <x>832</x>
+      <y>176</y>
+      <w>160</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 Getriebesteuerung
@@ -213,10 +202,10 @@ lesbar</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1360</x>
-      <y>120</y>
-      <w>190</w>
-      <h>60</h>
+      <x>1080</x>
+      <y>176</y>
+      <w>152</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 Kommunikation mit
@@ -227,10 +216,10 @@ möglich</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1620</x>
-      <y>120</y>
-      <w>190</w>
-      <h>50</h>
+      <x>1288</x>
+      <y>176</y>
+      <w>152</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 minimale Anzahl
@@ -240,55 +229,91 @@ LEDs funktional</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>160</y>
-      <w>580</w>
-      <h>110</h>
+      <x>584</x>
+      <y>208</y>
+      <w>336</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 AudioIO nicht
 aufrufbarbar</panel_attributes>
-    <additional_attributes>470.0;10.0;470.0;90.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;400.0;190.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>160</y>
-      <w>870</w>
-      <h>110</h>
+      <x>784</x>
+      <y>208</y>
+      <w>136</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 Getriebesteuerung
 nicht lesbar</panel_attributes>
-    <additional_attributes>720.0;10.0;720.0;90.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;150.0;190.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>160</y>
-      <w>1190</w>
-      <h>110</h>
+      <x>896</x>
+      <y>208</y>
+      <w>272</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 Keine Kommunikation
 mit Bordcomputer
 möglich</panel_attributes>
-    <additional_attributes>1020.0;10.0;1020.0;90.0;10.0;90.0</additional_attributes>
+    <additional_attributes>170.0;10.0;170.0;90.0;10.0;190.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>160</y>
-      <w>1420</w>
-      <h>110</h>
+      <x>896</x>
+      <y>208</y>
+      <w>456</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 max Anzahl
 defekter LEDs
 überschritten</panel_attributes>
-    <additional_attributes>1300.0;10.0;1300.0;90.0;10.0;90.0</additional_attributes>
+    <additional_attributes>450.0;10.0;450.0;90.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>856</x>
+      <y>360</y>
+      <w>96</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Fehlerlog
+schreiben</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>0</x>
+      <y>104</y>
+      <w>1528</w>
+      <h>328</h>
+    </coordinates>
+    <panel_attributes>valign=top
+halign=left
+Fehlerdiagnose durchführen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>136</x>
+      <y>304</y>
+      <w>736</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>900.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

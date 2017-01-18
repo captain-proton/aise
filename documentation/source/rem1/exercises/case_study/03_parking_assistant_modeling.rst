@@ -14,6 +14,8 @@ State Chart Diagramme
 
 Die Übersicht enthält die grundsätzliche Funktionsweise des Parkassistenten. Zur besseren Übersicht sind Diagramme ausgelagert und separat dargestellt. In der Übersicht ist die Logik dargestellt, die in der zentralen Steuereinheit statt findet, wenn z.B. der Nutzer in das Fahrzeug einsteigt und die Zündung betätigt.
 
+Es wird im Vornherein davon ausgegangen, dass der Parkassistent standardmäßig aktiviert ist und die Aktivierung nicht zunächst vom Nutzer angeschaltet werden muss.
+
 .. image:: milestone_3/statechart_übersicht.svg
 
 Fehlerdiagnose
@@ -22,7 +24,7 @@ Fehlerdiagnose
 .. image:: milestone_3/statechart_fehlerdiagnose.svg
 
 
-Data Flow Diagramme
-^^^^^^^^^^^^^^^^^^^
+Data Flow Diagramm
+^^^^^^^^^^^^^^^^^^
 
 .. image:: milestone_3/DFD.svg
