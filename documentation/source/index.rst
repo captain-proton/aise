@@ -20,6 +20,7 @@ Contents:
 
     rem1/lecture
     rem1/exercises
+    rem1/exam_preparation
 
 .. toctree::
     :caption: Concurrency Teil 1 - Automaten
