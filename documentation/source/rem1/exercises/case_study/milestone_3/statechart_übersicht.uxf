@@ -4,7 +4,7 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>80</x>
+      <x>48</x>
       <y>216</y>
       <w>96</w>
       <h>48</h>
@@ -15,7 +15,7 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>560</x>
+      <x>528</x>
       <y>216</y>
       <w>128</w>
       <h>48</h>
@@ -28,7 +28,7 @@ durchführen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
+      <x>136</x>
       <y>224</y>
       <w>344</w>
       <h>48</h>
@@ -42,7 +42,7 @@ aktiviert
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>32</x>
+      <x>0</x>
       <y>232</y>
       <w>16</w>
       <h>16</h>
@@ -53,7 +53,7 @@ aktiviert
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>40</x>
+      <x>8</x>
       <y>232</y>
       <w>56</w>
       <h>24</h>
@@ -64,7 +64,7 @@ aktiviert
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>1336</x>
+      <x>1304</x>
       <y>208</y>
       <w>128</w>
       <h>48</h>
@@ -75,7 +75,7 @@ aktiviert
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>680</x>
+      <x>648</x>
       <y>224</y>
       <w>88</w>
       <h>40</h>
@@ -88,7 +88,7 @@ gefunden</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1576</x>
+      <x>1544</x>
       <y>216</y>
       <w>112</w>
       <h>40</h>
@@ -101,7 +101,7 @@ erkannt</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>1728</x>
+      <x>1696</x>
       <y>200</y>
       <w>128</w>
       <h>48</h>
@@ -112,7 +112,7 @@ erkannt</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>1728</x>
+      <x>1696</x>
       <y>264</y>
       <w>128</w>
       <h>48</h>
@@ -124,7 +124,7 @@ ausgeben</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>1672</x>
+      <x>1640</x>
       <y>152</y>
       <w>200</w>
       <h>184</h>
@@ -145,7 +145,7 @@ valign=top
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1688</x>
+      <x>1656</x>
       <y>216</y>
       <w>16</w>
       <h>16</h>
@@ -156,7 +156,7 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1696</x>
+      <x>1664</x>
       <y>216</y>
       <w>48</w>
       <h>24</h>
@@ -167,7 +167,7 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1696</x>
+      <x>1664</x>
       <y>280</y>
       <w>48</w>
       <h>24</h>
@@ -178,7 +178,7 @@ valign=top
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1688</x>
+      <x>1656</x>
       <y>280</y>
       <w>16</w>
       <h>16</h>
@@ -189,18 +189,19 @@ valign=top
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1440</x>
+      <x>1408</x>
       <y>120</y>
       <w>472</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
+    <panel_attributes>lt=-&gt;
+m2=Nutzer gewarnt</panel_attributes>
     <additional_attributes>540.0;130.0;570.0;130.0;570.0;10.0;10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>608</x>
+      <x>576</x>
       <y>144</y>
       <w>72</w>
       <h>88</h>
@@ -213,7 +214,7 @@ gefunden</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>552</x>
+      <x>520</x>
       <y>104</y>
       <w>128</w>
       <h>48</h>
@@ -226,7 +227,7 @@ Bordcomputer
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>608</x>
+      <x>576</x>
       <y>56</y>
       <w>16</w>
       <h>16</h>
@@ -237,7 +238,7 @@ Bordcomputer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>608</x>
+      <x>576</x>
       <y>64</y>
       <w>160</w>
       <h>56</h>
@@ -249,7 +250,7 @@ Parkassistenten beendet</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>1288</x>
+      <x>1256</x>
       <y>152</y>
       <w>296</w>
       <h>208</h>
@@ -271,7 +272,7 @@ starten
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>1336</x>
+      <x>1304</x>
       <y>280</y>
       <w>128</w>
       <h>48</h>
@@ -283,7 +284,7 @@ VideoIO starten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1304</x>
+      <x>1272</x>
       <y>224</y>
       <w>48</w>
       <h>24</h>
@@ -294,7 +295,7 @@ VideoIO starten</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1296</x>
+      <x>1264</x>
       <y>224</y>
       <w>16</w>
       <h>16</h>
@@ -305,7 +306,7 @@ VideoIO starten</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>1296</x>
+      <x>1264</x>
       <y>296</y>
       <w>16</w>
       <h>16</h>
@@ -316,7 +317,7 @@ VideoIO starten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1304</x>
+      <x>1272</x>
       <y>296</y>
       <w>48</w>
       <h>24</h>
@@ -327,7 +328,7 @@ VideoIO starten</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1400</x>
+      <x>1368</x>
       <y>184</y>
       <w>176</w>
       <h>64</h>
@@ -340,7 +341,7 @@ erreicht</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>256</x>
+      <x>224</x>
       <y>320</y>
       <w>128</w>
       <h>48</h>
@@ -352,7 +353,7 @@ VideoIO beenden</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>120</x>
+      <x>88</x>
       <y>256</y>
       <w>152</w>
       <h>120</h>
@@ -366,7 +367,7 @@ gesendet</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>752</x>
+      <x>720</x>
       <y>216</y>
       <w>128</w>
       <h>48</h>
@@ -378,7 +379,7 @@ prüfen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>872</x>
+      <x>840</x>
       <y>232</y>
       <w>128</w>
       <h>40</h>
@@ -391,7 +392,7 @@ Gang gelesen
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>784</x>
+      <x>752</x>
       <y>168</y>
       <w>128</w>
       <h>80</h>
@@ -403,7 +404,7 @@ m2=Gang geändert\n(Gang nicht R | 1)</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>984</x>
+      <x>952</x>
       <y>216</y>
       <w>128</w>
       <h>48</h>
@@ -415,7 +416,7 @@ prüfen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1104</x>
+      <x>1072</x>
       <y>224</y>
       <w>200</w>
       <h>40</h>
@@ -428,7 +429,7 @@ Geschwindigkeit gelesen
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1040</x>
+      <x>1008</x>
       <y>160</y>
       <w>184</w>
       <h>80</h>
@@ -440,7 +441,7 @@ m2=Geschwindigkeit gelesen\n(Geschwindigkeit &gt; max)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1064</x>
+      <x>1032</x>
       <y>256</y>
       <w>240</w>
       <h>48</h>
@@ -452,7 +453,7 @@ Geschwindigkeit gemessen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1064</x>
+      <x>1032</x>
       <y>256</y>
       <w>648</w>
       <h>144</h>
@@ -464,7 +465,7 @@ m2=\n\nGeschwindigkeit gemessen</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>496</x>
+      <x>464</x>
       <y>24</y>
       <w>1432</w>
       <h>424</h>
@@ -477,7 +478,7 @@ Parkassistent gestartet</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>520</x>
+      <x>488</x>
       <y>232</y>
       <w>16</w>
       <h>16</h>
@@ -488,7 +489,7 @@ Parkassistent gestartet</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
+      <x>496</x>
       <y>232</y>
       <w>48</w>
       <h>24</h>
@@ -499,7 +500,7 @@ Parkassistent gestartet</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>816</x>
+      <x>784</x>
       <y>256</y>
       <w>224</w>
       <h>64</h>
@@ -511,7 +512,7 @@ m2=Gang geändert\n(Gang nicht R | 1)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>96</x>
+      <x>64</x>
       <y>256</y>
       <w>416</w>
       <h>168</h>
@@ -523,7 +524,7 @@ m1=Zündung\ndeaktiviert</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>376</x>
+      <x>344</x>
       <y>328</y>
       <w>136</w>
       <h>40</h>
