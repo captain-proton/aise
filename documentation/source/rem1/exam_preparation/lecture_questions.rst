@@ -1,5 +1,5 @@
-Introduction and Fundamentals
-=============================
+Introduction and Fundamentals I
+===============================
 
 How are the terms "requirements engineering" and "requirements" defined?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -33,3 +33,59 @@ Which types of requirements do you know?
 - ``Functional``
 - ``Quality``
 - ``Constraint``
+
+Introduction and Fundamentals II
+================================
+
+What is a non-functional requirement?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Eine nicht funktionale Anforderung ist meistens durch die Nutzer nicht ausreichend verstanden und auch nicht ausreichend dokumentiert, können aber als *nicht-funktional* dennoch akzeptiert werden.
+
+Which types of constraints do you know?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:Kulturell: z.B. müssen bestimmte Symbole ausgeschlossen werden
+:Organisatorisch: z.B. Projektabgabe
+:Physisch: z.B. durch Witterung bedingte Anforderungen (-10°C - 50°C)
+:Recht: z.B. Festlegungen durch die Straßenverkehrsordnung
+
+Name the key interactions between requirements engineering and organizational processes.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``Marketing``
+- ``Product Management``
+- ``Customer Relationship Management``
+
+What are the key interactions between requirements engineering and other development activities?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``Design``
+- ``Quality Assurance``
+- ``(Project Management)``
+- ``(System Maintenance)``
+
+What is the main goal of systems analysis?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Das Hauptziel ist das Verständnis und die Definition von Anforderungen von bestehenden Systemen oder Prozessen in Bezug auf deren Funktion, Daten und Verhalten.
+
+What are the shortcomings of requirements engineering as an early development phase?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Keine Kontinuität beim Prozess des Requirement engineering
+- Analyse der Ist-Situation
+- Keine Widerverwendung der bestehenden Anforderungen
+- Zu enger focus auf das Gesamtbild
+
+Describe the concept of requirements engineering as a cross-lifecycle activity.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Zwischen der Entwicklung des Systems und der Anforderungserhebung finden ständig Interaktionen statt. Man wechselt kontinuierlich zwischen beiden Aktivitäten. Zu diesem Zweck können z.B. Systeme wie ``Scrum`` oder ``Extreme Programming`` verwendet werden.
+
+What are the advantages of establishing requirements engineering as a distinct organisational process?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Änderungen können schneller erfasst und ggfs. umgesetzt werden
+- Die Konsistenz des Systems auf einem aktuellen Stand und kann in der Dokumentation nachgelesen werden
+- Das System kann variabler entwickelt werden
