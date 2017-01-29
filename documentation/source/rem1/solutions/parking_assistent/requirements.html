@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="reveal.js-3.3.0/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js-3.3.0/css/theme/solarized.css">
+    <style>
+    .reveal footer {
+        margin-top: 2em;
+        font-size: 0.75em;
+        text-align: left;
+        opacity: .5;
+    }
+
+    .reveal sub {
+        font-size: .6em;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h2>Parking assistant - Requirements</h2>
+                <h3>Teilnehmer</h3>
+                <p>
+                    Benjamin Wirtz &ndash; Duclos Ngassa &ndash; Ferhat Lale &ndash; Holger Bartosch &ndash; Nils Verheyen &ndash; Serdar Nurg&uuml;n &ndash; Simon M&uuml;ller
+                </p>
+            </section>
+            <section>
+                <h3>Inhalt</h3>
+                <ul>
+                    <li>Funktionale Anforderungen <sub>(2 von 27)</sub></li>
+                    <li>Qualit&auml;tsanforderungen <sub>(2 von 11)</sub></li>
+                    <li>Rahmenbedingungen <sub>(2 von 7)</sub></li>
+                </ul>
+            </section>
+            <section>
+                <blockquote>Bei Z&uuml;ndung des Fahrzeugs wird eine Systempr&uuml;fung, in der die angebundenen Sensoren gepr&uuml;ft werden, durchgef&uuml;hrt.</blockquote>
+                <footer>Funktionale Anforderung</footer>
+            </section>
+            <section>
+                <blockquote>Beim Schalten in den ersten Gang und einer Geschwindigkeit von <= 10 km/h aktiviert das System die Sensoren in der Frontsto&szlig;stange des Fahrzeugs.</blockquote>
+                <footer>Funktionale Anforderung</footer>
+            </section>
+            <section>
+                <blockquote>Das System ist so modular aufgebaut, dass einzelne defekte Sensoren ausgetauscht werden k&ouml;nnen, ohne das ganze System austauschen zu m&uuml;ssen.</blockquote>
+                <footer>Qualit&auml;tsanforderung - Maintainability</footer>
+            </section>
+            <section>
+                <blockquote>Das System soll 0.8 Sekunden nach der Z&uuml;ndung funktionsf&auml;hig sein.</blockquote>
+                <footer>Qualit&auml;tsanforderung - Performance efficiency</footer>
+            </section>
+            <section>
+                <blockquote>Die Sensoren sollen bei einer Umgebungstemperatur von -25&#8451; bis 50&#8451; in ihrer Funktion nicht beeintr&auml;chtigt werden.</blockquote>
+                <footer>Rahmenbedingung - Physical</footer>
+            </section>
+            <section>
+                <blockquote>Das System sollte unter einer agilen Vorgehensweise nach Scrum entwickelt werden</blockquote>
+                <footer>Rahmenbedingung - Organizational / Project</footer>
+            </section>
+            <section>
+                <p>Danke. Fragen soweit?</p>
+                <footer>
+                <a target="_blank" href="https://github.com/captain-proton/aise/blob/master/documentation/source/rem1/exercises/parking_assistant.rst">Alle Anforderungen</a>
+                </footer>
+            </section>
+        </div>
+    </div>
+    <script src="reveal.js-3.3.0/js/reveal.js"></script>
+    <script>
+    Reveal.initialize({
+        transition: 'concave',
+    });
+    </script>
+</body>
+
+</html>
