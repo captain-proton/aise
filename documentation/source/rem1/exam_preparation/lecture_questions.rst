@@ -149,3 +149,53 @@ What are the goals of the cross-sectional activities (i.e.,validation and manage
     + Management der Anforderungsartefakte
     + Management der Kernaktivitäten
     + Management des Kontext
+
+Context I
+=========
+
+Can a requirement be defined without knowing the context the system is embedded/operating in?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Eine Anforderung ist immer in einem bestimmten Kontext, für das ein System entwickelt wird, definiert.
+
+What influence does the context has?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Der Kontext beeinflusst die Anforderungen, die ein System erfüllen muss
+
+What are system context objects?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Systemkontextobjekte sind materielle und immaterielle Objekte, die sich im Systemkontext befinden.
+
+Describe typical examples of material and immaterial context objects.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- materiell
+
+    + Stakeholder
+    + Dokumentationen
+    + Hardware
+
+- immateriell
+
+    + Organisationen
+    + Prozesse
+    + Daten
+
+How can the system context be structured?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Der Systemkontext kann in die drei Facetten ``Usage``, ``Subject`` und ``IT System`` unterteilt werden.
+
+What are the relations in this structure?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In der Benutzungsfacette (``Usage``) befinden sich immaterielle Repräsentationen der verwendeten Objekte. In der Subjektfacette (``Subject``) sind die materiellen Objekte der Repräsentationen. In der IT-System-Facette befinden sich alle Objekte, die zur Datenverarbeitung der materiellen Objekte vorhanden sein müssen.
+
+In der Übung anders definiert!
+
+Why should properties and relationships of context objects be considered?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Eigenschaften und Beziehungen von Objekten können sich während der Entwicklung ändern, daher müssen diese zu den Objekten erfasst werden. Zudem sind sie wesentliche Bestandteile der Objekte und sind zwingend zur vollständigen Dokumentation erforderlich.
