@@ -89,3 +89,63 @@ What are the advantages of establishing requirements engineering as a distinct o
 - Änderungen können schneller erfasst und ggfs. umgesetzt werden
 - Die Konsistenz des Systems auf einem aktuellen Stand und kann in der Dokumentation nachgelesen werden
 - Das System kann variabler entwickelt werden
+
+Framework for Requirements
+==========================
+
+What are the characteristics of a vision?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Definiert die Absicht einer Änderung
+- Kurz und prägnant
+- Anleitung zur Entwicklung der Anforderungen
+- Was steht im Vordergrund, nicht wie
+
+What is the purpose of the framework for requirements engineering?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Strukturierung der Anforderungserhebung
+- Referenz für Kunden, aber auch für Entwickler
+
+    + Training der Beteiligten
+    + Analyse der Stärken und Schwächen in der Erhebung
+
+How is the requirements engineering context structured?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``System Context``
+
+    + ``Subject Facet``
+    + ``Usage Facet``
+    + ``IT System Facet``
+
+- ``Development Context``
+
+Name and describe the core activities of requirements engineering.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:Documentation: Formulierung von Anforderungen in einem festgelegten Format
+:Elicitation: Erhebung von neuen und bereits bestehenden und relevanten Anforderungen
+:Negotiation: Identifizierung von Konflikten, deren Analyse, Auflösung und Dokumentation
+
+Name and describe the types of requirements artefacts used during requirements engineering.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:Goals: Abstrakte Form einer Eigenschaft, die im System realisiert werden soll
+:Scenarios: Konkrete Beispiel, wann einer abstrakte Eigenschaft zutrifft oder fehl schlägt
+:Solution Oriented Requirements: Genaue Formulierung der Scenarios in Form von in Daten, Funktion und Verhalten
+
+What are the goals of the cross-sectional activities (i.e.,validation and management)?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``Validation``
+
+    + Validierung der Anforderungsartefakte (``requirement artefacts``)
+    + Validierung der Kernaktivitäten (``core activities``)
+    + Validierung des Kontext (``context consideration``)
+
+- ``Management``
+
+    + Management der Anforderungsartefakte
+    + Management der Kernaktivitäten
+    + Management des Kontext
