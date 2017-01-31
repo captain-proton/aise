@@ -300,3 +300,147 @@ Folie 50
 ^^^^^^^^
 
 Zweite Formel = Ableitung der QoE Funktion
+
+Structured Overlays: Chord
+==========================
+
+Folie 4
+^^^^^^^
+
+Information in einem Peer genügt um eine globale Suche durchzuführen. Das ganze System skaliert!
+
+Folie 5
+^^^^^^^
+
+Hauptaufgabe eines strukturierten Overlays ist die Suche nach Resourcen.
+
+Folie 6/7
+^^^^^^^^^
+
+Vier Aufgaben:
+
+:join: Ausführung der Suche/Teilnahme am Netzwerk (Unten links = Darstellung des gesamten Adressraums)
+:leave: Verlassen des Netzwerks
+:insert: key = Hash der Daten
+:retrieve: Durch Shortcuts wird *log(n)* möglich, ansonsten ist der Aufwand der Suche linear
+
+Folie 10
+^^^^^^^^
+
+Worst case bei verketteten Listen = O(n)
+Bei :math:`2^i` ist der Aufwand logarithmisch
+
+Folie 29
+^^^^^^^^
+
+Bei Amazon werden ständig verfügbare Server mittels DHT verwaltet, da das System ansich selbstorganisierend ist. Ansonsten wäre die DHT nicht nötig, da kein Churn, also wegfallende Peers, vorhanden ist.
+
+Folie 31
+^^^^^^^^
+
+Ein *Shortcut* in Chord nennt sich *Finger*.
+
+Folie 35
+^^^^^^^^
+
+Wenn z.B. der Knoten 1 mit Knoten 13 kommunizieren möchte geht er über den Knoten, der ihm bekannt dem Knoten 13 am nächsten liegt, also Knoten 9.
+
+Folie 36
+^^^^^^^^
+
+Finger bleiben bei nicht komplett besetzten Netzen bestehen!
+
+Unterschied theoretischer/echter Finger:
+
+:echt: gespeichert in der Tabelle in vorhandener Peer
+:theoretisch: auf Basis der Berechnungsvorschrift
+
+Folie 93
+^^^^^^^^
+
+CAN Overlay ist mehrdimensional. In der Vorlesung wird zur Vereinfachung von einem zweidimensionalen Raum ausgegangen.
+
+Folie 94
+^^^^^^^^
+
+Ein Peer hat eine direkte Kante zu seinen Nachbarn.
+
+
+Unstructured Overlays
+=====================
+
+Einfacher zu implementieren als strukturierte Overlays.
+
+Folie 4
+^^^^^^^
+
+Man kann suchen nach *Video\** anstatt den genauen Identifier zu verwenden. In strukturierten Overlays erst einmal nicht möglich.
+
+Stichwort:
+
+- Breitensuche
+- Tiefensuche
+
+Folie 13
+^^^^^^^^
+
+links: bei einer Wahrscheinlichkeit von P(k) haben alle Knoten einer Knotengrad von k
+
+Folie 19
+^^^^^^^^
+
+Clustering Coefficient wichtig für die Klausur!
+
+Folie 27
+^^^^^^^^
+
+Wichtig ist der letzte Rest auf der rechten Seite. Es gibt eine geringe Menge an Knoten, die eine sehr hohe Betweenness Centrality besitzen (beachte die logarithmische Skala).
+
+Folie 39
+^^^^^^^^
+
+Um die Suchperformance zu erhöhen könnte man parallele Anfragen stellen, was allerdings die Last insgesamt erhöht.
+
+Folie 42 - Ende fällt weg, da Anwendungsspezifisch
+
+
+File Sharing Overlays
+=====================
+
+Folie 6
+^^^^^^^
+
+Performance parameter:
+
+- Uploadbandbreite
+- Churnrate/Zeit in der Clients verfügbar sind
+- Nutzerverhalten
+- Verhältnis Download/Upload
+
+Folie 7
+^^^^^^^
+
+:Chunk: eDonkey
+:Piece: BitTorrent
+
+Folie 16
+^^^^^^^^
+
+Durch die Peer selection wird die Kapazität des Netzwerks optimal ausgenutzt.
+
+Für Videostreaming uninteressant, da die Reihenfolge der Chunks relevant ist. ``Peer selection`` und ``Chunk/Piece selection`` merken!!! Hier findet Resource Access Control statt, keine Resource Mediation.
+
+Folie 19
+^^^^^^^^
+
+Free rider sind Peers, die nur herunterladen wollen, aber nicht verteilen.
+
+:eDonkey: es wird über den gesamten Client eine Rate ermittelt
+:BitTorrent: die Rate wird über jede Datei eines Clients bestimmt
+
+Um Cross-ISP-Traffic möglichst günstig zu gestalten, stellt der ISP performante Maschinen auf, die eine Verteilung übernehmen können und nicht jeder Client das einzeln erledigen muss.
+
+Folie 23
+^^^^^^^^
+
+Es scheint, dass 4 parallele Uploads langsamer sind, aber durch Free rider ist der einzelne Upload wieder die schlechtere Idee.
