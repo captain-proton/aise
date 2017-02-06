@@ -113,7 +113,7 @@ erkannt</panel_attributes>
     <id>UMLState</id>
     <coordinates>
       <x>1696</x>
-      <y>264</y>
+      <y>296</y>
       <w>128</w>
       <h>48</h>
     </coordinates>
@@ -127,9 +127,9 @@ ausgeben</panel_attributes>
       <x>1640</x>
       <y>152</y>
       <w>200</w>
-      <h>184</h>
+      <h>208</h>
     </coordinates>
-    <panel_attributes>Nutzer warnen
+    <panel_attributes>Nutzer optisch warnen
 valign=top
 
 
@@ -139,7 +139,7 @@ valign=top
 
 
 -.
-</panel_attributes>
+Nutzer akustisch warnen</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -168,7 +168,7 @@ valign=top
     <id>Relation</id>
     <coordinates>
       <x>1664</x>
-      <y>280</y>
+      <y>312</y>
       <w>48</w>
       <h>24</h>
     </coordinates>
@@ -179,7 +179,7 @@ valign=top
     <id>UMLSpecialState</id>
     <coordinates>
       <x>1656</x>
-      <y>280</y>
+      <y>312</y>
       <w>16</w>
       <h>16</h>
     </coordinates>
@@ -253,7 +253,7 @@ Parkassistenten beendet</panel_attributes>
       <x>1256</x>
       <y>152</y>
       <w>296</w>
-      <h>208</h>
+      <h>216</h>
     </coordinates>
     <panel_attributes>valign=top
 Hinderniserkennung
@@ -266,14 +266,14 @@ starten
 
 
 -.
-</panel_attributes>
+Kamera ansprechen</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
       <x>1304</x>
-      <y>280</y>
+      <y>304</y>
       <w>128</w>
       <h>48</h>
     </coordinates>
@@ -307,7 +307,7 @@ VideoIO starten</panel_attributes>
     <id>UMLSpecialState</id>
     <coordinates>
       <x>1264</x>
-      <y>296</y>
+      <y>320</y>
       <w>16</w>
       <h>16</h>
     </coordinates>
@@ -318,7 +318,7 @@ VideoIO starten</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1272</x>
-      <y>296</y>
+      <y>320</y>
       <w>48</w>
       <h>24</h>
     </coordinates>
@@ -460,7 +460,7 @@ Geschwindigkeit gemessen</panel_attributes>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=\n\nGeschwindigkeit gemessen</panel_attributes>
-    <additional_attributes>790.0;100.0;790.0;160.0;10.0;160.0;10.0;10.0</additional_attributes>
+    <additional_attributes>790.0;130.0;790.0;160.0;10.0;160.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
@@ -533,5 +533,20 @@ m1=Zündung\ndeaktiviert</panel_attributes>
 Anknopf
 deaktiviert</panel_attributes>
     <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>136</x>
+      <y>104</y>
+      <w>304</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Ob der Anknopf gedrückt ist oder nicht kann erst
+nach Betätigung der Zündung ermittelt werden,
+da erst zu diesem Zeitpunkt Strom durch das
+System fließt. Der Anknopf ist lediglich ein
+Schalter.</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
