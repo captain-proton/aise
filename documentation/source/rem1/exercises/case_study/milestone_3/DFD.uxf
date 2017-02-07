@@ -1,49 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>8</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>8</x>
-      <y>16</y>
-      <w>120</w>
-      <h>40</h>
+      <x>100</x>
+      <y>290</y>
+      <w>71</w>
+      <h>31</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Zündungscontroller</panel_attributes>
+    <panel_attributes>An-Knopf</panel_attributes>
     <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
 
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+int y=textHeight();
 
-drawRectangle(0,0,width,height);
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
 
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
+drawRectangle(0,0,onGrid(width),onGrid(height));</custom_code>
   </element>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>240</x>
-      <y>0</y>
-      <w>73</w>
-      <h>73</h>
+      <x>290</x>
+      <y>270</y>
+      <w>91</w>
+      <h>91</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Zündung
-überwachen</panel_attributes>
+    <panel_attributes>Komponenten
+prüfen</panel_attributes>
     <additional_attributes/>
     <custom_code>//Modify the code below to define the element's behavior.
 //
@@ -53,9 +55,9 @@ Zündung
 //  y += 2*printCenter(textline,y);
 //and observe the element preview.
 
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+int y=height / 2 - textHeight() * textlines.size() * 2 / 3;
 
-drawCircle(width / 2, height / 2, width / 2);
+drawCircle(width / 2, height / 2, height / 2);
 
 for(String textline : textlines) {
 	y = y + textHeight();
@@ -65,168 +67,111 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>120</x>
-      <y>24</y>
-      <w>136</w>
-      <h>32</h>
+      <x>160</x>
+      <y>160</y>
+      <w>190</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Signal</panel_attributes>
+fehlerhafte
+Komponente</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0;170.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>100</x>
+      <y>170</y>
+      <w>71</w>
+      <h>31</h>
+    </coordinates>
+    <panel_attributes>Fehlerlog</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
+
+int y=textHeight();
+
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
+
+drawLineHorizontal(0);
+drawLineHorizontal(y - 4);</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>290</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fehlerhafte
+Komponente</panel_attributes>
     <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>432</x>
-      <y>0</y>
-      <w>89</w>
-      <h>89</h>
+      <x>520</x>
+      <y>300</y>
+      <w>101</w>
+      <h>31</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Fehlerdiagnose
-durchführen</panel_attributes>
+    <panel_attributes>Systemstatus</panel_attributes>
     <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
 
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+int y=textHeight();
 
-drawCircle(width / 2, height / 2, width / 2);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>128</x>
-      <y>104</y>
-      <w>72</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Anknopf
-aktivieren</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawCircle(width / 2, height / 2, width / 2);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>304</x>
-      <y>24</y>
-      <w>144</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Signal</panel_attributes>
-    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>184</x>
-      <y>56</y>
-      <w>88</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Signal</panel_attributes>
-    <additional_attributes>10.0;80.0;90.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>0</x>
-      <y>248</y>
-      <w>120</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Status Parkassistent</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
 
 drawLineHorizontal(0);
-drawLineHorizontal(height);
-
-for(String textline : textlines) {
-	y += textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>96</x>
-      <y>160</y>
-      <w>80</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Status</panel_attributes>
-    <additional_attributes>10.0;110.0;60.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>112</x>
-      <y>48</y>
-      <w>336</w>
-      <h>240</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Status</panel_attributes>
-    <additional_attributes>10.0;280.0;400.0;10.0</additional_attributes>
+drawLineHorizontal(y - 4);</custom_code>
   </element>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>904</x>
-      <y>24</y>
-      <w>121</w>
-      <h>41</h>
+      <x>290</x>
+      <y>440</y>
+      <w>81</w>
+      <h>81</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Fehlerlog</panel_attributes>
+    <panel_attributes>Abstände
+prüfen</panel_attributes>
     <additional_attributes/>
     <custom_code>//Modify the code below to define the element's behavior.
 //
@@ -236,83 +181,9 @@ Fehlerlog</panel_attributes>
 //  y += 2*printCenter(textline,y);
 //and observe the element preview.
 
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+int y=height / 2 - textHeight() * textlines.size() * 2 / 3;
 
-drawLineHorizontal(0);
-drawLineHorizontal(height);
-
-for(String textline : textlines) {
-	y += textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>512</x>
-      <y>24</y>
-      <w>408</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Fehler</panel_attributes>
-    <additional_attributes>490.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>408</x>
-      <y>320</y>
-      <w>137</w>
-      <h>41</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Zentrale Steuereinheit</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawRectangle(0,0,width,height);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>208</x>
-      <y>296</y>
-      <w>65</w>
-      <h>65</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Status
-überwachen</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawCircle(width / 2, height / 2, width / 2);
+drawCircle(width / 2, height / 2, height / 2);
 
 for(String textline : textlines) {
 	y = y + textHeight();
@@ -322,99 +193,146 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>104</x>
-      <y>280</y>
-      <w>120</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Status</panel_attributes>
-    <additional_attributes>130.0;70.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>264</x>
-      <y>320</y>
+      <x>150</x>
+      <y>460</y>
       <w>160</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Status</panel_attributes>
-    <additional_attributes>180.0;30.0;10.0;20.0</additional_attributes>
+
+Abstände</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>672</x>
-      <y>136</y>
-      <w>121</w>
-      <h>41</h>
+      <x>30</x>
+      <y>470</y>
+      <w>131</w>
+      <h>31</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Ultraschallsensoren</panel_attributes>
+    <panel_attributes>Ultraschallsensoren</panel_attributes>
     <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
 
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+int y=textHeight();
 
-drawRectangle(0,0,width,height);
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
 
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
+drawRectangle(0,0,onGrid(width),onGrid(height));</custom_code>
   </element>
   <element>
-    <type>CustomElementImpl</type>
+    <id>Relation</id>
     <coordinates>
-      <x>912</x>
-      <y>240</y>
-      <w>153</w>
-      <h>41</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Geschwindigkeitscontroller</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawRectangle(0,0,width,height);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>912</x>
+      <x>360</x>
       <y>320</y>
-      <w>121</w>
-      <h>41</h>
+      <w>190</w>
+      <h>190</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m2=geringster Abstand</panel_attributes>
+    <additional_attributes>170.0;10.0;170.0;160.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>290</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+aktiviert</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>290</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+aggregierter
+Status</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>30</x>
+      <y>560</y>
+      <w>131</w>
+      <h>31</h>
+    </coordinates>
+    <panel_attributes>Getriebesteuerung</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
 
-Getriebesteuerung</panel_attributes>
+int y=textHeight();
+
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
+
+drawRectangle(0,0,onGrid(width),onGrid(height));</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>550</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+eingelegter
+Gang</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>290</x>
+      <y>530</y>
+      <w>81</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Getriebe 
+prüfen</panel_attributes>
     <additional_attributes/>
     <custom_code>//Modify the code below to define the element's behavior.
 //
@@ -424,9 +342,9 @@ Getriebesteuerung</panel_attributes>
 //  y += 2*printCenter(textline,y);
 //and observe the element preview.
 
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+int y=height / 2 - textHeight() * textlines.size() * 2 / 3;
 
-drawRectangle(0,0,width,height);
+drawCircle(width / 2, height / 2, height / 2);
 
 for(String textline : textlines) {
 	y = y + textHeight();
@@ -434,122 +352,157 @@ for(String textline : textlines) {
 }</custom_code>
   </element>
   <element>
-    <type>CustomElementImpl</type>
+    <id>Relation</id>
     <coordinates>
-      <x>664</x>
-      <y>200</y>
-      <w>89</w>
-      <h>97</h>
+      <x>360</x>
+      <y>320</y>
+      <w>230</w>
+      <h>280</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Geschwindigkeit
-messen</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawCircle(width / 2, height / 2, width / 2);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>752</x>
-      <y>304</y>
-      <w>73</w>
-      <h>73</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Gang
-überwachen</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawCircle(width / 2, height / 2, width / 2);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m2=valider Gang</panel_attributes>
+    <additional_attributes>210.0;10.0;210.0;250.0;10.0;250.0</additional_attributes>
   </element>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
       <x>0</x>
-      <y>592</y>
-      <w>120</w>
+      <y>660</y>
+      <w>161</w>
+      <h>31</h>
+    </coordinates>
+    <panel_attributes>Geschwindigkeitssensor</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
+
+int y=textHeight();
+
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
+
+drawRectangle(0,0,onGrid(width),onGrid(height));</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>650</y>
+      <w>150</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Geschwindigkeit
+im metrischen
+System</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>280</x>
+      <y>620</y>
+      <w>111</w>
+      <h>111</h>
+    </coordinates>
+    <panel_attributes>Geschwindigkeit 
+prüfen</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=height / 2 - textHeight() * textlines.size() * 2 / 3;
+
+drawCircle(width / 2, height / 2, height / 2);
+
+for(String textline : textlines) {
+	y = y + textHeight();
+	printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>320</y>
+      <w>240</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m2=valide Geschwindigkeit</panel_attributes>
+    <additional_attributes>220.0;10.0;220.0;350.0;10.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>750</x>
+      <y>260</y>
+      <w>101</w>
+      <h>101</h>
+    </coordinates>
+    <panel_attributes>Systemstatus
+prüfen</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=height / 2 - textHeight() * textlines.size() * 2 / 3;
+
+drawCircle(width / 2, height / 2, height / 2);
+
+for(String textline : textlines) {
+	y = y + textHeight();
+	printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>290</y>
+      <w>110</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-An-/Ausknopf</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawRectangle(0,0,width,height);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>72</x>
-      <y>480</y>
-      <w>56</w>
-      <h>128</h>
-    </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
+valider
 Status</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>90.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>8</x>
-      <y>368</y>
-      <w>120</w>
-      <h>120</h>
+      <x>930</x>
+      <y>270</y>
+      <w>81</w>
+      <h>81</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Anknopf
-aktivieren/deaktivieren</panel_attributes>
+    <panel_attributes>Warnungen
+aktualisieren</panel_attributes>
     <additional_attributes/>
     <custom_code>//Modify the code below to define the element's behavior.
 //
@@ -559,9 +512,9 @@ aktivieren/deaktivieren</panel_attributes>
 //  y += 2*printCenter(textline,y);
 //and observe the element preview.
 
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+int y=height / 2 - textHeight() * textlines.size() * 2 / 3;
 
-drawCircle(width / 2, height / 2, width / 2);
+drawCircle(width / 2, height / 2, height / 2);
 
 for(String textline : textlines) {
 	y = y + textHeight();
@@ -571,645 +524,239 @@ for(String textline : textlines) {
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>72</x>
-      <y>280</y>
-      <w>56</w>
-      <h>104</h>
+      <x>790</x>
+      <y>350</y>
+      <w>80</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
+invalider
 Status</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>672</x>
-      <y>576</y>
-      <w>121</w>
-      <h>41</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Kamera</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawRectangle(0,0,width,height);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>216</x>
-      <y>592</y>
-      <w>121</w>
-      <h>41</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-LEDs</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawRectangle(0,0,width,height);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>400</x>
-      <y>592</y>
-      <w>121</w>
-      <h>41</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Lautsprecher</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawRectangle(0,0,width,height);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>744</x>
-      <y>240</y>
-      <w>184</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Geschwindigkeit</panel_attributes>
-    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>480</x>
-      <y>256</y>
-      <w>200</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-
-
-Geschwindigkeit</panel_attributes>
-    <additional_attributes>10.0;80.0;230.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>536</x>
-      <y>328</y>
-      <w>232</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-
-
-Gang</panel_attributes>
-    <additional_attributes>10.0;10.0;270.0;30.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>816</x>
-      <y>328</y>
-      <w>112</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-
-
-Gang</panel_attributes>
-    <additional_attributes>10.0;20.0;120.0;30.0</additional_attributes>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>552</x>
-      <y>128</y>
-      <w>65</w>
-      <h>65</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Abstände 
-messen</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawCircle(width / 2, height / 2, width / 2);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>608</x>
-      <y>136</y>
-      <w>80</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-
-
-Abstand</panel_attributes>
-    <additional_attributes>10.0;20.0;80.0;30.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>440</x>
-      <y>176</y>
-      <w>136</w>
-      <h>160</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-
-
-Abstand</panel_attributes>
-    <additional_attributes>10.0;180.0;150.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>240</x>
-      <y>432</y>
-      <w>65</w>
-      <h>65</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-LEDs
-einschalten</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawCircle(width / 2, height / 2, width / 2);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>336</x>
-      <y>432</y>
-      <w>65</w>
-      <h>65</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-LEDs
-ausschalten</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawCircle(width / 2, height / 2, width / 2);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>288</x>
-      <y>352</y>
-      <w>136</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Anzahl</panel_attributes>
-    <additional_attributes>10.0;110.0;150.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>384</x>
-      <y>352</y>
-      <w>104</w>
-      <h>112</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Anzahl</panel_attributes>
-    <additional_attributes>10.0;120.0;110.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>256</x>
-      <y>488</y>
-      <w>64</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Anzahl</panel_attributes>
-    <additional_attributes>10.0;130.0;30.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>304</x>
-      <y>488</y>
-      <w>80</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Anzahl</panel_attributes>
-    <additional_attributes>10.0;130.0;70.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>496</x>
-      <y>456</y>
-      <w>65</w>
-      <h>65</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Ton
-ausgeben</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawCircle(width / 2, height / 2, width / 2);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>496</x>
-      <y>352</y>
-      <w>48</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Ton</panel_attributes>
-    <additional_attributes>30.0;130.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>472</x>
-      <y>512</y>
-      <w>64</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Ton</panel_attributes>
-    <additional_attributes>10.0;100.0;60.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
       <x>760</x>
-      <y>464</y>
-      <w>65</w>
-      <h>65</h>
+      <y>420</y>
+      <w>101</w>
+      <h>31</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Bild
-übertragen</panel_attributes>
+    <panel_attributes>Bordcomputer</panel_attributes>
     <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
 
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+int y=textHeight();
 
-drawCircle(width / 2, height / 2, width / 2);
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
 
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
+drawRectangle(0,0,onGrid(width),onGrid(height));</custom_code>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
-      <y>520</y>
-      <w>104</w>
-      <h>72</h>
+      <x>1000</x>
+      <y>200</y>
+      <w>140</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Bild</panel_attributes>
-    <additional_attributes>110.0;10.0;10.0;70.0</additional_attributes>
+Anzahl 
+aktive LEDs</panel_attributes>
+    <additional_attributes>120.0;10.0;40.0;10.0;40.0;80.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>920</x>
-      <y>456</y>
-      <w>121</w>
-      <h>41</h>
+      <x>1120</x>
+      <y>300</y>
+      <w>91</w>
+      <h>31</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Bildschirm</panel_attributes>
+    <panel_attributes>Audiosystem</panel_attributes>
     <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
 
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+int y=textHeight();
 
-drawRectangle(0,0,width,height);
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
 
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
+drawRectangle(0,0,onGrid(width),onGrid(height));</custom_code>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>816</x>
-      <y>464</y>
-      <w>120</w>
+      <x>1000</x>
+      <y>290</y>
+      <w>140</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
+Ton</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>1120</x>
+      <y>370</y>
+      <w>91</w>
+      <h>31</h>
+    </coordinates>
+    <panel_attributes>Videosystem</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
+
+int y=textHeight();
+
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
+
+drawRectangle(0,0,onGrid(width),onGrid(height));</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1000</x>
+      <y>300</y>
+      <w>140</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
 Bild</panel_attributes>
-    <additional_attributes>130.0;10.0;10.0;30.0</additional_attributes>
+    <additional_attributes>120.0;80.0;40.0;80.0;40.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>584</x>
-      <y>480</y>
-      <w>65</w>
-      <h>65</h>
+      <x>770</x>
+      <y>160</y>
+      <w>61</w>
+      <h>31</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Kamera
-einschalten</panel_attributes>
+    <panel_attributes>Kamera</panel_attributes>
     <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
 
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+int y=textHeight();
 
-drawCircle(width / 2, height / 2, width / 2);
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
 
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
+drawRectangle(0,0,onGrid(width),onGrid(height));</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>180</y>
+      <w>140</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Kamera-
+aktivierungssignal</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <type>CustomElementImpl</type>
     <coordinates>
-      <x>664</x>
-      <y>416</y>
-      <w>65</w>
-      <h>65</h>
+      <x>1120</x>
+      <y>190</y>
+      <w>51</w>
+      <h>31</h>
     </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Kamera
-ausschalten</panel_attributes>
+    <panel_attributes>LEDs</panel_attributes>
     <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
 
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
+int y=textHeight();
 
-drawCircle(width / 2, height / 2, width / 2);
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
 
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>512</x>
-      <y>352</y>
-      <w>112</w>
-      <h>144</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Signal</panel_attributes>
-    <additional_attributes>120.0;160.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>520</x>
-      <y>352</y>
-      <w>168</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Signal</panel_attributes>
-    <additional_attributes>190.0;100.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>616</x>
-      <y>536</y>
-      <w>80</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Signal</panel_attributes>
-    <additional_attributes>70.0;90.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>680</x>
-      <y>472</y>
-      <w>56</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Signal</panel_attributes>
-    <additional_attributes>20.0;130.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <type>CustomElementImpl</type>
-    <coordinates>
-      <x>920</x>
-      <y>128</y>
-      <w>121</w>
-      <h>41</h>
-    </coordinates>
-    <panel_attributes>// Modify the text below and
-// observe the element preview.
-
-Bordcomputer</panel_attributes>
-    <additional_attributes/>
-    <custom_code>//Modify the code below to define the element's behavior.
-//
-//Example:  Change the line
-//  y += printCenter(textline,y);
-//to
-//  y += 2*printCenter(textline,y);
-//and observe the element preview.
-
-int y = height / 2 - textHeight() * textlines.size() * 2 / 3;
-
-drawRectangle(0,0,width,height);
-
-for(String textline : textlines) {
-	y = y + textHeight();
-	printCenter(textline,y);
-}</custom_code>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>512</x>
-      <y>40</y>
-      <w>432</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-Fehler</panel_attributes>
-    <additional_attributes>520.0;110.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>472</x>
-      <y>80</y>
-      <w>104</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-
-
-Anfrage</panel_attributes>
-    <additional_attributes>110.0;70.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>504</x>
-      <y>64</y>
-      <w>96</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-
-Signal</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;80.0</additional_attributes>
+drawRectangle(0,0,onGrid(width),onGrid(height));</custom_code>
   </element>
 </diagram>

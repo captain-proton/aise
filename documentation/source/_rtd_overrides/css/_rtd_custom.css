@@ -36,3 +36,7 @@
 .underline {
     text-decoration: underline;
 }
+
+.strike {
+    text-decoration: line-through;
+}
