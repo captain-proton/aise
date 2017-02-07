@@ -639,20 +639,77 @@ Es werden nur Datenflüsse notiert, die Daten ändern. Um Daten zu ändern, müs
 What is the difference between temporal events and external event?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Die Quellen von externen Ereignisse sind ``Sources``, bei temporären Ereignissen liegen Änderungen in Uhren oder internen Datenspeichern vor. Prozesse können auf beide Typen von Ereignissen reagieren.
+
 What is the law of data preservation? How does it improve meaningfulness of data flow diagrams?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Durch die Datenerhaltung sollen alle Daten, die ein Prozess benötigt festgehalten werden, auch wenn diese optional sind. Es obliegt dem Prozess, ob diese Daten verwendet werden oder nicht. Das Gesetz erhöht den Detailgrad des Diagramms und Missverständnisse können vermieden werden.
 
 Which approaches do you know to support the creation of data flow diagrams?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1. ``Context Delineation``
+2. ``Event-Based Partitioning``
+3. ``Jigsaw Puzzle``
+4. ``Pursuit of Data``
+
 What is the principle idea behind each approach?
 ------------------------------------------------
+
+:``Context Delineation``: Die wichtigsten Absichten eines Systems werden beschrieben und modelliert. Diese Grundlage kann für die Erstellung weiterer Diagramme verwendet werden
+:``Event-Based Partitioning``: Trigger und Event von außerhalb des Systems werden identifiziert und modelliert, um die internen Modelle festlegen zu können.
+:``Jigsaw Puzzle``: Grundlegende Funktionen werden identifiziert und in einzelnen Diagrammen modelliert. Danach werden diese zur Komplettierung zusammengefügt.
+:``Pursuit of Data``: Verfolgung von Eingaben in das System und Ausgaben aus dem System und aller Transformationen der Daten dazwischen.
 
 What are their advantages and disadvantages?
 --------------------------------------------
 
++------------------------------+-------------------------------------------------------------------------+------------------------------------------------------+
+| Methode                      | Vorteile                                                                | Nachteile                                            |
++==============================+=========================================================================+======================================================+
+| ``Context Delineation``      | - sehr einfach zu verstehen                                             | - sehr grob                                          |
+|                              | - gute Grundlage für andere Diagramme                                   |                                                      |
++------------------------------+-------------------------------------------------------------------------+------------------------------------------------------+
+| ``Event-Based Partitioning`` | - Fokussierung auf Ereignisse in der realen Welt                        | - es werden nur Reaktionen modelliert                |
+|                              | - es werden alle externen Eingaben verarbeitet                          | - Datenspeicher werden ggfs. insuffizient modelliert |
+|                              | - erleichtert Diskussionen in Bezug auf Beziehungen zwischen Funktionen |                                                      |
++------------------------------+-------------------------------------------------------------------------+------------------------------------------------------+
+| ``Jigsaw Puzzle``            | - Schnelle Fortschritte in einzelnen Evaluationen                       | - Zusammenführung ggfs. schwer                       |
+|                              | - Intuitiv und einfach verständlich                                     | - kann zu Konflikten führen                          |
++------------------------------+-------------------------------------------------------------------------+------------------------------------------------------+
+| ``Pursuit of Data``          | - Geeignet für Systeme, die stark auf Datenveränderung basieren         | - kann zu Inkonsistenzen führen                      |
+|                              | - Unterstützt das Denken in Datenflüssen                                | - problematisch bei großen Systemen                  |
++------------------------------+-------------------------------------------------------------------------+------------------------------------------------------+
+
 Name the key steps of each approach and illustrate them using an example.
 -------------------------------------------------------------------------
 
++------------------------------+--------------------------------------------------------------------------+----------+
+| Methode                      | Schritte                                                                 | Beispiel |
++==============================+==========================================================================+==========+
+| ``Context Delineation``      | 1. Identifizierung des Zwecks des Systems                                |          |
+|                              | 2. Erstellung eines Kontextdiagrams                                      |          |
+|                              | 3. Beschreibung der Ereignisse                                           |          |
++------------------------------+--------------------------------------------------------------------------+----------+
+| ``Event-Based Partitioning`` | 1. Identifizierung relevanter Ereignisse                                 |          |
+|                              | 2. Modellierung der Ereignisse                                           |          |
+|                              | 3. Integration und Hierarchisierung der Diagramme                        |          |
+|                              | 4. Vervollständigung des Modells                                         |          |
++------------------------------+--------------------------------------------------------------------------+----------+
+| ``Jigsaw Puzzle``            | 1. Identifizierung der Funktionen und Funktionssequenzen                 |          |
+|                              | 2. Modellierung der Prozesse mit Ein-, Ausgaben und Datenspeichern       |          |
+|                              | 3. Identifizierung der Verbindungen von Schnittstellen zu den Funktionen |          |
+|                              | 4. Zusammenführung der Diagramme                                         |          |
++------------------------------+--------------------------------------------------------------------------+----------+
+| ``Pursuit of Data``          | 1. Identifizierung der Ein- und Ausgaben des Systems                     |          |
+|                              | 2. Identifizierung der Zwischendaten                                     |          |
+|                              | 3. Modellierung des Datenflusses zwischen den Daten                      |          |
+|                              | 4. Einführung von Prozessen zwischen den Datenflüssen                    |          |
+|                              | 5. Benamung der Prozesse                                                 |          |
++------------------------------+--------------------------------------------------------------------------+----------+
+
 Can goals and scenarios support the event-based partitioning? If so, how?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ziele und Szenarien sind grobe Formulierungen der konkreten Modelle, bilden daher die Grundlage jedes Modells und sind damit elementar für die konkrete Modellierung. Scenarios können vor allem bei der ereignisgesteuerten Modellierung verwendet werden.

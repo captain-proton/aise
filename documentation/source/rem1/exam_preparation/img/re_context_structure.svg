@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="880.84839"
+   height="463.88232"
+   viewBox="0 0 880.84839 463.88232"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="re_context_structure.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="294.41327"
+     inkscape:cy="109.3965"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(20.292936,-200.69333)">
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4136"
+       width="877.84839"
+       height="460.88232"
+       x="-18.792936"
+       y="202.19333"
+       ry="21.615353" />
+    <rect
+       ry="16.129923"
+       y="296.98679"
+       x="10.562751"
+       height="343.92212"
+       width="514.01782"
+       id="rect4138"
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.76807046;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.76807046;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4140"
+       width="286.26224"
+       height="342.49826"
+       x="554.35223"
+       y="299.25516"
+       ry="16.063148" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:13.8403511px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="119.92817"
+       y="472.76608"
+       id="text4148"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4150"
+         x="123.23283"
+         y="472.76608"
+         style="font-size:20.76052666px;text-align:center;text-anchor:middle">Subject </tspan><tspan
+         sodipodi:role="line"
+         x="119.92817"
+         y="498.71674"
+         style="font-size:20.76052666px;text-align:center;text-anchor:middle"
+         id="tspan4188">Facet</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:13.8403511px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="281.01324"
+       y="472.55319"
+       id="text4152"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4154"
+         x="284.3179"
+         y="472.55319"
+         style="font-size:20.76052666px;text-align:center;text-anchor:middle">Usage </tspan><tspan
+         sodipodi:role="line"
+         x="281.01324"
+         y="498.50385"
+         style="font-size:20.76052666px;text-align:center;text-anchor:middle"
+         id="tspan4186">Facet</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:13.8403511px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="444.11145"
+       y="472.64444"
+       id="text4156"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4158"
+         x="447.41611"
+         y="472.64444"
+         style="font-size:20.76052666px;text-align:center;text-anchor:middle">IT System </tspan><tspan
+         sodipodi:role="line"
+         x="444.11145"
+         y="498.59509"
+         style="font-size:20.76052666px;text-align:center;text-anchor:middle"
+         id="tspan4184">Facet</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:13.8403511px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="695.73474"
+       y="350.66647"
+       id="text4160"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4162"
+         x="700.69171"
+         y="350.66647"
+         style="font-size:31.14079285px;text-align:center;text-anchor:middle">Development </tspan><tspan
+         sodipodi:role="line"
+         x="695.73474"
+         y="389.59247"
+         style="font-size:31.14079285px;text-align:center;text-anchor:middle"
+         id="tspan4182">Context</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.38403523;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.76807036, 2.76807036;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 195.86596,297.53919 c 0,0 -23.90759,62.43003 -23.06843,100.66224 0.83915,38.23222 32.99561,80.20609 33.55408,121.63354 0.55846,41.42746 -29.35981,118.83735 -29.35981,118.83735"
+       id="path4190"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="czzc" />
+    <path
+       sodipodi:nodetypes="czzc"
+       inkscape:connector-curvature="0"
+       id="path4192"
+       d="m 361.95019,297.53919 c 0,0 -23.90759,62.43003 -23.06844,100.66224 0.83916,38.23222 32.99562,80.20609 33.55408,121.63354 0.55846,41.42746 -29.35982,118.83735 -29.35982,118.83735"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.38403523;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.76807036, 2.76807036;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       style="fill:#c0c0c0;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.38403523;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4194"
+       width="294.99628"
+       height="39.146427"
+       x="141.63368"
+       y="315.7854"
+       ry="9.7717056" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:13.8403511px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="164.40901"
+       y="343.67606"
+       id="text4164"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4166"
+         x="164.40901"
+         y="343.67606"
+         style="font-size:31.14079285px">System Context</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4215"
+       y="252.68167"
+       x="418.98325"
+       style="font-style:normal;font-weight:normal;font-size:13.8403511px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan4219"
+         style="font-size:31.14079285px;text-align:center;text-anchor:middle"
+         y="252.68167"
+         x="418.98325"
+         sodipodi:role="line">Requirements Engineering Context</tspan></text>
+  </g>
+</svg>
