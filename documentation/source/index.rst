@@ -14,6 +14,7 @@ Contents:
 
     nia/lecture
     nia/exercises
+    nia/exam_preparation
 
 .. toctree::
     :caption: Requirements Engineering 1

@@ -1,0 +1,77 @@
+Prüfung 2016
+============
+
+Aufgabe 1.1
+^^^^^^^^^^^
+
+Zeichnen der CDF, ggfs. dieses Jahr CCDF
+
+Aufgabe 1.2
+^^^^^^^^^^^
+
+Varianz = :math:`\dfrac{1}{n-1}\sum{(x_i - \mu)^2} = \sigma^2`
+Standardabweichung = :math:`\sqrt{\sigma^2}`
+
+Aufgabe 2.1
+^^^^^^^^^^^
+
+Lokal -> Heimrouter -> ISP -> Root
+
+Iterativer Vorgang
+
+Aufgabe 3.1
+^^^^^^^^^^^
+
+Datenstruktur:
+
+- DHT
+- Linked List
+- Merkle Tree
+
+Aufgabe 3.2
+^^^^^^^^^^^
+
+1. Jeder Client verwendet die gleich Hashfunktion.
+2. Objekte und Adressen gehen in den gleichen Adressraum.
+
+Aufgabe 3.3
+^^^^^^^^^^^
+
+:Churn: (un-)planmäßige Aussteigen von Clients aus dem Netzwerk
+
+- Die Hashfunktion sollte für eine Gleichverteilung sorgen
+- Kollisionen sollten in der Hashfunktion vermieden werden
+- Interne Last (Management) der DHT
+
+Aufgabe 4.1
+^^^^^^^^^^^
+
+1-Hop DHT = Vollvermaschtes Netz
+
+:math:`\dfrac{n - 1}{n}`
+
+Aufgabe 4.2
+^^^^^^^^^^^
+
+:math:`1 - e^{\frac{-k(k - 1)}{2n}}`
+
+Aufgabe 4.3
+^^^^^^^^^^^
+
+1. Dateien in Hashwerte wandeln
+2. Adressen in Hashwerte wandeln
+
+Redundanz r = 0 <=> kein Knoten dupliziert die Daten anderer Knoten
+
+Aufgabe 5.2
+^^^^^^^^^^^
+
+- Wege zu anderen Peers können kürzer sein
+- Berechnung dauert länger
+- mehr Nachbarn zu verwalten
+
+Aufgabe 8.2
+^^^^^^^^^^^
+
+UDP: Bildartefakte
+TCP: Stalling
