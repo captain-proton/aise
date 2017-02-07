@@ -12,4 +12,5 @@
     jupyter_nb/tutorial_mean_value_analysis
     jupyter_nb/exercise_5
     jupyter_nb/exercise_7
+    jupyter_nb/graph_samples
 
