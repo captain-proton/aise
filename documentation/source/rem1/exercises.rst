@@ -30,8 +30,9 @@ Fallstudie
 .. toctree::
     :caption: Requirements Engineering 1 - Übung
 
-    exercises/extra_exercise_1
-    exercises/extra_exercise_2
     exercises/e_01
     exercises/e_02
+    exercises/e_06
     exercises/e_07
+    exercises/extra_exercise_1
+    exercises/extra_exercise_2
