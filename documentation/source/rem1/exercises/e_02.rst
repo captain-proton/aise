@@ -26,8 +26,7 @@ Teilaufgabe 2)
 
 ``Versicherungsportal``: Ist wie das Hotelportal zu behandeln, da es direkt vom Webportal empfohlen wird (immaterielles SCO).
 
-``Einreiserichtlinien``: Informationen, die dem Nutzer präsentiert werden,
-sobald dieser in bestimmte Länder reisen möchte.
+``Einreiserichtlinien``: Informationen, die dem Nutzer präsentiert werden, sobald dieser in bestimmte Länder reisen möchte.
 
 ``Projektmanager``: Der Projektmanager legt Rahmenbedingungen zur Entwicklung des Portals fest, ist am Prozess also direkt beteiligt und damit ein materielles Grey Zone Object.
 
@@ -120,7 +119,7 @@ Aufgabe 4
 +=====+============================+===================+=========================+
 | 1   | .NET Framework             | Microsoft         | Documentation           |
 +-----+----------------------------+-------------------+-------------------------+
-| 2   | RUP                        | Rational Software | Entwickler              |
+| 2   | RUP                        | Rational Software | Stakeholder             |
 +-----+----------------------------+-------------------+-------------------------+
 | 3   | Webserver                  | Administrator     | Stakeholder             |
 +-----+----------------------------+-------------------+-------------------------+
@@ -133,6 +132,4 @@ Aufgabe 4
 | 7   | Projektmanager             | Arbeitskollegen   | Stakeholder             |
 +-----+----------------------------+-------------------+-------------------------+
 | 8   | Meilensteine/Release       | Projektplan       | Documentation           |
-+-----+----------------------------+-------------------+-------------------------+
-| 9   | Budget                     | Projektplan       | Documentation           |
 +-----+----------------------------+-------------------+-------------------------+

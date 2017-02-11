@@ -8,6 +8,14 @@ Wenn bekannt ist aus welchem Kontext Anforderungen kommen, kann die Dokumentatio
 
 Der Kontext wird dokumentiert. Zu Klärungen kann festgehalten werden wo bei Bedarf nachgefragt werden muss.
 
+Anforderungsartefakte:
+
+- ``Goals``
+- ``Scenarios``
+- ``Solution oriented requirements``
+
+Es werden alle Anforderungsartefakte dokumentiert. Dabei sind Ziele lediglich grobe Formulierungen, Szenarien zeigen diese Ziele genauer auf. Lösungsorientierte Anforderungen sind die feinstufigste Art der Beschreibung und werden z.B. durch UML-Diagramme realisiert.
+
 Aufgabe 2
 ^^^^^^^^^
 
