@@ -1,0 +1,65 @@
+E-06 - Solution Oriented Requirements
+=====================================
+
+Aufgabe 1 - UML Class Diagrams
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Teilaufgabe a
+-------------
+
+.. image:: e_06_task_1_a.svg
+
+Teilaufgabe b
+-------------
+
+Diagramm 1
+""""""""""
+
+- *RE Management* wird von zwei Dozenten gegeben, erlaubt ist aber nur einer
+- *IT Consulting* wird von keinem Dozenten gehalten
+- *Prof. Cage* gibt keinen Kurs
+
+Diagramm 2
+""""""""""
+
+- *Prof. Cage* bewertet keine Prüfung
+
+Diagramm 3
+""""""""""
+
+enthält keine Fehler
+
+Teilaufgabe c
+-------------
+
+.. image:: e_06_task_1_c.svg
+
+Aufgabe 2 - Errors in UML Class Diagrams
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Teilaufgabe a
+-------------
+
+1. Die Richtung der Relation ``relates to`` muss von ``Exemplar`` zu ``Media`` verlaufen
+2. Die Multiplizität an ``Exemplar`` muss 0..\* lauten
+3. Die Multiplizität an ``Media`` muss 1 lauten
+4. An allen Entitäten fehlen Attribute
+5. Die Generalisierung bei ``New Publication`` und ``Re-Publication`` muss ``{disjoint, complete}`` lauten
+
+Aufgabe 3 - Association Classes in UML Class Diagrams
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Teilaufgabe a
+-------------
+
++---------------------------------------------------------------------------------------------------------------+----------+
+| Aussage                                                                                                       | Diagramm |
++===============================================================================================================+==========+
+| Professor Jones teaches the "Requirements Management" lecture.                                                | 1        |
++---------------------------------------------------------------------------------------------------------------+----------+
+| Student Tom Janeway attends the "Requirements Management" lecture.                                            | 1        |
++---------------------------------------------------------------------------------------------------------------+----------+
+| Student Kate Torres attends the "Requirements Management" lecture.                                            | 1        |
++---------------------------------------------------------------------------------------------------------------+----------+
+| Professor Jones teaches Student Kate Torres and Student Tom Janeway in his "Requirements Management" lecture. | 2        |
++---------------------------------------------------------------------------------------------------------------+----------+
