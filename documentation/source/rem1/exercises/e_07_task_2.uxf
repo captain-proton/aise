@@ -2,415 +2,388 @@
 <diagram program="umlet" version="14.2">
   <zoom_level>8</zoom_level>
   <element>
-    <id>UMLState</id>
+    <id>UMLSpecialState</id>
     <coordinates>
-      <x>296</x>
-      <y>0</y>
-      <w>592</w>
-      <h>656</h>
+      <x>192</x>
+      <y>24</y>
+      <w>16</w>
+      <h>16</h>
     </coordinates>
-    <panel_attributes>valign=top
-halign=left
-car unlocked
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--.
-corner light
-
-
-
-
-
-
-
-
--.
-blink control</panel_attributes>
+    <panel_attributes>type=initial</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
       <x>160</x>
-      <y>64</y>
+      <y>72</y>
       <w>72</w>
       <h>32</h>
     </coordinates>
-    <panel_attributes>car
-locked</panel_attributes>
+    <panel_attributes>car locked</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>224</x>
-      <y>64</y>
-      <w>88</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-unlock
-car</panel_attributes>
-    <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLSpecialState</id>
-    <coordinates>
-      <x>344</x>
-      <y>48</y>
-      <w>16</w>
-      <h>16</h>
-    </coordinates>
-    <panel_attributes>type=initial</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>352</x>
-      <y>48</y>
-      <w>64</w>
-      <h>24</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>400</x>
-      <y>40</y>
-      <w>72</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>ambient
-light on</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>400</x>
-      <y>112</y>
-      <w>72</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>light Off</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>432</x>
-      <y>64</y>
-      <w>72</w>
-      <h>64</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-close DC
-door</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>584</x>
-      <y>112</y>
-      <w>72</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>low beam
-on</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>464</x>
-      <y>112</y>
-      <w>136</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-turn on LCC
-(engine is running</panel_attributes>
-    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>432</x>
-      <y>136</y>
-      <w>184</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-turn low beam off</panel_attributes>
-    <additional_attributes>210.0;10.0;210.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>584</x>
-      <y>216</y>
-      <w>72</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>high beam
-on</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>608</x>
-      <y>136</y>
-      <w>88</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-trigger high
-beam switch</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>648</x>
-      <y>120</y>
-      <w>128</w>
-      <h>128</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-trigger high
-beam switch</panel_attributes>
-    <additional_attributes>10.0;140.0;60.0;140.0;60.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>400</x>
-      <y>296</y>
-      <w>72</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>inactive</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>552</x>
-      <y>296</y>
-      <w>72</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>active</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>352</x>
-      <y>304</y>
-      <w>64</w>
-      <h>24</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLSpecialState</id>
-    <coordinates>
-      <x>344</x>
-      <y>304</y>
-      <w>16</w>
-      <h>16</h>
-    </coordinates>
-    <panel_attributes>type=initial</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>464</x>
-      <y>296</y>
-      <w>104</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-drive curve
-(low beam or
-high beam on)</panel_attributes>
-    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>432</x>
-      <y>320</y>
-      <w>176</w>
+      <x>192</x>
+      <y>32</y>
+      <w>24</w>
       <h>56</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;
-drive 
-straight</panel_attributes>
-    <additional_attributes>200.0;10.0;200.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>400</x>
-      <y>456</y>
-      <w>72</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>inactive</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>352</x>
-      <y>464</y>
-      <w>64</w>
-      <h>24</h>
-    </coordinates>
     <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>576</x>
-      <y>448</y>
-      <w>120</w>
+      <x>160</x>
+      <y>240</y>
+      <w>136</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>right indicator on
-*throughout* blink</panel_attributes>
+    <panel_attributes>standby
+entry: ambient light on
+exit: ambient light off</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>464</x>
-      <y>456</y>
-      <w>128</w>
-      <h>40</h>
+      <x>192</x>
+      <y>96</y>
+      <w>56</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-turn pitman
-arm up</panel_attributes>
+unlock</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>248</y>
+      <w>128</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+dc door closed</panel_attributes>
     <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>432</x>
-      <y>416</y>
-      <w>216</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-pitman arm neutral
-(blinked = 3)</panel_attributes>
-    <additional_attributes>250.0;40.0;250.0;20.0;10.0;20.0;10.0;50.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLState</id>
     <coordinates>
-      <x>576</x>
-      <y>528</y>
-      <w>120</w>
+      <x>400</x>
+      <y>240</y>
+      <w>112</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>right indicator on
-*throughout* blink</panel_attributes>
+    <panel_attributes>light control 
+component off</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>416</x>
-      <y>480</y>
-      <w>176</w>
-      <h>104</h>
+      <x>504</x>
+      <y>248</y>
+      <w>128</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-m2=turn pitman\narm down</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0;200.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>440</x>
-      <y>480</y>
-      <w>216</w>
-      <h>64</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-pitman arm neutral
-(blinked = 3)</panel_attributes>
-    <additional_attributes>250.0;60.0;250.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+turn on lcc
+(engine running)</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>576</x>
-      <y>600</y>
+      <x>616</x>
+      <y>240</y>
       <w>120</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>waiting light on</panel_attributes>
+    <panel_attributes>low beam active
+entry: low beam on
+exit: low beam off</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>376</x>
-      <y>584</y>
-      <w>216</w>
-      <h>48</h>
+      <x>728</x>
+      <y>248</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-trigger waiting light button</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0;250.0;40.0</additional_attributes>
+trigger 
+high beam</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>824</x>
+      <y>240</y>
+      <w>136</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>high beam active
+entry: high beam on
+exit: high beam off</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>344</x>
-      <y>584</y>
-      <w>248</w>
-      <h>80</h>
+      <x>464</x>
+      <y>184</y>
+      <w>208</w>
+      <h>72</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
-m2=trigger waiting light button</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0;290.0;70.0</additional_attributes>
+    <panel_attributes>lt=-&gt;
+turn off lcc</panel_attributes>
+    <additional_attributes>240.0;70.0;240.0;20.0;10.0;20.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>184</y>
+      <w>232</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+trigger 
+high beam</panel_attributes>
+    <additional_attributes>270.0;70.0;270.0;20.0;10.0;20.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>344</x>
+      <x>216</x>
+      <y>200</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>type=initial</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>208</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>160</x>
+      <y>368</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>type=initial</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>216</x>
+      <y>360</y>
+      <w>80</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>corner light
+inactive</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>368</y>
+      <w>64</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>400</x>
+      <y>360</y>
+      <w>80</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>corner light
+active</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>360</y>
+      <w>128</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+corner entered
+(low or high
+beam on)</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>224</x>
       <y>464</y>
+      <w>88</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>pitman arm 
+neutral</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>184</x>
+      <y>480</y>
+      <w>56</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>464</y>
+      <w>120</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+pitman 
+arm pulled up</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>408</x>
+      <y>456</y>
+      <w>144</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>right indicator active
+throughout: blink 3 times</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>496</y>
+      <w>176</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+pitman arm pulled down
+(blinked &gt;= 3)</panel_attributes>
+    <additional_attributes>200.0;10.0;200.0;40.0;10.0;40.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>264</x>
+      <y>504</y>
+      <w>160</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+pitman 
+arm pulled down</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0;180.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>408</x>
+      <y>560</y>
+      <w>144</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>left indicator active
+throughout: blink 3 times</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>504</y>
+      <w>224</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+pitman arm pulled up
+(blinked &gt;= 3)</panel_attributes>
+    <additional_attributes>260.0;130.0;260.0;150.0;10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>672</x>
+      <y>448</y>
+      <w>144</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>warning light active
+entry: warning light on
+exit: warning light off</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>488</y>
+      <w>224</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+warning light
+triggered</panel_attributes>
+    <additional_attributes>180.0;10.0;180.0;40.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>256</x>
+      <y>328</y>
+      <w>200</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+drive straight</panel_attributes>
+    <additional_attributes>230.0;40.0;230.0;20.0;10.0;20.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>176</x>
+      <y>480</y>
       <w>16</w>
       <h>16</h>
     </coordinates>
@@ -420,12 +393,82 @@ m2=trigger waiting light button</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>320</x>
-      <y>408</y>
-      <w>408</w>
-      <h>184</h>
+      <x>152</x>
+      <y>440</y>
+      <w>424</w>
+      <h>216</h>
     </coordinates>
-    <panel_attributes/>
+    <panel_attributes>pitman arm
+valign=top
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>456</y>
+      <w>120</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+warning light
+triggered</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>120</x>
+      <y>152</y>
+      <w>864</w>
+      <h>544</h>
+    </coordinates>
+    <panel_attributes>car unlocked
+
+
+
+
+
+
+
+
+
+
+
+
+
+-.
+corner
+
+
+
+
+
+
+
+-.
+blinker
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+valign=top
+halign=left</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

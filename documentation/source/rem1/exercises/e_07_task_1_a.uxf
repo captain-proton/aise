@@ -4,8 +4,8 @@
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>200</x>
-      <y>72</y>
+      <x>376</x>
+      <y>24</y>
       <w>16</w>
       <h>16</h>
     </coordinates>
@@ -13,419 +13,400 @@
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLState</id>
+    <id>Relation</id>
     <coordinates>
-      <x>264</x>
+      <x>376</x>
       <y>32</y>
-      <w>96</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>Standby
-troughout display
-advertisement</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>456</x>
-      <y>40</y>
-      <w>88</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>Welcome screen
-and main menu</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>352</x>
-      <y>48</y>
-      <w>120</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-touch the display</panel_attributes>
-    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>208</x>
-      <y>56</y>
-      <w>72</w>
-      <h>40</h>
+      <w>24</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;30.0;70.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
       <x>336</x>
-      <y>144</y>
-      <w>96</w>
-      <h>48</h>
+      <y>160</y>
+      <w>88</w>
+      <h>32</h>
     </coordinates>
-    <panel_attributes>display form
-for booking#
-and lastname</panel_attributes>
+    <panel_attributes>show welcome
+screen</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>472</x>
-      <y>144</y>
-      <w>96</w>
-      <h>48</h>
+      <x>344</x>
+      <y>88</y>
+      <w>88</w>
+      <h>32</h>
     </coordinates>
-    <panel_attributes>display frequent
-flyer menu</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>640</x>
-      <y>136</y>
-      <w>120</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>search for
-flights throughout
-display waiting screen</panel_attributes>
+    <panel_attributes>standy
+throughout: ads</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>376</x>
-      <y>80</y>
-      <w>112</w>
-      <h>80</h>
+      <y>112</y>
+      <w>88</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-select checkin
-with B+# LN
-R 2.1</panel_attributes>
-    <additional_attributes>120.0;10.0;10.0;80.0</additional_attributes>
+display touch</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>256</x>
+      <y>280</y>
+      <w>88</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>show form
+booking number</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>416</x>
+      <y>280</y>
+      <w>88</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>show form
+frequent flyer
+menu</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>512</x>
-      <y>80</y>
+      <x>288</x>
+      <y>184</y>
       <w>136</w>
-      <h>80</h>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+select
+booking number</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>376</x>
+      <y>184</y>
+      <w>128</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 insert
-frequent flyer card
-    R.2.2</panel_attributes>
-    <additional_attributes>10.0;10.0;40.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>536</x>
-      <y>48</y>
-      <w>184</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-insert other card
-          R 2.3</panel_attributes>
-    <additional_attributes>10.0;10.0;210.0;110.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>368</x>
-      <y>176</y>
-      <w>336</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-fill out form
-R 2.1.1</panel_attributes>
-    <additional_attributes>10.0;20.0;80.0;100.0;260.0;100.0;400.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>560</x>
-      <y>144</y>
-      <w>96</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-select flight
-R 2.2.1</panel_attributes>
-    <additional_attributes>10.0;30.0;100.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>696</x>
-      <y>280</y>
-      <w>144</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>display no flight found</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>728</x>
-      <y>176</y>
-      <w>96</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-searchResult
-(result = 0)
-R 3.1</panel_attributes>
-    <additional_attributes>10.0;10.0;20.0;130.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>536</x>
-      <y>40</y>
-      <w>376</w>
-      <h>272</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-5 sec.
-put screen
-R 3.1.2</panel_attributes>
-    <additional_attributes>380.0;320.0;380.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>328</x>
-      <y>352</y>
-      <w>144</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>display
-flight information</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>568</x>
-      <y>296</y>
-      <w>72</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>display list
-of flights</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>592</x>
-      <y>176</y>
-      <w>136</w>
-      <h>136</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-searchResult
-(result &gt;=1)
-R 3.2</panel_attributes>
-    <additional_attributes>150.0;10.0;10.0;150.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>456</x>
-      <y>312</y>
-      <w>128</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-selectFlight
-R 4</panel_attributes>
-    <additional_attributes>140.0;10.0;10.0;50.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>328</x>
-      <y>448</y>
-      <w>144</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>display seat
-selection menu</panel_attributes>
-    <additional_attributes/>
+frequent flyer</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>416</x>
-      <y>392</y>
-      <w>152</w>
-      <h>72</h>
+      <y>160</y>
+      <w>144</w>
+      <h>256</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-selectSeatSelection
-(seat selection avaible)
-R 4.1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>336</x>
-      <y>392</y>
-      <w>80</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-selectSeat
-R 4.1.1</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+insert other 
+id card</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0;160.0;300.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>136</x>
-      <y>448</y>
-      <w>144</w>
-      <h>40</h>
+      <x>408</x>
+      <y>400</y>
+      <w>160</w>
+      <h>32</h>
     </coordinates>
-    <panel_attributes>display meal
-selection menu</panel_attributes>
+    <panel_attributes>search flights
+throughout: waiting screen</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>152</x>
-      <y>352</y>
-      <w>192</w>
-      <h>112</h>
+      <x>288</x>
+      <y>304</y>
+      <w>136</w>
+      <h>128</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-selectEating
-R 4.2.1</panel_attributes>
-    <additional_attributes>10.0;120.0;10.0;10.0;220.0;10.0</additional_attributes>
+user fills
+form</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0;150.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
-      <y>384</y>
+      <x>480</x>
+      <y>320</y>
+      <w>80</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+user selects
+"flights"</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>424</y>
+      <w>80</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+search done
+(results = 0)</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>400</x>
+      <y>504</y>
       <w>152</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>display no flight found
+throughout: 
+increment timer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>224</x>
+      <y>168</y>
+      <w>192</w>
+      <h>384</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=timer incremented\n(5 seconds passed)</panel_attributes>
+    <additional_attributes>220.0;440.0;10.0;440.0;10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>400</y>
+      <w>120</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-selectEatingMenu
-(eating selection avaible)
-R 4.2</panel_attributes>
-    <additional_attributes>150.0;10.0;30.0;80.0</additional_attributes>
+search done
+(results &gt;= 1)</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0;130.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>160</x>
-      <y>264</y>
-      <w>144</w>
-      <h>40</h>
+      <x>600</x>
+      <y>464</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
-    <panel_attributes>display baggage
-dropoff menu</panel_attributes>
+    <panel_attributes>display flights</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>296</x>
-      <y>264</y>
-      <w>192</w>
+      <x>616</x>
+      <y>488</y>
+      <w>80</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m2=user selects\nflight</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>568</x>
+      <y>600</y>
+      <w>144</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>display flight
+information</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>424</x>
+      <y>688</y>
+      <w>112</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>display seat
+selection</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>528</x>
+      <y>640</y>
+      <w>152</w>
       <h>104</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-selectBaggage
-DropOff
-(bagageNo&gt;=1)
-R 4.3 &amp; 4.3.1</panel_attributes>
-    <additional_attributes>110.0;110.0;110.0;10.0;10.0;10.0</additional_attributes>
+m2=user selects\nseat selection\n(seat selection available)</panel_attributes>
+    <additional_attributes>120.0;10.0;120.0;80.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>176</x>
-      <y>296</y>
-      <w>200</w>
-      <h>72</h>
+      <x>472</x>
+      <y>624</y>
+      <w>112</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-selectPrint
-BaggageTags
-R 4.3.2</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0;230.0;70.0</additional_attributes>
+m2=seat selected</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0;120.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>712</x>
-      <y>368</y>
-      <w>136</w>
-      <h>72</h>
+      <x>752</x>
+      <y>696</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
-    <panel_attributes>print boarding
-pass
-throughout display
-printing screen</panel_attributes>
+    <panel_attributes>display meal
+selection</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>464</x>
-      <y>376</y>
-      <w>264</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-select print
-boarding pass
-R 4.4 &amp; 4.4.1</panel_attributes>
-    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>304</x>
-      <y>24</y>
-      <w>632</w>
-      <h>400</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;
-take
-Boardingpass</panel_attributes>
-    <additional_attributes>680.0;480.0;680.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>464</x>
-      <y>304</y>
-      <w>224</w>
+      <x>704</x>
+      <y>624</y>
+      <w>240</w>
       <h>88</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-select showOtherFlights
-(result&gt;=1)</panel_attributes>
-    <additional_attributes>10.0;90.0;260.0;60.0;220.0;10.0</additional_attributes>
+m2=user selects\nmeal selection\n(meal selection available)</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0;130.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>656</x>
+      <y>640</y>
+      <w>112</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m2=meal selected</panel_attributes>
+    <additional_attributes>120.0;90.0;10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>704</x>
+      <y>544</y>
+      <w>280</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m2=user selects
+m2=\ndrop off baggage
+m2=\n\n(baggage number &gt; 0)</panel_attributes>
+    <additional_attributes>10.0;90.0;200.0;90.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>808</x>
+      <y>520</y>
+      <w>112</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>display baggage
+drop off</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>520</y>
+      <w>136</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+user selects
+print baggage tag</panel_attributes>
+    <additional_attributes>150.0;20.0;10.0;20.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>640</y>
+      <w>112</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m2=user selects\nprint boarding pass</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>592</x>
+      <y>792</y>
+      <w>152</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>print boarding pass
+throughout: 
+display printing screen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>184</x>
+      <y>96</y>
+      <w>424</w>
+      <h>728</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m2=user takes\nboarding pass</panel_attributes>
+    <additional_attributes>510.0;890.0;10.0;890.0;10.0;10.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>472</y>
+      <w>80</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+user selects
+go back
+(results &gt; 1)</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0;30.0;10.0</additional_attributes>
   </element>
 </diagram>
