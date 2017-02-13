@@ -1,5 +1,5 @@
-E-06 - Solution Oriented Requirements
-=====================================
+E-06 - Solution Oriented Requirements - Data Modelling
+======================================================
 
 Aufgabe 1 - UML Class Diagrams
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
