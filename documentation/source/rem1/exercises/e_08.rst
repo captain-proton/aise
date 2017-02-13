@@ -1,0 +1,90 @@
+E-08 - Solution Oriented Requirements - Functional Modelling
+============================================================
+
+Aufgabe 1 - Data Flow Diagram
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Teilaufgabe a
+-------------
+
+.. image:: e_08_task_1_a.svg
+
+
+Teilaufgabe b
+-------------
+
+.. image:: e_08_task_1_b.svg
+
+Aufgabe 2 - Refine a process in the next level
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Teilaufgabe a
+-------------
+
+.. image:: e_08_task_2_a.svg
+
+Teilaufgabe b
+-------------
+
+- ``obligatory-tasks`` ist nicht definiert
+- ``registered course IDs`` ist vermutlich eine menge an course ids, aber auch nicht weiter spezifiziert
+- diverse elementare datentypen sind nicht definiert Bsp.: ``course-ID``
+
++------------------+---------------------------------------------------------------------+
+| Objekt           | Definition                                                          |
++==================+=====================================================================+
+| ``course-ID``    | 4{"A" "B" "C" ... "Z" "&"}4                                         |
++------------------+---------------------------------------------------------------------+
+| ``course-title`` | 1{.\*} (.\* in Java regulärer Ausdruck für jedes beliebige Zeichen) |
++------------------+---------------------------------------------------------------------+
+| ``exam-ID``      | 1{[0-9]}                                                            |
++------------------+---------------------------------------------------------------------+
+
+*Anmerkung*: Zwischen den Buchstaben unter ``course-ID`` müsste zur Unterscheidung ein | stehen.
+
+Aufgabe 3 - Mini-Specification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Teilaufgabe a
+-------------
+
+Registration enrollment
+"""""""""""""""""""""""
+
+1. Lesen der Informationen aus dem Plan des Studenten und der Kursregistrierung
+2. Prüfung ob der Student im Kurs registriert und eine Prüfung vorhanden ist
+3. Rückgabe der Studenten und Kurs ID
+
+Check the permissions of the student
+""""""""""""""""""""""""""""""""""""
+
+1. Lesen der Rechte des Studenten
+2. Prüfung ob der Student an der Prüfung teilnehmen darf
+
+Save exam enrollment
+""""""""""""""""""""
+
+1. Speichern der ID des Studenten, des Kurses und den Rechtestatus
+2. Senden der Informationen an den Plan des Studenten und das Prüfungsamt
+
+
+Aufgabe 4 - Check Data Flow Diagram
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Teilaufgabe a
+-------------
+
+- ``Data store B`` ist write only
+- ``Process A`` liefert keine Daten zurück
+- ``Source C`` schreibt ohne Prozess Daten in ``Data store B``
+- magischer Sprung von Daten von ``Data store A`` nach ``Data store B``
+- ``Source A`` schreibt ohne Prozess Daten in ``Data store A``
+- Kommunikation zwischen ``Process D`` und ``Process C`` mit denselben Daten
+
+Teilaufgabe b
+-------------
+
+- Datenfluss ``a`` ist in Level 2 nicht erfasst
+- Datenfluss ``b`` ist in Level 2 nicht erfasst
+- Die Datenflüsse ``a. 6.`` und ``a. 4.`` sind in Level 1 nicht existend
+- ``a = a.1. + a. 4.`` müsste lauten ``a = a.1``

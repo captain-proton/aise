@@ -34,5 +34,6 @@ Fallstudie
     exercises/e_02
     exercises/e_06
     exercises/e_07
+    exercises/e_08
     exercises/extra_exercise_1
     exercises/extra_exercise_2
