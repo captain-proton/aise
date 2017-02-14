@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>256</x>
+      <y>40</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>type=initial</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>104</x>
+      <y>144</y>
+      <w>1136</w>
+      <h>560</h>
+    </coordinates>
+    <panel_attributes>halign=left
+valign=top
+Kunde
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-.
+QS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-.
+Entwicklung
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>232</x>
+      <y>80</y>
+      <w>72</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>inaktiv</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>256</x>
+      <y>48</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>256</x>
+      <y>104</y>
+      <w>40</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+boot</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>192</x>
+      <y>176</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>type=initial</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>352</x>
+      <y>224</y>
+      <w>88</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Anforderung
+eingeben</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>192</x>
+      <y>184</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>224</y>
+      <w>152</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Anforderung an
+Schnittstelle
+übertragen</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>568</x>
+      <y>224</y>
+      <w>128</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Anforderung
+entgegennehmen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>848</x>
+      <y>224</y>
+      <w>88</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Anforderungen
+prüfen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>224</y>
+      <w>176</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Alle Anforderungen 
+entgegengenommen</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>248</y>
+      <w>240</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Anforderung entgegen
+genommen</panel_attributes>
+    <additional_attributes>280.0;10.0;280.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>928</x>
+      <y>224</y>
+      <w>152</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Alle Anforderungen 
+geprüft</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>1064</x>
+      <y>224</y>
+      <w>88</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Antwort an
+Kunden senden</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1104</x>
+      <y>248</y>
+      <w>112</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Antwort gesendet</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>1064</x>
+      <y>304</y>
+      <w>88</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Anforderungen
+in DB speichern</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>248</y>
+      <w>880</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Anforderungen gespeichert</panel_attributes>
+    <additional_attributes>1080.0;90.0;10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>152</x>
+      <y>224</y>
+      <w>88</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>wartet</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>232</x>
+      <y>224</y>
+      <w>136</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Anforderung
+verfügbar</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>184</x>
+      <y>392</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>type=initial</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>184</x>
+      <y>400</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>144</x>
+      <y>440</y>
+      <w>88</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>wartet</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>224</x>
+      <y>440</y>
+      <w>104</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+QS-Anfrage</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>312</x>
+      <y>440</y>
+      <w>160</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>QS-Anforderungsdokument
+vorbereiten</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>440</y>
+      <w>128</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Anf.-Dokument
+vorbereitet</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>576</x>
+      <y>440</y>
+      <w>136</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Anforderungsdokument
+an QS senden</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>704</x>
+      <y>440</y>
+      <w>112</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+QS-Ergebnis 
+erhalten</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>800</x>
+      <y>440</y>
+      <w>176</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>überarbeitete Anforderungen
+in DB speichern</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>184</x>
+      <y>464</y>
+      <w>704</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Anforderungen gespeichert</panel_attributes>
+    <additional_attributes>860.0;10.0;860.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>184</x>
+      <y>560</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>type=initial</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>184</x>
+      <y>568</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>144</x>
+      <y>608</y>
+      <w>88</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>wartet</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>224</x>
+      <y>608</y>
+      <w>104</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Release
+Anfrage</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>312</x>
+      <y>608</y>
+      <w>184</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Release-Anforderungsdokument
+vorbereiten</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>608</y>
+      <w>144</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Anf.-Dokument
+vorbereitet</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>616</x>
+      <y>608</y>
+      <w>136</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Releasedokument
+an Entwicklung senden</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>744</x>
+      <y>608</y>
+      <w>136</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Releaseplanung
+erhalten</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>864</x>
+      <y>608</y>
+      <w>176</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>überarbeitete Anforderungen
+in DB speichern</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>184</x>
+      <y>632</y>
+      <w>768</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Anforderungen gespeichert</panel_attributes>
+    <additional_attributes>940.0;10.0;940.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>296</x>
+      <y>88</y>
+      <w>376</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+shutdown
+(Kunde = wartet 
+und QS = wartet 
+und Entwicklung = wartet)</panel_attributes>
+    <additional_attributes>290.0;70.0;290.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

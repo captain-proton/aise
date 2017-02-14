@@ -25,18 +25,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="326.66672"
-     inkscape:cy="-21.116874"
+     inkscape:zoom="1.4"
+     inkscape:cx="557.49183"
+     inkscape:cy="86.461419"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1034"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
+     inkscape:window-height="1007"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -105,8 +105,8 @@
        id="rect4163"
        width="120.41888"
        height="120.41888"
-       x="-64.910225"
-       y="503.10568"
+       x="-54.310799"
+       y="513.70508"
        transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,0,0)" />
     <text
        xml:space="preserve"
@@ -127,12 +127,13 @@
          id="tspan4225">MIT</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 310.2431,401.6479 -61.87184,0"
+       d="m 325.14285,401.6479 -76.77159,0"
        id="path4185"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 479.82246,401.6479 83.21132,0"
+       d="m 494.97475,401.6479 68.05903,0"
        id="path4187"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -147,18 +148,18 @@
          id="tspan4140-6"
          x="252.70555"
          y="397.38736"
-         style="font-size:22.5px">(0,1)</tspan></text>
+         style="font-size:22.5px">(0,50)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="481.41544"
+       x="501.41544"
        y="394.73505"
        id="text4138-5-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4140-6-9"
-         x="481.41544"
+         x="501.41544"
          y="394.73505"
-         style="font-size:22.5px">(0,50)</tspan></text>
+         style="font-size:22.5px">(0,1)</tspan></text>
   </g>
 </svg>

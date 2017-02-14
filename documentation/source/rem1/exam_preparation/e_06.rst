@@ -1,0 +1,78 @@
+Übungsblatt 6: Funktionsmodellierung
+====================================
+
+Aufgabe 1 (11 Punkte)
+^^^^^^^^^^^^^^^^^^^^^
+
+Situation
+---------
+
+Ein Internet Service Provider möchte ab April 2014 neben Telefon— und Internetanschluss für seine Kunden auch die Möglichkeit anbieten, High Definition Fernsehprogramme über den bestehenden Breitbandinternetanschluss zu empfangen. Hierzu muss der Kunde zu Hause eine spezielle Set-Top-Box verwenden, die ihm vom Anbieter unentgeltlich zur Verfügung gestellt wird. Die Set—Top-Box soll die Möglichkeit bieten, das Fernsehprogramm einzusehen, über eine integrierte Festplatte Fernsehsendungen aufzuzeichnen, bei Bedarf diese über die Set—Top-Box am heimischen Fernseher abzuspielen sowie, gegen eine zusätzliche Gebühr, aktuelle Videofilme anzusehen. Sie erhalten als Requirements Engineer den Auftrag, das zu entwickelnde System (d.h. die Set-Top—Box) hinsichtlich der notwendigen Funktionen und Datenabhängigkeiten zu analysieren. Um sich einen Überblick zu verschaffen, entscheiden Sie sich dazu, zunächst ein Datenflussmodell zu erstellen. Zu diesem Zwecke führen Sie ein Interview mit dem Technikleiter des Internet-Service—Providers durch. Den relevanten Ausschnitt aus dem Interview—Protokoll finden Sie unten.
+
+Aufgabenstellung
+----------------
+
+Entwickeln Sie ein Datenflussmodell von der zu entwickelnden Set-Top-Box auf Basis des unten angegebenen Interview-Protokolls. Verwenden Sie dazu bitte die in der Vorlesung vorgestellten Modellierungskonstrukte von Datenflussmodellen und die entsprechenden syntaktischen Regeln. Achten Sie bitte zusätzlich darauf, dass das erstellte Modell den Regeln für gute Datenflussmodelle genügt, die ebenfalls in der Vorlesung vorgestellt wurden (2.8. "Vermeide Write-Only-Datenspeicher").
+
+Hinweis
+-------
+
+Tritt der Fall ein, dass aus Ihrer Sicht im unten stehenden Interview—Protokoll wesentliche Informationen fehlen, um ein geeignetes Datenflussmodell konstruieren zu können, treffen Sie bitte eigene Annahmen über die entsprechenden "Lücken" in der Beschreibung. Bitte achten Sie darauf, dass Sie in einem solchen Falle die von Ihnen getroffenen Annahmen explizit auf Ihrer Bearbeitung des Übungsblattes notieren und dass Ihre Annahmen nicht der Aufgabenstellung widersprechen.
+
+Interview
+---------
+
+[...]
+
+Ausschnitt aus dem Interviewprotokoll mit dem Technikleiter Peter Breitfuß:
+
+*Interviewer:* Herr Breitfuß, können Sie uns kurz die Funktionsweise der geplanten Set—Top—Box erläutern?
+
+*Herr Breitfuß:* Sehr gerne. Also der Kunde erhält von uns die Set-Top—Box, die er zuhause an den Breitbandanschluss (genauer an das DSL—Endgerät) anschließt. Das Gerät besitzt über die Breitbandleitung eine Verbindung zu unserem "TV—Broadcast—Server", zu unserem "Pay—TV-Server" und zu unserer zentralen Kundenverwaltung. Übrigens, die zentrale Kundenverwaltung ist ebenfalls ein Server-System und tauscht regelmäßig Rechnungsinformationen mit dem "Pay—TV-Server" aus.
+
+Um das Gerät nutzen zu können, muss der Kunde sich zunächst authentifizieren. Hierzu steckt er die separat zugesendete Kundenkarte (eine Smartcard) in den Kartenslot der Set—Top-Box. Die Set-Top-Box schickt die Authentifizierungsdaten dann an unsere zentrale Kundenverwaltung. Die Kundenverwaltung überprüft die Daten und bestätigt der Set-Top-Box die erfolgreiche Authentifizierung.
+
+Wenn der Kunde (genauer: die Smartcard) authentifiziert ist, kann der Kunde aus verschiedenen Möglichkeiten wählen. Er kann z.B. das aktuelle Fernsehprogramm einsehen. Hierzu wählt der Kunde einen Sender aus. Sind die gewünschten Programmdaten noch nicht in der Programmdatenbank der Set-Top—Box vorhanden, schickt die Box eine Anfrage über das Breitbandnetz zu unserem "TV-Broadcast-Server", welche die entsprechenden Programmdaten, dann an die Set-Top-Box zurückschickt.
+
+Will der Kunde mit der Set-Top-Bax eine Sendung aufnehmen, wählt er zunächst den Sender aus, die Set-Top-Box zeigt dann die aktuellen Programmdaten des Senders an. Dann wählt der Kunde Startzeit und Endzeit des Filmes und einen Titel. Die Set-Top-Box nimmt den entsprechenden Film dann auf und legt die Informationen zur Aufnahme in einer kleinen Datenbank "Timeraufnahmen" und das eigentliche aufgezeichnete Programm auf der internen Festplatte, dem "Aufnahmearchiv" ab. Ein Timer sorgt für die Aufnahme der gewünschten Sendung und legt diese zusammen mit den Sendungsdaten im Aufnahmearchiv ab. Die Sendung kann der Kunde sich natürlich auch angucken.
+
+Will der Kunde sich einen aufgenommenen Film (Pay TV) ansehen, bekommt er aus dem Filmarchiv die Titel aller aufgenommen Filme angezeigt. Er wählt den gewünschten Film, worauf hin dieser aus dem Aufnahmearchiv geladen und abgespielt wird. Außerdem kann der Kunde sich über die Set-Top-Box auch aktuelle Videofilme (z. B. DVD-Neuerscheinungen ) gegen eine Gebühr ansehen.
+
+*Interviewer:* Herr Breitfuß, könnten Sie uns diese Möglichkeit etwas genauer beschreiben?
+
+*Herr Breitfuß:* Wenn's sein muss. Der Kunde kann über die Set-Top-Box auf unser großes Leihfilmarchiv zugreifen und von dir gegen eine Gebühr einen Film sozusagen entleihen. Um einen Film ausleihen zu können, kann der Kunde über die Funktion "Pay—TV—Filme suchen“ eine Liste der verfügbaren Pay—TV-Filme ansehen. Um diese Liste weiter einzuschränken, kann er bestimmte Schlüsselworte eingeben. Die Anfrage des Kunden wird dann an unseren "Pay—TV-Server" übermittelt, der entsprechenden Daten zurückliefert.  Um sich einen Film ansehen zu können, wählt der Kunde dann den gewünschten Film aus der Liste aus. Die Billingdaten (d.h. die Rechnungsdaten) werden an unsere zentrale Kundenverwaltung weitergeleitet. Die Set—Top-Box lädt anschließend den Film über das Breitbandnetz herunter und legt ihn auf einem speziellen Bereich der internen Festplatte "Heruntergeladene Pay-TV-Filme" verschlüsselt ab. Der Kunde kann sich den Film dann ansehen. Ach so! die zentrale Kundenverwaltung schickt dem Kunden dann monatlich die Rechnung über den Breitbandonschluss zum auf der in einem separaten Posten auch die Leihgebühren aufgeführt sind.
+
+Lösung
+------
+
+.. image:: solutions/uebungsblatt_6_aufgabe_1.svg
+
+
+Aufgabe 2 (4 Punkte)
+^^^^^^^^^^^^^^^^^^^^
+
+Aufgabenstellung
+----------------
+
+In der Vorlesung wurden Ihnen verschiedene Kategorien von Fehlern in Datenflussdiagrammen vorgestellt (z.B. "Write-Only-Datenspeicher"). Finden Sie vier der im unten gezeigten Datenflussdiagramm enthaltenen Fehler und begründen Sie für jeden gefundenen Fehler in wenigen Worten, warum es sich dabei jeweils um einen Fehler handelt.
+
+Hinweis
+-------
+
+Es wurden in der Aufgabe bewusst abstrakte Bezeichner für die Modellelemente gewählt. Die "nichtssagender Bezeichner" ist daher in diesem speziellen Fall kein Fehler.
+
+Fehlerhaftes Datenflussdiagramm
+-------------------------------
+
+.. image:: img/klausuruebung_b6_aufg2.svg
+
+Lösung
+------
+
+- Datenfluss zwischen Den Quellen ``A`` und ``B``
+- Prozess ``1`` schreibt keine Daten
+- ``p8`` und ``p11`` können ggfs. zusammengefasst werden
+- ``b`` ist write-only
+- Datenfluss von ``a`` nach ``c``
+- Prozess ``3`` ändert die gelesenen Daten nicht
+- Quelle ``C`` schreibt ohne Prozess Daten in ``a``

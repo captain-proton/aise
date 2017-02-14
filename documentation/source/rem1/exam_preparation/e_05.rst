@@ -1,0 +1,49 @@
+Übungsblatt 5: Verhaltensmodellierung
+=====================================
+
+Aufgabe 1 (12 Punkte)
+^^^^^^^^^^^^^^^^^^^^^
+
+Der Requirements Ingenieur einer Softwarefirma möchte ein RE—Werkzeug einführen und hat dazu spezifiziert, was das Werkzeug zur Verwaltung von Anforderungen leisten soll. Modellieren Sie ein Statechart, welches die unten stehenden textuellen Anforderungen beschreibt. Modellieren Sie ausschließlich die relevanten Informationen aus dem Text und modellieren Sie nur, was im unten stehenden Sachverhalt wirklich angegeben ist. Wenn Ihrer Meinung nach wichtige lnformationen zum vollständigen Lösen der Aufgabe fehlen, so dokumentieren Sie bitte jegliche Annahmen, die Sie treffen.
+
+Textuelle Anforderungen
+-----------------------
+
+Das System soll auf einem Server laufen und wird aktiviert, sobald der Server gebootet wird. Mit dem System interagieren drei wesentliche Parteien: Kunden, Qualitätssicherungsabteilung, und die Entwicklungsabteilung. Um kurze Zugriffszeiten zu garantieren müssen diese Parteien ihre Arbeiten gleichzeitig ausführen können.
+
+Kunden sollen neue Anforderungen in das System eintragen können. Dazu verbinden Sie sich mit einer geeigneten Schnittstelle und geben eine neue Anforderung oder eine Liste von neuen Anforderungen in das wartende System. Das System nimmt die Anforderungen an und überprüft diese. Anschließend wird der Kunde über Akzeptanz oder Ablehnung der neuen Anforderungen informiert und die Anforderungen werden in eine Datenbank eingetragen.
+
+Die Qualitätssicherungsabteilung kann eine Anfrage zur Qualitätssicherung (QS-Anfrage) an das wartende System stellen. Das System bereitet alle neuen, nicht qualitätsgesicherten Anforderungen in
+Form eines QS-Anforderungsdokumentes vor und sendet es an die Qualitätssicherungsabteilung Das System wartet dann auf das Ergebnis der Qualitätssicherung. Sobald das Ergebnis zurück ist werden die überarbeiteten Anforderungen in die Datenbank eingetragen und die Qualitätssicherung abgeschlossen. Erst dann kann eine neue QS-Anfrage gestellt werden.
+
+Die Entwicklungsabteilung ist für die Releaseplanung verantwortlich. Sie stellt eine Release—Anfrage an das wartende System. Das System bereitet ausschließlich qualitätsgesicherte Anforderungen in Form eines Release-Anforderungsdokumentes vor und sendet dieses an die Entwicklungsabteilung. Das System wartet auf das Ergebnis der Releaseplanung von der Entwicklungsabteilung. Sobald das Ergebnis vorliegt, wird es in die Anforderungsdatenbank eingetragen und die Releaseplanung abgeschlossen. Dann kann eine neue Release-Anfrage gesendet werden.
+
+Das System soll nur abgeschaltet werden können, wenn kein Auftrag einer der drei Parteien vorliegt. Das System kann dann unabhängig vom Server—Boat wieder aktiviert werden.
+
+Lösung
+------
+
+.. image:: solutions/uebungsblatt_5_aufgabe_1.svg
+
+
+
+Aufgabe 2 (3 Punkte)
+^^^^^^^^^^^^^^^^^^^^
+
+Modellieren Sie das im Folgenden gegebene abstrakte Statechart mit Nebenläufigkeit in einem endlichen Automaten. Verwenden Sie für die Modellierung Ihres Automaten die Notationselemente der Vorlesungsfolien.
+
+Statechart
+----------
+
+.. image:: img/klausuruebung_b5_aufg2.svg
+
+*Hinweis*: Die Gesamtheit der Zustände bildet sich aus den möglichen unterschiedlichen Kombinationen zu den Zuständen in den nebenläufigen Teilen. *Bsp*.: Die Kombination ``1/2`` kann nicht vorkommen, da sich beide im Teil ``A`` befinden. Es müssen die Zustände ``1/3`` und ``1/4`` gebildet werden.
+
+Lösung
+------
+
+.. image:: solutions/uebungsblatt_5_aufgabe_2.svg
+
+
+
+
