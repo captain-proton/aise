@@ -34,3 +34,10 @@ M0 - M3 Hierarchien
 :M1: Objekttypen (Person)
 :M0: konkrete Objekte (Peter)
 
+Anki Lernkarten
+===============
+
+`Software <https://apps.ankiweb.net/>`_
+
+:download:`exam_preparation/anki_cards.apkg`
+
