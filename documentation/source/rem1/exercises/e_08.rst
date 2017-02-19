@@ -84,7 +84,6 @@ Teilaufgabe a
 Teilaufgabe b
 -------------
 
-- Datenfluss ``a`` ist in Level 2 nicht erfasst
-- Datenfluss ``b`` ist in Level 2 nicht erfasst
-- Die Datenflüsse ``a. 6.`` und ``a. 4.`` sind in Level 1 nicht existend
-- ``a = a.1. + a. 4.`` müsste lauten ``a = a.1``
+- ``a = a.1. + a. 4.`` ist falsch definiert es müsste lauten ``a = a.1.``
+- Der Datenfluss ``a. 4.`` ist in Level 1 nicht erfasst
+- ``Data store A`` ist in Level 2 nicht aufgeführt

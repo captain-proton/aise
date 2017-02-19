@@ -454,8 +454,8 @@ How can generalization sets be classified and which combinations are possible?
 
 1. Disjunkt/Komplett
 2. Disjunkt/Unvollständig
-3. Überscheidend/Komplett
-4. Überscheidend/Unvollständig
+3. Überschneidend/Komplett
+4. Überschneidend/Unvollständig
 
 What are the modelling constructs of the UML class diagram?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -579,7 +579,7 @@ What are the three key components of Structured Analysis according to DeMarco?
 What is the main purpose of Structured Analysis?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Strukturierte Analyse soll die Diskussion über ein Problem, durch die Strukturierung des Problems, erleichern.
+Strukturierte Analyse soll die Diskussion über ein Problem, durch die Strukturierung des Problems, erleichtern.
 
 Name the modelling constructs of Data Flow Diagrams!
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
