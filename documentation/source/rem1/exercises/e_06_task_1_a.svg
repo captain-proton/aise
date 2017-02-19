@@ -189,7 +189,7 @@
       /><path d="M17 248.7417 L10.5 260 L4 248.7417 L10.5 237.9833 Z" clip-path="url(#clipPath9)" stroke="none"
       /><path fill="none" d="M17 248.7417 L10.5 260 L4 248.7417 L10.5 237.9833 Z" clip-path="url(#clipPath9)"
       /><text x="14" font-size="14px" y="175.2734" clip-path="url(#clipPath9)" font-family="sans-serif" stroke="none" xml:space="preserve"
-      >gives ►</text
+      >gives ▲</text
       ><text x="14" font-size="14px" y="39.1094" clip-path="url(#clipPath9)" font-family="sans-serif" stroke="none" xml:space="preserve"
       >1..n</text
     ></g
@@ -209,7 +209,7 @@
       /><path d="M4 22.2583 L10.5 11 L17 22.2583 L10.5 33.0167 Z" clip-path="url(#clipPath11)" stroke="none"
       /><path fill="none" d="M4 22.2583 L10.5 11 L17 22.2583 L10.5 33.0167 Z" clip-path="url(#clipPath11)"
       /><text x="14" font-size="14px" y="63.0547" clip-path="url(#clipPath11)" font-family="sans-serif" stroke="none" xml:space="preserve"
-      >results in ►</text
+      >results in ▼</text
       ><text x="14" font-size="14px" y="84" clip-path="url(#clipPath11)" font-family="sans-serif" stroke="none" xml:space="preserve"
       >10..50</text
     ></g
@@ -217,7 +217,7 @@
     ><path fill="none" d="M290.5 10.5 L290.5 240.5" clip-path="url(#clipPath12)"
       /><path fill="none" d="M290.5 240.5 L10.5 240.5" clip-path="url(#clipPath12)"
       /><text x="294" font-size="14px" y="133.0547" clip-path="url(#clipPath12)" font-family="sans-serif" stroke="none" xml:space="preserve"
-      >◄ grades</text
+      >grades ▼</text
       ><text x="294" font-size="14px" y="39.1094" clip-path="url(#clipPath12)" font-family="sans-serif" stroke="none" xml:space="preserve"
       >1</text
       ><text x="29" font-size="14px" y="254.1094" clip-path="url(#clipPath12)" font-family="sans-serif" stroke="none" xml:space="preserve"
@@ -231,7 +231,7 @@
       /><path fill="white" d="M4 138.7417 L10.5 150 L17 138.7417 L10.5 127.9833 Z" clip-path="url(#clipPath14)" stroke="none"
       /><path fill="none" d="M4 138.7417 L10.5 150 L17 138.7417 L10.5 127.9833 Z" clip-path="url(#clipPath14)"
       /><text x="14" font-size="14px" y="80" clip-path="url(#clipPath14)" font-family="sans-serif" stroke="none" xml:space="preserve"
-      >takes ►</text
+      >takes ▼</text
       ><text x="14" font-size="14px" y="39.1094" clip-path="url(#clipPath14)" font-family="sans-serif" stroke="none" xml:space="preserve"
       >10..50</text
       ><text x="14" font-size="14px" y="134" clip-path="url(#clipPath14)" font-family="sans-serif" stroke="none" xml:space="preserve"

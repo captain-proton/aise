@@ -36,16 +36,16 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
+      <x>328</x>
       <y>288</y>
-      <w>136</w>
+      <w>128</w>
       <h>88</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=0..n
 &lt; communicates with</panel_attributes>
-    <additional_attributes>130.0;70.0;130.0;20.0;30.0;20.0;30.0;80.0;80.0;80.0</additional_attributes>
+    <additional_attributes>120.0;70.0;120.0;20.0;20.0;20.0;20.0;80.0;70.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -108,13 +108,13 @@ communicates with &gt;</panel_attributes>
     <coordinates>
       <x>416</x>
       <y>432</y>
-      <w>64</w>
+      <w>56</w>
       <h>136</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;
 m1=10..50
 m2=0..n
-takes &gt;
+takes v
 </panel_attributes>
     <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
   </element>
@@ -147,13 +147,13 @@ takes &gt;
     <coordinates>
       <x>496</x>
       <y>416</y>
-      <w>296</w>
+      <w>288</w>
       <h>216</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n
-&lt; grades</panel_attributes>
+grades v</panel_attributes>
     <additional_attributes>290.0;10.0;290.0;240.0;10.0;240.0</additional_attributes>
   </element>
   <element>
@@ -174,13 +174,13 @@ m2=0..n
     <coordinates>
       <x>448</x>
       <y>640</y>
-      <w>88</w>
+      <w>80</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=
 m2=10..50
-results in &gt;</panel_attributes>
+results in v</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
@@ -219,7 +219,7 @@ graded in &gt;</panel_attributes>
     <coordinates>
       <x>680</x>
       <y>136</y>
-      <w>64</w>
+      <w>56</w>
       <h>224</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
@@ -228,7 +228,7 @@ m2=1..n
 
 
 
-gives &gt;</panel_attributes>
+gives ^</panel_attributes>
     <additional_attributes>10.0;260.0;10.0;10.0</additional_attributes>
   </element>
   <element>

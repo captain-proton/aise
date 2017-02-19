@@ -66,13 +66,13 @@ m2=0..n
     <coordinates>
       <x>432</x>
       <y>440</y>
-      <w>64</w>
+      <w>56</w>
       <h>136</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;
 m1=10..50
 m2=0..n
-takes &gt;
+takes v
 </panel_attributes>
     <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
   </element>
@@ -105,13 +105,13 @@ takes &gt;
     <coordinates>
       <x>512</x>
       <y>424</y>
-      <w>296</w>
+      <w>288</w>
       <h>168</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n
-&lt; grades</panel_attributes>
+grades v</panel_attributes>
     <additional_attributes>290.0;10.0;290.0;180.0;10.0;180.0</additional_attributes>
   </element>
   <element>
@@ -132,13 +132,13 @@ m2=0..n
     <coordinates>
       <x>464</x>
       <y>648</y>
-      <w>88</w>
+      <w>80</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=
 m2=10..50
-results in &gt;</panel_attributes>
+results in v</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
@@ -152,7 +152,7 @@ results in &gt;</panel_attributes>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=
 m2=0..n
-graded in &gt;</panel_attributes>
+graded in v</panel_attributes>
     <additional_attributes>270.0;10.0;10.0;10.0;10.0;450.0;290.0;450.0</additional_attributes>
   </element>
   <element>
@@ -177,7 +177,7 @@ graded in &gt;</panel_attributes>
     <coordinates>
       <x>696</x>
       <y>144</y>
-      <w>64</w>
+      <w>56</w>
       <h>224</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
@@ -186,7 +186,7 @@ m2=1..n
 
 
 
-gives &gt;</panel_attributes>
+gives ^</panel_attributes>
     <additional_attributes>10.0;260.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -373,7 +373,7 @@ m2=0..n
     <coordinates>
       <x>848</x>
       <y>304</y>
-      <w>160</w>
+      <w>144</w>
       <h>168</h>
     </coordinates>
     <panel_attributes>lt=.
