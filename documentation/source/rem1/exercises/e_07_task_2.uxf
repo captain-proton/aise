@@ -89,7 +89,7 @@ component off</panel_attributes>
       <x>504</x>
       <y>248</y>
       <w>128</w>
-      <h>32</h>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 turn on lcc
@@ -104,7 +104,7 @@ turn on lcc
       <w>120</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>low beam active
+    <panel_attributes>low beam
 entry: low beam on
 exit: low beam off</panel_attributes>
     <additional_attributes/>
@@ -115,7 +115,7 @@ exit: low beam off</panel_attributes>
       <x>728</x>
       <y>248</y>
       <w>112</w>
-      <h>32</h>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 trigger 
@@ -130,7 +130,7 @@ high beam</panel_attributes>
       <w>136</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>high beam active
+    <panel_attributes>high beam
 entry: high beam on
 exit: high beam off</panel_attributes>
     <additional_attributes/>
@@ -271,7 +271,7 @@ neutral</panel_attributes>
       <x>304</x>
       <y>464</y>
       <w>120</w>
-      <h>32</h>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 pitman 
@@ -286,7 +286,7 @@ arm pulled up</panel_attributes>
       <w>144</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>right indicator active
+    <panel_attributes>right indicator
 throughout: blink 3 times</panel_attributes>
     <additional_attributes/>
   </element>
@@ -296,7 +296,7 @@ throughout: blink 3 times</panel_attributes>
       <x>288</x>
       <y>496</y>
       <w>176</w>
-      <h>48</h>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 pitman arm pulled down
@@ -324,7 +324,7 @@ arm pulled down</panel_attributes>
       <w>144</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>left indicator active
+    <panel_attributes>left indicator
 throughout: blink 3 times</panel_attributes>
     <additional_attributes/>
   </element>
@@ -334,7 +334,7 @@ throughout: blink 3 times</panel_attributes>
       <x>240</x>
       <y>504</y>
       <w>224</w>
-      <h>136</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 pitman arm pulled up
@@ -349,7 +349,7 @@ pitman arm pulled up
       <w>144</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>warning light active
+    <panel_attributes>warning light
 entry: warning light on
 exit: warning light off</panel_attributes>
     <additional_attributes/>
@@ -359,7 +359,7 @@ exit: warning light off</panel_attributes>
     <coordinates>
       <x>568</x>
       <y>488</y>
-      <w>224</w>
+      <w>232</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
@@ -409,7 +409,7 @@ halign=left</panel_attributes>
       <x>568</x>
       <y>456</y>
       <w>120</w>
-      <h>32</h>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 warning light

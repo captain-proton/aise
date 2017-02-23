@@ -232,9 +232,8 @@ aktiv:
 Which role can a RE context objects have?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- ``Subject``
-- ``Usage``
-- ``IT System``
+- ``Active``
+- ``Passive``
 
 Which RE context object can be changed during RE and development?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
