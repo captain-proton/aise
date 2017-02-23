@@ -2,10 +2,27 @@
 Prüfungsvorbereitung
 ********************
 
+Fragen der *Summary* zur Vorlesung
+==================================
+
 .. toctree::
 
     exam_preparation/lecture_questions
+
+Zusatzübung 1
+=============
+
+.. toctree::
+
     exam_preparation/extra_exercise
+
+Wiederholungsblätter
+====================
+
+.. toctree::
+
+    exam_preparation/revision_exercise_1
+    exam_preparation/revision_exercise_2
 
 Klausurfragen
 =============
@@ -41,3 +58,19 @@ Anki Lernkarten
 
 :download:`exam_preparation/anki_cards.apkg`
 
+Zusatzübung 2
+=============
+
+- Qualitätsanforderung (Quality in Use / Software/System Product Quality)!
+
+    + Einige der Unterpunkte sollten bekannt sein.
+- Szenario - Ziele können nach einem beispielhaften Durchlauf geprüft und festgestellt werden ob das Ziel erreicht oder fehlgeschlagen ist.
+- Ziele der Validierung und des Managements nennen können.
+- In UML Diagrammen Boxen für Methoden und Attribute malen
+- Kreis für Attribute im ER-Diagramm zeichnen
+- Balancing Methoden für DFD genauer lernen
+
+Beispielaufgabe *Referenzstruktur*
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Eine Referenzstruktur bei den Anforderungen ist die Struktur, wie eine Anforderung notiert wird z.B. durch die tabellarische Darstellung, Hierarchien in den Anforderungen etc.

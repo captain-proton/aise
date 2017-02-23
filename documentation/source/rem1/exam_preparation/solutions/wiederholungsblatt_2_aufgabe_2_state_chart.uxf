@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>192</x>
+      <y>248</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>type=initial</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>264</x>
+      <y>240</y>
+      <w>72</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>wartend</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>248</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>328</x>
+      <y>240</y>
+      <w>128</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Zeit geändert
+(Zeit = 15min 
+vor Termin)</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>440</x>
+      <y>240</y>
+      <w>112</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Benutzer
+erinnern</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>296</x>
+      <y>184</y>
+      <w>344</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Erinnerung
+bestätigt</panel_attributes>
+    <additional_attributes>320.0;80.0;350.0;80.0;350.0;10.0;10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>632</x>
+      <y>248</y>
+      <w>112</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Erinnerung
+verworfen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>544</x>
+      <y>248</y>
+      <w>104</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Erinnerung
+verworfen</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>496</x>
+      <y>264</y>
+      <w>200</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+Zeit geändert
+(Zeit = 5 min vor Termin)</panel_attributes>
+    <additional_attributes>230.0;20.0;230.0;60.0;10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>350</x>
+      <y>210</y>
+      <w>61</w>
+      <h>61</h>
+    </coordinates>
+    <panel_attributes>1.
+Termin
+anlegen</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=height / 2 - textHeight() * textlines.size() * 2 / 3;
+
+drawCircle(width / 2, height / 2, height / 2);
+
+for(String textline : textlines) {
+	y = y + textHeight();
+	printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>350</x>
+      <y>370</y>
+      <w>61</w>
+      <h>61</h>
+    </coordinates>
+    <panel_attributes>2.
+Termin
+ändern</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=height / 2 - textHeight() * textlines.size() * 2 / 3;
+
+drawCircle(width / 2, height / 2, height / 2);
+
+for(String textline : textlines) {
+	y = y + textHeight();
+	printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>350</x>
+      <y>500</y>
+      <w>61</w>
+      <h>61</h>
+    </coordinates>
+    <panel_attributes>3.
+Termin
+löschen</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=height / 2 - textHeight() * textlines.size() * 2 / 3;
+
+drawCircle(width / 2, height / 2, height / 2);
+
+for(String textline : textlines) {
+	y = y + textHeight();
+	printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>80</x>
+      <y>230</y>
+      <w>71</w>
+      <h>31</h>
+    </coordinates>
+    <panel_attributes>Benutzer</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
+
+int y=textHeight();
+
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
+
+drawRectangle(0,0,onGrid(width),onGrid(height));</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>520</x>
+      <y>230</y>
+      <w>71</w>
+      <h>31</h>
+    </coordinates>
+    <panel_attributes>Kalender</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
+
+int y=textHeight();
+
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
+
+drawLineHorizontal(0);
+drawLineHorizontal(y - 4);</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>140</x>
+      <y>220</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Meetingdaten</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>220</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Meeting</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>130</x>
+      <y>580</y>
+      <w>540</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>Meeting = Meetingdaten + Kontakte
+Meetingdaten = Startzeit + Endzeit + Beschreibung + Ort
+Kontakte = {Kontakt}
+Kontakt = Vorname + Nachname + Beschreibung + Email + Telefonnr
+Startzeit = Uhrzeit
+Endzeit = Uhrzeit
+Uhrzeit = [1|2|...|23] + ":" + [0|1|...|59]
+Beschreibung = {Buchstabe}
+Ort = {Buchstabe}
+Vorname = {Buchstabe}
+Nachname = {Buchstabe}
+Email = Vorname + "." + Nachname + "@" + 1{Buchstabe + "." + Buchstabe}
+Telefonnr = {Ziffer}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>700</x>
+      <y>340</y>
+      <w>61</w>
+      <h>31</h>
+    </coordinates>
+    <panel_attributes>Kontakt</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
+
+int y=textHeight();
+
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
+
+drawRectangle(0,0,onGrid(width),onGrid(height));</custom_code>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>650</x>
+      <y>150</y>
+      <w>91</w>
+      <h>31</h>
+    </coordinates>
+    <panel_attributes>Adressbuch</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//This is a tutorial for a self resizing component 
+//In addition you are able to resize at manually
+//As soon as it is resized manually a new text is
+//added to the property panel
+setAutoresize(20,20,10);
+
+int y=textHeight();
+
+boolean center = true;
+for(int i = 0; i &lt; textlines.size(); i++) {
+	String textline = textlines.get(i);
+	if(textline.equals("--")) {
+		drawLineHorizontal((int) (y-textHeight()*0.7));
+		center = false;
+		if (!isManualResized()) height -= (int) (textHeight()*0.75);
+		y += textHeight()*0.3;
+	}
+	else {
+		if (center) y += printCenter(textline,y); 
+		else y += printLeft(textline,y);
+	}
+}
+
+drawLineHorizontal(0);
+drawLineHorizontal(y - 4);</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>150</y>
+      <w>300</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Kontakte</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0;280.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>240</y>
+      <w>320</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m1=Meetingdaten</panel_attributes>
+    <additional_attributes>300.0;120.0;80.0;120.0;80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>140</x>
+      <y>240</y>
+      <w>230</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m1=Meetingdaten</panel_attributes>
+    <additional_attributes>210.0;160.0;90.0;160.0;90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>250</y>
+      <w>250</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+MeetingID</panel_attributes>
+    <additional_attributes>230.0;280.0;10.0;280.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>170</y>
+      <w>320</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m1=Kontakte</panel_attributes>
+    <additional_attributes>10.0;200.0;10.0;120.0;300.0;120.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>360</y>
+      <w>420</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m1=Meetingdaten</panel_attributes>
+    <additional_attributes>320.0;10.0;320.0;40.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>250</y>
+      <w>190</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m1=Meeting</panel_attributes>
+    <additional_attributes>130.0;10.0;130.0;140.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>250</y>
+      <w>230</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Meeting</panel_attributes>
+    <additional_attributes>10.0;250.0;10.0;210.0;210.0;210.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>340</y>
+      <w>440</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m2=Meetingdaten</panel_attributes>
+    <additional_attributes>360.0;10.0;420.0;10.0;420.0;190.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>340</x>
+      <y>30</y>
+      <w>81</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>4.
+Erinnerung
+aktivieren</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to define the element's behavior.
+//
+//Example:  Change the line
+//  y += printCenter(textline,y);
+//to
+//  y += 2*printCenter(textline,y);
+//and observe the element preview.
+
+int y=height / 2 - textHeight() * textlines.size() * 2 / 3;
+
+drawCircle(width / 2, height / 2, height / 2);
+
+for(String textline : textlines) {
+	y = y + textHeight();
+	printCenter(textline,y);
+}</custom_code>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>50</y>
+      <w>170</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Meeting</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0;150.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>60</y>
+      <w>240</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+Erinnerung</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0;220.0;10.0</additional_attributes>
+  </element>
+</diagram>
