@@ -33,8 +33,28 @@
     vertical-align: top;
 }
 
-.underline {
+.textmarker {
     text-decoration: underline;
+}
+
+.textmarker.validation {
+    text-decoration-color: #9c27b0;
+}
+
+.textmarker.management {
+    text-decoration-color: #ff9800;
+}
+
+.textmarker.elicitation {
+    text-decoration-color: #4caf50;
+}
+
+.textmarker.documentation {
+    text-decoration-color: #03a9f4;
+}
+
+.textmarker.negotiation {
+    text-decoration-color: #bdbdbd;
 }
 
 .strike {
