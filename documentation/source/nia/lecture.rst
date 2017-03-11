@@ -444,3 +444,18 @@ Folie 23
 ^^^^^^^^
 
 Es scheint, dass 4 parallele Uploads langsamer sind, aber durch Free rider ist der einzelne Upload wieder die schlechtere Idee.
+
+Folie 62
+^^^^^^^^
+
+Über die Zeit lernt man andere Peers kennen, so dass nahezu ausgeschlossen werden kann, dass eine Datei nicht erfolgreich heruntergeladen werden kann.
+
+Folie 75
+^^^^^^^^
+
+Der Hauptgrund für pipelining ist Performance.
+
+Folie 86
+^^^^^^^^
+
+Es dauert bis das System "in die Gänge" gekommen ist. Zu Beginn dauert es bis die ersten Pieces ankommen.
