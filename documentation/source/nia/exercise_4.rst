@@ -39,7 +39,7 @@ Wahrscheinlichkeit
 
 ....
 
-k Knoten: :math:`\dfrac{\alpha}{n} * \dfrac{(\alpha - 1)}{(n - 1)} * \dfrac{(\alpha - 2)}{(n - 2)}`
+k Knoten: :math:`\dfrac{\alpha}{n} * \dfrac{(\alpha - 1)}{(n - 1)} * \dfrac{(\alpha - 2)}{(n - 2)} * ... * * \dfrac{(\alpha - k - 1)}{(n - k - 1)}`
 
 Code
 ++++

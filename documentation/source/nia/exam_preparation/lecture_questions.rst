@@ -6,10 +6,25 @@ Welche Aussage ist falsch?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. WebRTC erlaubt direkte Kommunikation zwischen Webclients
-b. WebRTC ermöglicht NAT-Traversal
-c. WebRTC stellt eine API für Web-Entwickler bereit
-d. WebRTC benötigt ein Browser-Plugin
++----------------------------------------------------------+----------+
+| Frage                                                    | korrekt? |
++==========================================================+==========+
+| WebRTC erlaubt direkte Kommunikation zwischen Webclients |          |
++----------------------------------------------------------+----------+
+| WebRTC ermöglicht NAT-Traversal                          | X        |
++----------------------------------------------------------+----------+
+| WebRTC stellt eine API für Web-Entwickler bereit         |          |
++----------------------------------------------------------+----------+
+| WebRTC benötigt ein Browser-Plugin                       | X        |
++----------------------------------------------------------+----------+
+
+.. epigraph::
+
+    "*WebRTC is a free, open project that provides browsers and mobile applications with Real-Time Communications (RTC) capabilities via simple APIs.*"
+
+    --`WebRTC <https://webrtc.org/>`_
+
+`WebRTC Wikipedia <https://en.wikipedia.org/wiki/WebRTC>`_
 
 ----
 
@@ -19,10 +34,19 @@ Welche Eigenschaften haben Small World Netze?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Geringer Durchmesser
-b. Kleine Betweenness Centrality
-c. Knotengrad folgt einem Potenzgesetz
-d. Hoher Clustering Coefficient
++-------------------------------------+----------+
+| Frage                               | korrekt? |
++=====================================+==========+
+| Geringer Durchmesser                | X        |
++-------------------------------------+----------+
+| Kleine Betweenness Centrality       |          |
++-------------------------------------+----------+
+| Knotengrad folgt einem Potenzgesetz | X        |
++-------------------------------------+----------+
+| Hoher Clustering Coefficient        | X        |
++-------------------------------------+----------+
+
+Eine Aussage über die Betweenness Centrality kann man schwer treffen. Tendenziell ist aber auf Grund einer niedrigen Anzahl an Kanten die Betweenness Centrality eher niedrig.
 
 ----
 
@@ -32,10 +56,19 @@ Wie kann Videostreaming durch das angegebene Protokoll nicht beeinträchtigt wer
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. TCP: Bildartefakte
-b. UDP: Bildartefakte
-c. TCP: Stalling
-d. UDP: Stalling
++--------------------+----------+
+| Frage              | korrekt? |
++====================+==========+
+| TCP: Bildartefakte | X        |
++--------------------+----------+
+| UDP: Bildartefakte |          |
++--------------------+----------+
+| TCP: Stalling      |          |
++--------------------+----------+
+| UDP: Stalling      |          |
++--------------------+----------+
+
+Bildartefakte können nicht entstehen, da bei TCP garantiert wird, dass alle Daten korrekt übertragen werden.
 
 ----
 
@@ -44,8 +77,15 @@ Können strukturierte Overlays mit CDNs benutzt werden?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Nein
-b. Ja
++-------+----------+
+| Frage | korrekt? |
++=======+==========+
+| Nein  |          |
++-------+----------+
+| Ja    | X        |
++-------+----------+
+
+Beispiel DNS.
 
 ----
 
@@ -55,10 +95,19 @@ Was ist die Hauptaufgabe von strukturierten Overlays?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Filesharing
-b. Suche von Daten
-c. Unstrukturierte Netze zu strukturieren
-d. Hashing von Daten
++----------------------------------------+----------+
+| Frage                                  | korrekt? |
++========================================+==========+
+| Filesharing                            |          |
++----------------------------------------+----------+
+| Suche von Daten                        | X        |
++----------------------------------------+----------+
+| Unstrukturierte Netze zu strukturieren |          |
++----------------------------------------+----------+
+| Hashing von Daten                      |          |
++----------------------------------------+----------+
+
+Das Hashing wird zwar in großem Maße durchgeführt, aber es ist keine Aufgabe von strukturierten Overlays. Mit Hilfe des Hashings sollen sowohl Knoten, als auch Inhalte gefunden werden.
 
 ----
 
@@ -68,10 +117,23 @@ Was ist der Unterschied zwischen ICN und CDN?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. CDN benutzt kein Caching - ICN schon
-b. ICN verändert Internetarchitektur (z.B. Router)
-c. Kein Unterschied: ICN ist eine Form von CDN
-d. CDN benutzt IP Routing - ICN nicht
++-------------------------------------------------+----------+
+| Frage                                           | korrekt? |
++=================================================+==========+
+| CDN benutzt kein Caching - ICN schon            |          |
++-------------------------------------------------+----------+
+| ICN verändert Internetarchitektur (z.B. Router) | X        |
++-------------------------------------------------+----------+
+| Kein Unterschied: ICN ist eine Form von CDN     |          |
++-------------------------------------------------+----------+
+| CDN benutzt IP Routing - ICN nicht              |          |
++-------------------------------------------------+----------+
+
+.. epigraph::
+
+    Information-centric networking (ICN) is an approach to evolve the Internet infrastructure to directly support this use by introducing uniquely named data as a core Internet principle. Data becomes independent from location, application, storage, and means of transportation, enabling in-network caching and replication.
+
+    -- `Information-Centric Networking Research Group <https://irtf.org/icnrg>`_
 
 ----
 
@@ -81,10 +143,17 @@ Was ist der Unterschied zwischen ICN und P2P?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. P2P wird auf Layer 7 implementiert - ICN nicht
-b. Routing nach Inhalten mit ICN - nicht möglich mit P2P
-c. P2P benutzt Resourcen der Anwender - ICN nicht
-d. ICN benötigt keinen Quellserver für Videos
++-------------------------------------------------------+----------+
+| Frage                                                 | korrekt? |
++=======================================================+==========+
+| P2P wird auf Layer 7 implementiert - ICN nicht        |          |
++-------------------------------------------------------+----------+
+| Routing nach Inhalten mit ICN - nicht möglich mit P2P |          |
++-------------------------------------------------------+----------+
+| P2P benutzt Resourcen der Anwender - ICN nicht        |          |
++-------------------------------------------------------+----------+
+| ICN benötigt keinen Quellserver für Videos            | X        |
++-------------------------------------------------------+----------+
 
 
 ----
@@ -94,10 +163,17 @@ Der Zuständigkeitsbereich eines Peers in Chord...
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. hängt von der Anzahl der Dokumente ab.
-b. wird durch die Finger bestimmt.
-c. hat eine zufällige Größe.
-d. ist gleich groß für alle Peers.
++----------------------------------------+----------+
+| Frage                                  | korrekt? |
++========================================+==========+
+| hängt von der Anzahl der Dokumente ab. |          |
++----------------------------------------+----------+
+| wird durch die Finger bestimmt.        | X        |
++----------------------------------------+----------+
+| hat eine zufällige Größe.              |          |
++----------------------------------------+----------+
+| ist gleich groß für alle Peers.        |          |
++----------------------------------------+----------+
 
 
 ----
@@ -108,8 +184,13 @@ In welcher Richtung wird mehr Verkehr erzeugt?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Downstream
-b. Upstream
++------------+----------+
+| Frage      | korrekt? |
++============+==========+
+| Downstream | X        |
++------------+----------+
+| Upstream   |          |
++------------+----------+
 
 ----
 
@@ -119,10 +200,17 @@ P2P-Anwendungen implementieren Overlays auf welcher Schicht?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Anwendungsschicht
-b. Im Endgerät
-c. Netzwerkschicht
-d. HTTP über TCP/IP
++-------------------+----------+
+| Frage             | korrekt? |
++===================+==========+
+| Anwendungsschicht | X        |
++-------------------+----------+
+| Im Endgerät       |          |
++-------------------+----------+
+| Netzwerkschicht   |          |
++-------------------+----------+
+| HTTP über TCP/IP  |          |
++-------------------+----------+
 
 ----
 
@@ -132,10 +220,17 @@ Was beschreibt die Betweenness Centrality?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Stärke des zentralen Clusters
-b. Wichtigkeit bei Knotenausfall
-c. Wichtigkeit eines Knotens für kürzeste Pfade
-d. Mittlere Distanz zwischen Knoten
++----------------------------------------------+----------+
+| Frage                                        | korrekt? |
++==============================================+==========+
+| Stärke des zentralen Clusters                |          |
++----------------------------------------------+----------+
+| Wichtigkeit bei Knotenausfall                | X        |
++----------------------------------------------+----------+
+| Wichtigkeit eines Knotens für kürzeste Pfade | X        |
++----------------------------------------------+----------+
+| Mittlere Distanz zwischen Knoten             |          |
++----------------------------------------------+----------+
 
 ----
 
@@ -144,10 +239,17 @@ Welche Funktionalität wird von Overlays immer angeboten?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Konnektivität zwischen Knoten
-b. Verteilen von Ressourcen
-c. Strukturiertes Netz
-d. Multicast
++-------------------------------+----------+
+| Frage                         | korrekt? |
++===============================+==========+
+| Konnektivität zwischen Knoten | X        |
++-------------------------------+----------+
+| Verteilen von Ressourcen      | X        |
++-------------------------------+----------+
+| Strukturiertes Netz           |          |
++-------------------------------+----------+
+| Multicast                     |          |
++-------------------------------+----------+
 
 ----
 
@@ -157,10 +259,17 @@ Auf welcher Schicht wird das P2P-Paradigma heutzutage im Internet implementiert?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Transport Layer
-b. Session Layer
-c. Network Layer
-d. Application Layer
++-------------------+----------+
+| Frage             | korrekt? |
++===================+==========+
+| Transport Layer   |          |
++-------------------+----------+
+| Session Layer     |          |
++-------------------+----------+
+| Network Layer     |          |
++-------------------+----------+
+| Application Layer | X        |
++-------------------+----------+
 
 ----
 
@@ -169,10 +278,17 @@ Was ist der Unterschied zwischen Overlays und P2P?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. P2P ist unstrukturiert; Overlays sind strukturiert
-b. P2P benutzt Overlays
-c. Overlays benutzt man zur Suche, P2P für Resourcen
-d. kein Unterschied
++----------------------------------------------------+----------+
+| Frage                                              | korrekt? |
++====================================================+==========+
+| P2P ist unstrukturiert; Overlays sind strukturiert |          |
++----------------------------------------------------+----------+
+| P2P benutzt Overlays                               | X        |
++----------------------------------------------------+----------+
+| Overlays benutzt man zur Suche, P2P für Resourcen  | X        |
++----------------------------------------------------+----------+
+| kein Unterschied                                   |          |
++----------------------------------------------------+----------+
 
 
 ----
@@ -183,10 +299,17 @@ Welche der Aufgaben übernimmt TCP nicht?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Paketumleitung (Stau im Netz)
-b. Flusskontrolle (langsamer Empfänger)
-c. Überlastkontrolle (langsames Netz)
-d. Paketwiederholung (Verlust im Netz)
++--------------------------------------+----------+
+| Frage                                | korrekt? |
++======================================+==========+
+| Paketumleitung (Stau im Netz)        | X        |
++--------------------------------------+----------+
+| Flusskontrolle (langsamer Empfänger) | X        |
++--------------------------------------+----------+
+| Überlastkontrolle (langsames Netz)   | X        |
++--------------------------------------+----------+
+| Paketwiederholung (Verlust im Netz)  |          |
++--------------------------------------+----------+
 
 
 ----
@@ -196,10 +319,17 @@ Was ist der Nutzen von Overlays?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Technische Grenzen des Internet umgehen
-b. Sind immer schneller als das Underlay
-c. Erlauben Unabhängigkeit von Dienstanbietern und ISPs
-d. Kosten nichts
++------------------------------------------------------+----------+
+| Frage                                                | korrekt? |
++======================================================+==========+
+| Technische Grenzen des Internet umgehen              |          |
++------------------------------------------------------+----------+
+| Sind immer schneller als das Underlay                |          |
++------------------------------------------------------+----------+
+| Erlauben Unabhängigkeit von Dienstanbietern und ISPs | X        |
++------------------------------------------------------+----------+
+| Kosten nichts                                        |          |
++------------------------------------------------------+----------+
 
 
 ----
@@ -210,10 +340,17 @@ Welche Aussage ist korrekt?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. HTTP besitzt kein eigenes Nachrichtenformat
-b. HTTP ist zustandsbehaftet
-c. HTTP benutzt TCP
-d. HTTP sendet maximal ein Objekt pro TCP Verbindung
++---------------------------------------------------+----------+
+| Frage                                             | korrekt? |
++===================================================+==========+
+| HTTP besitzt kein eigenes Nachrichtenformat       |          |
++---------------------------------------------------+----------+
+| HTTP ist zustandsbehaftet                         |          |
++---------------------------------------------------+----------+
+| HTTP benutzt TCP                                  | X        |
++---------------------------------------------------+----------+
+| HTTP sendet maximal ein Objekt pro TCP Verbindung |          |
++---------------------------------------------------+----------+
 
 
 ----
@@ -223,10 +360,17 @@ Wie erreicht man logarithmischen Suchaufwand im Chord-Ring?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Direkte Nachfolger
-b. Finger Table
-c. Hash-Berechnung
-d. Parallele Suchanfragen
++------------------------+----------+
+| Frage                  | korrekt? |
++========================+==========+
+| Direkte Nachfolger     |          |
++------------------------+----------+
+| Finger Table           | X        |
++------------------------+----------+
+| Hash-Berechnung        |          |
++------------------------+----------+
+| Parallele Suchanfragen |          |
++------------------------+----------+
 
 
 ----
@@ -236,10 +380,17 @@ Was ist bei strukturierten und unstrukturierten Overlays unterschiedlich?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Bekanntheit der Topologie und Berechenvorschrift
-b. Erfolg einer Suchanfrage
-c. Implementierung der Suche
-d. Ob Suchanfrage determiniert
++--------------------------------------------------+----------+
+| Frage                                            | korrekt? |
++==================================================+==========+
+| Bekanntheit der Topologie und Berechenvorschrift | X        |
++--------------------------------------------------+----------+
+| Erfolg einer Suchanfrage                         |          |
++--------------------------------------------------+----------+
+| Implementierung der Suche                        | X        |
++--------------------------------------------------+----------+
+| Ob Suchanfrage determiniert                      |          |
++--------------------------------------------------+----------+
 
 
 ----
@@ -249,10 +400,17 @@ Wie wird Routing im Internet realisiert?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Durch Struktur des Overlays
-b. Auf IP-Schicht
-c. Inhaltsbasiert anhand "Named Data Objects"
-d. Oft auf Anwendungsschicht
++--------------------------------------------+----------+
+| Frage                                      | korrekt? |
++============================================+==========+
+| Durch Struktur des Overlays                |          |
++--------------------------------------------+----------+
+| Auf IP-Schicht                             | X        |
++--------------------------------------------+----------+
+| Inhaltsbasiert anhand "Named Data Objects" |          |
++--------------------------------------------+----------+
+| Oft auf Anwendungsschicht                  |          |
++--------------------------------------------+----------+
 
 
 ----
@@ -263,8 +421,13 @@ Zeigt der theoretische Chord-Finger :math:`id+2^{i-1}` immer genau auf einen Pee
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Ja
-b. Nein
++-------+----------+
+| Frage | korrekt? |
++=======+==========+
+| Ja    |          |
++-------+----------+
+| Nein  | X        |
++-------+----------+
 
 
 ----
@@ -274,10 +437,17 @@ Welche Daten werden in strukturierten Overlays wie Chord ausgetauscht?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Keine: stellt nur Kommunikationsoverlay zur Verfügung
-b. Nutzdaten
-c. Beides: Nutz- und Metadaten
-d. Metadaten
++-------------------------------------------------------+----------+
+| Frage                                                 | korrekt? |
++=======================================================+==========+
+| Keine: stellt nur Kommunikationsoverlay zur Verfügung |          |
++-------------------------------------------------------+----------+
+| Nutzdaten                                             |          |
++-------------------------------------------------------+----------+
+| Beides: Nutz- und Metadaten                           |          |
++-------------------------------------------------------+----------+
+| Metadaten                                             | X        |
++-------------------------------------------------------+----------+
 
 
 ----
@@ -287,10 +457,17 @@ Wie baut man am besten einen "Application-Layer Multicast Tree" für Live-Videos
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Zuverlässige Knoten als Blätter
-b. Egal - Overlay passt sich selbstständig an
-c. Maximale Tiefe
-d. Viele Kinder für Knoten mit hoher Bandbreite
++----------------------------------------------+----------+
+| Frage                                        | korrekt? |
++==============================================+==========+
+| Zuverlässige Knoten als Blätter              |          |
++----------------------------------------------+----------+
+| Egal - Overlay passt sich selbstständig an   |          |
++----------------------------------------------+----------+
+| Maximale Tiefe                               |          |
++----------------------------------------------+----------+
+| Viele Kinder für Knoten mit hoher Bandbreite | X        |
++----------------------------------------------+----------+
 
 ----
 
@@ -299,9 +476,15 @@ Welcher Dienst erzeugt den meisten Verkehr (Downstream)?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. YouTube
-b. Google
-c. BitTorrent
++------------+----------+
+| Frage      | korrekt? |
++============+==========+
+| YouTube    | X        |
++------------+----------+
+| Google     |          |
++------------+----------+
+| BitTorrent |          |
++------------+----------+
 
 
 ----
@@ -312,9 +495,15 @@ Bei welchem Dienst ist das Verhältnis von Upstream- und Downstream-Verkehr in e
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Skype
-b. BitTorrent
-c. YouTube
++------------+----------+
+| Frage      | korrekt? |
++============+==========+
+| Skype      | X        |
++------------+----------+
+| BitTorrent |          |
++------------+----------+
+| YouTube    |          |
++------------+----------+
 
 ----
 
@@ -324,10 +513,17 @@ Welche Komponenten enthält eine URL?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Hostname und IP-Adresse
-b. HTTP-Request
-c. Dateityp
-d. Anwendungsprotokoll
++-------------------------+----------+
+| Frage                   | korrekt? |
++=========================+==========+
+| Hostname und IP-Adresse |          |
++-------------------------+----------+
+| HTTP-Request            |          |
++-------------------------+----------+
+| Dateityp                |          |
++-------------------------+----------+
+| Anwendungsprotokoll     | X        |
++-------------------------+----------+
 
 ----
 
@@ -336,10 +532,17 @@ Wodurch entstehen unstrukturierte Overlays?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Physikalisches Netzwerk
-b. Implementierung der Algorithmen
-c. Präferenz der Nutzer
-d. Routing im Internet
++---------------------------------+----------+
+| Frage                           | korrekt? |
++=================================+==========+
+| Physikalisches Netzwerk         |          |
++---------------------------------+----------+
+| Implementierung der Algorithmen | X        |
++---------------------------------+----------+
+| Präferenz der Nutzer            | X        |
++---------------------------------+----------+
+| Routing im Internet             |          |
++---------------------------------+----------+
 
 ----
 
@@ -348,23 +551,38 @@ Wie kann man in hierarchischen Overlays die Superpeers miteinander verknüpfen?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Mit strukturierten Overlays
-b. Mit unstrukturierten Overlays
-c. Nicht nötig: Superpeers haben komplette Information
-d. Implementierung der Algorithmen
-e. Vollvermascht
++-----------------------------------------------------+----------+
+| Frage                                               | korrekt? |
++=====================================================+==========+
+| Mit strukturierten Overlays                         | X        |
++-----------------------------------------------------+----------+
+| Mit unstrukturierten Overlays                       | X        |
++-----------------------------------------------------+----------+
+| Nicht nötig: Superpeers haben komplette Information |          |
++-----------------------------------------------------+----------+
+| Implementierung der Algorithmen                     | X        |
++-----------------------------------------------------+----------+
+| Vollvermascht                                       | X        |
++-----------------------------------------------------+----------+
 
 ----
 
-Was passiert mit einem TCP-Segment, wenn es an die Netzwerkschicht  weitergegeben wird?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Was passiert mit einem TCP-Segment, wenn es an die Netzwerkschicht weitergegeben wird?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Header wird entfernt (Transportschicht-Header)
-b. Header wird hinzugefügt (Transportschicht-Header)
-c. Header wird entfernt (Netzwerkschicht-Header)
-d. Header wird hinzugefügt (Netzwerkschicht-Header)
++---------------------------------------------------+----------+
+| Frage                                             | korrekt? |
++===================================================+==========+
+| Header wird entfernt (Transportschicht-Header)    |          |
++---------------------------------------------------+----------+
+| Header wird hinzugefügt (Transportschicht-Header) | X        |
++---------------------------------------------------+----------+
+| Header wird entfernt (Netzwerkschicht-Header)     |          |
++---------------------------------------------------+----------+
+| Header wird hinzugefügt (Netzwerkschicht-Header)  |          |
++---------------------------------------------------+----------+
 
 ----
 
@@ -374,10 +592,17 @@ Welche Applikationsklasse hat aktuell den größten Verkehrsanteil im Internet?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Internet Video
-b. File Sharing
-c. Gaming
-d. Email
++----------------+----------+
+| Frage          | korrekt? |
++================+==========+
+| Internet Video | X        |
++----------------+----------+
+| File Sharing   |          |
++----------------+----------+
+| Gaming         |          |
++----------------+----------+
+| Email          |          |
++----------------+----------+
 
 ----
 
@@ -386,10 +611,17 @@ Was wird von P2P-Anwendungen implementiert?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Resource Mediation (Resourcenverwaltung)
-b. Transport Control Protocol (TCP)
-c. Resource Access Control (Resourcenzugriff)
-d. Content Delivery
++--------------------------------------------+----------+
+| Frage                                      | korrekt? |
++============================================+==========+
+| Resource Mediation (Resourcenverwaltung)   | X        |
++--------------------------------------------+----------+
+| Transport Control Protocol (TCP)           |          |
++--------------------------------------------+----------+
+| Resource Access Control (Resourcenzugriff) | X        |
++--------------------------------------------+----------+
+| Content Delivery                           | X        |
++--------------------------------------------+----------+
 
 ----
 
@@ -399,10 +631,17 @@ Warum bzw. wann setzt man das unzuverlässige UDP-Protokoll ein?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Datenverluste unwichtig
-b. Einfache Antwort von Server in 1 Paket
-c. Schnelle Übertragung von großen Datenmengen
-d. Heartbeats
++---------------------------------------------+----------+
+| Frage                                       | korrekt? |
++=============================================+==========+
+| Datenverluste unwichtig                     | X        |
++---------------------------------------------+----------+
+| Einfache Antwort von Server in 1 Paket      |          |
++---------------------------------------------+----------+
+| Schnelle Übertragung von großen Datenmengen |          |
++---------------------------------------------+----------+
+| Heartbeats                                  |          |
++---------------------------------------------+----------+
 
 ----
 
@@ -412,10 +651,17 @@ Welche Aussage ist korrekt?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Strukturierte Overlays kann man nicht fluten
-b. Unstrukturierte haben mehr Overhead als strukturierte
-c. Unstrukturierte Overlays haben keine Shortcuts
-d. Strukturierte Overlays sind schneller als unstrukturierte
++-----------------------------------------------------------+----------+
+| Frage                                                     | korrekt? |
++===========================================================+==========+
+| Strukturierte Overlays kann man nicht fluten              |          |
++-----------------------------------------------------------+----------+
+| Unstrukturierte haben mehr Overhead als strukturierte     |          |
++-----------------------------------------------------------+----------+
+| Unstrukturierte Overlays haben keine Shortcuts            | X        |
++-----------------------------------------------------------+----------+
+| Strukturierte Overlays sind schneller als unstrukturierte |          |
++-----------------------------------------------------------+----------+
 
 ----
 
@@ -424,10 +670,17 @@ Welches sind P2P Anwendungen?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. BitTorrent
-b. Content Distribution Networks (CDN)
-c. Tor
-d. Information-Centric Networking (ICN)
++--------------------------------------+----------+
+| Frage                                | korrekt? |
++======================================+==========+
+| BitTorrent                           | X        |
++--------------------------------------+----------+
+| Content Distribution Networks (CDN)  | X        |
++--------------------------------------+----------+
+| Tor                                  |          |
++--------------------------------------+----------+
+| Information-Centric Networking (ICN) |          |
++--------------------------------------+----------+
 
 ----
 
@@ -437,10 +690,17 @@ Wozu wird ein unstrukturiertes Overlay genutzt?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Resource Mediation
-b. Resource Access Control
-c. Herstellen der Physikalische Konnektivität
-d. Resource Mediation und Resource Access Control
++------------------------------------------------+----------+
+| Frage                                          | korrekt? |
++================================================+==========+
+| Resource Mediation                             | X        |
++------------------------------------------------+----------+
+| Resource Access Control                        | X        |
++------------------------------------------------+----------+
+| Herstellen der Physikalische Konnektivität     |          |
++------------------------------------------------+----------+
+| Resource Mediation und Resource Access Control | X        |
++------------------------------------------------+----------+
 
 ----
 
@@ -449,10 +709,17 @@ Von welchem Parameter hängt die tatsächliche Anzahl der Finger-Peers im Chord-
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Wertebereich der Hash-Funktion: 2m
-b. Redundanzfaktor: r
-c. Anzahl der Peers im System: n
-d. Anzahl der Dokumente: d
++------------------------------------+----------+
+| Frage                              | korrekt? |
++====================================+==========+
+| Wertebereich der Hash-Funktion: 2m | X        |
++------------------------------------+----------+
+| Redundanzfaktor: r                 | X        |
++------------------------------------+----------+
+| Anzahl der Peers im System: n      | X        |
++------------------------------------+----------+
+| Anzahl der Dokumente: d            |          |
++------------------------------------+----------+
 
 ----
 
@@ -461,7 +728,14 @@ Ist P2P zentral oder dezentral?
 
 Wählen Sie eine oder mehrere Antworten:
 
-a. Immer dezentral
-b. Immer zentral
-c. Kann nie ausschließlich dezentral sein
-d. Kann nie ausschließlich zentral sein
++----------------------------------------+----------+
+| Frage                                  | korrekt? |
++========================================+==========+
+| Immer dezentral                        |          |
++----------------------------------------+----------+
+| Immer zentral                          |          |
++----------------------------------------+----------+
+| Kann nie ausschließlich dezentral sein | X        |
++----------------------------------------+----------+
+| Kann nie ausschließlich zentral sein   | X        |
++----------------------------------------+----------+
