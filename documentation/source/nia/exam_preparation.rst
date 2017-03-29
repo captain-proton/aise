@@ -26,11 +26,12 @@ One-Hop DHT: Was ist die mittlere Anzahl interner Hops?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Wahrscheinlichkeit 0 hops: :math:`\frac{1}{n}`
+
 Wahrscheinlichkeit 1 hop: :math:`\frac{n - 1}{n}`
 
-Erwartungswert: :math:`\sum{i = 0}{1} i * P(X=i)`
+Erwartungswert: :math:`\sum_{i = 0}^{1} i * P(X=i)`
 
-= 0 * 1/n + 1 * (1 - 1/n)
+= :math:`0 * \dfrac{1}{n} + 1 * (1 - \dfrac{1}{n})`
 
 Lokalen Clustering Koeffizienten bestimmen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -71,21 +72,27 @@ Chord ring ID berechnen und Finger aufzeigen
 Erster Klausurtermin 2017
 =========================
 
-1) CCDF Ablesen
-- welches system niedrigere latenz
-- niedrigere varianz
-- median und 90% quantil bestimmen
-2) Chord-Sachen
-- One-Hop DHT mittlere Anzahl an Hops
-- mittlere Verarbeitungsdauer einer Anfrage in One-Hop DHT
-- Chord-Ring Peer mit Modulo-Hashfkt errechnen
-3)
-- BitCoin
-- Proof-Of-Work
-- Inverse Hashfkt berechnen
-- Anzahl BitCoins
-- Dauer bis alle Bitcoins
-4)
-- Was passiert wenn Bandbreite kleiner Videobitrate? (Unterscheiden sie hierbei 3 Streamingansätze)
-- mittlere Stallingdauer berechnen (Grafik wie F 3.77)
-5) Graph gegeben: Degree, Clustering Coefficient, Degree Centrality, Globaler Clustering Coefficient bestimmen
+1. CCDF Ablesen
+
+    a) welches system niedrigere latenz
+    b) niedrigere varianz
+    c) median und 90% quantil bestimmen
+
+2. Chord
+
+    a) One-Hop DHT mittlere Anzahl an Hops
+    b) mittlere Verarbeitungsdauer einer Anfrage in One-Hop DHT
+    c) Chord-Ring Peer mit Modulo-Hashfkt errechnen
+
+3. Bitcoin
+
+    a) Proof-Of-Work
+    b) Inverse Hashfkt berechnen
+    c) Anzahl BitCoins
+    d) Dauer bis alle Bitcoins
+
+4. Video Streaming
+
+    a) Was passiert wenn Bandbreite kleiner Videobitrate? (Unterscheiden sie hierbei 3 Streamingansätze)
+    b) mittlere Stallingdauer berechnen (Grafik wie F 3.77)
+    c) Graph gegeben: Degree, Clustering Coefficient, Degree Centrality, Globaler Clustering Coefficient bestimmen
