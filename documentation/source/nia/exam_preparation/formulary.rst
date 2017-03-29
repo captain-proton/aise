@@ -51,7 +51,11 @@ Varianz bzw. unkorrigierte Stichprobenvarianz
 
 :math:`\bar{x}` = Arithmetisches Mittel
 
-`Wikipedia <https://de.wikipedia.org/wiki/Stichprobenvarianz>`_
+Sollte der wahre Mittelwert bekannt sein und muss nicht aus der Stichprobe ermittelt werden ändert sich die Formel entsprechend.
+
+:Formel: :math:`s^{'^2}  = \sigma^2 = \dfrac{1}{n} \sum_{i = 1}^{n} (x_i - \mu)^2`
+
+`Wikipedia - Stichprobenvarianz <https://de.wikipedia.org/wiki/Stichprobenvarianz>`_
 
 Mehrstufige Zufallsexperimente
 ------------------------------
@@ -110,12 +114,46 @@ Umgeformt ergibt diese Vorschrift:
 
 `Hash Collision Probabilities <http://preshing.com/20110504/hash-collision-probabilities/>`_
 
+Wahrscheinlichkeit, dass ein Peer *i* Hops entfernt ist
+-------------------------------------------------------
+
+:math:`p_i = P(X = i) = \dfrac{\binom{k}{i}}{2^k}`
+
+Bei einer Chord Größe von :math:`n = 2^k`
+
+:math:`k` ist hier die Anzahl der Finger eines Knotens.
+
+Für :math:`\binom{n}{k}` siehe `Binomialkoeffizient <http://www.frustfrei-lernen.de/mathematik/binomialkoeffizient.html>`_
+
 Knotengrad
 ----------
 
 Im ungerichteten Graphen ist der Knotengrad gleich der Anzahl Nachbarn eines Knotens.
 
 `Wikipedia - Knotengrad <https://de.wikipedia.org/wiki/Grad_(Graphentheorie)>`_
+
+Degree centrality
+-----------------
+
+:math:`C_D(v) = \dfrac{\delta(v)}{n - 1}`
+
+:math:`n`: Anzahl Knoten im Netz
+
+:math:`\delta(v)`: Knotengrad
+
+Zufallsgraph
+-------------------------------
+
+Durchschnittliche Anzahl Kanten: :math:`n * (n - 1) * \dfrac{p}{2}`
+
+Durchschnittlicher Knotengrad :math:`(n - 1) * p`
+
+Preferential Attachment
+-----------------------
+
+Wahrscheinlichkeit, dass ein neuer Knoten verbunden mit Knoten :math:`i` ist:
+
+:math:`p_i = \dfrac{k_i}{\sum_j k_j}`
 
 Cluster Koeffizient
 -------------------
