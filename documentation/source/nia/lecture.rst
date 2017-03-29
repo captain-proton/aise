@@ -333,7 +333,7 @@ Bei :math:`2^i` ist der Aufwand logarithmisch
 Folie 29
 ^^^^^^^^
 
-Bei Amazon werden ständig verfügbare Server mittels DHT verwaltet, da das System ansich selbstorganisierend ist. Ansonsten wäre die DHT nicht nötig, da kein Churn, also wegfallende Peers, vorhanden ist.
+Bei Amazon werden ständig verfügbare Server mittels DHT verwaltet, da das System ansich selbstorganisierend ist. Ansonsten wäre die DHT nicht nötig, da kein Churn, also join/leave von Peers, vorhanden ist.
 
 Folie 31
 ^^^^^^^^
