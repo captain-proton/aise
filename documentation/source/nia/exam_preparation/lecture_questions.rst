@@ -9,13 +9,13 @@ Wählen Sie eine oder mehrere Antworten:
 +----------------------------------------------------------+----------+
 | Frage                                                    | korrekt? |
 +==========================================================+==========+
-| WebRTC erlaubt direkte Kommunikation zwischen Webclients |          |
+| WebRTC erlaubt direkte Kommunikation zwischen Webclients | X        |
 +----------------------------------------------------------+----------+
-| WebRTC ermöglicht NAT-Traversal                          | X        |
+| WebRTC ermöglicht NAT-Traversal                          |          |
 +----------------------------------------------------------+----------+
-| WebRTC stellt eine API für Web-Entwickler bereit         |          |
+| WebRTC stellt eine API für Web-Entwickler bereit         | X        |
 +----------------------------------------------------------+----------+
-| WebRTC benötigt ein Browser-Plugin                       | X        |
+| WebRTC benötigt ein Browser-Plugin                       |          |
 +----------------------------------------------------------+----------+
 
 .. epigraph::
@@ -168,9 +168,9 @@ Wählen Sie eine oder mehrere Antworten:
 +========================================+==========+
 | hängt von der Anzahl der Dokumente ab. |          |
 +----------------------------------------+----------+
-| wird durch die Finger bestimmt.        | X        |
+| wird durch die Finger bestimmt.        |          |
 +----------------------------------------+----------+
-| hat eine zufällige Größe.              |          |
+| hat eine zufällige Größe.              | X        |
 +----------------------------------------+----------+
 | ist gleich groß für alle Peers.        |          |
 +----------------------------------------+----------+
@@ -442,13 +442,14 @@ Wählen Sie eine oder mehrere Antworten:
 +=======================================================+==========+
 | Keine: stellt nur Kommunikationsoverlay zur Verfügung |          |
 +-------------------------------------------------------+----------+
-| Nutzdaten                                             |          |
+| Nutzdaten                                             | X        |
 +-------------------------------------------------------+----------+
-| Beides: Nutz- und Metadaten                           |          |
+| Beides: Nutz- und Metadaten                           | X        |
 +-------------------------------------------------------+----------+
 | Metadaten                                             | X        |
 +-------------------------------------------------------+----------+
 
+Es kommt hier auf die Definition von Nutzdaten an.
 
 ----
 
@@ -709,17 +710,17 @@ Von welchem Parameter hängt die tatsächliche Anzahl der Finger-Peers im Chord-
 
 Wählen Sie eine oder mehrere Antworten:
 
-+------------------------------------+----------+
-| Frage                              | korrekt? |
-+====================================+==========+
-| Wertebereich der Hash-Funktion: 2m | X        |
-+------------------------------------+----------+
-| Redundanzfaktor: r                 | X        |
-+------------------------------------+----------+
-| Anzahl der Peers im System: n      | X        |
-+------------------------------------+----------+
-| Anzahl der Dokumente: d            |          |
-+------------------------------------+----------+
++---------------------------------------------+----------+
+| Frage                                       | korrekt? |
++=============================================+==========+
+| Wertebereich der Hash-Funktion: :math:`2^m` | X        |
++---------------------------------------------+----------+
+| Redundanzfaktor: :math:`r`                  | X        |
++---------------------------------------------+----------+
+| Anzahl der Peers im System: :math:`n`       | X        |
++---------------------------------------------+----------+
+| Anzahl der Dokumente: :math:`d`             |          |
++---------------------------------------------+----------+
 
 ----
 

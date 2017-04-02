@@ -95,4 +95,14 @@ Erster Klausurtermin 2017
 
     a) Was passiert wenn Bandbreite kleiner Videobitrate? (Unterscheiden sie hierbei 3 Streamingansätze)
     b) mittlere Stallingdauer berechnen (Grafik wie F 3.77)
-    c) Graph gegeben: Degree, Clustering Coefficient, Degree Centrality, Globaler Clustering Coefficient bestimmen
+
+5. Graphen
+
+    a) Graph gegeben: Degree, Clustering Coefficient, Degree Centrality, Globaler Clustering Coefficient bestimmen
+
+Anki Lernkarten
+===============
+
+`Software <https://apps.ankiweb.net/>`_
+
+:download:`Formelsammlung <exam_preparation/NIA-Formeln.apkg>`
