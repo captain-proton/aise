@@ -247,3 +247,10 @@ Nach Filterung bleibt übrig:
       [3, 4, 5] <--
 
 Die Betweenness Centrality ist :math:`B_4 = \dfrac{1}{2} + 1 + \dfrac{1}{2}`
+
+Theoretische Anzahl an Bitcoins
+-------------------------------
+
+Für jeden neuen Block in der Kette wird derjenige, der den Block generiert hat mit einer Anzahl Bitcoins belohnt. Zu Beginn waren das 50 BTC. Alle 210000 Blöcke wird diese Zahl halbiert. Die maximale Anzahl an Bitcoins ist somit:
+
+:math:`\sum_{i = 0}^\infty \dfrac{210000 * 50}{2^i}`
