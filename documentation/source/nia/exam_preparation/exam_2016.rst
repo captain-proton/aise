@@ -77,13 +77,7 @@ Aufgabe 2 - Internettechnologien (8 Punkte)
 
 :task:`Zeichnen Sie kurz den schematischen Ablauf und alle involvierten Komponenten einer typischen DNS-Anfrage und Auflösung.`
 
-Lokal -> Heimrouter -> ISP -> Root
-
-www.uni-due.de -> www.uni-due.de -> uni-due.de -> de
-
-Derselbe Weg wird auch wieder nach unten gegangen. Root kennt uni-due.de und gibt diesen zurück zum ISP usw.
-
-Iterativer Vorgang
+.. image:: exam_2016_2.1.png
 
 2.2
 ^^^
