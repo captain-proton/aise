@@ -10,6 +10,18 @@ Master AI-SE Dokumentation
 Contents:
 
 .. toctree::
+    :caption: Informations- und Softwarevisualisierung
+
+    isv/lecture
+    isv/exercises
+
+.. toctree::
+    :caption: Distributed Objects and XML
+
+    dox/lecture
+    dox/exercises
+
+.. toctree::
     :caption: Neue Internetanwendungen
 
     nia/lecture
