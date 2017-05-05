@@ -7153,7 +7153,7 @@ function centroidLinePoint(lambda, phi) {
       x = cosPhi * cos$1(lambda),
       y = cosPhi * sin$1(lambda),
       z = sin$1(phi),
-      w = atan2(sqrt((w = y0 * z - z0 * y) * w + (w = z0 * x - x0 * z) * w + (w = x0 * y - y0 * x) * w), x0 * x + y0 * y + z0 * z);
+      w = atan2(sqrt((width = y0 * z - z0 * y) * width + (width = z0 * x - x0 * z) * width + (width = x0 * y - y0 * x) * width), x0 * x + y0 * y + z0 * z);
   W1 += w;
   X1 += w * (x0 + (x0 = x));
   Y1 += w * (y0 + (y0 = y));
