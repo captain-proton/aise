@@ -35,6 +35,7 @@ var RadarChart = {
     draw: function (id, d, options) {
         var config = {
             dotRadius: 5,
+            dotLabelPadding: 4,
             width: 600,
             height: 600,
             factorLegend: .85,
@@ -218,13 +219,14 @@ var RadarChart = {
                 .enter()
                 .append("circle")
                 .attr("data-polygon-id", "radar-chart-serie-" + series)
+                .attr("data-serie", series)
                 .attr("r", config.dotRadius)
-                .attr("title", function (j) {
-                    return Math.max(j.value, 0)
+                .attr("title", function (d) {
+                    return Math.max(d.value, 0)
                 })
-                .attr("cx", function (j, i) {
+                .attr("cx", function (d, i) {
 
-                    var radiusX = ((config.width / 2) / config.maxValue) * j.value;
+                    var radiusX = ((config.width / 2) / config.maxValue) * d.value;
                     var x = config.width / 2 + radiusX * Math.cos(RadarChart.toRadians(i, axisCount));
                     return x;
 
@@ -236,7 +238,7 @@ var RadarChart = {
                     return y;
                 })
                 .style("fill", config.color[ series ])
-                .on('mouseover', function () {
+                .on('mouseover', function (d, i) {
 
                     var polygonId = "#" + d3.select(this).attr("data-polygon-id");
                     svg.selectAll("polygon")
@@ -245,19 +247,54 @@ var RadarChart = {
                     svg.selectAll(polygonId)
                         .transition(200)
                         .style("fill-opacity", config.opacityAreaHighlight);
+                    svg.select('text[data-dot-label-id="' + d3.select(this).attr("data-serie") + '-' + i + '"]')
+                        .transition(200)
+                        .style("fill-opacity", 1)
+                        .style("stroke-opacity", 1);
                 })
-                .on('mouseout', function () {
+                .on('mouseout', function (d, i) {
                     svg.selectAll("polygon")
                         .transition(200)
                         .style("fill-opacity", config.opacityArea);
-                })
-                .append("title")
-                .text(function (j) {
-                    return Math.max(j.value, 0)
+                    svg.select('text[data-dot-label-id="' + d3.select(this).attr("data-serie") + '-' + i + '"]')
+                        .transition(200)
+                        .style("fill-opacity", 0)
+                        .style("stroke-opacity", 0);
                 });
 
             series++;
         });
+        series = 0;
+        d.forEach(function(row) {
+
+            svg.selectAll(".dot-label-" + series)
+                .data(row)
+                .enter()
+                .append("text")
+                .attr("data-area-label-serie", "area-label-" + series)
+                .attr("data-dot-label-id", function(d, i) {
+                    return series + "-" + i;
+                })
+                .attr("class", "dot-label")
+                .attr("x", function (d, i) {
+
+                    var radiusX = ((config.width / 2) / config.maxValue) * d.value;
+                    var x = config.width / 2 + radiusX * Math.cos(RadarChart.toRadians(i, axisCount)) + config.dotRadius;
+                    return x;
+
+                })
+                .attr("y", function (d, i) {
+
+                    var radiusY = ((config.height / 2) / config.maxValue) * d.value;
+                    var y = config.height / 2 + radiusY * Math.sin(RadarChart.toRadians(i, axisCount)) - config.dotRadius;
+                    return y;
+                })
+                .text(function(d) {
+                    return Math.max(d.value, 0);
+                })
+            ;
+            series++;
+        })
     },
 
     /**

@@ -47,6 +47,7 @@ var config = {
     opacityArea: 0,
     factorLegend: 1,
     dotRadius: 4,
+    dotLabelPadding: 4,
     color: colorscale
 };
 
@@ -101,12 +102,23 @@ legend.selectAll('text')
     .text(function (d) {
         return d;
     }).on('mouseover', function (d, i) {
-        var area = d3.select("#radar-chart-serie-" + i)
+        d3.select("#radar-chart-serie-" + i)
             .transition(200)
             .style("fill-opacity", .7);
+
+        d3.selectAll('text[data-area-label-serie="area-label-' + i + '"]')
+            .transition(200)
+            .style("fill-opacity", 1)
+            .style("stroke-opacity", 1)
+        ;
     }).on('mouseout', function (d, i) {
-        var area = d3.select("#radar-chart-serie-" + i)
+        d3.select("#radar-chart-serie-" + i)
             .transition(200)
             .style("fill-opacity", 0);
+
+        d3.selectAll('text[data-area-label-serie="area-label-' + i + '"]')
+            .transition(200)
+            .style("fill-opacity", 0)
+            .style("stroke-opacity", 0);
     })
 ;
