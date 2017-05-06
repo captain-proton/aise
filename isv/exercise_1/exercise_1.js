@@ -23,9 +23,7 @@ var columnLabels = ["Run", "Talk", "Kiss", "Write", "Eat", "Sleep", "Mumble", "R
 var width = 640;
 var height = 640;
 
-var colorscale = d3.scaleSequential(d3.interpolateViridis)
-    .domain([0, rowLabels.length])
-;
+var colorscale = d3.schemeCategory20b;
 
 var chartData = [];
 for (var row = 0; row < data.length; row++) {
@@ -48,7 +46,7 @@ var config = {
     ExtraHeight: 128,
     opacityArea: 0,
     factorLegend: 1,
-    nodeRadius: 5,
+    dotRadius: 4,
     color: colorscale
 };
 
@@ -87,7 +85,7 @@ legend.selectAll('rect')
     .attr("width", 10)
     .attr("height", 10)
     .style("fill", function (d, i) {
-        return colorscale(i);
+        return colorscale[i];
     })
 ;
 //Create text next to squares
@@ -102,5 +100,13 @@ legend.selectAll('text')
     })
     .text(function (d) {
         return d;
+    }).on('mouseover', function (d, i) {
+        var area = d3.select("#radar-chart-serie-" + i)
+            .transition(200)
+            .style("fill-opacity", .7);
+    }).on('mouseout', function (d, i) {
+        var area = d3.select("#radar-chart-serie-" + i)
+            .transition(200)
+            .style("fill-opacity", 0);
     })
 ;
