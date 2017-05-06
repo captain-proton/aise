@@ -1,4 +1,33 @@
 /**
+ * Use RadarChart.draw to draw a circular radar chart with data of the form:
+ * <pre>
+ * [
+ *   [
+ *     {
+ *       axis: "label",
+ *       value: 1
+ *     },
+ *     {
+ *       axis: "label2",
+ *       value: 2
+ *     },
+ *   ],
+ *   [
+ *     {
+ *       axis: "label",
+ *       value: 3.1
+ *     },
+ *     {
+ *       axis: "label2",
+ *       value: 0.4
+ *     },
+ *   ],
+ * ]
+ * </pre>
+ *
+ * The axis acts as id the value is show at the axis. Calculations
+ * depend highly on the use of polar coordinates.
+ *
  * @see https://en.wikipedia.org/wiki/Polar_coordinate_system
  * @type {{draw: RadarChart.draw, toRadians: RadarChart.toRadians}}
  */
@@ -13,7 +42,7 @@ var RadarChart = {
             maxValue: 0,
             opacityArea: 0.3,
             opacityAreaHighlight: 0.7,
-            ToRight: 5,
+            CircleLabelX: 5,
             TranslateX: 80,
             TranslateY: 30,
             ExtraWidth: 100,
@@ -29,7 +58,7 @@ var RadarChart = {
             }
         }
         config.radians = 2 * Math.PI;
-        
+
         // calculate the maximum value of config and all given values in d
         config.maxValue = Math.max(config.maxValue, d3.max(d, function (i) {
             return d3.max(i.map(function (o) {
@@ -75,7 +104,7 @@ var RadarChart = {
 
             levelText.text(Number((j + 1) * config.maxValue / config.levels).toFixed(2))
                 .attr("x", function () {
-                    return config.width / 2 + config.ToRight;
+                    return config.width / 2 + config.CircleLabelX;
                 })
                 .attr("y", function () {
                     var levelRadius = radius * ((j + 1) / config.levels);
