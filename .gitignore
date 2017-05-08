@@ -191,3 +191,9 @@ sftp-config.json
 
 ## BUILDS
 build/
+
+
+## Eclipse
+
+.classpath
+bin/
