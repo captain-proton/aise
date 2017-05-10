@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<extension  point="org.eclipse.emf.ecp.view.model.provider.xmi.file">
+<file filePath="model/Post.view"/>
+
+<file filePath="model/Thread.view"/>
+
+<file filePath="model/Moderator.view"/>
+
+<file filePath="model/User.view"/>
+
+<file filePath="model/Forum.view"/>
+</extension>
+</plugin>
