@@ -36,11 +36,13 @@ var RadarChart = {
         var config = {
             dotRadius: 5,
             dotLabelPadding: 4,
+            dotOpacity: 1,
             width: 600,
             height: 600,
             factorLegend: .85,
             levels: 3,
             maxValue: 0,
+            axisLabelRadius: 10,
             opacityArea: 0.3,
             opacityAreaHighlight: 0.7,
             CircleLabelX: 5,
@@ -140,10 +142,10 @@ var RadarChart = {
             .attr("class", "line");
 
         // text at the end of each line
-        axis.append("text")
+        var axisLabel = axis.append("text")
             .attr("class", "axis-label")
-            .text(function (d) {
-                return d;
+            .attr("id", function(d, i) {
+                return "axis-label-" + i;
             })
             .attr("transform", function (d, i) {
                 var rotate = i < axisCount / 2.0
@@ -153,16 +155,28 @@ var RadarChart = {
                 // calculate polar coordinates
                 var angleRadians = RadarChart.toRadians(i, axisCount);
 
-                var translateX = radius + radius * Math.cos(angleRadians);
-                var translateY = radius + radius * Math.sin(angleRadians);
+                var textRadius = radius + config.axisLabelRadius;
+                var translateX = radius + textRadius * Math.cos(angleRadians);
+                var translateY = radius + textRadius * Math.sin(angleRadians);
 
                 return "translate(" + translateX + ", " + translateY + ") rotate(" + rotate + ")";
+            });
+        axisLabel.append("tspan")
+            .attr("x", "0")
+            .text(function (d) {
+                return d;
+            });
+        axisLabel.append("tspan")
+            .attr("x", "0")
+            .attr("dy", "1.2em")
+            .attr("data-axis-label-value-id", function (d, i) {
+                return "axis-label-value-" + i;
             });
 
         // data areas for each object given at draw
         d.forEach(function (row) {
             dataValues = [];
-            svg.selectAll(".dot")
+            svg.selectAll(".area")
                 .data(row, function (d, i) {
 
                     var angleRadians = RadarChart.toRadians(i, axisCount);
@@ -175,6 +189,7 @@ var RadarChart = {
 
                     dataValues.push([ x, y ]);
                 });
+            // close the path
             dataValues.push(dataValues[ 0 ]);
             svg.selectAll(".area")
                 .data([ dataValues ])
@@ -212,14 +227,49 @@ var RadarChart = {
         });
         series = 0;
 
+        d.forEach(function (row) {
+
+            svg.selectAll(".dot-label-" + series)
+                .data(row)
+                .enter()
+                .append("text")
+                .attr("data-area-label-serie", "area-label-" + series)
+                .attr("data-dot-label-id", function (d, i) {
+                    return series + "-" + i;
+                })
+                .attr("class", "dot-label")
+                .attr("x", function (d, i) {
+
+                    var radiusX = ((config.width / 2) / config.maxValue) * d.value;
+                    var x = config.width / 2 + radiusX * Math.cos(RadarChart.toRadians(i, axisCount)) + config.dotRadius;
+                    return x;
+
+                })
+                .attr("y", function (d, i) {
+
+                    var radiusY = ((config.height / 2) / config.maxValue) * d.value;
+                    var y = config.height / 2 + radiusY * Math.sin(RadarChart.toRadians(i, axisCount)) - config.dotRadius;
+                    return y;
+                })
+                .text(function (d) {
+                    return Math.max(d.value, 0);
+                })
+            ;
+            series++;
+        });
+        series = 0;
+
         // draw dot on each axis for each area
         d.forEach(function (row) {
             svg.selectAll(".dot")
                 .data(row)
                 .enter()
                 .append("circle")
-                .attr("data-polygon-id", "radar-chart-serie-" + series)
+                .attr("class", "series-dot")
                 .attr("data-serie", series)
+                .attr("data-circle-id", function(d, i) {
+                    return series + "-" + i;
+                })
                 .attr("r", config.dotRadius)
                 .attr("title", function (d) {
                     return Math.max(d.value, 0)
@@ -238,63 +288,57 @@ var RadarChart = {
                     return y;
                 })
                 .style("fill", config.color[ series ])
-                .on('mouseover', function (d, i) {
+                .style("fill-opacity", config.dotOpacity)
+                .on('mouseover.rc', function (d, i) {
 
-                    var polygonId = "#" + d3.select(this).attr("data-polygon-id");
+                    var polygonId = "#radar-chart-serie-" + d3.select(this).attr("data-serie");
+                    var series = d3.select(this).attr("data-serie");
                     svg.selectAll("polygon")
                         .transition(200)
                         .style("fill-opacity", config.opacityArea);
                     svg.selectAll(polygonId)
                         .transition(200)
                         .style("fill-opacity", config.opacityAreaHighlight);
-                    svg.select('text[data-dot-label-id="' + d3.select(this).attr("data-serie") + '-' + i + '"]')
+
+                    svg.selectAll('circle[data-circle-id="' + series + '-' + i + '"]')
                         .transition(200)
-                        .style("fill-opacity", 1)
-                        .style("stroke-opacity", 1);
+                        .style("r", config.dotRadius * 2)
+                        .style("fill-opacity", 1);
+
+                    svg.select('text[id="axis-label-' + i + '"]')
+                        .transition(200)
+                        .attr("transform", function() {
+                            return d3.select(this).attr("transform") + " scale(1.5)";
+                        })
+                    ;
+                    svg.select('tspan[data-axis-label-value-id="axis-label-value-' + i + '"]')
+                        .transition(200)
+                        .text(d3.select(this).attr("title"));
                 })
-                .on('mouseout', function (d, i) {
+                .on('mouseout.rc', function (d, i) {
+                    var series = d3.select(this).attr("data-serie");
                     svg.selectAll("polygon")
                         .transition(200)
                         .style("fill-opacity", config.opacityArea);
-                    svg.select('text[data-dot-label-id="' + d3.select(this).attr("data-serie") + '-' + i + '"]')
+
+                    svg.selectAll('circle[data-circle-id="' + series + '-' + i + '"]')
                         .transition(200)
-                        .style("fill-opacity", 0)
-                        .style("stroke-opacity", 0);
+                        .style("r", config.dotRadius)
+                        .style("fill-opacity", config.dotOpacity);
+
+                    svg.select('text[id="axis-label-' + i + '"]')
+                        .transition(200)
+                        .attr("transform", function() {
+                            return d3.select(this).attr("transform") + " scale(.666666)";
+                        })
+                    ;
+                    svg.select('tspan[data-axis-label-value-id="axis-label-value-' + i + '"]')
+                        .transition(200)
+                        .text("");
                 });
 
             series++;
         });
-        series = 0;
-        d.forEach(function(row) {
-
-            svg.selectAll(".dot-label-" + series)
-                .data(row)
-                .enter()
-                .append("text")
-                .attr("data-area-label-serie", "area-label-" + series)
-                .attr("data-dot-label-id", function(d, i) {
-                    return series + "-" + i;
-                })
-                .attr("class", "dot-label")
-                .attr("x", function (d, i) {
-
-                    var radiusX = ((config.width / 2) / config.maxValue) * d.value;
-                    var x = config.width / 2 + radiusX * Math.cos(RadarChart.toRadians(i, axisCount)) + config.dotRadius;
-                    return x;
-
-                })
-                .attr("y", function (d, i) {
-
-                    var radiusY = ((config.height / 2) / config.maxValue) * d.value;
-                    var y = config.height / 2 + radiusY * Math.sin(RadarChart.toRadians(i, axisCount)) - config.dotRadius;
-                    return y;
-                })
-                .text(function(d) {
-                    return Math.max(d.value, 0);
-                })
-            ;
-            series++;
-        })
     },
 
     /**

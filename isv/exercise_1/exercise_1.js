@@ -20,105 +20,166 @@ var rowLabels = ["Class", "Date", "Bus", "Family dinner", "Park", "Church", "Job
 var columnLabels = ["Run", "Talk", "Kiss", "Write", "Eat", "Sleep", "Mumble", "Read", "Fight", "Belch", "Argue",
     "Jump", "Cry", "Laugh", "Shout"];
 
-var width = 640;
-var height = 640;
+$("#toggle_axis").click(function () {
+    var tempLabels = rowLabels;
+    rowLabels = columnLabels;
+    columnLabels = tempLabels;
 
-var colorscale = d3.schemeCategory20b;
+    data = transpose(data);
 
-var chartData = [];
-for (var row = 0; row < data.length; row++) {
-    var values = [];
-    for (var column = 0; column < data[row].length; column++) {
-        values.push({
-            axis: columnLabels[column],
-            value: data[row][column]
-        });
+    drawChart(data, rowLabels, columnLabels);
+});
+
+function transpose(data) {
+    var rows = data.length;
+    var columns = data[0].length;
+
+    var row, column, result = [];
+
+    // Loop through every item in the outer array (rows)
+    for (row = 0; row < columns; row++) {
+
+        // Insert a new row (array)
+        result[row] = [];
+
+        // Loop through every item per item in outer array (width)
+        for (column = 0; column < rows; column++) {
+
+            // Save transposed data.
+            result[row][column] = data[column][row];
+        }
     }
-    chartData.push(values);
+
+    return result;
 }
 
-var config = {
-    w: width,
-    h: height,
-    maxValue: 9.0,
-    levels: 9.0,
-    ExtraWidth: 480,
-    ExtraHeight: 128,
-    opacityArea: 0,
-    factorLegend: 1,
-    dotRadius: 4,
-    dotLabelPadding: 4,
-    color: colorscale
-};
+function drawChart(data, rows, columns) {
 
-RadarChart.draw("#diagram", chartData, config);
+    var width = 560;
+    var height = 560;
 
-var svg = d3.select('#content')
-    .selectAll("svg")
-    .append("svg")
-    .attr("width", width + config.ExtraWidth)
-    .attr("height", height + config.ExtraHeight);
+    var colorscale = d3.schemeCategory20b;
 
-//Create the title for the legend
-var text = svg.append("text")
-    .attr("class", "legend-title")
-    .attr("transform", "translate(200,0)")
-    .attr("x", width - 70)
-    .attr("y", 10)
-    .text("How appropriate is a behaviour in a location")
-;
+    var chartData = [];
+    for (var row = 0; row < data.length; row++) {
+        var values = [];
+        for (var column = 0; column < data[row].length; column++) {
+            values.push({
+                axis: columns[column],
+                value: data[row][column]
+            });
+        }
+        chartData.push(values);
+    }
 
-//Initiate Legend
-var legend = svg.append("g")
-    .attr("height", 100)
-    .attr("width", 200)
-    .attr('transform', 'translate(200,20)')
-;
-//Create colour squares
-legend.selectAll('rect')
-    .data(rowLabels)
-    .enter()
-    .append("rect")
-    .attr("x", width - 65)
-    .attr("y", function (d, i) {
-        return i * 20;
-    })
-    .attr("width", 10)
-    .attr("height", 10)
-    .style("fill", function (d, i) {
-        return colorscale[i];
-    })
-;
-//Create text next to squares
-legend.selectAll('text')
-    .data(rowLabels)
-    .enter()
-    .append("text")
-    .attr("class", "legend")
-    .attr("x", width - 52)
-    .attr("y", function (d, i) {
-        return i * 20 + 9;
-    })
-    .text(function (d) {
-        return d;
-    }).on('mouseover', function (d, i) {
+    var config = {
+        width: width,
+        height: height,
+        maxValue: 9.0,
+        levels: 9.0,
+        ExtraWidth: 480,
+        ExtraHeight: 128,
+        opacityArea: 0,
+        factorLegend: 1,
+        dotRadius: 3,
+        dotLabelPadding: 4,
+        dotOpacity: 0.5,
+        color: colorscale
+    };
+
+    RadarChart.draw("#diagram", chartData, config);
+
+    var svg = d3.select("#diagram");
+
+    var legendContainer = svg.selectAll("svg")
+        .append("svg")
+        .attr("width", width + config.ExtraWidth)
+        .attr("height", height + config.ExtraHeight);
+
+    // Initiate Legend
+    var legend = legendContainer.append("g")
+        .attr("height", 100)
+        .attr("width", 200)
+        .attr('transform', 'translate(200,20)')
+    ;
+    // create colour squares
+    legend.selectAll('rect')
+        .data(rows)
+        .enter()
+        .append("rect")
+        .attr("x", width - 65)
+        .attr("y", function (d, i) {
+            return i * 20;
+        })
+        .attr("width", 10)
+        .attr("height", 10)
+        .style("fill", function (d, i) {
+            return colorscale[i];
+        })
+    ;
+    // create text next to squares
+    legend.selectAll('text')
+        .data(rows)
+        .enter()
+        .append("text")
+        .attr("class", "legend")
+        .attr("data-legend-serie", function (d, i) {
+            return "legend-serie-" + i;
+        })
+        .attr("x", width - 52)
+        .attr("y", function (d, i) {
+            return i * 20 + 9;
+        })
+        .style("font-size", "11px")
+        .text(function (d) {
+            return d;
+        }).on('mouseover', function (d, i) {
         d3.select("#radar-chart-serie-" + i)
             .transition(200)
             .style("fill-opacity", .7);
 
-        d3.selectAll('text[data-area-label-serie="area-label-' + i + '"]')
+        d3.selectAll('circle[data-serie="' + i + '"]')
             .transition(200)
-            .style("fill-opacity", 1)
-            .style("stroke-opacity", 1)
-        ;
+            .style("r", config.dotRadius * 2)
+            .style("fill-opacity", 1);
+
+        // show data value at the axis label
+        for (var column = 0; column < columns.length; column++) {
+            d3.select('tspan[data-axis-label-value-id="axis-label-value-' + column + '"]')
+                .text(data[i][column]);
+        }
     }).on('mouseout', function (d, i) {
         d3.select("#radar-chart-serie-" + i)
             .transition(200)
             .style("fill-opacity", 0);
 
-        d3.selectAll('text[data-area-label-serie="area-label-' + i + '"]')
+        d3.selectAll('circle[data-serie="' + i + '"]')
             .transition(200)
-            .style("fill-opacity", 0)
-            .style("stroke-opacity", 0);
-    })
-;
+            .style("r", config.dotRadius)
+            .style("fill-opacity", config.dotOpacity);
+
+        for (var column = 0; column < columns.length; column++) {
+            d3.select('tspan[data-axis-label-value-id="axis-label-value-' + column + '"]')
+                .text("");
+        }
+    });
+
+    svg.selectAll(".series-dot")
+        .on("mouseover.ex", function () {
+            var serie = d3.select(this).attr("data-serie");
+            d3.select('.legend[data-legend-serie="legend-serie-' + serie + '"]')
+                .transition(200)
+                .style("font-size", "16px");
+        })
+        .on("mouseout.ex", function () {
+
+            var serie = d3.select(this).attr("data-serie");
+            d3.select('.legend[data-legend-serie="legend-serie-' + serie + '"]')
+                .transition(200)
+                .style("font-size", "11px");
+        });
+
+    svg.exit().remove();
+}
+
+drawChart(data, rowLabels, columnLabels);

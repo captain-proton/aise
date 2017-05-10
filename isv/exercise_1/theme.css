@@ -37,7 +37,6 @@
 }
 
 .legend {
-    font-size: 11px;
     fill: #616161;
 }
 
@@ -51,5 +50,5 @@
 }
 
 .radar-chart-serie {
-    stroke-width: 1.5px;
+    stroke-width: 1px;
 }
