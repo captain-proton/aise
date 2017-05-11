@@ -1,5 +1,5 @@
-.chart {
-    margin: 20px 0;
+#diagram {
+    display: flex;
 }
 
 .area {

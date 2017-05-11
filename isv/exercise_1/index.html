@@ -1,29 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>&Uuml;bung 1 - Informations- und Softwarevisualisierung</title>
-        <link rel="stylesheet" type="text/css" href="bower_components/materialize/dist/css/materialize.min.css">
-        <link rel="stylesheet" type="text/css" href="theme.css">
-    </head>
-    <body>
-        <section class="container">
-            <h3>Radar chart</h3>
-            <p>This chart shows how appropriate an activity is within a certain location rated by numerous people with a range of nought as the most inappropriate and nine as most appropriate.</p>
-            <div>
-                <a class="waves-effect waves-light btn" id="toggle_axis">Achsen tauschen</a>
-            </div>
-            <div id="content" class="chart">
-                <div id="diagram"></div>
-            </div>
-        </section>
+<head>
+    <title>&Uuml;bung 1 - Informations- und Softwarevisualisierung</title>
+    <link rel="stylesheet" type="text/css" href="bower_components/materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="theme.css">
+</head>
+<body>
+<section class="container">
+    <article>
 
-        <!-- libraries -->
-        <script src="bower_components/d3/d3.min.js"></script>
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+        <h3>Netzdiagramm</h3>
+        <p>Dieses Diagramm zeigt eine Bewertung von Nutzern wie angebracht ein Verhalten an einem bestimmten Ort
+            ist.</p>
+    </article>
+    <div>
+        <a class="waves-effect waves-light btn" id="toggle_axis">Achsen tauschen</a>
+        <a class="waves-effect waves-light btn" href="#help">Hilfe</a>
+    </div>
+    <div id="diagram">
+        <div id="chart"></div>
+        <div id="legend"></div>
+    </div>
+    <div id="help" class="modal bottom-sheet">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <p>In der Grundeinstellung befindet sich das Verhalten im Diagramm, der Ort in der Legende.
+                            Durch das Neuladen der Seite werden alle getroffenen Einstellungen verworfen. Das Diagramm stellt Werte von null bis neun dar. Pro Ziffer, bis auf die neun, ist ein Kreis im Diagramm angezeigt.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <h5>Diagramm</h5>
+                        <p>Durch einen Mouseover eines einzelnen Punktes wird dessen Wert an der Achse und die
+                            Kategorie in der Legende hervorgehoben dargestellt.</p>
+                    </div>
+                    <div class="col s6">
+                        <h5>Legende</h5>
+                        <p>Innerhalb der Legende wird durch Mouseover die entsprechende Kategorie visuell
+                            hervorgehoben. Da die Gesamtheit an Kategorien das Diagramm etwas un&uuml;bersichtlich
+                            macht,
+                            kann diese durch Klick auf den Namen versteckt werden. Durch erneuten Klick wird diese
+                            Kategorie dem Diagramm wieder hinzugef&uuml;gt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Schlie&szlig;en</a>
+        </div>
+    </div>
+</section>
 
-        <!-- development files -->
-        <script src="radar_chart.js"></script>
-        <script src="exercise_1.js"></script>
-    </body>
+<!-- libraries -->
+<script src="bower_components/d3/d3.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+
+<!-- development files -->
+<script src="radar_chart.js"></script>
+<script src="exercise_1.js"></script>
+</body>
 </html>

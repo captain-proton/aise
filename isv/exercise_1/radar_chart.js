@@ -53,10 +53,20 @@ var RadarChart = {
             color: d3.schemeCategory20
         };
 
+        if (d.length == 0) {
+            var container = d3.select(id);
+            container.select("svg").remove();
+            container.append("svg")
+                .append("text")
+                .attr("y", "1.2em")
+                .text("Keine Daten anzuzeigen");
+            return;
+        }
+
         if (typeof options !== 'undefined') {
             for (var i in options) {
                 if (options.hasOwnProperty(i)) {
-                    config[ i ] = options[ i ];
+                    config[i] = options[i];
                 }
             }
         }
@@ -69,7 +79,7 @@ var RadarChart = {
             }))
         }));
         // extract all axis elements of d objects
-        var allAxis = (d[ 0 ].map(function (i) {
+        var allAxis = (d[0].map(function (i) {
             return i.axis;
         }));
         var axisCount = allAxis.length;
@@ -100,7 +110,7 @@ var RadarChart = {
         // Text indicating at what value each level is
         for (var j = 0; j < config.levels - 1; j++) {
             var levelText = svg.selectAll(".level")
-                .data([ 1 ]) // dummy data, that text can be entered
+                .data([1]) // dummy data, that text can be entered
                 .enter()
                 .append("text")
                 .attr("class", "radar-circle-label");
@@ -144,7 +154,7 @@ var RadarChart = {
         // text at the end of each line
         var axisLabel = axis.append("text")
             .attr("class", "axis-label")
-            .attr("id", function(d, i) {
+            .attr("id", function (d, i) {
                 return "axis-label-" + i;
             })
             .attr("transform", function (d, i) {
@@ -187,42 +197,29 @@ var RadarChart = {
                     var x = config.width / 2 + radiusX * Math.cos(angleRadians);
                     var y = config.height / 2 + radiusY * Math.sin(angleRadians);
 
-                    dataValues.push([ x, y ]);
+                    dataValues.push([x, y]);
                 });
             // close the path
-            dataValues.push(dataValues[ 0 ]);
+            dataValues.push(dataValues[0]);
             svg.selectAll(".area")
-                .data([ dataValues ])
+                .data([dataValues])
                 .enter()
                 .append("polygon")
                 .attr("id", "radar-chart-serie-" + series)
                 .attr("class", "radar-chart-serie")
-                .style("stroke", config.color[ series ])
+                .style("stroke", config.color[series])
                 .attr("points", function (d) {
                     var str = "";
                     for (var pti = 0; pti < d.length; pti++) {
-                        str = str + d[ pti ][ 0 ] + "," + d[ pti ][ 1 ] + " ";
+                        str = str + d[pti][0] + "," + d[pti][1] + " ";
                     }
                     return str;
                 })
                 .style("fill", function () {
-                    return config.color[ series ];
+                    return config.color[series];
                 })
                 .style("fill-opacity", config.opacityArea)
-                .on('mouseover', function () {
-                    var polygonId = "#" + d3.select(this).attr("id");
-                    svg.selectAll("polygon")
-                        .transition(200)
-                        .style("fill-opacity", config.opacityArea);
-                    svg.selectAll(polygonId)
-                        .transition(200)
-                        .style("fill-opacity", config.opacityAreaHighlight);
-                })
-                .on('mouseout', function () {
-                    svg.selectAll("polygon")
-                        .transition(200)
-                        .style("fill-opacity", config.opacityArea);
-                });
+            ;
             series++;
         });
         series = 0;
@@ -267,7 +264,7 @@ var RadarChart = {
                 .append("circle")
                 .attr("class", "series-dot")
                 .attr("data-serie", series)
-                .attr("data-circle-id", function(d, i) {
+                .attr("data-circle-id", function (d, i) {
                     return series + "-" + i;
                 })
                 .attr("r", config.dotRadius)
@@ -287,7 +284,7 @@ var RadarChart = {
                     var y = config.height / 2 + radiusY * Math.sin(RadarChart.toRadians(i, axisCount));
                     return y;
                 })
-                .style("fill", config.color[ series ])
+                .style("fill", config.color[series])
                 .style("fill-opacity", config.dotOpacity)
                 .on('mouseover.rc', function (d, i) {
 
@@ -307,7 +304,7 @@ var RadarChart = {
 
                     svg.select('text[id="axis-label-' + i + '"]')
                         .transition(200)
-                        .attr("transform", function() {
+                        .attr("transform", function () {
                             return d3.select(this).attr("transform") + " scale(1.5)";
                         })
                     ;
@@ -328,7 +325,7 @@ var RadarChart = {
 
                     svg.select('text[id="axis-label-' + i + '"]')
                         .transition(200)
-                        .attr("transform", function() {
+                        .attr("transform", function () {
                             return d3.select(this).attr("transform") + " scale(.666666)";
                         })
                     ;
