@@ -40,6 +40,9 @@ $("#toggle_axis").click(function () {
 
     drawChart();
     drawLegend();
+
+    bindChartEventHandler();
+    bindLegendEventHandler();
 });
 
 var config = {
@@ -70,7 +73,7 @@ function drawChart() {
 
         for (var column = 0; column < workingData.data[row].length; column++) {
             while (!workingData.visibleColumns[columnPointer]
-                    && columnPointer < workingData.columns.length) {
+            && columnPointer < workingData.columns.length) {
                 columnPointer++;
             }
             values.push({
@@ -149,53 +152,76 @@ function drawLegend() {
         .style("font-size", "12px")
         .text(function (d) {
             return d;
-        }).on('mouseover', function (d, i) {
-
-            d3.select(this)
-                .transition(200)
-                .style("fill", config.color[i])
-                .style("font-size", "16px");
-            if (workingData.visibleRows[i]) {
-
-                var serie = getChartSerieIndex(i);
-                d3.select("#radar-chart-serie-" + serie)
-                    .transition(200)
-                    .style("fill-opacity", .7);
-
-                d3.selectAll('circle[data-serie="' + serie + '"]')
-                    .transition(200)
-                    .style("r", config.dotRadius * 2)
-                    .style("fill-opacity", 1);
-                // show data value at the axis label
-                for (var column = 0; column < workingData.columns.length; column++) {
-                    d3.select('tspan[data-axis-label-value-id="axis-label-value-' + column + '"]')
-                        .text(workingData.data[serie][column]);
-                }
-            }
-        }).on('mouseout', function (d, i) {
-            d3.select(this)
-                .transition(200)
-                .style("fill", "#616161")
-                .style("font-size", "12px");
-            if (workingData.visibleRows[i]) {
-
-                var serie = getChartSerieIndex(i);
-                d3.select("#radar-chart-serie-" + serie)
-                    .transition(200)
-                    .style("fill-opacity", 0);
-
-                d3.selectAll('circle[data-serie="' + serie + '"]')
-                    .transition(200)
-                    .style("r", config.dotRadius)
-                    .style("fill-opacity", config.dotOpacity);
-
-                for (var column = 0; column < workingData.columns.length; column++) {
-                    d3.select('tspan[data-axis-label-value-id="axis-label-value-' + column + '"]')
-                        .text("");
-                }
-            }
         });
+}
 
+function bindLegendEventHandler() {
+    d3.select("#legend")
+        .selectAll("text").on('mouseover', function (d, i) {
+
+        d3.select(this)
+            .transition(200)
+            .style("fill", config.color[i])
+            .style("font-size", "16px");
+        if (workingData.visibleRows[i]) {
+
+            var serie = getChartSerieIndex(i);
+            d3.select("#radar-chart-serie-" + serie)
+                .transition(200)
+                .style("fill-opacity", .7);
+
+            d3.selectAll('circle[data-serie="' + serie + '"]')
+                .transition(200)
+                .style("r", config.dotRadius * 2)
+                .style("fill-opacity", 1);
+            // show data value at the axis label
+            for (var column = 0; column < workingData.columns.length; column++) {
+                d3.select('tspan[data-axis-label-value-id="axis-label-value-' + column + '"]')
+                    .text(workingData.data[serie][column]);
+            }
+        }
+    }).on('mouseout', function (d, i) {
+        d3.select(this)
+            .transition(200)
+            .style("fill", "#616161")
+            .style("font-size", "12px");
+        if (workingData.visibleRows[i]) {
+
+            var serie = getChartSerieIndex(i);
+            d3.select("#radar-chart-serie-" + serie)
+                .transition(200)
+                .style("fill-opacity", 0);
+
+            d3.selectAll('circle[data-serie="' + serie + '"]')
+                .transition(200)
+                .style("r", config.dotRadius)
+                .style("fill-opacity", config.dotOpacity);
+
+            for (var column = 0; column < workingData.columns.length; column++) {
+                d3.select('tspan[data-axis-label-value-id="axis-label-value-' + column + '"]')
+                    .text("");
+            }
+        }
+    }).on("click", function (d, i) {
+        var textDecoration;
+        var realTarget = getChartSerieIndex(i);
+
+        // hide
+        if (workingData.visibleRows[i]) {
+            textDecoration = "line-through";
+            workingData.data.splice(realTarget, 1);
+        } else {
+            // show
+            textDecoration = "none";
+            workingData.data.splice(realTarget, 0, data[i]);
+        }
+        d3.select(this).style("text-decoration", textDecoration);
+        workingData.visibleRows[i] = !workingData.visibleRows[i];
+        drawChart();
+    });
+}
+
+function bindChartEventHandler() {
     d3.selectAll(".series-dot")
         .on("mouseover.example", function () {
             var serie = d3.select(this).attr("data-serie");
@@ -212,25 +238,6 @@ function drawLegend() {
                 .transition(200)
                 .style("font-size", "11px");
         });
-
-    d3.selectAll('text[class="legend"]')
-        .on("click", function (d, i) {
-            var textDecoration;
-            var realTarget = getChartSerieIndex(i);
-
-            // hide
-            if (workingData.visibleRows[i]) {
-                textDecoration = "line-through";
-                workingData.data.splice(realTarget, 1);
-            } else {
-                // show
-                textDecoration = "none";
-                workingData.data.splice(realTarget, 0, data[i]);
-            }
-            d3.select(this).style("text-decoration", textDecoration);
-            workingData.visibleRows[i] = !workingData.visibleRows[i];
-            drawChart();
-        });
 }
 
 function getChartSerieIndex(estimated) {
@@ -246,7 +253,7 @@ function getLegendSerieIndex(estimated) {
 
     var serie = 0;
     while (serie < workingData.visibleRows.length
-            && (!workingData.visibleRows[serie] || serie < estimated)) {
+    && (!workingData.visibleRows[serie] || serie < estimated)) {
 
         if (!workingData.visibleRows[serie]) {
             estimated++;
@@ -285,10 +292,14 @@ function sizeDiagramElements() {
 }
 
 // init materialize modals
-$(document).ready(function(){
+$(document).ready(function () {
     $('.modal').modal();
 });
 
 drawChart();
 drawLegend();
+
+bindChartEventHandler();
+bindLegendEventHandler();
+
 sizeDiagramElements();

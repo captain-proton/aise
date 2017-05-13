@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>&Uuml;bung 1 - Informations- und Softwarevisualisierung</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="bower_components/materialize/dist/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="theme.css">
 </head>
@@ -15,7 +16,7 @@
     </article>
     <div>
         <a class="waves-effect waves-light btn" id="toggle_axis">Achsen tauschen</a>
-        <a class="waves-effect waves-light btn" href="#help">Benutzung</a>
+        <a class="waves-effect waves-light btn" href="#help">Erl&auml;uterungen</a>
     </div>
 
     <div id="diagram">
@@ -57,36 +58,39 @@
             <div class="container">
                 <div class="row">
                     <div class="col s12">
-                        <p>In der Grundeinstellung befindet sich das Verhalten im Diagramm, der Ort in der Legende.
+                        <p>Zur Darstellung der Zuordnungen Ort &ndash; T&auml;tigkeit
+                            wurde ein Netzdiagramm verwendet. Innerhalb des Diagramms sind alle Funktionen zu den L&ouml;sungen
+                            a-c umgesetzt. In der Grundeinstellung befindet sich die T&auml;tigkeit im Diagramm, der Ort in
+                            der Legende.
                             Durch das Neuladen der Seite werden alle getroffenen Einstellungen verworfen. Das Diagramm
                             stellt Werte von null bis neun dar. Pro Ziffer, bis auf die neun, ist ein Kreis im Diagramm
                             angezeigt.</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6">
-                        <h5>Diagramm</h5>
-                        <dl>
-                            <dt><code>Mouseover</code> (Punkt)</dt>
-                            <dd>Durch einen Mouseover eines einzelnen Punktes wird dessen Wert an der Achse und die
-                                Kategorie in der Legende hervorgehoben dargestellt.
-                            </dd>
-                        </dl>
+                    <div class="col s4">
+                        <h5>a)</h5>
+                        <p>Zu Beginn ist jeder Ort in der Legende dargestellt, jede T&auml;tigkeit als Achse im
+                            Diagramm. Jedem Ort ist eine bestimmte Farbe zugeordnet. Die einzelnen Werte k&ouml;nnen
+                            innerhalb der Achsen an den Punkten ungef&auml;hr eingesehen werden. Genaue Zahlenwerte sind
+                            zun&auml;chst nicht dargestellt. Die einzelnen Ringe des Diagramms sind unterschiedlich
+                            stark durchsichtig. Der innerste Kreis beinhaltet alle Werte von null bis eins usw.</p>
                     </div>
-                    <div class="col s6">
-                        <h5>Legende</h5>
-                        <dl>
-                            <dt><code>Klick</code> (Text)</dt>
-                            <dd>Durch Klick auf den Text wird die Kategorie innerhalb des Diagramms aus- oder wieder
-                                eingeblendet. Bei Tausch der Achsen bleiben die gew&auml;hlten Einstellungen erhalten.
-                                Demnach werden ausgeblendete Kategorien als Achsen nicht dargestellt.
-                            </dd>
-                            <dt><code>Mouseover</code> (Text)</dt>
-                            <dd>Durch einen Mouseover des Textes wird im Diagramm der gew&auml;hlte Bereich durch die
-                                entsprechende Farbe visuell hervorgehoben. Zudem werden an den Achsen
-                                die einzelnen Werte der Kategorie dargestellt.
-                            </dd>
-                        </dl>
+                    <div class="col s4">
+                        <h5>b)</h5>
+                        <p>Zahlenwerte k&ouml;nnen &uuml;ber zwei M&ouml;glichkeiten abgerufen werden. Bei einem Mouseover
+                            an einem Punkt innerhalb des Diagramms wird die T&auml;tigkeit inklusive des Wertes an der
+                            Achse hervorgehoben dargestellt. Der dazugeh&ouml;rige Ort wird in der Legende
+                            hervorgehoben. Zur Einsicht aller Werte an einem Ort werden bei einem Mouseover
+                            in der Legende der Bereich und die Punkte visuell hervorgehoben. Die Daten zu den T&auml;tigkeit
+                            sind wieder an den Achsen dargestellt.</p>
+                    </div>
+                    <div class="col s4">
+                        <h5>c)</h5>
+                        <p>Durch Klick auf ein Element innerhalb der Legende wird diese versteckt und durch
+                            erneuten Klick wieder hinzugef&uuml;gt. Durch Klick auf den Button Achsen
+                                tauschen werden die Orte und T&auml;tigkeiten vertauscht. Versteckte Orte bzw. T&auml;tigkeiten
+                            bleiben bei einem Tausch der Achsen versteckt.</p>
                     </div>
                 </div>
             </div>
