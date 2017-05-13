@@ -157,20 +157,26 @@ var RadarChart = {
             .attr("id", function (d, i) {
                 return "axis-label-" + i;
             })
-            .attr("transform", function (d, i) {
-                var rotate = i < axisCount / 2.0
-                    ? 90 - i * (360.0 / axisCount) // left half circle
-                    : 270 - i * (360.0 / axisCount); // right half circle
-
+            .attr("data-translate", function(d, i) {
                 // calculate polar coordinates
                 var angleRadians = RadarChart.toRadians(i, axisCount);
 
                 var textRadius = radius + config.axisLabelRadius;
                 var translateX = radius + textRadius * Math.cos(angleRadians);
                 var translateY = radius + textRadius * Math.sin(angleRadians);
-
-                return "translate(" + translateX + ", " + translateY + ") rotate(" + rotate + ")";
+                return "(" + translateX + ", " + translateY + ")";
+            })
+            .attr("data-rotate", function(d, i) {
+                var angle = i < axisCount / 2.0
+                    ? 90 - i * (360.0 / axisCount) // left half circle
+                    : 270 - i * (360.0 / axisCount); // right half circle
+                return "(" + angle + ")";
             });
+        axisLabel.attr("transform", function() {
+            var translate = d3.select(this).attr("data-translate");
+            var rotate = d3.select(this).attr("data-rotate");
+            return "translate " + translate + " rotate " + rotate;
+        });
         axisLabel.append("tspan")
             .attr("x", "0")
             .text(function (d) {
@@ -305,7 +311,10 @@ var RadarChart = {
                     svg.select('text[id="axis-label-' + i + '"]')
                         .transition(200)
                         .attr("transform", function () {
-                            return d3.select(this).attr("transform") + " scale(1.5)";
+
+                            var translate = d3.select(this).attr("data-translate");
+                            var rotate = d3.select(this).attr("data-rotate");
+                            return "translate " + translate + " rotate " + rotate + " scale(2)";
                         })
                     ;
                     svg.select('tspan[data-axis-label-value-id="axis-label-value-' + i + '"]')
@@ -326,7 +335,9 @@ var RadarChart = {
                     svg.select('text[id="axis-label-' + i + '"]')
                         .transition(200)
                         .attr("transform", function () {
-                            return d3.select(this).attr("transform") + " scale(.666666)";
+                            var translate = d3.select(this).attr("data-translate");
+                            var rotate = d3.select(this).attr("data-rotate");
+                            return "translate " + translate + " rotate " + rotate;
                         })
                     ;
                     svg.select('tspan[data-axis-label-value-id="axis-label-value-' + i + '"]')

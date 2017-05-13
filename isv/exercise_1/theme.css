@@ -38,6 +38,7 @@
 
 .legend {
     fill: #616161;
+    cursor: pointer;
 }
 
 .legend-title {

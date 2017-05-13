@@ -69,7 +69,8 @@ function drawChart() {
         var columnPointer = 0;
 
         for (var column = 0; column < workingData.data[row].length; column++) {
-            while (!workingData.visibleColumns[columnPointer]) {
+            while (!workingData.visibleColumns[columnPointer]
+                    && columnPointer < workingData.columns.length) {
                 columnPointer++;
             }
             values.push({
@@ -119,7 +120,7 @@ function drawLegend() {
         .enter()
         .append("rect")
         .attr("y", function (d, i) {
-            return i * 20;
+            return i * 24;
         })
         .attr("width", 10)
         .attr("height", 10)
@@ -143,13 +144,17 @@ function drawLegend() {
         })
         .attr("x", 15)
         .attr("y", function (d, i) {
-            return i * 20 + 9;
+            return i * 24 + 9;
         })
-        .style("font-size", "11px")
+        .style("font-size", "12px")
         .text(function (d) {
             return d;
         }).on('mouseover', function (d, i) {
 
+            d3.select(this)
+                .transition(200)
+                .style("fill", config.color[i])
+                .style("font-size", "16px");
             if (workingData.visibleRows[i]) {
 
                 var serie = getChartSerieIndex(i);
@@ -168,6 +173,10 @@ function drawLegend() {
                 }
             }
         }).on('mouseout', function (d, i) {
+            d3.select(this)
+                .transition(200)
+                .style("fill", "#616161")
+                .style("font-size", "12px");
             if (workingData.visibleRows[i]) {
 
                 var serie = getChartSerieIndex(i);
@@ -221,7 +230,6 @@ function drawLegend() {
             d3.select(this).style("text-decoration", textDecoration);
             workingData.visibleRows[i] = !workingData.visibleRows[i];
             drawChart();
-            drawLegend();
         });
 }
 

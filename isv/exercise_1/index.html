@@ -15,7 +15,7 @@
     </article>
     <div>
         <a class="waves-effect waves-light btn" id="toggle_axis">Achsen tauschen</a>
-        <a class="waves-effect waves-light btn" href="#help">Hilfe</a>
+        <a class="waves-effect waves-light btn" href="#help">Benutzung</a>
     </div>
 
     <div id="diagram">
@@ -28,7 +28,9 @@
                 <div class="col l6 s12">
                     <h5 class="white-text">Anmerkungen</h5>
                     <p class="grey-text text-lighten-4">Das Diagramm ist inspiriert durch Nadieh Bremers <code>Radar
-                        Chart</code>, was auf bl.ocks.org einzusehen ist. Layout und Farbwahl ist durch Googles Material Design gegeben, das Farbschema innerhalb des Diagrams ist das von d3 gegebene <code>schemeCategory20b</code>.</p>
+                        Chart</code>, was auf bl.ocks.org einzusehen ist. Layout und Farbwahl ist durch Googles Material
+                        Design gegeben, das Farbschema innerhalb des Diagrams ist das von d3 gegebene <code>schemeCategory20b</code>.
+                    </p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Links</h5>
@@ -41,7 +43,8 @@
                         <li><a class="grey-text text-lighten-3"
                                href="http://materializecss.com/">Material Design</a></li>
                         <li><a class="grey-text text-lighten-3"
-                               href="https://github.com/d3/d3-scale/blob/master/README.md#schemeCategory20b">d3.schemeCategory20b</a></li>
+                               href="https://github.com/d3/d3-scale/blob/master/README.md#schemeCategory20b">d3.schemeCategory20b</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -62,16 +65,26 @@
                 <div class="row">
                     <div class="col s6">
                         <h5>Diagramm</h5>
-                        <p>Durch einen Mouseover eines einzelnen Punktes wird dessen Wert an der Achse und die
-                            Kategorie in der Legende hervorgehoben dargestellt.</p>
+                        <dl>
+                            <dt><code>Mouseover</code> (Punkt)</dt>
+                            <dd>Durch einen Mouseover eines einzelnen Punktes wird dessen Wert an der Achse und die
+                                Kategorie in der Legende hervorgehoben dargestellt.
+                            </dd>
+                        </dl>
                     </div>
                     <div class="col s6">
                         <h5>Legende</h5>
-                        <p>Innerhalb der Legende wird durch Mouseover die entsprechende Kategorie visuell
-                            hervorgehoben. Da die Gesamtheit an Kategorien das Diagramm etwas un&uuml;bersichtlich
-                            macht,
-                            kann diese durch Klick auf den Namen versteckt werden. Durch erneuten Klick wird diese
-                            Kategorie dem Diagramm wieder hinzugef&uuml;gt.</p>
+                        <dl>
+                            <dt><code>Klick</code> (Text)</dt>
+                            <dd>Durch Klick auf den Text wird die Kategorie innerhalb des Diagramms aus- oder wieder
+                                eingeblendet. Bei Tausch der Achsen bleiben die gew&auml;hlten Einstellungen erhalten.
+                                Demnach werden ausgeblendete Kategorien als Achsen nicht dargestellt.
+                            </dd>
+                            <dt><code>Mouseover</code> (Text)</dt>
+                            <dd>Durch einen Mouseover des Textes wird im Diagramm der gew&auml;hlte Bereich visuell
+                                durch die entsprechende Farbe hervorgehoben.
+                            </dd>
+                        </dl>
                     </div>
                 </div>
             </div>
