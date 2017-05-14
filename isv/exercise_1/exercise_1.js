@@ -21,9 +21,26 @@ var columnLabels = ["Run", "Talk", "Kiss", "Write", "Eat", "Sleep", "Mumble", "R
     "Jump", "Cry", "Laugh", "Shout"];
 
 var workingData = {
+    /*
+     the data is kept to keep track of axis rotation so add and remove of data
+     can be easy done.
+     */
     data: data.slice(),
+    /*
+     the visible data contains all data that is displayed inside chart. if categories
+     are removed the row is removed of the visible data
+     */
+    visibleData: data.slice(),
+    /*
+     rows and columns contain the complete set of labels. these arrays are not
+     modified during interaction with the diagram
+     */
     rows: rowLabels.slice(),
     columns: columnLabels.slice(),
+    /*
+     arrays with values of true and false, if a row/column is visible inside
+     the chart or not
+     */
     visibleRows: new Array(rowLabels.length).fill(true),
     visibleColumns: new Array(columnLabels.length).fill(true),
 };
@@ -33,6 +50,7 @@ $("#toggle_axis").click(function () {
     workingData.rows = workingData.columns;
     workingData.columns = temp;
     workingData.data = transpose(workingData.data);
+    workingData.visibleData = transpose(workingData.visibleData);
 
     temp = workingData.visibleRows;
     workingData.visibleRows = workingData.visibleColumns;
@@ -60,25 +78,43 @@ var config = {
     TranslateX: 64,
     TranslateY: 64,
     color: d3.schemeCategory20b
-    // color: ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#9e9e9e", "#607d8b"]
 };
 
 function drawChart() {
 
     var svg = d3.select("#chart");
     var chartData = [];
-    for (var row = 0; row < workingData.data.length; row++) {
+
+    /*
+     iterate over the subset of visible data. remember that this is
+     smaller than the length of workingData.data!
+     */
+
+    for (var row = 0; row < workingData.visibleData.length; row++) {
         var values = [];
+        // the column pointer points to the current visible column
         var columnPointer = 0;
 
-        for (var column = 0; column < workingData.data[row].length; column++) {
-            while (!workingData.visibleColumns[columnPointer]
-            && columnPointer < workingData.columns.length) {
+        /*
+         iterate of each visible column. the length may be smaller than
+         the original set similar to length of rows.
+         */
+        for (var column = 0; column < workingData.visibleData[row].length; column++) {
+            /*
+             move the pointer as far as it needs to be moved to get
+             the correct label of workingData.columns.
+             */
+            while (!workingData.visibleColumns[columnPointer] && columnPointer < workingData.columns.length) {
                 columnPointer++;
             }
+            /*
+             the axis label is read from the complete set of columns. therefore
+             the column pointer is needed. the value is read from the subset
+             of data (visibleData)
+             */
             values.push({
                 axis: workingData.columns[columnPointer],
-                value: workingData.data[row][column]
+                value: workingData.visibleData[row][column]
             });
             columnPointer++;
         }
@@ -177,7 +213,7 @@ function bindLegendEventHandler() {
             // show data value at the axis label
             for (var column = 0; column < workingData.columns.length; column++) {
                 d3.select('tspan[data-axis-label-value-id="axis-label-value-' + column + '"]')
-                    .text(workingData.data[serie][column]);
+                    .text(workingData.visibleData[serie][column]);
             }
         }
     }).on('mouseout', function (d, i) {
@@ -209,15 +245,44 @@ function bindLegendEventHandler() {
         // hide
         if (workingData.visibleRows[i]) {
             textDecoration = "line-through";
-            workingData.data.splice(realTarget, 1);
+            // just remove the data from current visible data
+            workingData.visibleData.splice(realTarget, 1);
         } else {
             // show
             textDecoration = "none";
-            workingData.data.splice(realTarget, 0, data[i]);
+            var toAdd = [];
+
+            /*
+            when a row added again to the set of current visible rows
+            some columns may be invisible. to skip these columns, the
+            pointer is used similar to the method used when the chart
+            drawn.
+             */
+            var columnPointer = 0;
+
+            // current visible columns that are show as axis
+            var visibleColumns = workingData.visibleColumns.reduce(function (previousValue, currentValue) {
+                return previousValue + currentValue;
+            });
+            // go through each visible column
+            for (var column = 0; column < visibleColumns; column++) {
+                /*
+                 move the pointer as far as it needs to be moved to get
+                 the correct data value of workingData.data.
+                 */
+                while (!workingData.visibleColumns[columnPointer] && columnPointer < workingData.columns.length) {
+                    columnPointer++;
+                }
+                toAdd.push(workingData.data[i][columnPointer]);
+                columnPointer++;
+            }
+            // add the row to the correct position of all visible data
+            workingData.visibleData.splice(realTarget, 0, toAdd);
         }
         d3.select(this).style("text-decoration", textDecoration);
         workingData.visibleRows[i] = !workingData.visibleRows[i];
         drawChart();
+        bindChartEventHandler();
     });
 }
 
