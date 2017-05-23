@@ -1,5 +1,5 @@
-Übung 2 – Sichten und Modelle
-=============================
+Übungsblatt 2 – Sichten und Modelle
+===================================
 
 Aufgabe 1: Theorie
 ------------------
@@ -37,7 +37,7 @@ Viele der Darstellungen können durch UML-Diagramme dargestellt werden. Siehe hi
 +--------------------------------+--------------------------------------------------------------------------------------------------+
 | Organisatorische Hierarchien   | Organigramm, `oganizational chart <https://en.wikipedia.org/wiki/Organizational_chart>`_         |
 +--------------------------------+--------------------------------------------------------------------------------------------------+
-| Zeit                           | Sequenzdiagramm, UML timing diagram                                                                               |
+| Zeit                           | Sequenzdiagramm, UML timing diagram                                                              |
 +--------------------------------+--------------------------------------------------------------------------------------------------+
 | Anforderungen                  | UML use case                                                                                     |
 +--------------------------------+--------------------------------------------------------------------------------------------------+
@@ -66,10 +66,10 @@ Aufgabe 2: Code-Generierung
 Aufgabe 2.1: Screencast
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../../dox/exercise_2_1/model/codeGenerationExample.png
+.. image:: codeGenerationExample.png
 
 
 Aufgabe 2.2: Modellierung
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../../dox/exercise_2_2/model/exercise_2_2.png
+.. image:: exercise_2_2.png

@@ -1,5 +1,5 @@
-Übung 1 - Komponenten
-=====================
+Übungsblatt 1 - Komponenten
+===========================
 
 Aufgabe 1 - Konzepte
 --------------------
