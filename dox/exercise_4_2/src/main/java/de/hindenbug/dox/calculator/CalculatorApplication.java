@@ -1,4 +1,4 @@
-package de.hindenbug.dox.middleware;
+package de.hindenbug.dox.calculator;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -14,9 +14,9 @@ import java.util.concurrent.Executors;
 /**
  * Created by nils on 22.05.17.
  */
-public class MiddlewareTest
+public class CalculatorApplication
 {
-    private static final Logger LOG = LoggerFactory.getLogger(MiddlewareTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CalculatorApplication.class);
     private static final int TIMEOUT = 10000;
 
     private final ExecutorService network = Executors.newFixedThreadPool(2);
@@ -25,7 +25,7 @@ public class MiddlewareTest
 
     public static void main(String[] args)
     {
-        MiddlewareTest middleware = new MiddlewareTest();
+        CalculatorApplication middleware = new CalculatorApplication();
         middleware.run();
     }
 
@@ -70,7 +70,7 @@ public class MiddlewareTest
         }
     }
 
-    private void communicate(CalculatorServer server, CalculatorClient client)
+    protected void communicate(CalculatorServer server, CalculatorClient client)
     {
         boolean shutdown = false;
         Scanner scanner = new Scanner(System.in);

@@ -1,4 +1,4 @@
-package de.hindenbug.dox.middleware;
+package de.hindenbug.dox.calculator;
 
 import java.util.Scanner;
 

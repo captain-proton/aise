@@ -1,4 +1,4 @@
-package de.hindenbug.dox.middleware;
+package de.hindenbug.dox.calculator;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -20,7 +20,6 @@ public class CalculatorClient implements Runnable
     private static final Logger LOG = LoggerFactory.getLogger(CalculatorClient.class);
 
     private final CalculatorServer server;
-    private Socket serverSocket;
     private Queue<String> lines;
     private boolean stop;
 
@@ -50,7 +49,6 @@ public class CalculatorClient implements Runnable
              BufferedReader input = new BufferedReader(new InputStreamReader(serverSocket.getInputStream())))
         {
             LOG.info("connected to server " + server);
-            this.serverSocket = serverSocket;
             while (!stop
                     && !Thread.currentThread().isInterrupted()
                     && !serverSocket.isClosed())
