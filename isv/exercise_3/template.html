@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Document Visualization: Relationship between Keywords</title>
+<style>
+
+    body {
+        margin: 50px;
+        font-family: Arial;
+    }
+
+    h2 {
+        clear: both;
+    }
+
+    svg {
+        float: left;
+        border: 1px solid black;
+        margin-bottom: 20px;
+    }
+
+    #selection_details {
+        float: left;
+        width: 500px;
+        height: 580px;
+        overflow: auto;
+        border: 1px solid black;
+        font-size: 9pt;
+        margin-left: 5px;
+        padding: 10px;
+        background: #eee;
+    }
+
+    circle {
+        fill: #0050AA;
+    }
+
+    .links {
+        opacity: 0.6;
+    }
+
+</style>
+
+<body>
+<p>[Name]</p>
+<h1>Document Visualization: Relationship between Keywords </h1>
+<p>Übungsblatt 3 - Aufgabe 1</p>
+<p>Vorlesung <i>Informations- und Softwarevisualisierung</i>, Universität Duisburg-Essen, SoSe 2017</p>
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<svg width="800" height="600"></svg>
+<div id="selection_details"></div>
+
+<script>/* JavaScript */
+
+/* Bibliographic data set (parsed BibTeX file)*/
+var bib = {
+    "AnthesGarcia-HernandezEtAl2016": {
+        "author": "C. Anthes and R. J. Garcia-Hernandez and M. Wiedemann and D. Kranzlmuller",
+        "booktitle": "2016 IEEE Aerospace Conference",
+        "doi": "10.1109/AERO.2016.7500674",
+        "file": "AnthesGarcia-HernandezEtAl2016.pdf:AnthesGarcia-HernandezEtAl2016.pdf:PDF",
+        "keywords": "virtual reality, survey, aerospace",
+        "month": "March",
+        "pages": "1-19",
+        "title": "State of the art of virtual reality technology",
+        "type": "InProceedings",
+        "year": "2016"
+    },
+    "Bastos2014": {
+        "author": "Bastos, Ricardo S",
+        "file": "Bastos2014.pdf:Bastos2014.pdf:PDF",
+        "institution": "DTIC Document",
+        "keywords": "maritime, military, submarine, training, simulator, virtual reality, web, webgl, navy",
+        "title": "Development of a web-based periscope simulator for submarine officer training",
+        "type": "TechReport",
+        "year": "2014"
+    },
+    "Baum1994": {
+        "author": "Baum, David R",
+        "keywords": "patent, virtual reality, gestures, aviation, training, head-mounted-display, HMD, gloves",
+        "month": "Jun",
+        "note": "US Patent 5,320,538",
+        "publisher": "Google Patents",
+        "title": "Interactive aircraft training system and method",
+        "type": "Misc",
+        "year": "1994"
+    },
+    "BeattieHoranEtAl2015": {
+        "author": "Nathan Beattie and Ben Horan and Sophie McKenzie",
+        "doi": "http://dx.doi.org/10.1016/j.protcy.2015.07.025",
+        "file": "BeattieHoranEtAl2015.pdf:BeattieHoranEtAl2015.pdf:PDF",
+        "issn": "2212-0173",
+        "journal": "Procedia Technology",
+        "keywords": "Oculus Rift, LEAP Motion, HCI, design, CAD, HMD",
+        "pages": "149 - 154",
+        "title": "Taking the LEAP with the Oculus HMD and CAD - Plucking at thin Air?",
+        "type": "Article",
+        "url": "http://www.sciencedirect.com/science/article/pii/S2212017315002029",
+        "volume": "20",
+        "year": "2015"
+    },
+    "Beier2000": {
+        "author": "Beier, Klaus-Peter",
+        "booktitle": "Proceedings of COMPIT",
+        "file": "Beier2000.pdf:Beier2000.pdf:PDF",
+        "keywords": "design, web, maritime, aviation, simulation, manufacturing, ship design, ship building",
+        "pages": "45--55",
+        "title": "Web-based virtual reality in design and manufacturing applications",
+        "type": "InProceedings",
+        "year": "2000"
+    },
+    "BeleznaiSzavaiEtAl": {
+        "author": "Beleznai, R{\\'o}bert and Sz{\\'a}vai, Szabolcs and Dobos, Gergely",
+        "file": "BeleznaiSzavaiEtAl.pdf:BeleznaiSzavaiEtAl.pdf:PDF",
+        "journal": "Proc of. microCAD International Multidisciplinary Scientific Conference",
+        "keywords": "training, power plant, immersive, virtual reality, head-mounted displays, HMD, tradmill, unity, oculus rift",
+        "title": "Development Of Virtual Reality Training Platform For Power Plant Applications",
+        "type": "Article",
+        "year": "2016"
+    },
+    "BellWeinstein2011": {
+        "author": "Bell, Morris D. and Weinstein, Andrea",
+        "doi": "10.1093/schbul/sbr061",
+        "eprint": "/oup/backfile/Content_public/Journal/schizophreniabulletin/37/suppl_2/10.1093/schbul/sbr061/2/sbr061.pdf",
+        "file": "BellWeinstein2011.pdf:BellWeinstein2011.pdf:PDF",
+        "journal": "Schizophrenia Bulletin",
+        "keywords": "speech recognition, dialog",
+        "number": "suppl_2",
+        "pages": "S91",
+        "title": "Simulated Job Interview Skill Training for People with Psychiatric Disability: Feasibility and Tolerability of Virtual Reality Training",
+        "type": "Article",
+        "url": " + http://dx.doi.org/10.1093/schbul/sbr061",
+        "volume": "37",
+        "year": "2011"
+    },
+    "BerndtLukasEtAl2015": {
+        "author": "Berndt, Olaf and von Lukas, Uwe Freiherr and Kuijper, Arjan",
+        "booktitle": "Proc. of ECMS'15",
+        "file": "BerndtLukasEtAl2015.pdf:BerndtLukasEtAl2015.pdf:PDF",
+        "keywords": "maritime, ship design, modelling, CAD, ship building, design, discarded-duplicate",
+        "pages": "347--353",
+        "title": "Functional Modelling And Simulation Of Overall System Ship-Virtual Methods For Engineering And Commissioning In Shipbuilding.",
+        "type": "InProceedings",
+        "year": "2015"
+    },
+    "BjoernesethDunlopEtAl2012": {
+        "abstract": "Multi-touch interaction, in particular multi-touch gesture interaction, is widely believed to give a more natural interaction style. We investigated the utility of multi-touch interaction in the safety critical domain of maritime dynamic positioning (DP) vessels. We conducted initial paper prototyping with domain experts to gain an insight into natural gestures; we then conducted observational studies aboard a \\{DP\\} vessel during operational duties and two rounds of formal evaluation of prototypes - the second on a motion platform ship simulator. Despite following a careful user-centred design process, the final results show that traditional touch-screen button and menu interaction was quicker and less erroneous than gestures. Furthermore, the moving environment accentuated this difference and we observed initial use problems and handedness asymmetries on some multi-touch gestures. On the positive side, our results showed that users were able to suspend gestural interaction more naturally, thus improving situational awareness. ",
+        "author": "Froy Birte Bjorneseth and Mark D. Dunlop and Eva Hornecker",
+        "doi": "http://dx.doi.org/10.1016/j.ijhcs.2012.06.001",
+        "file": "BjoernesethDunlopEtAl2012.pdf:BjoernesethDunlopEtAl2012.pdf:PDF",
+        "issn": "1071-5819",
+        "journal": "International Journal of Human-Computer Studies",
+        "keywords": "gestures, touch, multi-touch, maritime, HCI, MMI, ship design, ship building, design",
+        "note": "Special issue on Developing, Evaluating and Deploying Multi-touch Systems",
+        "number": "10",
+        "pages": "729 - 745",
+        "title": "Assessing the effectiveness of direct gesture interaction for a safety critical maritime application",
+        "type": "Article",
+        "url": "//www.sciencedirect.com/science/article/pii/S1071581912001000",
+        "volume": "70",
+        "year": "2012"
+    },
+    "BlumBrollEtAl2009": {
+        "author": "Blum, Lisa and Broll, Wolfgang and M{\\\"u}ller, Stefan",
+        "booktitle": "SIGGRAPH'09: Posters",
+        "file": "BlumBrollEtAl2009.pdf:BlumBrollEtAl2009.pdf:PDF",
+        "keywords": "augmented reality, under water, ocean, maritime, games",
+        "organization": "ACM",
+        "pages": "97",
+        "title": "Augmented reality under water",
+        "type": "InProceedings",
+        "year": "2009"
+    },
+    "Bolt1980": {
+        "acmid": "807503",
+        "address": "New York, NY, USA",
+        "author": "Bolt, Richard A.",
+        "doi": "10.1145/965105.807503",
+        "file": "Bolt1980.pdf:Bolt1980.pdf:PDF",
+        "issn": "0097-8930",
+        "issue_date": "July 1980",
+        "journal": "SIGGRAPH Comput. Graph.",
+        "keywords": "gestures, speech recognition, multimodal, object interaction",
+        "month": "jul,",
+        "number": "3",
+        "numpages": "9",
+        "pages": "262--270",
+        "publisher": "ACM",
+        "title": "\"Put-that-there\": Voice and Gesture at the Graphics Interface",
+        "type": "Article",
+        "url": "http://doi.acm.org/10.1145/965105.807503",
+        "volume": "14",
+        "year": "1980"
+    },
+    "BoltHerranz1992": {
+        "author": "Bolt, Richard A and Herranz, Edward",
+        "booktitle": "Proceedings of the 5th annual ACM symposium on User interface software and technology",
+        "file": "BoltHerranz1992.pdf:BoltHerranz1992.pdf:PDF",
+        "keywords": "gestures, two hands, multimodal, speech recognition, eye tracking, gloves",
+        "organization": "ACM",
+        "pages": "7--14",
+        "title": "Two-handed gesture in multi-modal natural dialog",
+        "type": "InProceedings",
+        "year": "1992"
+    },
+    "Breaux1977": {
+        "author": "Breaux, Robert",
+        "booktitle": "Voice Technology for Interactive Real-Time Command/Control Systems Application",
+        "file": "Breaux1977.pdf:Breaux1977.pdf:PDF",
+        "journal": "VOICE ECHNOLOGY FOR INTERACTIVE REAL-TIME COMMAND/CONTROL SYST EMS APPLICATION",
+        "keywords": "training, military, aviation, speech recognition",
+        "pages": "109-121",
+        "title": "Laboratory demonstration of computer speech recognition in training",
+        "type": "InProceedings",
+        "year": "1977"
+    },
+    "BrinkmanHartantoEtAl2012": {
+        "abstract": "A virtual reality dialog system for treatment of social phobias. Uses speech recognition.",
+        "acmid": "2212395",
+        "address": "New York, NY, USA",
+        "author": "Brinkman, Willem-Paul and Hartanto, Dwi and Kang, Ni and de Vliegher, Daniel and Kampmann, Isabel L. and Morina, Nexhmedin and Emmelkamp, Paul G.M. and Neerincx, Mark",
+        "booktitle": "CHI '12 Extended Abstracts on Human Factors in Computing Systems",
+        "doi": "10.1145/2212776.2212395",
+        "file": "BrinkmanHartantoEtAl2012.pdf:BrinkmanHartantoEtAl2012.pdf:PDF",
+        "isbn": "978-1-4503-1016-1",
+        "keywords": "speech recognition, virtual reality, fobias, health, dialog",
+        "location": "Austin, Texas, USA",
+        "numpages": "4",
+        "pages": "1099--1102",
+        "publisher": "ACM",
+        "series": "CHI EA '12",
+        "title": "A Virtual Reality Dialogue System for the Treatment of Social Phobia",
+        "type": "InProceedings",
+        "url": "http://doi.acm.org/10.1145/2212776.2212395",
+        "year": "2012"
+    },
+    "Bryson1996": {
+        "author": "Bryson, Steve",
+        "file": "Bryson1996.pdf:Bryson1996.pdf:PDF",
+        "journal": "Communications of the ACM",
+        "keywords": "virtual reality, challenges, data visualization, scientific",
+        "number": "5",
+        "pages": "62--71",
+        "publisher": "ACM",
+        "title": "Virtual reality in scientific visualization",
+        "type": "Article",
+        "volume": "39",
+        "year": "1996"
+    },
+    "BurdeaPopescuEtAl2000": {
+        "abstract": "Rehabilitation interventions in remote areas are problematic because of distance and available resources. Orthopedic impairments acquired by individuals in remote areas can then lead to permanent disabilities/loss of function because of lack of appropriate rehabilitation. A system being developed by Rutgers and Stanford Universities provides therapy at the patient's home, with remote monitoring and periodic re-assessment. This telerehabilitation system uses virtual reality and haptic interfaces, and a pair of networked PCs. It is intended for rehabilitation of patients with hand, elbow, knee and ankle impairements. Data from the first patient treated with the telerehabilitation system is encouraging",
+        "author": "G. Burdea and V. Popescu and V. Hentz and K. Colbert",
+        "doi": "10.1109/86.867886",
+        "file": "BurdeaPopescuEtAl2000.pdf:BurdeaPopescuEtAl2000.pdf:PDF",
+        "issn": "1063-6528",
+        "journal": "IEEE Transactions on Rehabilitation Engineering",
+        "keywords": "rehabilitation, virtual reality, serious games, health, telemedicine, haptic, tactile",
+        "month": "Sep",
+        "number": "3",
+        "pages": "430-432",
+        "title": "Virtual reality-based orthopedic telerehabilitation",
+        "type": "Article",
+        "volume": "8",
+        "year": "2000"
+    },
+    "BurgerFerraneEtAl2012": {
+        "author": "Burger, Brice and Ferran{\\'e}, Isabelle and Lerasle, Fr{\\'e}d{\\'e}ric and Infantes, Guillaume",
+        "file": "BurgerFerraneEtAl2012.pdf:BurgerFerraneEtAl2012.pdf:PDF",
+        "journal": "Autonomous Robots",
+        "keywords": "speech recognition, gestures, multimodal, robot, assistant, robot control",
+        "number": "2",
+        "pages": "129--147",
+        "publisher": "Springer",
+        "title": "Two-handed gesture recognition and fusion with speech to command a robot",
+        "type": "Article",
+        "volume": "32",
+        "year": "2012"
+    },
+    "ByeOsenEtAl2016": {
+        "author": "Bye, Robin T and Osen, Ottar L and Pedersen, Birger Skogeng and Hameed, Ibrahim A and Schaathun, Hans Georg",
+        "booktitle": "Proceedings of the 30th European Conference on Modeling and Simulation (ECMS 2016)",
+        "file": "ByeOsenEtAl2016.pdf:ByeOsenEtAl2016.pdf:PDF",
+        "keywords": "virtual prototyping, crane, ntnu, web",
+        "pages": "534--543",
+        "title": "A software framework for intelligent computer-automated product design",
+        "type": "InProceedings",
+        "year": "2016"
+    },
+    "ChaLearn2013": {
+        "author": "{ChaLearn}",
+        "howpublished": "Online",
+        "keywords": "gestures, challenge, dataset, multimodal",
+        "title": "{Multimodal Gesture Recognition: Montalbano V1}",
+        "type": "Misc",
+        "url": "http://chalearnlap.cvc.uab.es/dataset/12/description/",
+        "year": "2013"
+    },
+    "ChaquetCarmonaEtAl2013": {
+        "abstract": "Abstract Vision-based human action and activity recognition has an increasing importance among the computer vision community with applications to visual surveillance, video retrieval and human-computer interaction. In recent years, more and more datasets dedicated to human action and activity recognition have been created. The use of these datasets allows us to compare different recognition systems with the same input data. The survey introduced in this paper tries to cover the lack of a complete description of the most important public datasets for video-based human activity and action recognition and to guide researchers in the election of the most suitable dataset for benchmarking their algorithms. ",
+        "author": "Jose M. Chaquet and Enrique J. Carmona and Antonio Fernandez-Caballero",
+        "doi": "http://doi.org/10.1016/j.cviu.2013.01.013",
+        "file": "ChaquetCarmonaEtAl2013.pdf:ChaquetCarmonaEtAl2013.pdf:PDF",
+        "issn": "1077-3142",
+        "journal": "Computer Vision and Image Understanding",
+        "keywords": "gestures, dataset, survey",
+        "number": "6",
+        "pages": "633 - 659",
+        "title": "A survey of video datasets for human action and activity recognition",
+        "type": "Article",
+        "url": "http://www.sciencedirect.com/science/article/pii/S1077314213000295",
+        "volume": "117",
+        "year": "2013"
+    },
+    "ChenLiEtAl2012": {
+        "abstract": "In this study, a 3D virtual reality and visualization engine for rendering the ocean, named VV-Ocean, is designed for marine applications. The design goals of VV-Ocean aim at high fidelity simulation of ocean environment, visualization of massive and multidimensional marine data, and imitation of marine lives. VV-Ocean is composed of five modules, i.e. memory management module, resources management module, scene management module, rendering process management module and interaction management module. There are three core functions in VV-Ocean: reconstructing vivid virtual ocean scenes, visualizing real data dynamically in real time, imitating and simulating marine lives intuitively. Based on VV-Ocean, we establish a sea-land integration platform which can reproduce drifting and diffusion processes of oil spilling from sea bottom to surface. Environment factors such as ocean current and wind field have been considered in this simulation. On this platform oil spilling process can be abstracted as movements of abundant oil particles. The result shows that oil particles blend with water well and the platform meets the requirement for real-time and interactive rendering. VV-Ocean can be widely used in ocean applications such as demonstrating marine operations, facilitating maritime communications, developing ocean games, reducing marine hazards, forecasting the weather over oceans, serving marine tourism, and so on. Finally, further technological improvements of VV-Ocean are discussed.",
+        "author": "Chen, Ge and Li, Bo and Tian, Fenglin and Ji, Pengbo and Li, Wenqing",
+        "doi": "10.1007/s11802-012-2112-6",
+        "file": "ChenLiEtAl2012.pdf:ChenLiEtAl2012.pdf:PDF",
+        "issn": "1993-5021",
+        "journal": "Journal of Ocean University of China",
+        "keywords": "ocean, virtual reality, data visualization, simulation, maritime",
+        "number": "4",
+        "pages": "481--487",
+        "title": "Design and implementation of a 3D ocean virtual reality and visualization engine",
+        "type": "Article",
+        "url": "http://dx.doi.org/10.1007/s11802-012-2112-6",
+        "volume": "11",
+        "year": "2012"
+    },
+    "ChengYangEtAl2016": {
+        "author": "H. Cheng and L. Yang and Z. Liu",
+        "doi": "10.1109/TCSVT.2015.2469551",
+        "file": "ChengYangEtAl2016.pdf:ChengYangEtAl2016.pdf:PDF",
+        "issn": "1051-8215",
+        "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+        "keywords": "gestures, dataset, survey, methods, algorithms, classification",
+        "month": "Sept",
+        "number": "9",
+        "pages": "1659-1673",
+        "title": "Survey on 3D Hand Gesture Recognition",
+        "type": "Article",
+        "volume": "26",
+        "year": "2016"
+    },
+    "ChoiCheung2008": {
+        "author": "S.H. Choi and H.H. Cheung",
+        "doi": "http://doi.org/10.1016/j.compind.2007.12.003",
+        "file": "ChoiCheung2008.pdf:ChoiCheung2008.pdf:PDF",
+        "issn": "0166-3615",
+        "journal": "Computers in Industry",
+        "keywords": "virtual prototyping, manufacturing, design, virtual reality, CAD, stereoscopic",
+        "number": "5",
+        "pages": "477 - 488",
+        "title": "A versatile virtual prototyping system for rapid product development",
+        "type": "Article",
+        "url": "http://www.sciencedirect.com/science/article/pii/S0166361507001820",
+        "volume": "59",
+        "year": "2008"
+    },
+    "ChryssolourisMavrikiosEtAl2009": {
+        "abstract": "AbstractDigital manufacturing has been considered, over the last decade, as a highly promising set of technologies for reducing product development times and cost as well as for addressing the need for customization, increased product quality, and faster response to the market. This paper describes the evolution of information technology systems in manufacturing, outlining their characteristics and the challenges to be addressed in the future. Together with the digital manufacturing and factory concepts, the technologies considered in this paper include computer-aided design, engineering, process planning and manufacturing, product data and life-cycle management, simulation and virtual reality, automation, process control, shopfloor scheduling, decision support, decision making, manufacturing resource planning, enterprise resource planning, logistics, supply chain management, and e-commerce systems. These technologies are discussed in the context of the digital factory and manufacturing concepts.",
+        "author": "G Chryssolouris and D Mavrikios and N Papakostas and D Mourtzis and G Michalos and K Georgoulias",
+        "doi": "10.1243/09544054JEM1241",
+        "eprint": "http://dx.doi.org/10.1243/09544054JEM1241",
+        "file": "ChryssolourisMavrikiosEtAl2009.pdf:ChryssolourisMavrikiosEtAl2009.pdf:PDF",
+        "journal": "Proceedings of the Institution of Mechanical Engineers, Part B: Journal of Engineering Manufacture",
+        "keywords": "manufacturing, survey, virtual prototyping, digitalization, automotive",
+        "number": "5",
+        "pages": "451-462",
+        "title": "Digital manufacturing: History, perspectives, and outlook",
+        "type": "Article",
+        "url": " http://dx.doi.org/10.1243/09544054JEM1241 ,",
+        "volume": "223",
+        "year": "2009"
+    },
+    "ChuDaniEtAl1997": {
+        "author": "Chu, Chi-Cheng P and Dani, Tushar H and Gadh, Rajit",
+        "file": "ChuDaniEtAl1997.pdf:ChuDaniEtAl1997.pdf:PDF",
+        "journal": "Computer-Aided Design",
+        "keywords": "CAD, multimodal, speech recognition, gestures, design, HCI, MMI, gesture mapping",
+        "number": "10",
+        "pages": "709--725",
+        "publisher": "Elsevier",
+        "title": "Multi-sensory user interface for a virtual-reality-based computer-aided design system",
+        "type": "Article",
+        "volume": "29",
+        "year": "1997"
+    },
+    "CohenJohnstonEtAl1997": {
+        "author": "Cohen, Philip R and Johnston, Michael and McGee, David and Oviatt, Sharon and Pittman, Jay and Smith, Ira and Chen, Liang and Clow, Josh",
+        "booktitle": "Proceedings of the fifth ACM international conference on Multimedia",
+        "file": "CohenJohnstonEtAl1997.pdf:CohenJohnstonEtAl1997.pdf:PDF",
+        "keywords": "multimodal, speech recognition, gestures, pen-based, map, geospatial",
+        "organization": "ACM",
+        "pages": "31--40",
+        "title": "Quickset: Multimodal interaction for distributed applications",
+        "type": "InProceedings",
+        "year": "1997"
+    },
+    "CsapoGilmartinEtAl2012": {
+        "author": "Csapo, Adam and Gilmartin, Emer and Grizou, Jonathan and Han, JingGuang and Meena, Raveesh and Anastasiou, Dimitra and Jokinen, Kristiina and Wilcock, Graham",
+        "booktitle": "Cognitive Infocommunications (CogInfoCom), 2012 IEEE 3rd International Conference on",
+        "file": "CsapoGilmartinEtAl2012.pdf:CsapoGilmartinEtAl2012.pdf:PDF",
+        "keywords": "nao, humanoid robot, robot, conversation, multimodal, robotic gestures, natural speech, speech recognition, dialogue, augmented reality",
+        "organization": "IEEE",
+        "pages": "667--672",
+        "title": "Multimodal conversational interaction with a humanoid robot",
+        "type": "InProceedings",
+        "year": "2012"
+    },
+    "DeVaultArtsteinEtAl2014": {
+        "author": "DeVault, David and Artstein, Ron and Benn, Grace and Dey, Teresa and Fast, Ed and Gainer, Alesia and Georgila, Kallirroi and Gratch, Jon and Hartholt, Arno and Lhommet, Margaux and others",
+        "booktitle": "Proceedings of the 2014 international conference on Autonomous agents and multi-agent systems",
+        "file": "DeVaultArtsteinEtAl2014.pdf:DeVaultArtsteinEtAl2014.pdf:PDF",
+        "keywords": "speech recognition, dialog, health",
+        "organization": "International Foundation for Autonomous Agents and Multiagent Systems",
+        "owner": "Girts",
+        "pages": "1061--1068",
+        "timestamp": "2017.01.13",
+        "title": "SimSensei Kiosk: A virtual human interviewer for healthcare decision support",
+        "type": "InProceedings",
+        "year": "2014"
+    },
+    "DengLiu2013": {
+        "author": "Deng, Qian-wang and Liu, Xiao-lai",
+        "booktitle": "Proceedings of 20th International Conference on Industrial Engineering and Engineering Management",
+        "file": "DengLiu2013.pdf:DengLiu2013.pdf:PDF",
+        "keywords": "crane, simulation, visualization, crane operation",
+        "organization": "Springer",
+        "pages": "45--55",
+        "title": "Application of 3D Scene Building Technology in Crane Simulation Platform Based on OSG",
+        "type": "InProceedings",
+        "year": "2013"
+    },
+    "DongZouEtAl2009": {
+        "author": "H. Dong and S. Zou and D. Chen and H. Xu",
+        "booktitle": "2009 Second International Conference on Intelligent Computation Technology and Automation",
+        "doi": "10.1109/ICICTA.2009.167",
+        "file": "DongZouEtAl2009.pdf:DongZouEtAl2009.pdf:PDF",
+        "keywords": "crane, distributed, training, virtual reality, crane operation, OSC-related",
+        "month": "Oct",
+        "pages": "670-673",
+        "title": "Research and Development of Distributed Bridge Crane Training System Based on Virtual Reality",
+        "type": "InProceedings",
+        "volume": "1",
+        "year": "2009"
+    },
+    "DuarteFilhoCostaBotelhoEtAl2010": {
+        "abstract": "In this paper, an approach on immersive multiprojection visualization of manufacturing processes is proposed. It admits scenarios with dynamic components and allows virtual reality collaborative visualization among geographically distributed users through multi-CAVE devices. A set of modules for modeling, converting, visualizing, and interacting are also proposed. The method can be applied to CAD projects, models, and simulations used in industry. The ideas discussed are then validated through the study of a real case related to the shipbuilding and offshore industries.",
+        "author": "Duarte Filho, Nelson and Costa Botelho, Silvia and Tyska Carvalho, Jonata and de Botelho Marcos, Pedro and de Queiroz Maffei, Renan and Remor Oliveira, Rodrigo and Ruas Oliveira, Rodrigo and Alves Hax, Vinicius",
+        "doi": "10.1007/s00170-010-2548-z",
+        "file": "DuarteFilhoCostaBotelhoEtAl2010.pdf:DuarteFilhoCostaBotelhoEtAl2010.pdf:PDF",
+        "issn": "1433-3015",
+        "journal": "The International Journal of Advanced Manufacturing Technology",
+        "keywords": "collaboration, ship building, maritime, virtual prototyping, ship design, CAD, manufacturing, design",
+        "number": "9",
+        "pages": "1253--1261",
+        "title": "An immersive and collaborative visualization system for digital manufacturing",
+        "type": "Article",
+        "url": "http://dx.doi.org/10.1007/s00170-010-2548-z",
+        "volume": "50",
+        "year": "2010"
+    },
+    "FernandezAlonso2015": {
+        "author": "Fern{\\'a}ndez, Rodrigo P{\\'e}rez and Alonso, Ver{\\'o}nica",
+        "file": "FernandezAlonso2015.pdf:FernandezAlonso2015.pdf:PDF",
+        "journal": "Advances in Engineering Software",
+        "keywords": "maritime, virtual reality, visualization, pictures for presentations, collaboration, ship design, ship building, design",
+        "pages": "30--40",
+        "publisher": "Elsevier",
+        "title": "Virtual Reality in a shipbuilding environment",
+        "type": "Article",
+        "volume": "81",
+        "year": "2015"
+    },
+    "FroehlichBarrassEtAl1999": {
+        "author": "Fr{\\\"o}hlich, Bernd and Barrass, Stephen and Zehner, Bj{\\\"o}rn and Plate, John and G{\\\"o}bel, Martin",
+        "booktitle": "Proceedings of the conference on Visualization'99: celebrating ten years",
+        "file": "FroehlichBarrassEtAl1999.pdf:FroehlichBarrassEtAl1999.pdf:PDF",
+        "keywords": "geo-spatial, geo-scientific, input device, data visualization, sonification",
+        "organization": "IEEE Computer Society Press",
+        "pages": "169--173",
+        "title": "Exploring geo-scientific data in virtual environments",
+        "type": "InProceedings",
+        "year": "1999"
+    },
+    "Grabowski2015": {
+        "author": "Grabowski, Martha",
+        "file": "Grabowski2015.pdf:Grabowski2015.pdf:PDF",
+        "journal": "Journal of Navigation",
+        "keywords": "maritime, navigation, augmented reality, wearable, google glass",
+        "number": "03",
+        "pages": "453--464",
+        "publisher": "Cambridge Univ Press",
+        "title": "Research on Wearable, Immersive Augmented Reality (WIAR) Adoption in Maritime Navigation",
+        "type": "Article",
+        "volume": "68",
+        "year": "2015"
+    },
+    "GradyHicklinEtAl1977": {
+        "author": "H.W. Grady and M.B. Hicklin and J.E. Porter",
+        "booktitle": "Voice Technology for Interactive Real-Time Command/Control Systems Application",
+        "file": "GradyHicklinEtAl1977.pdf:GradyHicklinEtAl1977.pdf:PDF",
+        "journal": "VOICE ECHNOLOGY FOR INTERACTIVE REAL-TIME COMMAND/CONTROL SYST EMS APPLICATION",
+        "keywords": "training, military, aviation, speech recognition",
+        "pages": "217-234",
+        "title": "Practical Applications of Interactive Voice Technologies - Some Accomplishments and Prospects",
+        "type": "InProceedings",
+        "year": "1977"
+    },
+    "HartFreedEtAl2014": {
+        "author": "Hart, Gregory M and Freed, Ian W and Zehr, Gregg Elliott and Bezos, Jeffrey P",
+        "file": "HartFreedEtAl2014.pdf:HartFreedEtAl2014.pdf:PDF",
+        "keywords": "speech recognition, gestures, patent, Amazon",
+        "month": "apr #{~15",
+        "note": "US Patent 8,700,392",
+        "publisher": "Google Patents",
+        "title": "Speech-inclusive device interfaces",
+        "type": "Misc",
+        "year": "2014"
+    },
+    "HartholtTraumEtAl2013": {
+        "address": "Berlin, Heidelberg",
+        "author": "Hartholt, Arno and Traum, David and Marsella, Stacy C. and Shapiro, Ari and Stratou, Giota and Leuski, Anton and Morency, Louis-Philippe and Gratch, Jonathan",
+        "booktitle": "Intelligent Virtual Agents: 13th International Conference, IVA 2013, Edinburgh, UK, August 29-31, 2013. Proceedings",
+        "doi": "10.1007/978-3-642-40415-3_33",
+        "editor": "Aylett, Ruth and Krenn, Brigitte and Pelachaud, Catherine and Shimodaira, Hiroshi",
+        "file": "HartholtTraumEtAl2013.pdf:HartholtTraumEtAl2013.pdf:PDF",
+        "isbn": "978-3-642-40415-3",
+        "keywords": "speech recognition, dialog",
+        "pages": "368--381",
+        "publisher": "Springer Berlin Heidelberg",
+        "title": "All Together Now",
+        "type": "InProceedings",
+        "url": "http://dx.doi.org/10.1007/978-3-642-40415-3_33",
+        "year": "2013"
+    },
+    "HaysVincenzi2000": {
+        "author": "Hays, Robert T and Vincenzi, Dennis A",
+        "file": "HaysVincenzi2000.pdf:HaysVincenzi2000.pdf:PDF",
+        "journal": "Military Psychology",
+        "keywords": "training, maritime, submarine, speech recognition, navy, military",
+        "number": "3",
+        "pages": "161",
+        "publisher": "Lawrence Erlbaum",
+        "title": "Fleet assessments of a virtual reality training system.",
+        "type": "Article",
+        "volume": "12",
+        "year": "2000"
+    },
+    "HosteDumasEtAl2012": {
+        "acmid": "2254585",
+        "address": "New York, NY, USA",
+        "author": "Hoste, Lode and Dumas, Bruno and Signer, Beat",
+        "booktitle": "Proceedings of the International Working Conference on Advanced Visual Interfaces",
+        "doi": "10.1145/2254556.2254585",
+        "file": "HosteDumasEtAl2012.pdf:HosteDumasEtAl2012.pdf:PDF",
+        "isbn": "978-1-4503-1287-5",
+        "keywords": "Kinect, speech recognition, gestures, multimodal",
+        "location": "Capri Island, Italy",
+        "numpages": "8",
+        "pages": "156--163",
+        "publisher": "ACM",
+        "series": "AVI '12",
+        "title": "SpeeG: A Multimodal Speech- and Gesture-based Text Input Solution",
+        "type": "InProceedings",
+        "url": "http://doi.acm.org/10.1145/2254556.2254585",
+        "year": "2012"
+    },
+    "HuguesCieutatEtAl2010": {
+        "author": "Hugues, Olivier and Cieutat, Jean-Marc and Guitton, Pascal",
+        "booktitle": "Proceedings of the 1st Augmented Human International Conference",
+        "file": "HuguesCieutatEtAl2010.pdf:HuguesCieutatEtAl2010.pdf:PDF",
+        "keywords": "augmented reality, maritime, navigation, GIS, geospatial, maps",
+        "organization": "ACM",
+        "pages": "12",
+        "title": "An experimental augmented reality platform for assisted maritime navigation",
+        "type": "InProceedings",
+        "year": "2010"
+    },
+    "Ishimitsu2008": {
+        "author": "Ishimitsu, Shunsuke",
+        "chapter": "Construction of a Noise-Robust Body-Conducted Speech Recognition System",
+        "editor": "France Mihelic and Janez Zibert",
+        "file": "Ishimitsu2008.pdf:Ishimitsu2008.pdf:PDF",
+        "keywords": "maritime, speech recognition, accelerometers, engine room",
+        "pages": "261-274",
+        "publisher": "INTECH Open Access Publisher",
+        "title": "Speech Recognition, Technologies and Applications",
+        "type": "InBook",
+        "year": "2008"
+    },
+    "JacobLiEtAl2012": {
+        "author": "Jacob, Mithun G and Li, Yu-Ting and Wachs, Juan P",
+        "booktitle": "Human-Robot Interaction (HRI), 2012 7th ACM/IEEE International Conference on",
+        "file": "JacobLiEtAl2012.pdf:JacobLiEtAl2012.pdf:PDF",
+        "keywords": "gestures, speech recognition, multimodal, health, medicine, operation room, hand gestures, finger gestures, robot control",
+        "organization": "IEEE",
+        "pages": "153--154",
+        "title": "Gestonurse: a multimodal robotic scrub nurse",
+        "type": "InProceedings",
+        "year": "2012"
+    },
+    "JaimesSebe2007": {
+        "author": "Jaimes, Alejandro and Sebe, Nicu",
+        "file": "JaimesSebe2007.pdf:JaimesSebe2007.pdf:PDF",
+        "journal": "Computer vision and image understanding",
+        "keywords": "gestures, speech recognition, multimodal, survey",
+        "number": "1",
+        "pages": "116--134",
+        "publisher": "Elsevier",
+        "title": "Multimodal human--computer interaction: A survey",
+        "type": "Article",
+        "volume": "108",
+        "year": "2007"
+    },
+    "JenabMoslehpourEtAl2016": {
+        "abstract": "Virtual Reality is a computer-generated, mock environment that can allow people to interact with it in a seemingly real way by using certain types of specialized equipment. It is mainly used for training or educational purposes and allows for real-life training in a safe and monitored environment. Virtual training can be used in many different fields such as medical, military, biomedical research, aviation, and many others. However, this paper reviews the most cited publications related to the application of virtual reality for training in the United States Military. As a result, researchers can find research venues based on the challenges, risk, and infrastructures.",
+        "author": "Jenab,Kouroush and Moslehpour,Saeid and Khoury,Sam",
+        "file": "JenabMoslehpourEtAl2016.pdf:JenabMoslehpourEtAl2016.pdf:PDF",
+        "journal": "International Journal of Electrical and Computer Engineering",
+        "keywords": "virtual reality, applications, survey, military, aviation",
+        "language": "English",
+        "month": "12",
+        "note": "Copyright - Copyright IAES Institute of Advanced Engineering and Science Dec 2016; Last updated - 2017-04-20",
+        "number": "6",
+        "pages": "2698-2707",
+        "title": "Virtual Maintenance, Reality, and Systems: A Review",
+        "type": "Article",
+        "url": "https://search.proquest.com/docview/1868300412?accountid",
+        "volume": "6",
+        "year": "2016"
+    },
+    "JianqiFangEtAl2015": {
+        "author": "A. Jianqi and C. Fang and C. Xin and W. Min",
+        "booktitle": "2015 34th Chinese Control Conference (CCC)",
+        "doi": "10.1109/ChiCC.2015.7261045",
+        "file": "JianqiFangEtAl2015.pdf:JianqiFangEtAl2015.pdf:PDF",
+        "keywords": "crane, simulation, visualization, crane operation",
+        "month": "July",
+        "pages": "8892-8897",
+        "title": "Three dimensional hoisting simulation system based on virtual reality for truck crane",
+        "type": "InProceedings",
+        "year": "2015"
+    },
+    "KimLeeEtAl2002": {
+        "author": "Kim, Hongtae and Lee, Jong-Kap and Park, Jin-Hyoung and Park, Beom-Jin and Jang, Dong-Sik",
+        "file": "KimLeeEtAl2002.pdf:KimLeeEtAl2002.pdf:PDF",
+        "journal": "Integrated Manufacturing Systems",
+        "keywords": "maritime, shipyard, ship building, manufacturing, prototyping, crane, block erection",
+        "number": "5",
+        "pages": "295--305",
+        "publisher": "MCB UP Ltd",
+        "title": "Applying digital manufacturing technology to ship production and the maritime environment",
+        "type": "Article",
+        "volume": "13",
+        "year": "2002"
+    },
+    "KimLeeEtAl2005": {
+        "author": "H. Kim and S.-S. Lee and J. H. Park and J.-G. Lee",
+        "doi": "10.1080/09511920500064789",
+        "eprint": "http://dx.doi.org/10.1080/09511920500064789",
+        "file": "KimLeeEtAl2005.pdf:KimLeeEtAl2005.pdf:PDF",
+        "journal": "International Journal of Computer Integrated Manufacturing",
+        "keywords": "maritime, shipyard, manufacturing, prototyping, block erection, crane, ship building, discarded-duplicate",
+        "number": "6",
+        "pages": "427-441",
+        "title": "A model for a simulation-based shipbuilding system in a shipyard manufacturing process",
+        "type": "Article",
+        "url": " http://dx.doi.org/10.1080/09511920500064789 ,",
+        "volume": "18",
+        "year": "2005"
+    },
+    "KleinVassighEtAl2012": {
+        "author": "Klein, Christian and Vassigh, Ali M and Flaks, Jason S and Larco, Vanessa and Soemo, Thomas M",
+        "file": "KleinVassighEtAl2012.pdf:KleinVassighEtAl2012.pdf:PDF",
+        "keywords": "gestures, speech recognition, patent, Microsoft",
+        "month": "October",
+        "note": "US Patent 8,296,151",
+        "publisher": "Google Patents",
+        "title": "Compound gesture-speech commands",
+        "type": "Misc",
+        "year": "2012"
+    },
+    "KoonsSparrellEtAl1993": {
+        "author": "Koons, David B and Sparrell, Carlton J and Thorisson, Kristinn Rr",
+        "file": "KoonsSparrellEtAl1993.pdf:KoonsSparrellEtAl1993.pdf:PDF",
+        "journal": "MIT Press: Menlo Park, CA",
+        "keywords": "gestures, speech recognition, eye tracking, multimodal",
+        "pages": "257--276",
+        "title": "Integrating simultaneous input from speech, gaze, and hand gestures",
+        "type": "Article",
+        "year": "1993"
+    },
+    "Kshirsagar2013": {
+        "author": "Kshirsagar, Sudhir",
+        "file": "Kshirsagar2013.pdf:Kshirsagar2013.pdf:PDF",
+        "keywords": "gestures, speech recognition, patent",
+        "month": "jul #{~23",
+        "note": "US Patent App. 13/949,223",
+        "publisher": "Google Patents",
+        "title": "Gestures coupled with voice as input method",
+        "type": "Misc",
+        "year": "2013"
+    },
+    "LaViola2000": {
+        "author": "LaViola, Joseph",
+        "booktitle": "Proceedings of the third IASTED international conference on computer graphics and imaging",
+        "file": "LaViola2000.pdf:LaViola2000.pdf:PDF",
+        "keywords": "gestures, speech recognition, multimodal, object interaction, data visualization, scientific visualization",
+        "pages": "1--7",
+        "title": "MSVT: A virtual reality-based multimodal scientific visualization tool",
+        "type": "InProceedings",
+        "year": "2000"
+    },
+    "Lindskog2014": {
+        "author": "Erik Lindskog",
+        "file": "Lindskog2014.pdf:Lindskog2014.pdf:PDF",
+        "keywords": "production, manufacturing, virtual prototyping, visualization, virtual reality",
+        "school": "Chalmers University of Technology",
+        "title": "Towards Realistic Visualisation of Production Systems",
+        "type": "MastersThesis",
+        "year": "2014"
+    },
+    "LoftinKenneyEtAl1994": {
+        "author": "Loftin, R Bowen and Kenney, Patrick J and Benedetti, Robin and Culbert, Chris and Engelberg, Mark and Jones, Robert and Lucas, Paige and Menninger, Mason and Muratore, John and Nguyen, Lac and Saito, Tim and Savely, Tim and Voss, Mark",
+        "booktitle": "Interservice/Industry Training Systems \\& Education Conference",
+        "file": "LoftinKenneyEtAl1994.pdf:LoftinKenneyEtAl1994.pdf:PDF",
+        "keywords": "training, virtual reality, NASA, space, telescope, aerospace, OSC-related",
+        "pages": "1--10",
+        "title": "Virtual environments in training: NASA's Hubble space telescope mission",
+        "type": "InProceedings",
+        "year": "1994"
+    },
+    "Lukas2006": {
+        "author": "von Lukas, Uwe",
+        "file": "Lukas2006.pdf:Lukas2006.pdf:PDF",
+        "journal": "Proceedings of New Trends in Collaborative Product Design",
+        "keywords": "maritime, virtual reality, augmented reality, training, design, marketing, ship design, ship building, survey",
+        "pages": "193--201",
+        "title": "Virtual and Augmented Reality in the Maritime Industry",
+        "type": "Article",
+        "year": "2006"
+    },
+    "LukasFreiherr2010": {
+        "author": "von Lukas, Uwe Freiherr",
+        "file": "LukasFreiherr2010.pdf:LukasFreiherr2010.pdf:PDF",
+        "journal": "IFAC Proceedings Volumes",
+        "keywords": "maritime, virtual reality, augmented reality, training, design, marketing, CAD, survey",
+        "number": "20",
+        "pages": "196--200",
+        "publisher": "Elsevier",
+        "title": "Virtual and augmented reality for the maritime sector--applications and requirements",
+        "type": "Article",
+        "volume": "43",
+        "year": "2010"
+    },
+    "LvEsteveEtAl2015": {
+        "author": "Z. Lv and C. Esteve and J. Chirivella and P. Gagliardo",
+        "booktitle": "2015 3rd IEEE VR International Workshop on Virtual and Augmented Assistive Technology (VAAT)",
+        "doi": "10.1109/VAAT.2015.7155403",
+        "file": "LvEsteveEtAl2015.pdf:LvEsteveEtAl2015.pdf:PDF",
+        "keywords": "Speech recognition, health, Rehabilitation, dysphony, relevent, augmented reality",
+        "month": "March",
+        "pages": "9-14",
+        "title": "A game based assistive tool for rehabilitation of dysphonic patients",
+        "type": "InProceedings",
+        "year": "2015"
+    },
+    "MastKompeEtAl1992": {
+        "author": "Mast, Marion and Kompe, Ralf and Kummert, Franz and Niemann, Heinrich and N{\\\"o}th, Elmar",
+        "booktitle": "Proc. of Int. Conf. on Spoken Language Processing",
+        "file": "MastKompeEtAl1992.pdf:MastKompeEtAl1992.pdf:PDF",
+        "keywords": "speech recognition, dialog, information system, tourism",
+        "organization": "Citeseer",
+        "title": "The dialog module of the speech recognition and dialog system EVAR",
+        "type": "InProceedings",
+        "year": "1992"
+    },
+    "MurilloStifelmanEtAl2014": {
+        "author": "Murillo, Oscar and Stifelman, Lisa and Song, Margaret and Bastien, David and Schwesinger, Mark",
+        "keywords": "gestures, speech recognition, user interface, natural user interface, NUI, patent",
+        "month": "jan #{~10",
+        "note": "US Patent App. 14/152,815",
+        "publisher": "Google Patents",
+        "title": "Coordinated speech and gesture input",
+        "type": "Misc",
+        "year": "2014"
+    },
+    "Oviatt1999": {
+        "author": "Oviatt, Sharon",
+        "file": "Oviatt1999.pdf:Oviatt1999.pdf:PDF",
+        "journal": "Communications of the ACM",
+        "keywords": "multimodal, speech recognition, gestures, writing, theory, survey",
+        "number": "11",
+        "pages": "74--81",
+        "publisher": "ACM",
+        "title": "Ten myths of multimodal interaction",
+        "type": "Article",
+        "volume": "42",
+        "year": "1999"
+    },
+    "OviattCohenEtAl2000": {
+        "author": "Sharon Oviatt and Phil Cohen and Lizhong Wu and Lisbeth Duncan and Bernhard Suhm and Josh Bers and Thomas Holzman and Terry Winograd and James Landay and Jim Larson and David Ferro",
+        "doi": "10.1207/S15327051HCI1504\\_1",
+        "eprint": "http://www.tandfonline.com/doi/pdf/10.1207/S15327051HCI1504_1",
+        "file": "OviattCohenEtAl2000.pdf:OviattCohenEtAl2000.pdf:PDF",
+        "journal": "Human-Computer Interaction",
+        "keywords": "multimodal, speech recognition, gestures, pen-based, applications, survey",
+        "number": "4",
+        "pages": "263-322",
+        "title": "Designing the User Interface for Multimodal Speech and Pen-Based Gesture Applications: State-of-the-Art Systems and Future Research Directions",
+        "type": "Article",
+        "url": " http://www.tandfonline.com/doi/abs/10.1207/S15327051HCI1504_1 ,",
+        "volume": "15",
+        "year": "2000"
+    },
+    "PPE1996": {
+        "author": "{Panel 3 on Physics and Electronics}",
+        "file": "PPE1996.pdf:PPE1996.pdf:PDF",
+        "institution": "{NATO Defence Research Group}",
+        "keywords": "speech recognition, speech synthesis, military, training, OSC-related, survey",
+        "title": "Potentials of Speech and Language Technology Systems for Military Use: An Application and Technology-Oriented Survey",
+        "type": "TechReport",
+        "year": "1996"
+    },
+    "PappasKarabatsouEtAl2006": {
+        "author": "M. Pappas and V. Karabatsou and D. Mavrikios and G. Chryssolouris",
+        "doi": "10.1080/09511920600690426",
+        "eprint": "http://dx.doi.org/10.1080/09511920600690426",
+        "file": "PappasKarabatsouEtAl2006.pdf:PappasKarabatsouEtAl2006.pdf:PDF",
+        "journal": "International Journal of Computer Integrated Manufacturing",
+        "keywords": "manufacturing, survey, virtual prototyping, digitalization, web, collaboration",
+        "number": "8",
+        "pages": "805-814",
+        "title": "Development of a web-based collaboration platform for manufacturing product and process design evaluation using virtual reality techniques",
+        "type": "Article",
+        "url": " http://dx.doi.org/10.1080/09511920600690426 ,",
+        "volume": "19",
+        "year": "2006"
+    },
+    "PavlakosTheodorakisEtAl2014": {
+        "author": "Pavlakos, Georgios and Theodorakis, Stavros and Pitsikalis, Vassilis and Katsamanis, Athanasios and Maragos, Petros",
+        "booktitle": "Image Processing (ICIP), 2014 IEEE International Conference on",
+        "file": "PavlakosTheodorakisEtAl2014.pdf:PavlakosTheodorakisEtAl2014.pdf:PDF",
+        "keywords": "gestures, kinect, challenge",
+        "organization": "IEEE",
+        "pages": "1495--1499",
+        "title": "Kinect-based multimodal gesture recognition using a two-pass fusion scheme",
+        "type": "InProceedings",
+        "year": "2014"
+    },
+    "PeteiraPla-CastellsEtAl2011": {
+        "author": "Ivan Peteira and Marta Pla-Castells and Miguel A. Gamon",
+        "file": "PeteiraPla-CastellsEtAl2011.pdf:PeteiraPla-CastellsEtAl2011.pdf:PDF",
+        "institution": "ArcelorMittal R\\&D",
+        "keywords": "crane, usability, simulation, visualization, training, Virtual Reality, crane operation",
+        "title": "Using virtual reality for increasing safety in handling cranes: A presence study.",
+        "type": "TechReport",
+        "year": "2011"
+    },
+    "PettittCarstensEtAl2014": {
+        "author": "Pettitt, Rodger A and Carstens, Christian B and Elliott, Linda R",
+        "file": "PettittCarstensEtAl2014.pdf:PettittCarstensEtAl2014.pdf:PDF",
+        "institution": "DTIC Document",
+        "keywords": "military, robot control, speech recognition, remote control",
+        "title": "Speech-Based Robotic Control for Dismounted Soldiers: Evaluation of Visual Display Options",
+        "type": "TechReport",
+        "year": "2014"
+    },
+    "PflegingSchneegassEtAl2012": {
+        "author": "Pfleging, Bastian and Schneegass, Stefan and Schmidt, Albrecht",
+        "booktitle": "Proceedings of the 4th International Conference on Automotive User Interfaces and Interactive Vehicular Applications",
+        "file": "PflegingSchneegassEtAl2012.pdf:PflegingSchneegassEtAl2012.pdf:PDF",
+        "keywords": "automotive, multimodal, speech recognition, gestures",
+        "organization": "ACM",
+        "pages": "155--162",
+        "title": "Multimodal interaction in the car: combining speech and gestures on the steering wheel",
+        "type": "InProceedings",
+        "year": "2012"
+    },
+    "PisharadySaerbeck2015": {
+        "author": "Pramod Kumar Pisharady and Martin Saerbeck",
+        "doi": "http://doi.org/10.1016/j.cviu.2015.08.004",
+        "file": "PisharadySaerbeck2015.pdf:PisharadySaerbeck2015.pdf:PDF",
+        "issn": "1077-3142",
+        "journal": "Computer Vision and Image Understanding",
+        "keywords": "gestures, dataset, survey, methods, algorithms, classification",
+        "note": "Pose \\&amp; Gesture",
+        "pages": "152 - 165",
+        "title": "Recent methods and databases in vision-based hand gesture recognition: A review",
+        "type": "Article",
+        "url": "http://www.sciencedirect.com/science/article/pii/S1077314215001794",
+        "volume": "141",
+        "year": "2015"
+    },
+    "PoddarSethiEtAl1998": {
+        "author": "Poddar, Indrajit and Sethi, Yogesh and Ozyildiz, Ercan and Sharma, Rajeev",
+        "booktitle": "Proc. Workshop on Perceptual User Interfaces (PUI98",
+        "file": "PoddarSethiEtAl1998.pdf:PoddarSethiEtAl1998.pdf:PDF",
+        "keywords": "multimodal, gestures, speech recognition, weather, news",
+        "organization": "Citeseer",
+        "title": "Toward natural gesture/speech HCI: A case study of weather narration",
+        "type": "InProceedings",
+        "year": "1998"
+    },
+    "PopescuBurdeaEtAl2000": {
+        "author": "V. G. Popescu and G. C. Burdea and M. Bouzit and V. R. Hentz",
+        "doi": "10.1109/4233.826858",
+        "file": "PopescuBurdeaEtAl2000.pdf:PopescuBurdeaEtAl2000.pdf:PDF",
+        "issn": "1089-7771",
+        "journal": "IEEE Transactions on Information Technology in Biomedicine",
+        "keywords": "rehabilitation, virtual reality, serious games, health, telemedicine, haptic, tactile",
+        "month": "March",
+        "number": "1",
+        "pages": "45-51",
+        "title": "A virtual-reality-based telerehabilitation system with force feedback",
+        "type": "Article",
+        "volume": "4",
+        "year": "2000"
+    },
+    "ReddenCarstensEtAl2010": {
+        "author": "Redden, Elizabeth S and Carstens, Christian B and Pettitt, Rodger A",
+        "file": "ReddenCarstensEtAl2010.pdf:ReddenCarstensEtAl2010.pdf:PDF",
+        "institution": "DTIC Document",
+        "keywords": "speech recognition, robot control, remote control, military",
+        "title": "Intuitive speech-based robotic control",
+        "type": "TechReport",
+        "year": "2010"
+    },
+    "RickelJohnson1999": {
+        "abstract": " This paper describes Steve , an animated agent that helps students learn to perform physical , procedural tasks . The student and Steve cohabit a three - dimensional , simulated mock - up of the student's work environment . Steve can demonstrate how to perform tasks and can also monitor students while they practice tasks , providing assistance when needed . This paper describes Steve's architecture in detail , including perception , cognition , and motor control . The perception module monitors the state of the virtual world , maintains a coherent representation of it , and provides this information to the cognition and motor control modules . The cognition module interprets its perceptual input , chooses appropriate goals , constructs and executes plans to achieve those goals , and sends out motor commands . The motor control module implements these motor commands , controlling Steve's voice , locomotion , gaze , and gestures , allowing Steve to manipulate objects in the virtual world . ",
+        "author": "Jeff Rickel and W. Lewis Johnson",
+        "doi": "10.1080/088395199117315",
+        "eprint": "http://dx.doi.org/10.1080/088395199117315",
+        "file": "RickelJohnson1999.pdf:RickelJohnson1999.pdf:PDF",
+        "journal": "Applied Artificial Intelligence",
+        "keywords": "virtual reality, assistant, training, speech recognition",
+        "number": "4-5",
+        "pages": "343-382",
+        "title": "Animated agents for procedural training in virtual reality: Perception, cognition, and motor control",
+        "type": "Article",
+        "url": " http://dx.doi.org/10.1080/088395199117315 ,",
+        "volume": "13",
+        "year": "1999"
+    },
+    "RickelJohnson1999a": {
+        "author": "Rickel, Jeff and Johnson, W Lewis",
+        "booktitle": "Proceedings of the ninth international conference on artificial intelligence in education",
+        "file": "RickelJohnson1999a.pdf:RickelJohnson1999a.pdf:PDF",
+        "keywords": "virtual reality, assistant, training, speech recognition, team, collaboration, head-mounted-display, HMD, gloves",
+        "organization": "Citeseer",
+        "pages": "585",
+        "title": "Virtual humans for team training in virtual reality",
+        "type": "InProceedings",
+        "volume": "578",
+        "year": "1999"
+    },
+    "RizzoLangeEtAl2011": {
+        "author": "Rizzo, Albert and Lange, Belinda and Buckwalter, John G and Forbell, Eric and Kim, Julia and Sagae, Kenji and Williams, Josh and Difede, JoAnn and Rothbaum, Barbara O and Reger, Greg and others",
+        "file": "RizzoLangeEtAl2011.pdf:RizzoLangeEtAl2011.pdf:PDF",
+        "journal": "International Journal on Disability and Human Development",
+        "keywords": "speech recognition, health, dialog",
+        "number": "4",
+        "pages": "277--281",
+        "title": "SimCoach: an intelligent virtual human system for providing healthcare information and support",
+        "type": "Article",
+        "volume": "10",
+        "year": "2011"
+    },
+    "RuffieuxLalanneEtAl2014": {
+        "address": "Cham",
+        "author": "Ruffieux, Simon and Lalanne, Denis and Mugellini, Elena and Abou Khaled, Omar",
+        "booktitle": "Human-Computer Interaction. Advanced Interaction Modalities and Techniques: 16th International Conference, HCI International 2014, Heraklion, Crete, Greece, June 22-27, 2014, Proceedings, Part II",
+        "doi": "10.1007/978-3-319-07230-2_33",
+        "editor": "Kurosu, Masaaki",
+        "file": "RuffieuxLalanneEtAl2014.pdf:RuffieuxLalanneEtAl2014.pdf:PDF",
+        "isbn": "978-3-319-07230-2",
+        "keywords": "gestures, dataset, survey",
+        "pages": "337--348",
+        "publisher": "Springer International Publishing",
+        "title": "A Survey of Datasets for Human Gesture Recognition",
+        "type": "InBook",
+        "url": "http://dx.doi.org/10.1007/978-3-319-07230-2_33",
+        "year": "2014"
+    },
+    "SaZachmann1999": {
+        "abstract": "Business process re-engineering is becoming a main focus in today's efforts to overcome problems and deficits in the automotive and aerospace industries (e.g., integration in international markets, product complexity, increasing number of product variants, reduction in product development time and cost). In this paper, we investigate the steps needed to apply virtual reality (VR) for virtual prototyping (VP) to verify assembly and maintenance processes. After a review of today's business process in vehicle prototyping, we discuss CAD-VR data integration and identify new requirements for design quality. We present several new interaction paradigms so that engineers and designers can experiment naturally with the prototype. Finally, a user survey evaluates some of the paradigms and the acceptance and feasability of virtual prototyping for our key process. The results show that \\{VR\\} will play an important role for \\{VP\\} in the near future.",
+        "author": "Antonino Gomes de Sa and Gabriel Zachmann",
+        "doi": "http://dx.doi.org/10.1016/S0097-8493(99)00047-3",
+        "file": "SaZachmann1999.pdf:SaZachmann1999.pdf:PDF",
+        "issn": "0097-8493",
+        "journal": "Computers \\& Graphics",
+        "keywords": "virtual environments, virtual prototyping, virtual reality, assembly, automotive, user study, multimodal, speech recognition, aerospace, gloves",
+        "number": "3",
+        "pages": "389 - 403",
+        "title": "Virtual reality as a tool for verification of assembly and maintenance processes",
+        "type": "Article",
+        "url": "http://www.sciencedirect.com/science/article/pii/S0097849399000473",
+        "volume": "23",
+        "year": "1999"
+    },
+    "SastrySteelEtAl2001": {
+        "author": "Sastry, Venkat V and Steel, Jospeh and Trott, Edward A",
+        "file": "SastrySteelEtAl2001.pdf:SastrySteelEtAl2001.pdf:PDF",
+        "institution": "Defense Technical Information Center",
+        "keywords": "gestures, speech recognition, training, military, navy, aviation",
+        "title": "A virtual environment for naval flight deck operations training",
+        "type": "TechReport",
+        "year": "2001"
+    },
+    "SharmaYeasinEtAl2003": {
+        "author": "R. Sharma and M. Yeasin and N. Krahnstoever and I. Rauschert and G. Cai and I. Brewer and A. M. MacEachren and K. Sengupta",
+        "doi": "10.1109/JPROC.2003.817145",
+        "file": "SharmaYeasinEtAl2003.pdf:SharmaYeasinEtAl2003.pdf:PDF",
+        "issn": "0018-9219",
+        "journal": "Proceedings of the IEEE",
+        "keywords": "gestures, speech recognition, crisis management, multimodal",
+        "month": "Sept",
+        "number": "9",
+        "pages": "1327-1354",
+        "title": "Speech-gesture driven multimodal interfaces for crisis management",
+        "type": "Article",
+        "volume": "91",
+        "year": "2003"
+    },
+    "SodiriSastry2004": {
+        "author": "Sodiri, Deniz T and Sastry, VVSS",
+        "booktitle": "Proceedings of the Thirteenth Conference on Behaviour Representation in Modelling and Simulation",
+        "file": "SodiriSastry2004.pdf:SodiriSastry2004.pdf:PDF",
+        "keywords": "gestures, aviation, deck operator, training",
+        "title": "On the interpretation of gestures arising in flight deck officers training",
+        "type": "InProceedings",
+        "year": "2004"
+    },
+    "SongDemirdjianEtAl2011": {
+        "abstract": "We present a unified framework for body and hand tracking, the output of which can be used for understanding simultaneously performed body-and-hand gestures. The framework uses a stereo camera to collect 3D images, and tracks body and hand together, combining various existing techniques to make tracking tasks efficient. In addition, we introduce a multi-signal gesture database: the NATOPS aircraft handling signals. Unlike previous gesture databases, this data requires knowledge about both body and hand in order to distinguish gestures. It is also focused on a clearly defined gesture vocabulary from a real-world scenario that has been refined over many years. The database includes 24 body-and-hand gestures, and provides both gesture video clips and the body and hand features we extracted.",
+        "author": "Y. Song and D. Demirdjian and R. Davis",
+        "booktitle": "Face and Gesture 2011",
+        "doi": "10.1109/FG.2011.5771448",
+        "file": "SongDemirdjianEtAl2011.pdf:SongDemirdjianEtAl2011.pdf:PDF",
+        "keywords": "aviation, gestures, military, NATOPS, navy, maritime",
+        "month": "March",
+        "pages": "500-506",
+        "title": "Tracking body and hands for gesture recognition: NATOPS aircraft handling signals database",
+        "type": "InProceedings",
+        "year": "2011"
+    },
+    "TamMaurelEtAl1998": {
+        "author": "E. K. Tam and C. Maurel and P. Desbiens and R. J. Marceau and A. S. Malowany and L. Granger",
+        "doi": "10.1109/59.708691",
+        "file": "TamMaurelEtAl1998.pdf:TamMaurelEtAl1998.pdf:PDF",
+        "issn": "0885-8950",
+        "journal": "IEEE Transactions on Power Systems",
+        "keywords": "virtual reality, training, power-utility, speech recognition",
+        "month": "Aug",
+        "number": "3",
+        "pages": "829-835",
+        "title": "A low-cost PC-oriented virtual environment for operator training",
+        "type": "Article",
+        "volume": "13",
+        "year": "1998"
+    },
+    "TaylorKingEtAl1998": {
+        "author": "Taylor, Paul and King, Simon and Isard, Stephen and Wright, Helen",
+        "file": "TaylorKingEtAl1998.pdf:TaylorKingEtAl1998.pdf:PDF",
+        "journal": "Language and Speech",
+        "keywords": "speech recognition, intonation, context, dialog",
+        "number": "3-4",
+        "pages": "493--512",
+        "publisher": "SAGE Publications Sage UK: London, England",
+        "title": "Intonation and dialog context as constraints for speech recognition",
+        "type": "Article",
+        "volume": "41",
+        "year": "1998"
+    },
+    "TaylorPurmanEtAl2015": {
+        "author": "Taylor, Glenn and Purman, Ben and Schermerhorn, Paul and Garcia-Sampedro, Guillermo and Lanting, Matt and Quist, Michael and Kawatsu, Chris",
+        "booktitle": "SPIE Defense+ Security",
+        "file": "TaylorPurmanEtAl2015.pdf:TaylorPurmanEtAl2015.pdf:PDF",
+        "keywords": "gestures, speech recognition, military, robot, multimodal, pen-based, robot control, remote control",
+        "organization": "International Society for Optics and Photonics",
+        "pages": "946805--946805",
+        "title": "Natural interaction for unmanned systems",
+        "type": "InProceedings",
+        "year": "2015"
+    },
+    "TianLiuEtAl2015": {
+        "author": "Yongliang Tian and Hu Liu and Jiao Yin and Mingqiang Luo and Guanghui Wu",
+        "doi": "http://dx.doi.org/10.1016/j.cja.2014.12.002",
+        "file": "TianLiuEtAl2015.pdf:TianLiuEtAl2015.pdf:PDF",
+        "issn": "1000-9361",
+        "journal": "Chinese Journal of Aeronautics",
+        "keywords": "military, navy, NATOPS, training, virtual reality, OSC-related",
+        "number": "1",
+        "pages": "152 - 163",
+        "title": "Evaluation of simulation-based training for aircraft carrier marshalling with learning cubic and Kirkpatricks models",
+        "type": "Article",
+        "url": "//www.sciencedirect.com/science/article/pii/S1000936114002015",
+        "volume": "28",
+        "year": "2015"
+    },
+    "TseGreenbergEtAl2006": {
+        "author": "Tse, Edward and Greenberg, Saul and Shen, Chia",
+        "booktitle": "Proceedings of the 8th international conference on Multimodal interfaces",
+        "file": "TseGreenbergEtAl2006.pdf:TseGreenbergEtAl2006.pdf:PDF",
+        "keywords": "gestures, speech recognition, multimodal, tabletop, maps, geo-spatial, games",
+        "organization": "ACM",
+        "pages": "76--83",
+        "title": "GSI demo: multiuser gesture/speech interaction over digital tables by wrapping single user applications",
+        "type": "InProceedings",
+        "year": "2006"
+    },
+    "Turan2007": {
+        "author": "Denix Turan",
+        "file": "Turan2007.pdf:Turan2007.pdf:PDF",
+        "keywords": "gestures, aviation, deck operator, training, navy",
+        "school": "Defence College of Management and Technology",
+        "title": "On Recognition Of Gestures Arising In Flight Deck Officer (FDO) Training",
+        "type": "PhdThesis",
+        "year": "2007"
+    },
+    "UrbanBajcsy2005": {
+        "author": "M. Urban and P. Bajcsy",
+        "booktitle": "2005 7th International Conference on Information Fusion",
+        "doi": "10.1109/ICIF.2005.1592053",
+        "file": "UrbanBajcsy2005.pdf:UrbanBajcsy2005.pdf:PDF",
+        "keywords": "gestures, speech recognition, robot control,remote us navy gestures, navy, maritime, military, remote control",
+        "month": "July",
+        "pages": "8 pp.-",
+        "title": "Fusion of voice, gesture, and human-computer interface controls for remotely operated robot",
+        "type": "InProceedings",
+        "volume": "2",
+        "year": "2005"
+    },
+    "VarelaCachoEtAl2011": {
+        "author": "Varela, JM and Cacho, AJ and Guedes Soares, C",
+        "chapter": "Vol 1",
+        "editor": "C. Guedes Soares, Y. Gorbatov, N. Fonseca, A.P. Teixeira",
+        "file": "VarelaCachoEtAl2011.pdf:VarelaCachoEtAl2011.pdf:PDF",
+        "journal": "Marine Technology and Engineering",
+        "keywords": "ship, simulator, maritime, OSC-related",
+        "pages": "719--741",
+        "publisher": "Taylor \\& Francis Group, London",
+        "title": "Virtual Environments for simulation and study of maritime scenarios, OSC",
+        "type": "InBook",
+        "year": "2011"
+    },
+    "VenetskyHusniEtAl2003": {
+        "author": "Larry Venetsky and Mark Husni and Mark Yager",
+        "file": "VenetskyHusniEtAl2003.pdf:VenetskyHusniEtAl2003.pdf:PDF",
+        "institution": "DARPA",
+        "keywords": "gestures, NATOPS, military, navy, aviation",
+        "title": "{Gesture Recognition For UCAV0N Flight Deck Operations}",
+        "type": "TechReport",
+        "year": "2003"
+    },
+    "VincenziHaysEtAl2003": {
+        "author": "Vincenzi, Dennis A and Hays, Robert T and Seamon, Alton G",
+        "file": "VincenziHaysEtAl2003.pdf:VincenziHaysEtAl2003.pdf:PDF",
+        "journal": "Naval engineers journal",
+        "keywords": "training, maritime, submarine, speech recognition, navy, military, discarded-duplicate",
+        "number": "1",
+        "pages": "79--95",
+        "publisher": "American Society of Naval Engineers",
+        "title": "Submarine officer of the deck training using virtual environments: an assessment of training system capabilities",
+        "type": "Article",
+        "volume": "115",
+        "year": "2003"
+    },
+    "WagnerMaliszEtAl2014": {
+        "author": "Wagner, Petra and Malisz, Zofia and Kopp, Stefan",
+        "file": "WagnerMaliszEtAl2014.pdf:WagnerMaliszEtAl2014.pdf:PDF",
+        "journal": "Speech Communication",
+        "keywords": "speech, gestures, multimodal, theory, survey",
+        "pages": "209--232",
+        "publisher": "Elsevier",
+        "title": "Gesture and speech in interaction: An overview",
+        "type": "Article",
+        "volume": "57",
+        "year": "2014"
+    },
+    "WalterAntoneEtAl2015": {
+        "author": "Walter, Matthew R. and Antone, Matthew and Chuangsuwanich, Ekapol and Correa, Andrew and Davis, Randall and Fletcher, Luke and Frazzoli, Emilio and Friedman, Yuli and Glass, James and How, Jonathan P. and Jeon, Jeong hwan and Karaman, Sertac and Luders, Brandon and Roy, Nicholas and Tellex, Stefanie and Teller, Seth",
+        "doi": "10.1002/rob.21539",
+        "file": "WalterAntoneEtAl2015.pdf:WalterAntoneEtAl2015.pdf:PDF",
+        "issn": "1556-4967",
+        "journal": "Journal of Field Robotics",
+        "keywords": "robot, robot control, remote control, gestures, speech recognition, multimodal, lifting, pen-based",
+        "number": "4",
+        "pages": "590--628",
+        "title": "A Situationally Aware Voice-commandable Robotic Forklift Working Alongside People in Unstructured Outdoor Environments",
+        "type": "Article",
+        "url": "http://dx.doi.org/10.1002/rob.21539",
+        "volume": "32",
+        "year": "2015"
+    },
+    "WilsonBenkoEtAl2012": {
+        "author": "Wilson, Andrew and Benko, Hrvoje and Izadi, Shahram and Hilliges, Otmar",
+        "booktitle": "Proc. of the 25th annual ACM symposium on User interface software and technology",
+        "file": "WilsonBenkoEtAl2012.pdf:WilsonBenkoEtAl2012.pdf:PDF",
+        "keywords": "gestures, speech recognition, Kinect, augmented reality",
+        "organization": "ACM",
+        "owner": "Girts",
+        "pages": "413--422",
+        "timestamp": "2017.01.13",
+        "title": "Steerable augmented reality with the beamatron",
+        "type": "InProceedings",
+        "year": "2012"
+    },
+    "WobbrockMorrisEtAl2009": {
+        "author": "Wobbrock, Jacob O and Morris, Meredith Ringel and Wilson, Andrew D",
+        "booktitle": "Proceedings of the SIGCHI Conference on Human Factors in Computing Systems",
+        "file": "WobbrockMorrisEtAl2009.pdf:WobbrockMorrisEtAl2009.pdf:PDF",
+        "keywords": "gestures, user study, user-defined gestures, table-top, touchscreen, touch, multi-touch, microsoft surface",
+        "organization": "ACM",
+        "pages": "1083--1092",
+        "title": "User-defined gestures for surface computing",
+        "type": "InProceedings",
+        "year": "2009"
+    },
+    "WuYangEtAl2008": {
+        "author": "D. Wu and R. Yang and D. Ma and X. Fan",
+        "doi": "10.1080/00207540601008424",
+        "eprint": "http://dx.doi.org/10.1080/00207540601008424",
+        "file": "WuYangEtAl2008.pdf:WuYangEtAl2008.pdf:PDF",
+        "journal": "International Journal of Production Research",
+        "keywords": "virtual prototyping, design, verification, maritime, pipe laying, pipes, virtual reality, speech recognition, ship design, stereoscopic, ship building, gloves",
+        "number": "17",
+        "pages": "4729-4749",
+        "title": "Integrated Virtual Assembly Environment and its application in ship piping layout",
+        "type": "Article",
+        "url": " http://dx.doi.org/10.1080/00207540601008424 ,",
+        "volume": "46",
+        "year": "2008"
+    },
+    "YehHwangEtAl2012": {
+        "abstract": "Stroke patient usually has the goal to maintain rehabilitation training, which is mainly to avoid physical function degeneration and to prevent the triggering of related complications. Therefore, how to obtain optimal rehabilitation therapy and to shorten the training time is a topic filled with lots of challenges. Traditional rehabilitation equipment is very expensive. Large scale equipment usually needs sufficient space, and if the room is not enough, the hardware usually cannot exploit its function, which is usually a trouble to small hospital and the research department. In the system, rehabilitation action practice is designed for it, together with virtual reality, the operation of ball catching game is simulated. Meanwhile, Kinect sensing device is used to detect the body action of the patient, to perform face recognition and to recognize voice command. Body sensing technique in electronic entertainment has realized the association of new era technology with rehabilitation medical care to set up virtual reality together with the use of Kinect to be applied in rehabilitation training for stroke patient. As compared to traditional expensive rehabilitation equipment, it has the advantages of low price and clinical practical utility. Its interface design is active and attractive, and is converted from boring to happy state. After completing rehabilitation training mission, medical care rehabilitation quality can indeed be effectively enhanced. For example, the game can help the recovery of exercise function, can generate psychological reinforcement, can enhance the co-existence feeling, and can reduce three types of negative emotional indexes, namely, depression, confusion and tension. In other words, the patient shows great improvement in the delicacy and sense of balance of upper limb action.",
+        "author": "S. C. Yeh and W. Y. Hwang and T. C. Huang and W. K. Liu and Y. T. Chen and Y. P. Hung",
+        "booktitle": "2012 International Symposium on Computer, Consumer and Control",
+        "doi": "10.1109/IS3C.2012.240",
+        "file": "YehHwangEtAl2012.pdf:YehHwangEtAl2012.pdf:PDF",
+        "keywords": "gestures, speech recognition, rehabilitation, health, Kinect",
+        "month": "June",
+        "owner": "Girts",
+        "pages": "922-925",
+        "timestamp": "2017.01.13",
+        "title": "A Study for the Application of Body Sensing in Assisted Rehabilitation Training",
+        "type": "InProceedings",
+        "year": "2012"
+    },
+    "Yin2014": {
+        "author": "Yin, Ying",
+        "file": "Yin2014.pdf:Yin2014.pdf:PDF",
+        "keywords": "gestures, multimodal, techniques",
+        "school": "MIT",
+        "title": "Real-time continuous gesture recognition for natural multimodal interaction",
+        "type": "PhdThesis",
+        "year": "2014"
+    }
+};
+
+/* Graph */
+var graph = {nodes: [{id: "a"}, {id: "b"}], links: [{source: "a", target: "b"}]};
+
+/* Force-directed graph layout based on D3js example (see sources)*/
+var linkColor = d3.scaleLinear()
+    .domain([0, 1])
+    .range(["#eee", "#000"]);
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var simulation = d3.forceSimulation()
+    .force("link", d3.forceLink().id(function (d) {
+        return d.id;
+    }))
+    .force("charge", d3.forceManyBody())
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+var link = svg.append("g")
+    .attr("class", "links")
+    .selectAll("line")
+    .data(graph.links)
+    .enter().append("line")
+    .attr("stroke", "#aaa");
+
+var node = svg.append("g")
+    .attr("class", "nodes")
+    .selectAll("circle")
+    .data(graph.nodes)
+    .enter().append("circle")
+    .attr("r", 5)
+    .call(d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended));
+
+node.append("title")
+    .text(function (d) {
+        return d.id;
+    });
+
+simulation
+    .nodes(graph.nodes)
+    .on("tick", ticked);
+
+simulation.force("link")
+    .links(graph.links);
+
+
+function ticked() {
+    link
+        .attr("x1", function (d) {
+            return d.source.x;
+        })
+        .attr("y1", function (d) {
+            return d.source.y;
+        })
+        .attr("x2", function (d) {
+            return d.target.x;
+        })
+        .attr("y2", function (d) {
+            return d.target.y;
+        });
+
+    node
+        .attr("cx", function (d) {
+            return d.x;
+        })
+        .attr("cy", function (d) {
+            return d.y;
+        });
+}
+
+function dragstarted(d) {
+    if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x;
+    d.fy = d.y;
+}
+
+function dragged(d) {
+    d.fx = d3.event.x;
+    d.fy = d3.event.y;
+}
+
+function dragended(d) {
+    if (!d3.event.active) simulation.alphaTarget(0);
+    d.fx = null;
+    d.fy = null;
+}
+
+</script>
+
+<h2>Erläuterungen zur Lösung</h2>
+
+<p><b>(a)</b> ...</p>
+
+<p><b>(b)</b> ...</p>
+
+<p><b>(c)</b> ...</p>
+
+<h2>Quellen</h2>
+
+<ul>
+    <li><a href="https://bl.ocks.org/mbostock/4062045">Force-Directed Graph</a></li>
+    <li>...</li>
+</ul>
