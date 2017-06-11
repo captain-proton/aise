@@ -29,6 +29,54 @@ circle {
     fill: #0050AA;
 }
 
+circle.selected {
+    fill: #e65100;
+}
+
 .links {
     opacity: 0.6;
+}
+
+#node_info {
+    display: flex;
+}
+
+#node_info > * {
+    flex: 1 100%;
+}
+
+#node_info .publication_count {
+    text-align: right;
+}
+
+#publications {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid #607d8b;
+}
+
+.publication {
+    border-bottom: 1px solid #607d8b;
+}
+
+#publications li:last-child .publication {
+    border-bottom: 0;
+}
+
+.publication dt {
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.publication dt::after {
+    content: ":";
+}
+
+.publication dd {
+    margin: 0 0 0 110px;
+    padding: 0 0 0.5em 0;
+    width: 380px;
 }
