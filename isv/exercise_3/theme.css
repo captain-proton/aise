@@ -33,12 +33,22 @@ circle.selected {
     fill: #e65100;
 }
 
+line {
+    stroke: #aaa;
+}
+
+line.selected {
+    stroke: #009688;
+}
+
 .links {
     opacity: 0.6;
 }
 
 #node_info {
     display: flex;
+    font-family: monospace;
+    text-transform: uppercase;
 }
 
 #node_info > * {
@@ -79,4 +89,8 @@ circle.selected {
     margin: 0 0 0 110px;
     padding: 0 0 0.5em 0;
     width: 380px;
+}
+
+#controls {
+    clear: both;
 }

@@ -1,3 +1,31 @@
+var graphSettings = {
+
+    // standard settings
+    minCircleRadius: 3,
+    maxCircleRadius: 8,
+    getRadius: function(start, end, x) {
+
+        // factor to get the share how much percent the link count takes from minLinks to maxLinks
+        var factor = 100 / (end - start);
+
+        // 0 <= share <= 1: how much percentage does the link count take from minLinks to maxLinks
+        var share = (factor * (x - start)) / 100;
+
+        /*
+         max radius minus min radius contains the space between.
+         multiplied with the share is equal to radius needed if min radius was zero.
+         add min radius to get the final radius of the circle
+         */
+        var radius = (this.maxCircleRadius - this.minCircleRadius) * share + this.minCircleRadius;
+        return radius;
+    },
+
+    // settings are used inside the improved layout
+    edgeWeightMinimum: 0.5,
+    minKeywordCount: 3
+};
+
+
 function splitKeywords(meta) {
     return $.map(meta.keywords.split(","), $.trim);
 }
@@ -23,8 +51,13 @@ function filterPublications() {
     $.each(bib, function(title, meta) {
         var count = 0;
         for (var i = 0; i < args.length; i++) {
+            // increase count if this entry keywords contain the argument
             count += meta.keywordsArr.indexOf(args[i]) >= 0 ? 1 : 0;
         }
+        /*
+        if the count is equal to the arguments, this entry contains all keywords
+        given in arguments
+         */
         if (count == args.length) {
             publications.push({
                 title: title,
@@ -78,11 +111,18 @@ function addKeywordsArray() {
     })
 }
 
-function calculateLinkCount(node, graph) {
+function getLinks(node) {
     var links = graph.links.filter(function (link) {
-        return link.source == node || link.target == node;
+        /*
+        the first two comparisons are valid before the graph is rendered.
+        d3 updates the links that the id has to be compared after graph rendering
+         */
+        return link.source == node
+            || link.target == node
+            || link.source.id == node
+            || link.target.id == node;
     });
-    return links.length;
+    return links;
 }
 
 function showSelectedNodeInfo(keyword, publicationCount) {
@@ -91,8 +131,8 @@ function showSelectedNodeInfo(keyword, publicationCount) {
 
     var html =
         '<section id="node_info">' +
-            '<span class="keyword">' + keyword + '</span>' +
-            '<span class="publication_count">' + publicationCount + '</span>' +
+            '<h4 class="keyword">' + keyword + '</h4>' +
+            '<h4 class="publication_count">' + publicationCount + '</h4>' +
         '</section>'
     ;
     $('#selection_details').append(html);
@@ -126,7 +166,14 @@ function showPublications(publications) {
     $('#selection_details').append(html);
 }
 
-function handleNodeClick(d, i) {
+function getConnectedNodes(node) {
+    var links = getLinks(node);
+    return links.map(function(link) {
+        return link.source === node ? link.target : link.source;
+    });
+}
+
+function handleNodeClick(d) {
     var publications = [];
     $.each(bib, function(title, meta) {
         if (meta.keywordsArr.indexOf(d.id) >= 0) {
@@ -138,14 +185,93 @@ function handleNodeClick(d, i) {
         }
     });
 
-    if (selectedNode !== undefined) {
-        selectedNode.attr('class', 'nodes');
+    // highlight selected node
+    if (graphSettings.selectedNode !== undefined) {
+        graphSettings.selectedNode.attr('class', 'nodes');
     }
-    selectedNode = d3.select(this);
-    selectedNode.attr('class', 'nodes selected');
+    graphSettings.selectedNode = d3.select(this);
+    graphSettings.selectedNode.attr('class', 'nodes selected');
 
-    showSelectedNodeInfo(selectedNode.select('title').text(), publications.length);
+    var keyword = graphSettings.selectedNode.select('title').text();
+    showSelectedNodeInfo(keyword, publications.length);
     showPublications(publications);
+}
+
+function calcEdgeWeight(nodeA, nodeB) {
+    var targetsA = getConnectedNodes(nodeA);
+    var targetsB = getConnectedNodes(nodeB);
+
+    var intersection = targetsA.filter(function (target) {
+        return targetsB.indexOf(target) >= 0;
+    });
+
+    var nominator = intersection.length;
+    var denominator = Math.min(targetsA.length, targetsB.length);
+
+    return nominator / denominator;
+}
+
+function calcNodeRadius(d) {
+    return graphSettings.getRadius(nodeRadiusIntervalStart, nodeRadiusIntervalEnd, keywords[d.id]);
+}
+
+function restart() {
+
+    // Apply the general update pattern to the nodes.
+    node = node.data(nodes, function (d) {
+        return d.id;
+    });
+    node.exit().remove();
+    node = node.enter()
+        .append("circle")
+        .attr("r", calcNodeRadius)
+        .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended))
+        .on('click', handleNodeClick)
+        .merge(node);
+
+    node.append("title")
+        .text(function (d) {
+            return d.id;
+        });
+
+    // Apply the general update pattern to the links.
+    link = link.data(links, function (d) {
+        return d.source.id + "-" + d.target.id;
+    });
+    link.exit().remove();
+    link = link.enter()
+        .append("line")
+        .merge(link);
+
+    // Update and restart the simulation.
+    simulation.nodes(nodes);
+    simulation.force("link").links(links);
+    simulation.alpha(1).restart();
+}
+
+function showImprovedLayout() {
+
+    unimportantNodes.forEach(function(node) {
+        nodes.splice(nodes.indexOf(node), 1);
+    });
+    unimportantLinks.forEach(function(link) {
+        links.splice(links.indexOf(link), 1);
+    });
+    restart();
+}
+
+function showNormalLayout() {
+
+    unimportantNodes.forEach(function(node) {
+        nodes.push(node);
+    });
+    unimportantLinks.forEach(function(link) {
+        links.push(link);
+    });
+    restart();
 }
 
 addKeywordsArray();
@@ -154,50 +280,65 @@ var links = createLinks($.map(nodes, function(node) {
     return node.id;
 }));
 
-var graphSettings = {
-    minCircleRadius: 3,
-    maxCircleRadius: 8,
-    getRadius: function(minLinks, maxLinks, links) {
-
-        // factor to get the share how much percent the link count takes from minLinks to maxLinks
-        var linkFactor = 100 / (maxLinks - minLinks);
-
-        // 0 <= share <= 1: how much percentage does the link count take from minLinks to maxLinks
-        var share = (linkFactor * (links - minLinks)) / 100;
-
-        /*
-        max radius minus min radius contains the space between.
-        multiplied with the share is equal to radius needed if min radius was zero.
-        add min radius to get the final radius of the circle
-         */
-        var radius = (this.maxCircleRadius - this.minCircleRadius) * share + this.minCircleRadius;
-        return radius;
-    }
-};
-
 /* Graph */
 var graph = {
     nodes: nodes,
     links: links
 };
 
-var minLinks = $.map(graph.nodes, function (node) {
-    return calculateLinkCount(node.id, graph);
-}).reduce(function (a, b) {
-    return Math.min(a, b);
+var unimportantNodes = nodes.filter(function(node) {
+    var count = 0;
+    $.each(bib, function(title, meta) {
+        count += meta.keywordsArr.indexOf(node.id) >= 0 ? 1 : 0;
+    });
+    return count < graphSettings.minKeywordCount;
+});
+var unimportantLinks = links.filter(function(link) {
+    var weight = calcEdgeWeight(link.source, link.target);
+    var unimportantNode = unimportantNodes.filter(function(node) {
+        return node.id === link.source
+            || node.id === link.target;
+    });
+    return weight < graphSettings.edgeWeightMinimum
+        || unimportantNode.length > 0;
 });
 
-var maxLinks = $.map(graph.nodes, function (node) {
-    return calculateLinkCount(node.id, graph);
-}).reduce(function (a, b) {
-    return Math.max(a, b);
+var keywords = {};
+$.each(bib, function(title, meta) {
+    meta.keywordsArr.forEach(function(keyword) {
+        if (!keywords.hasOwnProperty(keyword)) {
+            keywords[keyword] = 0;
+        }
+        keywords[keyword] += 1;
+    });
+});
+
+var nodeRadiusIntervalStart = Infinity;
+$.each(keywords, function (keyword, count) {
+    nodeRadiusIntervalStart = count < nodeRadiusIntervalStart
+        ? count
+        : nodeRadiusIntervalStart;
+});
+$('#minKeywordCount').text(nodeRadiusIntervalStart);
+var nodeRadiusIntervalEnd = 0;
+$.each(keywords, function (keyword, count) {
+    nodeRadiusIntervalEnd = count > nodeRadiusIntervalEnd
+        ? count
+        : nodeRadiusIntervalEnd;
+});
+$('#maxKeywordCount').text(nodeRadiusIntervalEnd);
+
+$('#toggle-advanced-layout')
+    .on('click', function() {
+        var checkbox = $(this)[0];
+        if (checkbox.checked) {
+            showImprovedLayout();
+        } else {
+            showNormalLayout();
+        }
 });
 
 /* Force-directed graph layout based on D3js example (see sources)*/
-var linkColor = d3.scaleLinear()
-    .domain([0, 1])
-    .range(["#eee", "#000"]);
-
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
@@ -213,19 +354,19 @@ var link = svg.append("g")
     .attr("class", "links")
     .selectAll("line")
     .data(graph.links)
-    .enter().append("line")
-    .attr("stroke", "#aaa");
+    .enter()
+    .append("line")
+    .attr('id', function(d) {
+        return d.source.index + '-' + d.target.index;
+    });
 
-var selectedNode;
 var node = svg.append("g")
     .attr("class", "nodes")
     .selectAll("circle")
     .data(graph.nodes)
     .enter()
     .append("circle")
-    .attr("r", function (d) {
-        return graphSettings.getRadius(minLinks, maxLinks, calculateLinkCount(d.id, graph));
-    })
+    .attr("r", calcNodeRadius)
     .call(d3.drag()
         .on("start", dragstarted)
         .on("drag", dragged)

@@ -11,30 +11,34 @@
 </head>
 <body>
 
-<p>[Name]</p>
+<p>Nils Verheyen</p>
+<p>Matrikelnummer: 3043171</p>
 <h1>Document Visualization: Relationship between Keywords </h1>
-<p>Übungsblatt 3 - Aufgabe 1</p>
-<p>Vorlesung <i>Informations- und Softwarevisualisierung</i>, Universität Duisburg-Essen, SoSe 2017</p>
+<p>&uuml;bungsblatt 3 - Aufgabe 1</p>
+<p>Vorlesung <i>Informations- und Softwarevisualisierung</i>, Universit&auml;t Duisburg-Essen, SoSe 2017</p>
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
 <svg width="800" height="600"></svg>
 <div id="selection_details"></div>
+<div id="controls">
+    <input type="checkbox" id="toggle-advanced-layout"/>Aktiviere verbessertes Layout
+</div>
 
 
-<h2>Erläuterungen zur Lösung</h2>
+<h2>Erl&auml;uterungen zur L&ouml;sung</h2>
 
-<p><b>(a)</b> ...</p>
+<p><b>(a)</b> Die L&ouml;sung wurde in der javascript-Datei <code>force.graph.solution.js</code> umgesetzt. Die Gr&ouml;&szlig;e eines Knotens berechnet sich anhand der Publikationen, die das Schl&uuml;sselwort verwenden. Die minimale und maximale Gr&ouml;&szlig;e des Radius eines Knotens ist konfigurierbar. Per Standard ist eine Minimalgr&ouml;&szlig;e von 3 und eine Maximalgr&ouml;&szlig;e von 8 eingestellt. Die Gr&ouml;&szlig;e interpoliert linear zwischen dem Minimum (<span id="minKeywordCount"></span>) an Verwendungen im Graphen und dem Maximum (<span id="maxKeywordCount"></span>).</p>
 
-<p><b>(b)</b> ...</p>
+<p><b>(b)</b> Sobald ein Knoten selektiert wird, wird dieser farbig hervorgehoben. Im oberen Bereich der Liste der Publikationen, die dieses Schl&uuml;sselwort verwenden wird das Schl&uuml;sselwort und die Anzahl der Verwendungen in der Bibliographie dargestellt. Durch horizontale Striche getrennt darunter werden in Definitionslisten jeweils Titel, Autor und das Jahr der Publikation dargestellt.</p>
 
-<p><b>(c)</b> ...</p>
+<p><b>(c)</b> F&uuml;r das verbesserte Layout m&uuml;ssen nicht nur die Kanten nach gegebener Berechnungsvorschrift entfernt werden, sondern auch die Kanten von entfernten Knoten. Das Layout kann durch ein Kontrollfeld unterhalb der Visualisierung (de-)aktiviert werden.</p>
 
 <h2>Quellen</h2>
 
 <ul>
     <li><a href="https://bl.ocks.org/mbostock/4062045">Force-Directed Graph</a></li>
-    <li>...</li>
+    <li><a href="https://bl.ocks.org/mbostock/1095795">Modifying a Force Layout</a></li>
 </ul>
 
 <script src="data.js"></script>
