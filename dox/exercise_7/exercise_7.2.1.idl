@@ -1,0 +1,32 @@
+module TrainApp
+{
+    enum TrainStatus { new, good, okay, bad };
+
+    exception IllegalSpeedException
+    {
+        long currentSpeed;
+        unsigned long increment;
+    };
+
+    interface Train
+    {
+        readonly attribute long seats;
+        readonly attribute float maxSpeed;
+        attribute TrainStatus status;
+
+        void increaseSpeed(in unsigned long increment) raises (IllegalSpeedException);
+        void decreaseSpeed(in unsigned long decrement) raises (IllegalSpeedException);
+        long getSpeed();
+    };
+
+    exception AirconditionerException 
+    {
+        string message;
+    };
+
+    interface PremiumTrain : Train
+    {
+        readonly attribute string name;
+        void setTemperature(inout float temperature) raises (AirconditionerException);
+    };
+};
