@@ -12,3 +12,5 @@
     exercise_5
     exercise_6
     exercise_7
+    exercise_8
+    exercise_9

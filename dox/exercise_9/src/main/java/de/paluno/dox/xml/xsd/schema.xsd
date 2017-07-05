@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="personnel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="person" type="person" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="person">
+        <xs:sequence>
+            <xs:element name="name" type="name" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="email" type="email" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="url" type="url" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="link" type="link" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="note" type="xs:string" use="optional"/>
+        <xs:attribute name="contr" type="xs:string" use="optional"/>
+        <xs:attribute name="salary" type="xs:int" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="name">
+        <xs:all>
+            <xs:element name="family" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="given" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="middle" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="email">
+        <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="private" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="business" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="url">
+        <xs:attribute name="href" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="link">
+        <xs:attribute name="subordinates" use="optional"/>
+        <xs:attribute name="manager" use="optional"/>
+    </xs:complexType>
+</xs:schema>

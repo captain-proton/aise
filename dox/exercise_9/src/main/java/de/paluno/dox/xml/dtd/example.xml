@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personnel SYSTEM "schema.dtd">
+<personnel>
+	<person id="person1" note="Notiz" contr="true">
+		<name>
+			<family>Musterfrau</family>
+			<given>Franziska</given>
+		</name>
+		<email>
+			<private>franziska.musterfrau@example.org</private>
+		</email>
+		<url href="http://www.example.org" />
+		<url href="http://www.company.org" />
+		<link subordinates="person2 person3" />
+	</person>
+	<person id="person2" note="Notiz">
+		<name>
+			<given>Herbert</given>
+			<family>Krautsalat</family>
+		</name>
+		<email>
+			<private>herbert.krautsalat@example.org</private>
+			<business>herbert.krautsalat@company.org</business>
+		</email>
+		<url href="http://www.company.org" />
+		<link manager="person1" />
+	</person>
+	<person id="person3" note="Notiz">
+		<name>
+			<family>Mustermann</family>
+			<middle>Tom</middle>
+			<given>Max</given>
+		</name>
+		<email>
+			<business>max.mustermann@company.org</business>
+			<!--<random>some@asdf.com</random>-->
+		</email>
+		<link manager="person1" />
+	</person>
+	<person id="person4" note="Notiz">
+		<name>
+			<family>Mustermann</family>
+			<given>Tom</given>
+		</name>
+	</person>
+	<person id="person5" note="Notiz" contr="true" salary="5000000">
+		<name>
+			<family>Chef</family>
+			<given>Hans</given>
+		</name>
+		<email>
+			<business>hans.chef@company.org</business>
+		</email>
+		<link subordinates="person1 person4" />
+	</person>
+</personnel>
