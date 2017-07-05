@@ -1,0 +1,80 @@
+body {
+    margin: 50px;
+    font-family: Arial;
+}
+
+h2 {
+    clear: both;
+}
+
+svg {
+    float: left;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+#config_panel {
+    float: left;
+    width: 500px;
+    height: 580px;
+    overflow: auto;
+    border: 1px solid black;
+    font-size: 9pt;
+    margin-left: 5px;
+    padding: 10px;
+    background: #eee;
+}
+
+.label {
+    font-family: monospace;
+    font-size: 12px;
+    fill: #9e9e9e;
+}
+
+.node {
+    font-size: 11px;
+    fill: #757575;
+}
+
+.node:hover {
+    fill: #000;
+}
+
+.link {
+    stroke: steelblue;
+    stroke-opacity: 0.4;
+    fill: none;
+    pointer-events: none;
+}
+
+.node:hover,
+.node--source,
+.node--target {
+    font-weight: 700;
+}
+
+.node--source {
+    fill: #2ca02c;
+}
+
+.link--inheritance,
+.link--aggregation,
+.link--usage {
+    stroke-opacity: 1;
+    stroke-width: 2px;
+}
+
+.link--inheritance,
+.node-CIG {
+    stroke: #1e88e5;
+}
+
+.link--aggregation,
+.node-CAG {
+    stroke: #43a047;
+}
+
+.link--usage,
+.node-CUG {
+    stroke: #ff9800;
+}

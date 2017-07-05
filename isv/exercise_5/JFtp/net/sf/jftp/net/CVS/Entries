@@ -1,0 +1,16 @@
+/BasicConnection.java/1.2/Wed Mar 19 17:12:40 2003//D2003.03.22.23.00.00
+/ConnectionHandler.java/1.13/Sun Mar  9 00:38:56 2003//D2003.03.22.23.00.00
+/ConnectionListener.java/1.10/Wed Mar 12 15:54:15 2003//D2003.03.22.23.00.00
+/DataConnection.java/1.25/Tue Mar 11 15:44:35 2003//D2003.03.22.23.00.00
+/FilesystemConnection.java/1.4/Fri Mar 21 16:25:54 2003//D2003.03.22.23.00.00
+/FtpClient.java/1.6/Fri Feb 28 20:26:52 2003//D2003.03.22.23.00.00
+/FtpConnection.java/1.63/Thu Mar 20 17:40:41 2003//D2003.03.22.23.00.00
+/FtpConstants.java/1.7/Sun Dec 15 15:11:15 2002//D2003.03.22.23.00.00
+/FtpServer.java/1.2/Sat Oct  5 07:27:55 2002//D2003.03.22.23.00.00
+/FtpServerSocket.java/1.5/Sat Nov  2 09:09:23 2002//D2003.03.22.23.00.00
+/FtpURLConnection.java/1.6/Mon Feb 17 12:35:03 2003//D2003.03.22.23.00.00
+/FtpURLStreamHandler.java/1.2/Wed Oct 16 18:35:37 2002//D2003.03.22.23.00.00
+/JConnection.java/1.10/Wed Feb 12 14:10:20 2003//D2003.03.22.23.00.00
+/SmbConnection.java/1.1/Fri Mar 21 16:25:56 2003//D2003.03.22.23.00.00
+/Transfer.java/1.4/Tue Mar 11 15:44:38 2003//D2003.03.22.23.00.00
+D

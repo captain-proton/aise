@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Interactive Software Clustering</title>
+<link rel="stylesheet" href="theme.css">
+<body>
+<p>Nils Verheyen</p>
+<h1>Interactive Software Clustering </h1>
+<p>Übungsblatt 5 - Aufgabe 1</p>
+<p>Vorlesung <i>Informations- und Softwarevisualisierung</i>, Universität Duisburg-Essen, SoSe 2017</p>
+
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="figue.js"></script>
+<script type="text/javascript" src="data.js"></script>
+
+<svg width="800" height="600"></svg>
+<div id="config_panel">
+    <h2>Clustering Settings</h2>
+    <p>Consider the following link types for clustering:<br>
+        <input id="CIG" type="checkbox" checked>Inheritance (CIG)<br>
+        <input id="CAG" type="checkbox" checked>Aggregation (CAG)<br>
+        <input id="CUG" type="checkbox" checked>Usage (CUG)<br>
+
+        <label for="nClusters">Number of clusters: </label><input id="nClusters" type="number" value="5" min="2" ,
+                                                                  max="12"/><br>
+
+        <button id="cluster">Cluster</button>
+        <br>
+    </p>
+</div>
+
+<script src="radial.cluster.solution.js"></script>
+
+<h2>Erläuterungen zur Lösung</h2>
+
+<p><b>(a)</b> ...</p>
+
+<p><b>(b)</b> ... </p>
+
+<p><b>(c)</b> ... </p>
+
+<h2>Quellen</h2>
+
+<ul>
+    <li><a href="https://github.com/nantunes/figue">Figue (for clustering)</a></li>
+    <li><a href="https://bl.ocks.org/mbostock/7607999">Hierarchical Edge Bundling</a></li>
+</ul>
