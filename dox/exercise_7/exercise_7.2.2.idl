@@ -19,7 +19,7 @@ module TrainApp
         long getSpeed();
     };
 
-    exception AirconditionerException 
+    exception AirconditionerException
     {
         string message;
     };
@@ -28,6 +28,8 @@ module TrainApp
     {
         readonly attribute string name;
         void setTemperature(inout float temperature) raises (AirconditionerException);
+        void setDiffuseLightBrightness(out float brightness);
+        void setChilloutMusic(in float audioData);
     };
 
     exception SevereMalfunctionException
