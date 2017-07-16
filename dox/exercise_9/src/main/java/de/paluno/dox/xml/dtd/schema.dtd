@@ -6,7 +6,7 @@
         contr CDATA #IMPLIED
         salary CDATA #IMPLIED>
 
-<!ELEMENT name (family|middle|given)*>
+<!ELEMENT name ((family,middle?,given)|(given,middle?,family))>
 <!ELEMENT family (#PCDATA)>
 <!ELEMENT middle (#PCDATA)>
 <!ELEMENT given (#PCDATA)>
@@ -17,7 +17,7 @@
 
 <!ELEMENT url EMPTY>
 <!ATTLIST url
-        href CDATA #IMPLIED>
+        href CDATA #REQUIRED>
 
 <!ELEMENT link EMPTY>
 <!ATTLIST link

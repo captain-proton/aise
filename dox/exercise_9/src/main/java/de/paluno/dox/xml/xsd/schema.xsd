@@ -3,7 +3,7 @@
     <xs:element name="personnel">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="person" type="person" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="person" type="person" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -15,7 +15,7 @@
             <xs:element name="url" type="url" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="link" type="link" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
         <xs:attribute name="note" type="xs:string" use="optional"/>
         <xs:attribute name="contr" type="xs:string" use="optional"/>
         <xs:attribute name="salary" type="xs:int" use="optional"/>
@@ -30,20 +30,24 @@
     </xs:complexType>
 
     <xs:complexType name="email">
-        <xs:sequence>
-            <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:choice>
+            <xs:sequence>
                 <xs:element name="private" type="xs:string" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="business" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            </xs:choice>
-        </xs:sequence>
+            </xs:sequence>
+            <xs:sequence>
+                <xs:element name="business" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="private" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:choice>
     </xs:complexType>
 
     <xs:complexType name="url">
-        <xs:attribute name="href" type="xs:string" use="required"/>
+        <xs:attribute name="href" type="xs:anyURI" use="required"/>
     </xs:complexType>
 
     <xs:complexType name="link">
-        <xs:attribute name="subordinates" use="optional"/>
-        <xs:attribute name="manager" use="optional"/>
+        <xs:attribute name="subordinates" type="xs:IDREFS" use="optional"/>
+        <xs:attribute name="manager" type="xs:IDREF" use="optional"/>
     </xs:complexType>
 </xs:schema>
