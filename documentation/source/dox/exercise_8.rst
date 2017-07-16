@@ -67,7 +67,7 @@ Aufgabe 3: Datenrepräsentation
 Aufgabe 3.1 CSV
 ^^^^^^^^^^^^^^^
 
-.. code-block:: csv
+.. code-block:: text
 
     Die Reise von Hans und Peter, 1974, 174, Arnold und Sohn, Wuppertal
     Das wunderschöne Leben in Essen, 2001, 5, Stadt Essen, Essen
