@@ -14,3 +14,4 @@
     exercise_7
     exercise_8
     exercise_9
+    exercise_10

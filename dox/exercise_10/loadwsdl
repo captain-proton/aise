@@ -1,0 +1,3 @@
+#!/bin/bash
+
+wsimport -s src/main/java -p de.paluno.calculator.gen http://localhost:9876/Calculator?wsdl
