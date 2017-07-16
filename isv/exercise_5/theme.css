@@ -11,6 +11,7 @@ svg {
     float: left;
     border: 1px solid black;
     margin-bottom: 20px;
+    position: relative;
 }
 
 #config_panel {
@@ -23,6 +24,30 @@ svg {
     margin-left: 5px;
     padding: 10px;
     background: #eee;
+}
+
+#clusterOverlay {
+    fill: #000;
+    fill-opacity: .75;
+}
+#clusterOverlayText {
+    text-anchor: middle;
+    fill: #fff;
+}
+
+.overlay > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.settings > * {
+    margin-bottom: 12px;
+}
+
+.legend {
+    display: flex;
 }
 
 .label {
@@ -41,7 +66,7 @@ svg {
 }
 
 .link {
-    stroke: steelblue;
+    stroke: #607d8b;
     stroke-opacity: 0.4;
     fill: none;
     pointer-events: none;
@@ -66,15 +91,30 @@ svg {
 
 .link--inheritance,
 .node-CIG {
-    stroke: #1e88e5;
+    stroke: #2196f3;
 }
 
 .link--aggregation,
 .node-CAG {
-    stroke: #43a047;
+    stroke: #4caf50;
 }
 
 .link--usage,
 .node-CUG {
     stroke: #ff9800;
+}
+
+.cig {
+    font-family: monospace;
+    color: #2196f3;
+}
+
+.cag {
+    font-family: monospace;
+    color: #4caf50;
+}
+
+.cug {
+    font-family: monospace;
+    color: #ff9800;
 }

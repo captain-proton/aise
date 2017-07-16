@@ -5,8 +5,8 @@
 <body>
 <p>Nils Verheyen</p>
 <h1>Interactive Software Clustering </h1>
-<p>Übungsblatt 5 - Aufgabe 1</p>
-<p>Vorlesung <i>Informations- und Softwarevisualisierung</i>, Universität Duisburg-Essen, SoSe 2017</p>
+<p>&uuml;bungsblatt 5 - Aufgabe 1</p>
+<p>Vorlesung <i>Informations- und Softwarevisualisierung</i>, Universit&auml;t Duisburg-Essen, SoSe 2017</p>
 
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -15,29 +15,56 @@
 
 <svg width="800" height="600"></svg>
 <div id="config_panel">
-    <h2>Clustering Settings</h2>
-    <p>Consider the following link types for clustering:<br>
-        <input id="CIG" type="checkbox" checked>Inheritance (CIG)<br>
-        <input id="CAG" type="checkbox" checked>Aggregation (CAG)<br>
-        <input id="CUG" type="checkbox" checked>Usage (CUG)<br>
+    <aside>
 
-        <label for="nClusters">Number of clusters: </label><input id="nClusters" type="number" value="5" min="2" ,
-                                                                  max="12"/><br>
+        <section class="settings">
+            <h2>Clustering Settings</h2>
+            <article>
 
-        <button id="cluster">Cluster</button>
-        <br>
-    </p>
+                <div>Consider the following link types for clustering:<br>
+                    <input id="CIG" type="checkbox" checked>Inheritance (<span class="cig">CIG</span>)<br>
+                    <input id="CAG" type="checkbox" checked>Aggregation (<span class="cag">CAG</span>)<br>
+                    <input id="CUG" type="checkbox" checked>Usage (<span class="cug">CUG</span>)<br>
+                </div>
+            </article>
+            <article>
+                <label for="nClusters">Number of clusters: </label>
+                <input id="nClusters" type="number" value="5" min="2" max="12"/><br>
+            </article>
+
+            <article>
+                <label>Vector building:</label><br>
+                <input id="binary-clustering" value="binary-clustering" name="vector-type" type="radio" checked>Binary
+                Fan-Out<br>
+                <input id="counted-clustering" value="counted-clustering" name="vector-type" type="radio">Count<br>
+            </article>
+            <article>
+                <button id="cluster">Cluster</button>
+            </article>
+        </section>
+    </aside>
 </div>
 
 <script src="radial.cluster.solution.js"></script>
 
-<h2>Erläuterungen zur Lösung</h2>
+<h2>Erl&auml;uterungen zur L&ouml;sung</h2>
 
-<p><b>(a)</b> ...</p>
+<p><b>(a)</b> All used classes are displayed on a circle. With a mouseover the full class name is shown on the upper
+    left corner of the diagram. </p>
 
-<p><b>(b)</b> ... </p>
+<p><b>(b)</b> By default all link types are selected and shown in the diagram. After (de-)selection of any option and
+    submission, the diagram is rendered again. Each cluster is divided with additional whitespace between the class
+    names. If no link type is selected no clustering can be done, due to the cause that each vector is a null vector. A
+    warning message is displayed in this case.</p>
 
-<p><b>(c)</b> ... </p>
+
+<p><b>(c)</b> Each connection of two classes is rendered as a path inside the circle. On mouseover outgoing connections
+    (source to target) are highlighted with a specific color. The source node is displayed in bold font. The target node
+    is displayed in the color of the link type. There are two types of cluster building mechanisms available. The first
+    is defined by the task. The second builds the vectors, that are used by the kmeans clustering, with the count of how
+    many connections the class has in one type. Look at the description of the function <code>buildLinkTypeCountNodeVectors</code>
+    for more information.</p>
+
 
 <h2>Quellen</h2>
 

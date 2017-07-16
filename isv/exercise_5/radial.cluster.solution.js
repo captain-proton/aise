@@ -5,7 +5,19 @@
 var Config = {
     color: d3.schemeCategory20c,
     nodeCount: graph.nodes.length,
-    allLinkTypes: ["CIG", "CUG", "CAG"]
+    allLinkTypes: ["CIG", "CUG", "CAG"],
+    allVectorBuildings: [
+        {id: "binary-clustering", func: buildBinaryNodeVectors},
+        {id: "counted-clustering", func: buildLinkTypeCountNodeVectors}
+    ],
+    selectedLinkTypes: [],
+    buildNodeVectors: function () {
+        var selectedVectorType = $('input[name="vector-type"]:checked').val();
+        var building = Config.allVectorBuildings.filter(function (b) {
+            return b.id === selectedVectorType;
+        });
+        return building[0].func(Config.selectedLinkTypes);
+    }
 };
 
 var Node = {
@@ -30,11 +42,17 @@ function getSelectedLinkTypes() {
     });
 }
 
+function getSelectedVectorBuilding() {
+    return Config.allVectorBuildings.filter(function (type) {
+        return $("#" + type.id).prop("checked");
+    });
+}
+
 function getClusterCount() {
     return +$('#nClusters').val();
 }
 
-function buildNodeVectors(types) {
+function buildBinaryNodeVectors(types) {
 
     var vectors = [];
     graph.nodes.forEach(function (node, i) {
@@ -54,6 +72,39 @@ function buildNodeVectors(types) {
     return vectors;
 }
 
+/**
+ * Builds vectors of this graph nodes with respect to the number of links one class
+ * has of one type. For each given node the outgoing links are count. The order of the count
+ * in the resulting array is the same given as the order of types.
+ *
+ * @param types
+ * @returns {Array} an array of the size of this graph.nodes.length. Each element is an array
+ *      with types.length elements containing numeric values.
+ */
+function buildLinkTypeCountNodeVectors(types) {
+    var vectors = [];
+    var indices = [];
+
+    types.forEach(function (type, j) {
+        indices[type] = j;
+    });
+
+    graph.nodes.forEach(function (node, i) {
+        var vector = [];
+        types.forEach(function (type) {
+            vector[indices[type]] = 0;
+        });
+
+        graph.links.forEach(function (link) {
+            if (link.source === node.id && types.indexOf(link.type) >= 0) {
+                vector[indices[link.type]] += 1;
+            }
+        });
+        vectors[i] = vector;
+    });
+    return vectors;
+}
+
 function buildKmeansCluster(vectors) {
     return figue.kmeans(Config.clusterCount, vectors);
 }
@@ -65,6 +116,7 @@ function buildHierarchy(cluster) {
         name: "",
         children: []
     };
+
     /*
      each centroid represents one cluster -> add one child to
      the root node
@@ -138,14 +190,12 @@ function mouseovered(d) {
         n.isSource = false;
     });
 
-    var selectedClusters = getSelectedLinkTypes();
-
     links.classed("link--inheritance", function (l) {
-        return linkClassed(d, l, "CIG", selectedClusters);
+        return linkClassed(d, l, "CIG", Config.selectedLinkTypes);
     }).classed("link--aggregation", function (l) {
-        return linkClassed(d, l, "CAG", selectedClusters);
+        return linkClassed(d, l, "CAG", Config.selectedLinkTypes);
     }).classed("link--usage", function (l) {
-        return linkClassed(d, l, "CUG", selectedClusters);
+        return linkClassed(d, l, "CUG", Config.selectedLinkTypes);
     })
     ;
 
@@ -184,25 +234,31 @@ function mouseouted(d) {
 
 function updateNodes() {
 
-    node.selectAll(".node")
-        .data([])
-        .exit()
-        .remove();
-    // update existing nodes
-    // nodes.attr("transform", Node.transform)
-    //     .attr("text-anchor", Node.textAnchor);
+    var vectors = Config.buildNodeVectors();
+    var kmeansCluster = buildKmeansCluster(vectors);
 
-    hierarchy = buildHierarchy(buildKmeansCluster(buildNodeVectors(Config.selectedLinkTypes)));
+    if (!kmeansCluster)
+        throw "Could not build kmeans cluster, please update your settings";
+
+    hierarchy = buildHierarchy(kmeansCluster);
 
     var cluster = d3.cluster()
         .size([360, Config.innerRadius]);
     cluster(hierarchy);
+    var leaves = hierarchy.leaves();
+
+    var nodes = node.selectAll(".node")
+        .data(leaves);
+
+    // update existing nodes
+    nodes.attr("transform", Node.transform)
+        .attr("text-anchor", Node.textAnchor)
+        .text(function (d) {
+            return d.data.name;
+        });
 
     // enter new nodes
-    var leaves = hierarchy.leaves();
-    node.selectAll(".node")
-        .data(leaves)
-        .enter()
+    nodes.enter()
         .append("text")
         .attr("class", "node")
         .attr("dy", "0.4em")
@@ -215,7 +271,11 @@ function updateNodes() {
         .on("mouseout", mouseouted)
     ;
 
-    // nodes.exit().remove();
+    /*
+     remove missing, normally not necessary as not nodes are
+     removed in this application
+     */
+    nodes.exit().remove();
 }
 
 function updateLinks() {
@@ -248,18 +308,60 @@ function updateLinks() {
     // links.exit().remove();
 }
 
+function showError(msg) {
+    d3.select("svg")
+        .append("rect")
+        .attr("id", "clusterOverlay")
+        .attr("width", 800)
+        .attr("height", 600);
+
+    d3.select("svg")
+        .append("text")
+        .attr("id", "clusterOverlayText")
+        .attr("x", 400)
+        .attr("y", 300)
+        .text(msg);
+}
+
+function removeErrorMsg() {
+    $("#clusterOverlay").detach();
+    $("#clusterOverlayText").detach();
+}
+
+Array.prototype.equals = function (other) {
+    return (this.length == other.length) && this.every(function (element, index) {
+            return element === other[index];
+        });
+};
+
 $("#cluster").click(function () {
     var clusterCount = getClusterCount();
     var selectedLinkTypes = getSelectedLinkTypes();
+    var selectedVectorBuilding = getSelectedVectorBuilding();
+
+    if (selectedLinkTypes.length === 0) {
+        showError("Without selected link types clusters can not be build.");
+        return;
+    } else {
+        removeErrorMsg();
+    }
+
     if (Config.clusterCount != clusterCount
-        || Config.selectedLinkTypes != selectedLinkTypes) {
+        || !Config.selectedLinkTypes.equals(selectedLinkTypes)
+        || !Config.selectedVectorBuilding.equals(selectedVectorBuilding)) {
 
         Config.clusterCount = clusterCount;
         Config.selectedLinkTypes = selectedLinkTypes;
+        Config.selectedVectorBuilding = selectedVectorBuilding;
 
-        updateNodes();
+        try {
+
+            updateNodes();
+            updateLinks();
+        } catch (err) {
+            showError(err);
+        }
     }
-    updateLinks();
 });
 
 var svg = d3.select("svg");
@@ -269,6 +371,7 @@ Config.diameter = Math.min(Config.width, Config.height);
 Config.innerRadius = Config.diameter / 2 - 120;
 Config.clusterCount = getClusterCount();
 Config.selectedLinkTypes = getSelectedLinkTypes();
+Config.selectedVectorBuilding = getSelectedVectorBuilding();
 
 var line = d3.radialLine()
     .curve(d3.curveBundle.beta(0.85))
@@ -289,7 +392,7 @@ svg = svg.append("g")
 
 var link = svg.append("g");
 var node = svg.append("g");
+var hierarchy = undefined;
 
-var hierarchy = buildHierarchy(buildKmeansCluster(buildNodeVectors(Config.selectedLinkTypes)));
 updateNodes();
 updateLinks();
