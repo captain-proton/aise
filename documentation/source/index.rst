@@ -20,6 +20,7 @@ Contents:
 
     dox/lecture
     dox/exercises
+    dox/exam_preparation
 
 .. toctree::
     :caption: Neue Internetanwendungen

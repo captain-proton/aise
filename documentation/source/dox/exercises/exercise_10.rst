@@ -30,3 +30,16 @@ Adressierung eines externen Dienstes
 1. Suche nach passendem Provider (mittlerweile nicht mehr über UDDI)
 2. Anfrage einer WSDL
 3. Integration in den Client
+
+Aufgabe 2: SOAP
+---------------
+
+.. literalinclude:: ../../../../dox/exercise_10/src/main/java/de/paluno/calculator/client/Client.java
+    :language: java
+
+.. literalinclude:: ../../../../dox/exercise_10/src/main/java/de/paluno/calculator/server/Calculator.java
+    :language: java
+
+.. literalinclude:: ../../../../dox/exercise_10/src/main/java/de/paluno/calculator/server/CalculatorServer.java
+    :language: java
+

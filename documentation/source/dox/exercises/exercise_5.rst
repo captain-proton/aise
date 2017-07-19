@@ -33,3 +33,23 @@ Sockets  RMI
 -  Skalierbarkeit
 -  Ort
 -  Nebenläufigkeit
+
+Aufgabe 2: RMI-Programmierung I
+-------------------------------
+
+.. literalinclude:: ../../../../dox/exercise_5_2/src/main/java/de/hindenbug/dox/rmi/client/CalculatorClient.java
+    :language: java
+
+.. literalinclude:: ../../../../dox/exercise_5_2/src/main/java/de/hindenbug/dox/rmi/server/CalculatorServer.java
+    :language: java
+
+.. literalinclude:: ../../../../dox/exercise_5_2/src/main/java/de/hindenbug/dox/rmi/server/Calculator.java
+    :language: java
+
+.. literalinclude:: ../../../../dox/exercise_5_2/src/test/java/de/hindenbug/dox/rmi/CalculatorTest.java
+    :language: java
+
+
+
+
+

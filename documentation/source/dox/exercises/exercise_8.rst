@@ -88,6 +88,28 @@ Aufgabe 3.2 XML
 
 Informationen finden sich in der XML lediglich in den Blattknoten. Es werden keine Attribute verwendet.
 
+Aufgabe 4: XML-Parser
+---------------------
+
+Aufgabe 4.1 SAX-Parser
+----------------------
+
+.. literalinclude:: ../../../../dox/exercise_8/src/main/java/de/hindenbug/dox/xml/CustomDoxSaxParser.java
+    :language: java
+
+.. literalinclude:: ../../../../dox/exercise_8/src/main/java/de/hindenbug/dox/xml/CustomDoxSaxHandler.java
+    :language: java
+
+.. literalinclude:: ../../../../dox/exercise_8/src/main/java/de/hindenbug/dox/xml/CompactDiscHandler.java
+    :language: java
+
+
+Aufgabe 4.2 StAX-Parser
+-----------------------
+
+.. literalinclude:: ../../../../dox/exercise_8/src/main/java/de/hindenbug/dox/xml/CustomDoxStaxParser.java
+    :language: java
+
 Aufgabe 4.3
 ^^^^^^^^^^^
 

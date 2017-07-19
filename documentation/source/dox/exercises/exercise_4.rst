@@ -29,3 +29,21 @@ Einigung für das Protokoll, Nachrichtenformat. Hier spielt das OSI-7-Schichtenm
 6. Wie wird durch den Einsatz von Middleware Ortstransparenz hergestellt?
 
 In einer Registrierung wird festgehalten unter welcher Adresse ein Name antwortet.
+
+Aufgabe 2: CalculatorServer
+---------------------------
+
+.. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/calculator/CalculatorApplication.java
+    :language: java
+
+.. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/calculator/CalculatorClient.java
+    :language: java
+
+.. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/calculator/CalculatorProtocol.java
+    :language: java
+
+.. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/calculator/CalculatorServer.java
+    :language: java
+
+.. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/calculator/ClientHandler.java
+    :language: java

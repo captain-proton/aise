@@ -68,6 +68,12 @@ Richtig.
 Aufgabe 2: DTD
 --------------
 
+Aufgabe 2.2
+^^^^^^^^^^^
+
+.. literalinclude:: ../../../../dox/exercise_9/src/main/java/de/paluno/dox/xml/dtd/schema.dtd
+    :language: dtd 
+
 Aufgabe 2.3
 ^^^^^^^^^^^
 
@@ -78,6 +84,13 @@ Aufgabe 2.3
 Aufgabe 3: XML Schema
 ---------------------
 
+Aufgabe 3.1
+^^^^^^^^^^^
+
+.. literalinclude:: ../../../../dox/exercise_9/src/main/java/de/paluno/dox/xml/xsd/schema.xsd
+    :language: xml 
+
+
 Aufgabe 3.2
 ^^^^^^^^^^^
 
@@ -86,3 +99,4 @@ Aufgabe 3.2
 +=====================+=====+============+
 | Datentypen          | -   | X          |
 +---------------------+-----+------------+
+

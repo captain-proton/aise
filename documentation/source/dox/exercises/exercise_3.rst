@@ -86,7 +86,7 @@ Aufgabe 2: Socket-Programmierung I
 Aufgabe 2.2: Programm schreiben
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. literalinclude:: ../../../dox/exercise_3_2_2/src/main/java/de/hindenbug/dox/socket/SocketTest.java
+.. literalinclude:: ../../../../dox/exercise_3_2_2/src/main/java/de/hindenbug/dox/socket/SocketTest.java
 
 Ausgabe
 """""""
