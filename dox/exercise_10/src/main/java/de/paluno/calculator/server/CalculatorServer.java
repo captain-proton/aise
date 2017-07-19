@@ -5,10 +5,12 @@ import org.apache.commons.lang3.RandomUtils;
 
 import javax.jws.WebParam;
 import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
 import javax.swing.*;
 import javax.xml.ws.Endpoint;
 
 @WebService(endpointInterface = "de.paluno.calculator.server.Calculator")
+@SOAPBinding(style = SOAPBinding.Style.RPC)
 public class CalculatorServer implements Calculator
 {
     private Endpoint endpoint;
