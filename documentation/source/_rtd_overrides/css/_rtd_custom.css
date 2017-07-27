@@ -33,6 +33,14 @@
     vertical-align: top;
 }
 
+.rst-content .quote {
+    display: block;
+    font-style: italic;
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 2px solid #2980B9;
+}
+
 .textmarker {
     text-decoration: underline;
 }

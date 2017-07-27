@@ -14,6 +14,7 @@ Contents:
 
     isv/lecture
     isv/exercises
+    isv/exam_preparation
 
 .. toctree::
     :caption: Distributed Objects and XML
