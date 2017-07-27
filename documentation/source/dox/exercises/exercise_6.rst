@@ -4,12 +4,18 @@
 Aufgabe 1: Theorie
 ------------------
 
-1. -
+1. RPC-Kommunikation zwischen Java virtuellen Maschinen
 2. Sockets und Protokolle
 3. Registry, man braucht aber die Adresse der Registry. mehr Ortstransparenz ist nicht möglich.
 4. Ortstransparenz und Zugrifftstransparenz, alle anderen Tranzparenzen können nicht unterstützt werden. Nur mit Java kompatibel.
 5. Man kann nicht sicher sein, ob die Objekte als Thread gestartet werden oder nicht. Daher immer thread-safe.
-6. (Funktionalität eines Stubs beschreiben)
+6. Funktionen
+
+     a) Verbindungsaufbau mit der Remote JVM
+     b) Serialisierung und Übertragung der Daten
+     c) Warten auf das Ergebnis
+     d) Deserialisierung der Ergebnisse
+     e) Rückgabe der Ergebnisse
 
 Aufgabe 2: RMI-Programmierung II
 --------------------------------

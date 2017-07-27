@@ -29,10 +29,13 @@ Welche Vorteile bietet die RMI-Implementierung gegenüber der Socket-Implementie
 
 Welche Transparenzen bieten Sockets, welche RMI?
 
-Sockets  RMI
--  Skalierbarkeit
--  Ort
--  Nebenläufigkeit
++---------+---------------------+
+| Sockets | RMI                 |
++=========+=====================+
+| -       | Zugriffstransparenz |
++---------+---------------------+
+| -       | Ort (eingeschränkt) |
++---------+---------------------+
 
 Aufgabe 2: RMI-Programmierung I
 -------------------------------

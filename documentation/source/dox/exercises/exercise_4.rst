@@ -21,10 +21,12 @@ Einigung für das Protokoll, Nachrichtenformat. Hier spielt das OSI-7-Schichtenm
 4. Wozu werden Stubs benötigt? Welche Aufgabe wird beim Marshalling/Unmarshalling durchgeführt?
 
 - Stub sorgt für die Zugriffstransparenz, serialisiert und deserialisiert den Aufruf
+- Marshalling bezeichnet den Prozess Daten für die Übertragung zu serialisieren
+- Unmarshalling ist die Deserialisierung der Rohdaten in für das Programm verwertbare Objekte
 
 5. Wie wird durch den Einsatz von Middleware Zugriffstransparenz hergestellt?
 
-- siehe Frage 4 (Stubs)
+Durch eine Middleware wird der Zugriff auf eine Resource gekapselt und ist für den Nutzer immer gleich, egal ob z.B. ein HTTP Dienst die Anfrage beantwortet oder ein lokal ausgeführtes Programm
 
 6. Wie wird durch den Einsatz von Middleware Ortstransparenz hergestellt?
 

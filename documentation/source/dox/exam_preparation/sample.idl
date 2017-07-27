@@ -1,0 +1,33 @@
+module ReserveCollection {
+
+    exception UnavailableException {
+        string message;
+    };
+
+    enum ReserveCollectionStatus { NEW, ACTIVE, DEACTIVATED, ARCHIVED };
+
+    interface Entry {
+        attribute long collectionId;
+        attribute string created;
+    };
+
+    interface Book : Entry {
+        attribute string signature;
+        attribute string title;
+
+        long getAvailableItems();
+    };
+
+    typedef sequence<Entry> Entries;
+
+    interface ReserveCollection {
+        attribute long id;
+        attribute string title;
+        attribute unsigned long expectedParticipants;
+        attribute ReserveCollectionStatus status;
+
+        void updateStatus(in ReserveCollectionStatus status);
+        void addBook(in Book book) raises (UnavailableException);
+        Entries getEntries();
+    };
+};

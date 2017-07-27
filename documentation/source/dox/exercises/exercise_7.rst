@@ -48,12 +48,12 @@ Bemerkung: Unterschiedliche Transparenzen werden in CORBA nur durch zusätzliche
 Aufgabe 2.1: CORBA-IDL I
 ------------------------
 
-.. literalinclude:: ../../../../dox/exercise_7/exercise_7.2.1.idl
+.. literalinclude:: ../../../../dox/exercise_7/src/main/resources/exercise_7.2.1.idl
     :language: idl
 
 Aufgabe 2.2: CORBA-IDL II
 -------------------------
 
-.. literalinclude:: ../../../../dox/exercise_7/exercise_7.2.2.idl
+.. literalinclude:: ../../../../dox/exercise_7/src/main/resources/exercise_7.2.2.idl
     :language: idl
 

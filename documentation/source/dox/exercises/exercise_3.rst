@@ -50,35 +50,44 @@ Nicht nur Softwaresystem als Kontext verwenden.
 - Erreichbarkeit von Komponenten
 - Kosten (Netzwerk Inter-Domain-Communication)
 
+Die Anforderungen an ein verteiltes System sind:
+
+- Gemeinsame Nutzung der Betriebsmittel
+- Offenheit
+- Nebenläufigkeit
+- Skalierbarkeit
+- Fehlertolleranz
+
 5. Erläutern Sie die Transparenzen in verteilten Systemen und deren Beziehungen untereinander (Abbildung Folie 28 im Skript):
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Unter der Transparenz versteht man wie sichtbar bzw. verborgen unterschiedliche Aspekte des Systems gegenüber Nutzern ist.
 
-:Zugriffstransparenz: Art und Weise wie auf eine Komponente zugegriffen wird, z.B. immer HTTP GET mit bestimmten Parametern
+:Zugriffstransparenz: Der Zugriff auf eine Komponente erfolgt immer auf dieselbe Art und Weise egal ob die Resource lokal oder entfernt liegt, z.B. immer HTTP GET mit bestimmten Parametern
 
-Anwender müssen die Komponente einsehen können, um sie migrieren und/oder replizieren zu können
+:Ortstransparenz: Der Ort an dem eine Resource liegt ist dem Benutzer verborgen, der Zugriff erfolgt immer über einen bestimmten Namen
 
-:Ortstransparenz: Zugriffe auf Resourcen und Objekte unabhängig der Kenntnis des Ortes
+:Nebenläufigkeitstransparenz: Es ist möglich, dass Nutzer gleichzeitig auf Resourcen zugreifen. Eine Synchronisation wird vor dem Benutzer versteckt.
 
-Zur Migration/Replikation müssen Spezifika existieren, wie die Komponente adressiert werden kann.
+:Replikationstransparenz: Es können mehrere Kopien einer Resource im System existieren, ohne dass dem Nutzer bewusst ist, dass es sich ggfs. um eine Kopie handelt. Bsp. Caches
 
-:Nebenläufigkeitstransparenz: Eine Komponente muss parallel zu anderen Komponenten ausgeführt werden können egal in welchem Zustand sich das System befindet. In Programmierungsprachen üblicherweise durch Synchronisation durchgeführt
+Die Replikationstransparenz hängt von der Zugriffstransparenz und der Ortstransparenz ab, da Resourcen ggfs. auf unterschiedlichen physikalischen Maschinen auf unterschiedliche Weise vorhanden und adressiert werden können, was dem Nutzer nicht bekannt sein soll.
 
-Sobald Fehler in einer oder mehreren Komponenten entstehen müssen diese protokolliert werden (Bsp. Ticketbuchung bei bereits vergebenen Tickets)
+:Fehlertransparenz: Fehlerzustände werden im System versteckt, wenn sie ausschließlich Systeminterna betreffen. Bsp. Eine angefragte Resource ist in einer Komponente nicht verfügbar, da diese zur Zeit belegt ist und der Nutzer wird auf eine andere Komponente weitergeleitet, damit diese adressiert werden kann.
 
-:Replikationstransparenz: Eine Komponente muss unabhängig vom Gesamtsystem auf andere Rechner geklont werden können.
+Die Fehlertransparenz ist von der Nebenläufigkeitstransparenz und der Replikationstransparenz abhängig, da auftretende Fehler durch den Einsatz von nebenläufig eingesetzten Systemen versteckt werden. Zu diesem Zweck müssen Resourcen mehrfach vorhanden sein.
 
-Ort und Name dürfen sich z.B. nicht ändern wenn auf das System zugegriffen wird, google.de muss also immer ein gleiches Verhalten liefern unabhängig vom Ort.
+:Migrationstransparenz: Das Verschieben von Objekten soll ohne die Kenntnis des Nutzers erfolgen.
 
-:Fehlertransparenz: Fehlerzustände werden im System versteckt, wenn sie ausschließlich Systeminterna betreffen. Bsp. Eine Komponente fällt aus und der Nutzer wird auf eine andere Komponente weitergeleitet. Der Nutzer muss dazu nicht informiert werden.
+Wie Replikationstransparenz, nur dass Objekte nicht kopiert sondern nur bewegt werden.
 
-:Migrationstransparenz: Objekte sollen an andere Orte bewegt werden können.
+:Leistungstransparenz: Dem Nutzer steht die gesamte Leistung des Systems zur Verfügung.
 
-Sollte eine Migration durchgeführt werden muss ersichtlich sein, ob die Skalierung des Systems gewährleistet ist. Die Leistung darf nicht beeinflusst werden.
+Abhängig von Zugriffs- und Replikationstransparenz, da Objekte an unterschiedlichen Orten im System verfügbar sind. ... Warum keine Abhängigkeit zur Nebenläufigkeit?
 
-:Leistungstransparenz: Lastverteilung im System soll gewährleistet werden
+:Skalierbarkeitstransparenz: Erweiterungen oder Austausch von Komponenten soll ohne Ausfall des Systems möglich sein.
 
+Abhängig von Migration- und Replikationstransparenz, da wie in der Leistungstransparenz Objekte bzw. Resourcen bewegt oder kopiert werden müssen.
 
 Aufgabe 2: Socket-Programmierung I
 ----------------------------------

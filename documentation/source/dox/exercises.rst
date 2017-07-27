@@ -15,3 +15,4 @@
     exercises/exercise_8
     exercises/exercise_9
     exercises/exercise_10
+    exercises/exercise_11
