@@ -45,20 +45,24 @@ Viele der Darstellungen können durch UML-Diagramme dargestellt werden. Siehe hi
 Teilaufgabe 1.3
 ^^^^^^^^^^^^^^^
 
-*statisch*:
-
-- Klassendiagramm
-
-*dynamisch*:
-
-- Sequenzdiagramm
-- Objektdiagramm
+  +-----------+-----------------------+-------------------+
+  |           | statisch              | dynamisch         |
+  +===========+=======================+===================+
+  | Struktur  | - Klassendiagramm     | Objektdiagramm    |
+  |           | - Komponentendiagramm |                   |
+  |           | - Datenmodelle        |                   |
+  +-----------+-----------------------+-------------------+
+  | Verhalten |                       | Zustandsautomaten |
+  +-----------+-----------------------+-------------------+
 
 
 Teilaufgabe 1.4
 ^^^^^^^^^^^^^^^
 
-Modelle erleichtern das Verständnis des Systems für den Anwender. Zudem können Zusicherungen betreffend der Typsicherheit innerhalb einer Anwendung gemacht werden. Das schränkt das System allerdings auch direkt auf dieses Modell ein. Dynamische Ansätze können hier eher nicht verfolgt werden. Durch Abstraktion verliefert man aber auch Spezifika des Systems, die ggfs. wichtig sind.
+1. Code-Generierung aus dem Modell
+2. Werkzeuge führen die Modellspezifikation aus
+
+Probleme entstehen durch die Beschränkungen, die durch die Generierung auferlegt sind. Im schlimmsten Fall führt das sogar zu Sicherheitslücken und schlechter Wartbarkeit.
 
 Aufgabe 2: Code-Generierung
 ---------------------------

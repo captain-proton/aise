@@ -67,7 +67,7 @@ c) ``java -Dparam value``, beim Start des Programms
 Teilaufgabe 3
 ^^^^^^^^^^^^^
 
-Eine Komponente kann aus mehreren Klassen bestehen. Klassen bilden die niedrigste Stufe der Hierarchie. Eine Komponente verwendet zur Lösung eines Problems eine oder mehrere Klassen. Innerhalb eines Pakets werden eine oder mehrere Komponenten zusammengestellt, je nach Sinnhaftigkeit. Ein oder mehrere Pakete können durch das Deployment zur Verfügung gestellt werden.
+Eine Komponente kann aus mehreren Klassen bestehen. Klassen bilden die niedrigste Stufe der Hierarchie. Eine Komponente verwendet zur Lösung eines Problems eine oder mehrere Klassen. Innerhalb eines Pakets werden eine oder mehrere Komponenten zusammengestellt, je nach Sinnhaftigkeit. Ein oder mehrere Komponenten können durch das Deployment in Form von Archiven zur Verfügung gestellt werden.
 
 Aufgabe 3
 ---------

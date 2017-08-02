@@ -35,17 +35,43 @@ In einer Registrierung wird festgehalten unter welcher Adresse ein Name antworte
 Aufgabe 2: CalculatorServer
 ---------------------------
 
+Application
+^^^^^^^^^^^
+
 .. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/calculator/CalculatorApplication.java
     :language: java
+
+Client
+^^^^^^
 
 .. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/calculator/CalculatorClient.java
     :language: java
 
-.. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/calculator/CalculatorProtocol.java
-    :language: java
+Server
+^^^^^^
 
 .. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/calculator/CalculatorServer.java
     :language: java
 
-.. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/calculator/ClientHandler.java
+
+Aufgabe 3: Sockets und Objekte
+------------------------------
+
+Application
+^^^^^^^^^^^
+
+.. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/object/CalculatorApplication.java
+    :language: java
+
+
+Client
+^^^^^^
+
+.. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/object/CalculatorClient.java
+    :language: java
+
+Server
+^^^^^^
+
+.. literalinclude:: ../../../../dox/exercise_4_2/src/main/java/de/hindenbug/dox/object/CalculatorServer.java
     :language: java

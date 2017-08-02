@@ -93,8 +93,42 @@ Wenn Objekte übertragen werden und ggfs. geändert werden muss die Klasse diese
 IDL
 ---
 
-.. literalinclude:: exam_preparation/sample.idl
-    :language: idl
+.. code-block:: idl
+
+    module ReserveCollection {
+
+        exception UnavailableException {
+            string message;
+        };
+
+        enum ReserveCollectionStatus { NEW, ACTIVE, DEACTIVATED, ARCHIVED };
+
+        interface Entry {
+            attribute long collectionId;
+            attribute string created;
+        };
+
+        interface Book : Entry {
+            attribute string signature;
+            attribute string title;
+
+            long getAvailableItems();
+        };
+
+        typedef sequence<Entry> Entries;
+
+        interface ReserveCollection {
+            attribute long id;
+            attribute string title;
+            attribute unsigned long expectedParticipants;
+            attribute ReserveCollectionStatus status;
+
+            void updateStatus(in ReserveCollectionStatus status);
+            void addBook(in Book book) raises (UnavailableException);
+            Entries getEntries();
+        };
+    };
+
 
 SAX
 ---
@@ -109,7 +143,23 @@ Parser
     InputStream xmlInput = new FileInputStream(filename);
 
     SAXParser saxParser = factory.newSAXParser();
+
+    // optional validierung
+
+    // gegen xml schema oder dtd
+    // String xmlUri = xsd
+    //                  ? XMLConstants.W3C_XML_SCHEMA_NS_URI
+    //                  : XMLConstants.XML_DTD_NS_URI;
+
+    // SchemaFactory schemaFactory = SchemaFactory.newInstance(xmlUri);
+    // Schema schema = schemaFactory.newSchema(new File(validationFile));
+    // saxParser.setValidating(true);
+    // saxParser.setSchema(schema);
+
+    // DefaultHandler
     DoxSaxHandler handler = new DoxSaxHandler();
+
+    // die Methode parse wird vom DefaultHandler geerbt
     saxParser.parse(xmlInput, handler);
 
 Handler
@@ -160,6 +210,7 @@ DTD
 
 .. literalinclude:: ../nsdbms/exam_preparation/cheatsheets/dtd_cheatsheet.dtd
     :language: dtd
+
 
 XML-Schema
 ----------
