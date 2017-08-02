@@ -1,89 +1,34 @@
 package de.hindenbug.dox.calculator;
 
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
-import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.Scanner;
 
 /**
- * Created by nils on 22.05.17.
+ * Created by Nils on 30.07.2017.
  */
-public class CalculatorClient implements Runnable
+public class CalculatorClient
 {
-    private static final Logger LOG = LoggerFactory.getLogger(CalculatorClient.class);
-
-    private final CalculatorServer server;
-    private Queue<String> lines;
-    private boolean stop;
-
-    public CalculatorClient(CalculatorServer server)
+    public int add(int a, int b) throws IOException
     {
-        this.server = server;
-        this.lines = new LinkedBlockingQueue<>();
+        return sendRequest(String.format("add,%d,%d", a, b));
     }
 
-    public void processInput(String value)
+    public int sqr(int a) throws IOException
     {
-        this.lines.offer(value);
+        return sendRequest(String.format("sqr,%d", a));
     }
 
-    public void shutdown()
+    private int sendRequest(String line) throws IOException
     {
-        LOG.info("shut down command received");
-        this.stop = true;
-    }
-
-    @Override
-    public void run()
-    {
-        LOG.info("client started, waiting to connect");
-        try (Socket serverSocket = new Socket(server.getHost(), server.getPort());
-             PrintWriter output = new PrintWriter(serverSocket.getOutputStream(), true);
-             BufferedReader input = new BufferedReader(new InputStreamReader(serverSocket.getInputStream())))
+        String host = "localhost";
+        int port = CalculatorServer.PORT;
+        try (Socket server = new Socket(host, port);
+             PrintWriter writer = new PrintWriter(server.getOutputStream(), true);
+             Scanner reader = new Scanner(server.getInputStream()))
         {
-            LOG.info("connected to server " + server);
-            while (!stop
-                    && !Thread.currentThread().isInterrupted()
-                    && !serverSocket.isClosed())
-            {
-                String line;
-                while ((line = lines.poll()) != null
-                        && !stop)
-                {
-                    // write to server
-                    output.println(line);
-                    // read response
-                    String response = input.readLine();
-                    // output response
-                    LOG.info(response);
-
-                    if (StringUtils.equalsIgnoreCase(line, "stop"))
-                    {
-                        stop = true;
-                        LOG.info("stop received");
-                    }
-                }
-                try
-                {
-                    Thread.sleep(100);
-                } catch (InterruptedException e)
-                {
-                    stop = true;
-                    LOG.warn("calculator client interrupted -> shutting down");
-                }
-            }
-            LOG.info("stopped/interrupted -> shutting down");
-        } catch (IOException e)
-        {
-            LOG.error("could not read line from input", e);
+            writer.println(line);
+            return reader.nextInt();
         }
-        LOG.info("stopped");
     }
 }

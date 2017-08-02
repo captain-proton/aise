@@ -1,117 +1,48 @@
 package de.hindenbug.dox.calculator;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.Scanner;
 
 /**
- * Created by nils on 22.05.17.
+ * Created by Nils on 30.07.2017.
  */
-public class CalculatorServer implements Runnable
+public class CalculatorServer
 {
-    private static final Logger LOG = LoggerFactory.getLogger(CalculatorServer.class);
+    public static final int PORT = 4711;
 
-    private final ExecutorService handler;
-    private final List<ClientHandler> handlerSubmissions;
-
-    private final String host;
-    private final int port;
-
-    private boolean started;
-    private boolean stop;
-    private ServerSocket serverSocket;
-
-    public CalculatorServer(String host, int port)
+    public static void main(String[] args) throws IOException, InterruptedException
     {
-        this.host = host;
-        this.port = port;
-        this.handler = Executors.newCachedThreadPool();
-        this.handlerSubmissions = new ArrayList<>();
-    }
-
-    public void shutdown()
-    {
-        LOG.info("shut down command received");
-        this.stop = true;
-        try
+        try (ServerSocket server = new ServerSocket(PORT))
         {
-            this.serverSocket.close();
-        } catch (IOException e)
-        {
-            LOG.error("could not close server socket", e);
-        }
-    }
-
-    @Override
-    public void run()
-    {
-        try (ServerSocket serverSocket = new ServerSocket(port))
-        {
-            LOG.info("server started on port " + port);
-            this.serverSocket = serverSocket;
-            this.started = true;
-
-            while (!stop
-                    && !Thread.currentThread().isInterrupted()
-                    && serverSocket.isBound())
+            while (true)
             {
-                // accept a connection
-                LOG.info("accepting client");
-                try
-                {
-                    // wait until a new client connects
-                    Socket clientSocket = serverSocket.accept();
-                    ClientHandler handler = new ClientHandler(clientSocket);
+                System.out.println("server started");
+                Socket socket = server.accept();
+                System.out.println("server bound");
 
-                    LOG.info("client connected");
-                    // start handler thread
-                    this.handler.submit(handler);
-                    this.handlerSubmissions.add(handler);
-                } catch (IOException e)
+                Scanner scanner = new Scanner(socket.getInputStream());
+                PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+
+                String line = scanner.nextLine().trim();
+                System.out.println("received line: " + line);
+                if (line.matches("add,\\d+,\\d+"))
                 {
-                    LOG.error("an i/o error occured when waiting for a connection. " + e.getMessage());
+                    String[] requestArgs = line.split(",");
+                    int a = Integer.valueOf(requestArgs[1]);
+                    int b = Integer.valueOf(requestArgs[2]);
+                    writer.println(a + b);
+                } else if (line.matches("sqr,\\d+"))
+                {
+                    String[] requestArgs = line.split(",");
+                    int a = Integer.valueOf(requestArgs[1]);
+                    writer.println(a * a);
+                } else
+                {
+                    writer.println("invalid request");
                 }
             }
-        } catch (IOException e)
-        {
-            LOG.error("server could not be started", e);
-        } finally
-        {
-            this.handlerSubmissions.forEach(ClientHandler::shutdown);
-            this.handler.shutdown();
-            this.started = false;
         }
-        LOG.info("stopped");
-    }
-
-    public String getHost()
-    {
-        return host;
-    }
-
-    public int getPort()
-    {
-        return port;
-    }
-
-    public boolean isStarted()
-    {
-        return started;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "CalculatorServer{" +
-                "host='" + host + '\'' +
-                ", port=" + port +
-                '}';
     }
 }

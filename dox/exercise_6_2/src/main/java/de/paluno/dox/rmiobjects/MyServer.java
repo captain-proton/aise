@@ -26,8 +26,7 @@ public class MyServer implements Server
         p.setAge(52);
     }
 
-    public static void main(String[] args) throws AccessException,
-            RemoteException, AlreadyBoundException
+    public static void main(String[] args) throws RemoteException, AlreadyBoundException
     {
         final Server server = new MyServer();
         final Registry registry = LocateRegistry
