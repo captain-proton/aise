@@ -131,8 +131,12 @@ Farbwahrnehmung
 Konsequenzen für die Visualisierung durch Farbwahrnehmung, Helligkeits- und Farbkontraste
 
 - Rot-Grün vermeiden es sei denn die Semantik wird eingetzt (Fehler, Erfolg)
+- Farben zum Hervorheben nutzen
 - Wichtige Infos als Helligkeitskontrast
 - max. 6 - 12 Farben
+- Gleichzeitige Variation von Farbe und Helligkeit vermeiden
+
+:quote:`Durch Hell-Dunkel-Kontrast werden die Teile eines Bildes gewichtet. Er dient zur Betonung von Formen und erzeugt Körperlichkeit und Dreidimensionalität.`
 
 Mustererkennung
 ^^^^^^^^^^^^^^^

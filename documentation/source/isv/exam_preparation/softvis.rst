@@ -58,7 +58,7 @@ Architekturvisualisierungen
 Definition Softwarearchitektur
 """"""""""""""""""""""""""""""
 
-:quote:`Architektur ist die fundamentale Organisation eines Systems, dass durch seine Komponenten, deren Beziehungen untereinander, zur Umgebung und die Prinzipien zum Design und Evolution verkörpert wird.``
+:quote:`Architektur ist die fundamentale Organisation eines Systems, dass durch seine Komponenten, deren Beziehungen untereinander, Umgebung und der Prinzipien zum Design und Evolution verkörpert wird.`
 
 :Komponenten: Hierarchie
 :Beziehungen: Graph
@@ -286,10 +286,12 @@ Tools
 Objektzustand
 """""""""""""
 
-- Collections
-- Bäume/Graphen
-- Tabellen (multivariate Daten)
-- Farben/Bilder
+*Häufig auftretende Objekte*:
+
+    - Collections
+    - Bäume/Graphen
+    - Tabellen (multivariate Daten)
+    - Farben/Bilder
 
 Slicing
 """""""

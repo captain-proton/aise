@@ -106,6 +106,16 @@ Big Data
 :Variety: Unterschiedlichkeit der Daten |rightarrow| Kombination von Visualisierungen
 :Veracity: Richtigkeit |rightarrow| Finden und Beheben von Fehlern
 
+.. image:: http://www.ibmbigdatahub.com/sites/default/files/infographic_file/4-Vs-of-big-data.jpg
+
+Quelle: `The Four V's of Big Data <http://www.ibmbigdatahub.com/infographic/four-vs-big-data>`_
+
+----
+
+.. image:: http://www.ibmbigdatahub.com/sites/default/files/styles/xlarge-scaled/public/4vs_infographic_final.jpg?itok=XYAq_lSF
+
+Quelle: `Extracting business value from the 4 V's of big data <http://www.ibmbigdatahub.com/infographic/extracting-business-value-4-vs-big-data/>`_
+
 Skalierbarkeit
 ^^^^^^^^^^^^^^
 

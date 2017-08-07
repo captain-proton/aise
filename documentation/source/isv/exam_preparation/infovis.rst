@@ -160,6 +160,20 @@ Beispiele:
 - Dateistruktur
 - Vererbung
 
+Ähnlichkeitsmetriken
+^^^^^^^^^^^^^^^^^^^^
+
+Wenn ein Objekt mit der Gesamtmenge verglichen werden soll können unterschiedliche Metriken herangezogen werden.
+
+:Euklidischer Abstand: :math:`\sqrt{\sum_i{(a_i - b_i)^2}}`
+:Manhatten-Norm: :math:`\sum_i{|a_i - b_i|}`
+:Kosinus-Ähnlichkeit: :math:`cos(\theta) = \dfrac{a \cdot b}{\lVert a \rVert \, \lVert b \rVert}`
+:Jaccard-Koeffizient: :math:`\dfrac{\vert A \cap B \vert}{\vert A \cup B \vert}`
+
+Euklidische und Manhatten-Norm sind Distanzmaße. Die Distanz zum errechneten Wert gibt hierbei die Ähnlichkeit zur Gesamtmenge der Objekte an.
+
+Der Jaccard-Koeffizient z.B. wird im Bereich Textmining und der Duplikaterkennung verwendet (`Wikipedia <https://de.wikipedia.org/wiki/Jaccard-Koeffizient>`_).
+
 Visualisierungen
 ^^^^^^^^^^^^^^^^
 
