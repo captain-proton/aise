@@ -41,7 +41,7 @@ Störvariablen:
 Hypothese
 ^^^^^^^^^
 
-Eine Hypothese ist entweder gerichtet oder ungerichtet. Bei einer ungerichteten Hypothese wird ermittelt ob es einen Zusammenhang/Effekt zwischen unabhängiger und abhängiger Variable gibt. Abhängige Variablen sind das Ergebnise, was aus der Hypothese ermittelt werden soll. Unabhängige Variablen werden bei der Fragestellung gegeben. Der Nachweiß der Hypothese wird dadurch ermittelt, dass die Nullhypothese widerlegt wird, also dass es keinen Zusammenhang gibt.
+Eine Hypothese ist entweder gerichtet oder ungerichtet. Bei einer ungerichteten Hypothese wird ermittelt ob es einen Zusammenhang/Effekt zwischen unabhängiger und abhängiger Variable gibt. Abhängige Variablen sind das Ergebnis, was aus der Hypothese ermittelt werden soll. Unabhängige Variablen werden bei der Fragestellung gegeben. Der Nachweiß der Hypothese wird dadurch ermittelt, dass die Nullhypothese widerlegt wird, also dass es keinen Zusammenhang gibt.
 
 Bei einer gerichteten Hypothese wird ein genauer Wert ermittelt, Bsp: A ist größer als B.
 

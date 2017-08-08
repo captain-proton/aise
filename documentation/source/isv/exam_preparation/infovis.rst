@@ -38,7 +38,7 @@ Der Hausdrache ist hier die Metapher |winkingsmiley|
 - Städte
 - Federn
 
-Symbole oder Piktogramme eignen sich gut zur Darstellung von Metaphern (Bsp. Papierkorb). DIe Bildsprache Isotype wird z.B. häufig zur Vermittlung von statistischen Informationen verwendet.
+Symbole oder Piktogramme eignen sich gut zur Darstellung von Metaphern (Bsp. Papierkorb). Die Bildsprache Isotype wird z.B. häufig zur Vermittlung von statistischen Informationen verwendet.
 
 Multivariate Daten
 ^^^^^^^^^^^^^^^^^^
@@ -87,7 +87,7 @@ Darstellung von Variablen mit zeitlicher Dimension eher in ``time-to-space`` (Ze
 
     + Liniendiagramme
     + Gestapelte Flächendiagramme (ThemeRiver)
-    + Small Mutiples
+    + Small Multiples
     + Horizon Graphs (platzsparend)
 
         * Einfärbung der negativen Werte
@@ -107,7 +107,7 @@ Darstellung von Variablen mit zeitlicher Dimension eher in ``time-to-space`` (Ze
 Mengenstrukturen und Hierarchien
 --------------------------------
 
-Durch die Abstraktion von multivariaten Daten lassen sich diese auf spezielle Eigenschaften besser test/darstellen und interpretieren. Beispiel: Darstellung der Objekte in einem Koordinatensystem als Punkte.
+Durch die Abstraktion von multivariaten Daten lassen sich diese auf spezielle Eigenschaften besser testen/darstellen und interpretieren. Beispiel: Darstellung der Objekte in einem Koordinatensystem als Punkte.
 
 Algorithmen:
 
@@ -130,7 +130,7 @@ Mengenstruktur
 ^^^^^^^^^^^^^^
 
 - Eine Mengenstruktur ist eine Gruppe von Mengen
-- Eine Partition ist nicht leere Teilmenge, so dass jedes Objekt genau einer Partition zugewiesen wird
+- Eine Partition ist eine nicht leere Teilmenge, so dass jedes Objekt genau einer Partition zugewiesen wird
 
 Diagramme:
 
@@ -163,7 +163,7 @@ Beispiele:
 Ähnlichkeitsmetriken
 ^^^^^^^^^^^^^^^^^^^^
 
-Wenn ein Objekt mit der Gesamtmenge verglichen werden soll können unterschiedliche Metriken herangezogen werden.
+Wenn ein Objekt mit der Gesamtmenge verglichen werden soll, können unterschiedliche Metriken herangezogen werden.
 
 :Euklidischer Abstand: :math:`\sqrt{\sum_i{(a_i - b_i)^2}}`
 :Manhatten-Norm: :math:`\sum_i{|a_i - b_i|}`

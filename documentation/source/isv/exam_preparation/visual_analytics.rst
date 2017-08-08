@@ -25,7 +25,7 @@ Interaktionstechniken & interaktive Systeme
 
 *Definition*:
 
-:quote:`Visuelle Analytik bezeichnet die Wissenschaft der analytischen Denkens unterstützt durch interaktive graphische Oberflächen`
+:quote:`Visuelle Analytik bezeichnet die Wissenschaft des analytischen Denkens unterstützt durch interaktive graphische Oberflächen`
 
 VA kann als eine Menge von Disziplinen interpretiert werden
 

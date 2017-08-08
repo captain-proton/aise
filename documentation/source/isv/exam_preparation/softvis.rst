@@ -187,7 +187,7 @@ Evolution von Struktur und Entwickleraktivität
 Evolutionäre Kopplung
 ^^^^^^^^^^^^^^^^^^^^^
 
-Wenn zwei Artefakte sind evolutionär gekoppelt, wenn sie gleichzeitig geändert werden. Es muss keine logische Beziehung zwischen den Artefakten herrschen.
+Zwei Artefakte sind evolutionär gekoppelt, wenn sie gleichzeitig geändert werden. Es muss keine logische Beziehung zwischen den Artefakten bestehen.
 
 Sei :math:`Supp(c_1, c_2) := \vert \lbrace T_i: c_1 \in T_i, c_2 \in T_i \rbrace \vert` die Menge aller Transaktionen in denen die Klassen :math:`c_1` und :math:`c_2` enthalten sind definiert als ``support``. Dann ist die ``confidence`` :math:`Conf(c_1, c_2) := \dfrac{Supp(c_1, c_2)}{Supp(c_1, c_1)}` also :math:`0 \leq x \leq 1`.
 
@@ -243,7 +243,7 @@ Performance
 Algorithmenanimation
 ^^^^^^^^^^^^^^^^^^^^
 
-Zur Ausführung eines Algorithmus ist immer ein visuelles Modell und eine entsprechende Animation vorhanden. Nach Ausführung eines Schrittes wird der Übergang auf das Modell gemappt und in der Animation gerendert. Dazu werden die voreigen Zustände des Models und der Animation immer mit einbezogen.
+Zur Ausführung eines Algorithmus ist immer ein visuelles Modell und eine entsprechende Animation vorhanden. Nach Ausführung eines Schrittes wird der Übergang auf das Modell gemappt und in der Animation gerendert. Dazu werden die vorigen Zustände des Models und der Animation immer mit einbezogen.
 
 MaxFlow
 ^^^^^^^
@@ -313,7 +313,7 @@ Performanzvisualisierung
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 - JProfiler (Aufrufbaum)
-- CHrome Developer Tools (Icicle Plot)
+- Chrome Developer Tools (Icicle Plot)
 
 Dynamische Aufrufgraphen können hier auch gerne als Radiales Graph Layout dargestellt werden
 
