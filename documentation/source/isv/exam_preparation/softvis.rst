@@ -250,7 +250,7 @@ MaxFlow
 
 `Erklärung zu Flüssen in Graphen <https://www.youtube.com/watch?v=6UzTtxHY290>`_
 
-|rightarrow| `Ford-Fulkerson <https://www.youtube.com/watch?v=6UzTtxHY290>`_
+|rightarrow| `Ford-Fulkerson <https://www.youtube.com/watch?v=Tl90tNtKvxs>`_
 
 Architekturen
 ^^^^^^^^^^^^^
