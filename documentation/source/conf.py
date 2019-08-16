@@ -54,7 +54,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Master AI-SE'
-copyright = '2016-2017, Nils Verheyen'
+copyright = '2016-2019, Nils Verheyen'
 author = 'Nils Verheyen'
 
 # The version info for the project you're documenting, acts as replacement for

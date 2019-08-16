@@ -1,0 +1,4 @@
+{
+    "restructuredtext.confPath": "${workspaceFolder}/source",
+    "python.pythonPath": "/home/nils/.virtualenvs/master_aise/bin/python"
+}

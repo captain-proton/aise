@@ -10,6 +10,11 @@ Master AI-SE Dokumentation
 Contents:
 
 .. toctree::
+    :caption: Pervasive Compoting
+
+    peco/exam_preparation
+
+.. toctree::
     :caption: Informations- und Softwarevisualisierung
 
     isv/lecture
