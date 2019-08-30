@@ -301,3 +301,17 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+# The output image format. The default is 'png'. It should be either 'png' or
+# 'svg'. The image is produced by first executing latex on the TeX
+# mathematical mark-up then (depending on the requested format) either dvipng
+# or dvisvgm.
+imgmath_image_format = 'svg'
+
+# The font size (in pt) of the displayed math. The default value is 12.
+# It must be a positive integer.
+imgmath_font_size = 18
+
+#Additional LaTeX code to put into the preamble of the LaTeX files used
+# to translate the math snippets.
+imgmath_latex_preamble = '\\usepackage{xcolor}'

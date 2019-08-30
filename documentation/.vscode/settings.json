@@ -1,4 +1,13 @@
 {
     "restructuredtext.confPath": "${workspaceFolder}/source",
-    "python.pythonPath": "/home/nils/.virtualenvs/master_aise/bin/python"
+    "python.pythonPath": "/home/nils/.virtualenvs/master_aise/bin/python",
+    "cSpell.language": ",de,en",
+    "cSpell.enabled": true,
+    "cSpell.words": [
+        "Bestimmtheitsmaß",
+        "Generalisierungsfehler",
+        "Generalisierungsfehlers",
+        "Klassifizierungsmodelle",
+        "Perceptron"
+    ]
 }
