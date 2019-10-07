@@ -12,6 +12,7 @@ Contents:
 .. toctree::
     :caption: Pervasive Computing
 
+    peco/exercises
     peco/exam_preparation
 
 .. toctree::
