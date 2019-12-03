@@ -10,6 +10,12 @@ Master AI-SE Dokumentation
 Contents:
 
 .. toctree::
+    :caption: Human computer interaction
+
+    hci/lecture
+    hci/exercises
+
+.. toctree::
     :caption: Pervasive Computing
 
     peco/exercises
