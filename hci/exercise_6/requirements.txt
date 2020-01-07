@@ -2,5 +2,5 @@ pygame==1.9.6
 numpy==1.17.4
 keras-rl==0.4.2
 keras==2.3.1
-tensorflow==1.14.0
+tensorflow==1.15.0
 gym[atari]==0.15.4
