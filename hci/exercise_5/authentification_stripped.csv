@@ -1,0 +1,41 @@
+Type,Date (Europe/Berlin MEZ),Device,Context
+know ,19.12.19 06:53,mobile,Living room
+know ,19.12.19 06:54,mobile,Living room
+know ,19.12.19 06:59,mobile,Living room
+know ,19.12.19 07:05,mobile,Living room
+have,19.12.19 07:47,door,Garage
+have,19.12.19 07:53,bicycle,Doctor
+are,19.12.19 07:58,reception,Doctor
+have,19.12.19 07:59,bicycle,Doctor
+have,19.12.19 08:04,front door,Residence
+know ,19.12.19 08:27,mobile,Living room
+have,19.12.19 08:59,bicycle,Doctor
+are,19.12.19 09:00,reception,Doctor
+have,19.12.19 09:22,bicycle,Doctor
+have,19.12.19 09:31,door,Garage
+have,19.12.19 09:31,front door,Residence
+know ,19.12.19 09:42,mobile,Office
+know ,19.12.19 09:42,pc,Office
+know ,19.12.19 09:43,pc,Office
+know ,19.12.19 09:45,mobile,Office
+know ,19.12.19 09:54,pc,Office
+know ,19.12.19 10:05,pc,Office
+know ,19.12.19 10:20,pc,Office
+know ,19.12.19 10:21,pc,Office
+know ,19.12.19 10:21,pc,Office
+know ,19.12.19 10:49,pc,Office
+have,19.12.19 12:02,front door,Residence
+know ,19.12.19 12:11,pc,Office
+know ,19.12.19 14:42,pc,Office
+know ,19.12.19 15:32,pc,Office
+know ,19.12.19 15:32,pc,Office
+have,19.12.19 16:16,gate,Garage
+have,19.12.19 16:20,gate,Garage
+have,19.12.19 16:21,front door,Residence
+know ,19.12.19 16:25,mobile,Office
+know ,19.12.19 18:48,mobile,Office
+know,19.12.19 19:26,handheld,Living room
+know ,19.12.19 19:34,mobile,Living room
+know ,19.12.19 20:15,mobile,Living room
+know ,19.12.19 20:22,mobile,Living room
+know ,19.12.19 21:44,mobile,Living room
