@@ -9,6 +9,7 @@ from PySide2.QtGui import QPainter, QBrush, QPen, QColor, QMouseEvent
 from PySide2.QtWidgets import\
     (QAction, QApplication, QMainWindow,
      QStatusBar, QVBoxLayout, QWidget)
+from fbs_runtime.application_context.PySide2 import ApplicationContext
 
 
 WINDOW_BG_COLOR = 'rgb(227,242,253)'
@@ -30,6 +31,9 @@ class CircleDrawer(QWidget):
     def __init__(self):
         QWidget.__init__(self)
         self.comm = Comm()
+
+    def set_draw_dimensions(self):
+
         self.min_x = 0
         self.max_x = self.width() - CIRCLE_RADIUS * 2
 
@@ -45,6 +49,8 @@ class CircleDrawer(QWidget):
                 self.base[1] + CIRCLE_RADIUS)
 
     def paintEvent(self, paintEvent):
+
+        self.set_draw_dimensions()
 
         pen = QPen(CIRCLE_BORDER_COLOR)
         brush = QBrush(CIRCLE_COLOR, Qt.SolidPattern)
@@ -125,10 +131,11 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
-    # Qt Application
-    app = QApplication(sys.argv)
+    
+    appctxt = ApplicationContext()
 
     window = MainWindow()
     window.showMaximized()
 
-    sys.exit(app.exec_())
+    exit_code = appctxt.app.exec_()
+    sys.exit(exit_code)

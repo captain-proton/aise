@@ -1,4 +1,10 @@
+altgraph==0.17
 autopep8==1.4.4
+fbs==0.8.4
+future==0.18.2
+macholib==1.14
+pefile==2019.4.18
 pycodestyle==2.5.0
+PyInstaller==3.4
 PySide2==5.14.0
 shiboken2==5.14.0
