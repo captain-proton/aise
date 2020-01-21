@@ -20,7 +20,7 @@ Activate the environment
 # On Mac/Linux:
 source .venv/bin/activate
 # On Windows:
-call .venv\\scripts\\activate.bat
+call .venv\scripts\activate.bat
 ```
 
 Run the application.
