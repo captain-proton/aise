@@ -4,6 +4,7 @@
 import sys
 import random
 import math
+import csv
 from PySide2.QtCore import Qt, Slot, Signal, QObject, QPoint
 from PySide2.QtGui import QPainter, QBrush, QPen, QColor, QMouseEvent
 from PySide2.QtWidgets import\
@@ -33,9 +34,17 @@ def calculate_distance(x1: int, y1: int, x2: int, y2: int):
     return distance
 
 
+@dataclass
+class Circle():
+
+    radius: int
+    circle_pos: QPoint
+    click_time: datetime
+
+
 class Comm(QObject):
 
-    circle_clicked = Signal(int, int)
+    circle_clicked = Signal(Circle)
 
 
 class CircleDrawer(QWidget):
@@ -72,7 +81,10 @@ class CircleDrawer(QWidget):
                                       event_x,
                                       event_y)
         if distance <= self.radius:
-            self.comm.circle_clicked.emit(event_x, event_y)
+            circle = Circle(radius=self.radius,
+                            circle_pos=self.circle_pos,
+                            click_time=datetime.now())
+            self.comm.circle_clicked.emit(circle)
 
     @property
     def circle_pos(self):
@@ -84,7 +96,7 @@ class CircleDrawer(QWidget):
     def circle_pos(self, position: QPoint):
         if not isinstance(position, QPoint):
             return
-        
+
         self._circle_pos = position
 
     @property
@@ -101,6 +113,8 @@ class CircleContainer(QWidget):
     def __init__(self):
         QWidget.__init__(self)
         self.comm = Comm()
+        self.clicked_circles = []
+        self.finished = False
         self.circle_queue = CIRCLE_RADII * int(TRIALS / len(CIRCLE_RADII))
         random.shuffle(self.circle_queue)
 
@@ -111,6 +125,7 @@ class CircleContainer(QWidget):
         self.container.setStyleSheet(style)
 
         self.container_layout = QVBoxLayout()
+        self.container_layout.setContentsMargins(0, 0, 0, 0)
         # inner widget that draws the circles. can't use a combination
         # at this point as the border is removed if paintEvent is
         # overidden
@@ -121,11 +136,13 @@ class CircleContainer(QWidget):
 
         # set layout of this widget (container -> drawer)
         self.layout = QVBoxLayout()
+        self.layout.setContentsMargins(0, 0, 0, 0)
         self.layout.addWidget(self.container)
         self.setLayout(self.layout)
 
-    @Slot(int, int)
-    def on_circle_clicked(self, x, y):
+    @Slot(Circle)
+    def on_circle_clicked(self, circle: Circle):
+        self.clicked_circles.append(circle)
         self.container_layout.removeWidget(self.draw_area)
         self.draw_area.close()
 
@@ -133,8 +150,10 @@ class CircleContainer(QWidget):
             radius = self.get_new_radius()
             x, y = self.calculate_new_draw_position(radius)
             self.draw_circle(radius, x, y)
+        else:
+            self.finished = True
 
-        self.comm.circle_clicked.emit(x, y)
+        self.comm.circle_clicked.emit(circle)
 
     def calculate_new_draw_position(self, radius: int):
 
@@ -148,7 +167,7 @@ class CircleContainer(QWidget):
             circle_center_y = self.draw_area.circle_center_y
             distance = calculate_distance(circle_center_x,
                                           circle_center_y,
-                                          x, 
+                                          x,
                                           y)
 
         return (x, y)\
@@ -163,11 +182,6 @@ class CircleContainer(QWidget):
         self.draw_area.circle_pos = QPoint(x, y)
         self.draw_area.comm.circle_clicked.connect(self.on_circle_clicked)
         self.container_layout.addWidget(self.draw_area)
-        self.last_spawn_time
-
-    @property
-    def is_circle_queue_empty(self):
-        return len(self.circle_queue) == 0
 
 
 class MainWindow(QMainWindow):
@@ -175,6 +189,7 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.setWindowTitle("Exercise 8B - Verheyen")
         self.setStyleSheet(f'background-color: {WINDOW_BG_COLOR};')
+        self.start_time = datetime.now()
 
         self.circle_container = CircleContainer()
         self.circle_container.comm.circle_clicked.connect(
@@ -185,10 +200,37 @@ class MainWindow(QMainWindow):
         self.status.showMessage("Hello HCI Exercise 8B", 3000)
         self.setStatusBar(self.status)
 
+    def update_status(self, circle: Circle):
+
+        prev_time = self.circle_container.clicked_circles[-2].click_time\
+            if len(self.circle_container.clicked_circles) > 1\
+            else self.start_time
+        diff = circle.click_time - prev_time
+
+        millis = diff.microseconds / 1000
+        diff_fmt = f'{diff.seconds}.{millis}'
+
+        self.status.showMessage(f"Deleted circle (radius={circle.radius},"
+                                f" x={circle.circle_pos.x()},"
+                                f" y={circle.circle_pos.y()}) after {diff}",
+                                3000)
+
+    def save_clicks(self):
+
+        filename = f'clicks_{datetime.now()}.csv'
+        with open(filename, 'w') as output:
+            writer = csv.writer(output)
+            for circle in self.circle_container.clicked_circles:
+                writer.writerow([circle.circle_pos.x(), circle.circle_pos.y(),
+                                 circle.click_time, circle.radius])
+
     @Slot(int, int)
-    def on_circle_clicked(self, x, y):
-        finished = self.circle_container.is_circle_queue_empty
-        self.status.showMessage(f"Deleted circle on ({x}, {y}) - ", 3000)
+    def on_circle_clicked(self, circle: Circle):
+
+        self.update_status(circle)
+
+        if self.circle_container.finished:
+            self.save_clicks()
 
 
 if __name__ == "__main__":
