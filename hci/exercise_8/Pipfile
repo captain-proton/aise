@@ -1,0 +1,19 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+matplotlib = "*"
+pyinstaller = "==3.4"
+pyside2 = "*"
+fbs = "*"
+autopep8 = "*"
+numpy = "*"
+scikit-learn = "*"
+pandas = "*"
+
+[requires]
+python_version = "3.7"

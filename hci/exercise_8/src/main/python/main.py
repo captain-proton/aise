@@ -39,6 +39,7 @@ class Circle():
 
     radius: int
     circle_pos: QPoint
+    click_pos: QPoint
     click_time: datetime
 
 
@@ -83,6 +84,7 @@ class CircleDrawer(QWidget):
         if distance <= self.radius:
             circle = Circle(radius=self.radius,
                             circle_pos=self.circle_pos,
+                            click_pos=QPoint(event_x, event_y),
                             click_time=datetime.now())
             self.comm.circle_clicked.emit(circle)
 
@@ -222,6 +224,7 @@ class MainWindow(QMainWindow):
             writer = csv.writer(output)
             for circle in self.circle_container.clicked_circles:
                 writer.writerow([circle.circle_pos.x(), circle.circle_pos.y(),
+                                 circle.click_pos.x(), circle.click_pos.y(),
                                  circle.click_time, circle.radius])
 
     @Slot(int, int)
