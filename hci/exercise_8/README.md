@@ -39,3 +39,13 @@ There were some issues on windows building and executing a native package.
 At the moment the current version of `PyInstaller` is 3.6. Using this
 version leads to build issues! Use version **3.4** instead as defined in the
 requirements.
+
+# Evaluation
+
+Fitts law is evaluated inside the jupyter notebook `Click evaluation.ipynb`.
+Recordings of the tests are saved inside the `clicks_...csv` files. Tests were
+run on a standard computer using a mouse with a 24" monitor and on a notebook
+with a touchpad with a 14" monitor. A linear regression at the end of the
+notebook shows the resulting lines for each circle size.
+
+![Evaluation of fitts law](fitts_law_evaluation.png)
