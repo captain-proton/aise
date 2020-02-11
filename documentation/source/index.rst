@@ -12,8 +12,8 @@ Contents:
 .. toctree::
     :caption: Human computer interaction
 
-    hci/lecture
     hci/exercises
+    hci/exam_preparation
 
 .. toctree::
     :caption: Pervasive Computing
